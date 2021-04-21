@@ -1,21 +1,22 @@
 import React from 'react';
-import Header from './Header';
+
+import { Menu } from './Menu';
 
 export default {
-  title: 'Header/Header1',
-  component: Header,
+  title: 'Menu/Menu1',
+  component: Menu,
   argTypes: {
-    backgroundColor: {control: 'color'},
+    backgroundColor: { control: 'color' },
   },
 };
 
-const Template = (args) => <Header {...args} />
+const Template = (args) => <div style={{padding:"10px"}}><Menu {...args} /></div>;
 
-export const Header1 = Template.bind({});
-Header1.args = {
+export const Menu1 = Template.bind({});
+Menu1.args = {
   cls: "menu",
   fontWeight: 400,
   backgroundColor:"#fff",
   fontSize: "16px",
-  fontFamily: "Asap",
-}
+  fontFamily: "Source Sans Pro",
+};
