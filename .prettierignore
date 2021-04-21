@@ -2,3 +2,6 @@
 build
 coverage
 storybook-static
+# dependencies
+node_modules/
+build/

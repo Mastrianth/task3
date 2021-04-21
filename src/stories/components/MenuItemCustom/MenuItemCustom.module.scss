@@ -1,0 +1,10 @@
+@import '../../constans/styles/variables';
+
+.root {
+  background: darkred !important;
+  color: darkred !important;
+}
+
+.root.li {
+  background: darkred !important;
+}

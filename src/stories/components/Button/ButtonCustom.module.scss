@@ -1,0 +1,72 @@
+@import "../../constans/styles/variables";
+
+.btn {
+  box-shadow: none;
+  box-sizing: content-box;
+  font-family: $FONT-SECONDARY;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  margin: 0;
+  text-transform: capitalize;
+  transition: none;
+  width: 148px;
+  height: 50px;
+  text-align: center;
+  border-radius: 80px;
+}
+
+.secondary {
+  background: $COLOR-SECONDARY;
+  color: #fff;
+}
+
+.secondary:hover {
+  background: $COLOR-HOVER_BLUE;
+  box-shadow: none;
+}
+
+.primary {
+  background: $COLOR-PRIMARY;
+  color: $COLOR-BLACK87;
+}
+
+.primary:hover {
+  background: $COLOR_HOVER;
+  box-shadow: none;
+}
+
+.btn:disabled {
+  background: $BUTTON-DISABLED-BACKGROUND;
+  border: none;
+  color: $TEXT-COLOR--DISABLED;
+}
+
+.primary_small {
+  width: 93px;
+  height: 38px;
+  background: $COLOR-PRIMARY;
+  color: $COLOR-BLACK87;
+}
+
+.primary_small:hover {
+  background: $COLOR_HOVER;
+  box-shadow: none;
+  color: $COLOR-BLACK87;
+}
+
+.outlined {
+  width: 93px;
+  height: 38px;
+  font-size: 16px;
+  line-height: 160%;
+  background: #ffffff;
+  color: $COLOR-BLACK87;
+  border: 2px solid $COLOR-PRIMARY;
+  box-shadow: none;
+}
+.outlined:hover {
+  background: rgba(244, 224, 65, 0.3);
+  box-shadow: none;
+}
+

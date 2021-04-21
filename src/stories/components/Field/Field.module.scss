@@ -1,0 +1,124 @@
+@import '../../constans/styles/variables';
+//Input
+.inputRoot {
+  border-radius: 4px;
+  color: $INPUT-TEXT-COLOR;
+  font-family: $FONT-SECONDARY;
+  font-size: 16px;
+  height: 54px;
+  width: 328px;
+}
+
+.inputRoot fieldset {
+  border: 1px solid $INPUT-ENABLED-BORDER;
+}
+.inputFocused fieldset {
+  border-color: $INPUT-ENABLED-BORDER !important;
+}
+
+//Input select
+.selectInputRoot {
+  border-radius: 4px;
+  color: $INPUT-TEXT-COLOR;
+  font-family: $FONT-SECONDARY;
+  height: 54px;
+  width: 328px;
+}
+
+.selectInputRoot fieldset {
+  border: 1px solid $INPUT-ENABLED-BORDER;
+  text-align: left;
+}
+
+.selectInputFocused fieldset {
+  border-color: $COLOR-SECONDARY !important;
+}
+
+.selectInputRoot fieldset legend {
+  display: none !important;
+}
+
+
+.selectInputError.inputFocused fieldset {
+  border-color: $ERROR !important;
+}
+
+.selectInputRoot svg {
+  right: 13px;
+  top: calc(50% - 7px);
+}
+
+.selectInputError:hover fieldset {
+  border-color: $ERROR !important;
+}
+
+.selectInputRoot:hover fieldset {
+  border-color: $INPUT-ENABLED-BORDER !important;
+}
+
+.inputRoot:hover fieldset {
+  border-color: $INPUT-ENABLED-BORDER !important;
+}
+
+.inputError:hover fieldset {
+  border-color: $ERROR !important;
+}
+
+.inputError.inputFocused fieldset {
+  border-color: $ERROR !important;
+}
+
+// LABEL
+.labelRoot {
+  color: $INPUT-LABEL-COLOR;
+  font-size: 12px;
+  line-height: 16.8px;
+}
+
+.labelFocused {
+  color:$INPUT-LABEL-COLOR !important;
+}
+
+.labelError {
+  color: $ERROR !important;
+}
+
+.selectLabelRoot {
+  color: $INPUT-TEXT-COLOR;
+  font-size: 12px;
+  line-height: 16.8px;
+  margin-top: -4px;
+}
+
+.selectLabelFocused {
+  opacity: 0;
+  transform: none !important;
+}
+
+.selectLabelError {
+  color: $ERROR !important;
+}
+
+.selectLabelShrink {
+  opacity: 0 !important;
+}
+
+//Helper text
+.helperRoot {
+  color: $INPUT-LABEL-COLOR;
+  font-family: $FONT-SECONDARY;
+  font-size: 12px;
+}
+
+//Select
+
+.selectRoot {
+  background: $COLOR-BACKGROUND !important;
+  font-family: $FONT-SECONDARY;
+  margin-top: -6px;
+  text-align: left;
+}
+
+.selectFocused {
+  background: $COLOR-BACKGROUND;
+}
