@@ -14,7 +14,7 @@ const MenuItemCustom = withStyles(() => ({
     },
   },
   selected: {
-    color: '#00bdd3',
+    color: '#FFF',
   },
 }))(MenuItem);
 export default MenuItemCustom;
