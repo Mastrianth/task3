@@ -1,6 +1,13 @@
 import React from 'react';
-import { Box, Container, Grid, Hidden, makeStyles, Typography } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+import {
+  Box,
+  Container,
+  Grid,
+  Hidden,
+  makeStyles,
+  Typography,
+} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import Programmer from '../../assets/icons/Programmer.svg';
 
 const useStyles = makeStyles((theme) => ({
@@ -12,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'left',
     textAlign: 'left',
-    height: '752px'
+    height: '752px',
     // [theme.breakpoints.up('sm')]: {
     //   padding: '59px 30px 66px',
     // },
@@ -25,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     // },
   },
   title: {
-    fontSize:'60px',
+    fontSize: '60px',
     lineHeight: '63px',
     fontStyle: 'normal',
     fontFamily: "'Nunito', sans-serif",
@@ -57,42 +64,42 @@ const useStyles = makeStyles((theme) => ({
     objectFit: 'cover',
     zIndex: '-1',
     width: '387px',
-    height: '340px'
+    height: '340px',
   },
 }));
 
 export const btnSecondaryLargeStyles = {
   root: {
-    width: "148px",
-    height: "50px",
-    fontWeight: "400",
-    textTransform: "capitalize",
-    fontSize: "18px",
-    boxShadow: "none",
-    textAlign: "center",
-    fontFamily: "Asap",
-    borderRadius: "80px",
-    backgroundColor: "#00BDD3",
+    width: '148px',
+    height: '50px',
+    fontWeight: '400',
+    textTransform: 'capitalize',
+    fontSize: '18px',
+    boxShadow: 'none',
+    textAlign: 'center',
+    fontFamily: 'Asap',
+    borderRadius: '80px',
+    backgroundColor: '#00BDD3',
     color: '#FFFFFF',
 
     '&.Mui-disabled': {
       color: '#FFFFFF',
-      backgroundColor: "#B4B4B4",
-      boxShadow: "none",
+      backgroundColor: '#B4B4B4',
+      boxShadow: 'none',
     },
     '&:hover': {
-      backgroundColor: "#02DDF7",
-      boxShadow: "none",
+      backgroundColor: '#02DDF7',
+      boxShadow: 'none',
     },
-    "&:focus": {
-      boxShadow: "none",
+    '&:focus': {
+      boxShadow: 'none',
     },
-    '& > .MuiTouchRipple-root':{
-      color:"rgba(0, 0, 0, 0.87)",
+    '& > .MuiTouchRipple-root': {
+      color: 'rgba(0, 0, 0, 0.87)',
     },
-    '& > .MuiButton-label':{
-      position:"absolute",
-      zIndex:"10"
+    '& > .MuiButton-label': {
+      position: 'absolute',
+      zIndex: '10',
     },
   },
   '@keyframes mui-ripple-enter': {
@@ -126,31 +133,35 @@ export const btnSecondaryLargeStyles = {
   },
 };
 
-
-const useStylesSecondaryLarge = makeStyles(() => ({...btnSecondaryLargeStyles}));
+const useStylesSecondaryLarge = makeStyles(() => ({
+  ...btnSecondaryLargeStyles,
+}));
 
 const Acquainted = () => {
   const classes = useStyles();
   const classesSecondaryLarge = useStylesSecondaryLarge();
   return (
     <Container
-      component='section'
+      component="section"
       maxWidth={false}
       className={classes.container}
     >
       <Grid direction="column" container>
-        <Grid
-          item
-          className={classes.wrapperImg} >
-          <img src={Programmer} alt='man with laptop' className={classes.img} loading="lazy" />
-        </Grid >
+        <Grid item className={classes.wrapperImg}>
+          <img
+            src={Programmer}
+            alt="man with laptop"
+            className={classes.img}
+            loading="lazy"
+          />
+        </Grid>
         <Grid item>
-          <Typography className={classes.title} component='h1' variant="h1">
+          <Typography className={classes.title} component="h1" variant="h1">
             Let's get acquainted
           </Typography>
         </Grid>
         <Grid item>
-          <Typography className={classes.subTitle2} component='h4' variant="h4">
+          <Typography className={classes.subTitle2} component="h4" variant="h4">
             I'm a good front-end developer
           </Typography>
         </Grid>
@@ -159,19 +170,15 @@ const Acquainted = () => {
             What defines a good front-end developer is one that has skilled
             knowledge of HTML, CSS, JS with a vast understanding of User design
             thinking as they'll be building web interfaces with accessibility in
-            mind. They should also be excited to learn, as the world of Front-End
-            Development keeps evolving.
+            mind. They should also be excited to learn, as the world of
+            Front-End Development keeps evolving.
           </Typography>
         </Grid>
-        <Button
-          variant="contained"
-          className={classesSecondaryLarge.root}
-        >
+        <Button variant="contained" className={classesSecondaryLarge.root}>
           Sign up
         </Button>
       </Grid>
-
     </Container>
-  )
-}
+  );
+};
 export default Acquainted;

@@ -1,4 +1,4 @@
-@import '../../constans/styles/variables';
+@import "../../constans/styles/variables";
 //Input
 .inputRoot {
   border-radius: 4px;
@@ -38,7 +38,6 @@
   display: none !important;
 }
 
-
 .selectInputError.inputFocused fieldset {
   border-color: $ERROR !important;
 }
@@ -76,7 +75,7 @@
 }
 
 .labelFocused {
-  color:$INPUT-LABEL-COLOR !important;
+  color: $INPUT-LABEL-COLOR !important;
 }
 
 .labelError {

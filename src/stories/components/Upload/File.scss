@@ -1,0 +1,229 @@
+
+.form__labelUpload--error .form__uploadButtonWrapper {
+  border: 2px solid #CB3D40;
+  top: -2px;
+  left: -2px;
+  height: calc(100% + 4px);
+}
+.form__labelUpload:hover{
+  border: 1px solid rgba(0, 0, 0, 0.87);
+}
+
+.form__labelUpload,.form__labelUpload--error {
+  display: block;
+  position: relative;
+  cursor: pointer
+}
+
+.form__labelUpload,.form__labelUpload--error {
+  width: 100%;
+  height: 52px;
+  border-radius: 4px;
+
+  border: 1px solid #b2b9c0
+}
+
+.form__labelUpload.disabled {
+  border: 1px solid #D0CFCF;
+  cursor: default;
+}
+
+.form__email--error::-webkit-input-placeholder,.form__email::-webkit-input-placeholder,.form__labelUpload--error::-webkit-input-placeholder,.form__labelUpload::-webkit-input-placeholder,.form__name--error::-webkit-input-placeholder,.form__name::-webkit-input-placeholder,.form__phone--error::-webkit-input-placeholder,.form__phone::-webkit-input-placeholder {
+  color: #b2b9c0
+}
+
+.form__email--error::-moz-placeholder,.form__email::-moz-placeholder,.form__labelUpload--error::-moz-placeholder,.form__labelUpload::-moz-placeholder,.form__name--error::-moz-placeholder,.form__name::-moz-placeholder,.form__phone--error::-moz-placeholder,.form__phone::-moz-placeholder {
+  color: #b2b9c0
+}
+
+.form__email--error:-ms-input-placeholder,.form__email:-ms-input-placeholder,.form__labelUpload--error:-ms-input-placeholder,.form__labelUpload:-ms-input-placeholder,.form__name--error:-ms-input-placeholder,.form__name:-ms-input-placeholder,.form__phone--error:-ms-input-placeholder,.form__phone:-ms-input-placeholder {
+  color: #b2b9c0
+}
+
+.form__email--error::-ms-input-placeholder,.form__email::-ms-input-placeholder,.form__labelUpload--error::-ms-input-placeholder,.form__labelUpload::-ms-input-placeholder,.form__name--error::-ms-input-placeholder,.form__name::-ms-input-placeholder,.form__phone--error::-ms-input-placeholder,.form__phone::-ms-input-placeholder {
+  color: #b2b9c0
+}
+
+.form__email--error::placeholder,.form__email::placeholder,.form__labelUpload--error::placeholder,.form__labelUpload::placeholder,.form__name--error::placeholder,.form__name::placeholder,.form__phone--error::placeholder,.form__phone::placeholder {
+  color: #b2b9c0
+}
+
+.form__email--error:active,.form__email--error:focus,.form__email:active,.form__email:focus,.form__labelUpload--error:active,.form__labelUpload--error:focus,.form__labelUpload:active,.form__labelUpload:focus,.form__name--error:active,.form__name--error:focus,.form__name:active,.form__name:focus,.form__phone--error:active,.form__phone--error:focus,.form__phone:active,.form__phone:focus {
+  outline: none
+}
+
+.form__email--error,.form__labelUpload--error,.form__name--error,.form__phone--error {
+  border: 2px solid #CB3D40;
+}
+
+.form {
+  padding-top: 150px;
+  padding-bottom: 165px
+}
+
+.form__title {
+  margin-bottom: 18px
+}
+
+.form__subtitle {
+  text-align: center;
+  padding-bottom: 28px
+}
+
+.form__field {
+  margin-bottom: 20px
+}
+
+.form__field label {
+  display: inline-block;
+  padding-bottom: 10px
+}
+
+
+.form__text {
+  font-family: Asap,sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+.form__text.disabled {
+  color:#D0CFCF;
+}
+
+.form__error,.form__field label {
+  font-family: Asap, sans-serif;
+  font-weight: 400
+}
+
+.form__error {
+  font-size: 12px;
+  color: #CB3D40;
+  margin-top: 7px
+}
+
+.form__radioTitle {
+  font-family: PT Sans,sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 16px
+}
+
+.form__radioWrapper {
+  margin-bottom: 8px
+}
+
+.form__radio {
+  position: relative;
+  z-index: -111;
+  opacity: 0
+}
+
+.form__radio:checked+.form__radioLabel:after {
+  opacity: 1
+}
+
+.form__radioLabel:after,.form__radioLabel:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  top: 8px;
+  left: -23px;
+  width: 16px;
+  height: 16px
+}
+
+.form__radioLabel:before {
+  z-index: 1;
+  border: 1px solid #b2b9c0
+}
+
+.form__radioLabel:after {
+  z-index: 2;
+  background-color: #fff;
+  border: 5px solid #007bff;
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.3);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.3);
+  opacity: 0
+}
+
+.form__uploadTitle {
+  margin-top: 19px;
+  margin-bottom: 8px
+}
+
+.form__uploadWrapper {
+  margin-bottom: 10px
+}
+
+.form__upload {
+  position: absolute;
+  z-index: -1;
+  opacity: 0
+}
+
+
+.form__uploadPlaceholder {
+  font-family: Asap, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-left: 98px;
+  padding-top: 13px;
+  color: #7E7E7E;
+  width: 85%;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap
+}
+
+.form__uploadPlaceholder.filled {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.form__uploadPlaceholder.disabled {
+  color: #D0CFCF;
+}
+
+.form__uploadButtonWrapper {
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  border-radius: 4px 0 0 4px;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  height: calc(100% + 2px);
+  padding-left: 15px;
+  padding-right: 15px
+}
+
+
+
+.form__uploadButtonWrapper span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: Asap, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
+.form__uploadButtonWrapper.disabled {
+  border: 1px solid #D0CFCF;
+}
+
+.form__uploadButtonWrapper.disabled span {
+  color: #D0CFCF;
+}

@@ -1,12 +1,11 @@
-import React from 'react';
+import React from "react";
 import HeaderAuth from "./HeaderAuth";
 
-
 export default {
-  title: 'Header/Header2',
+  title: "Header/Header2",
   component: HeaderAuth,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: "color" },
   },
 };
 
@@ -16,7 +15,7 @@ export const Header2 = Template.bind({});
 Header2.args = {
   cls: "header",
   fontWeight: 400,
-  backgroundColor:"#fff",
+  backgroundColor: "#fff",
   fontSize: "16px",
   fontFamily: "Source Sans Pro",
 };

@@ -1,28 +1,28 @@
-import React from 'react';
+import React from "react";
 import ScrollDown from "./ScrollDown";
 
-
-
 export default {
-  title: 'ScrollDown/ScrollDown1',
+  title: "ScrollDown/ScrollDown1",
   component: ScrollDown,
-  decorators: [(Story) =>
-    <div>
-      <Story/>
-    </div>
+  decorators: [
+    (Story) => (
+      <div>
+        <Story />
+      </div>
+    ),
   ],
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: "color" },
   },
 };
 
 const Template = (args) => {
-  return (<div style={{padding:"10px",}}>
-    <ScrollDown {...args} />
-  </div>);
+  return (
+    <div style={{ padding: "10px" }}>
+      <ScrollDown {...args} />
+    </div>
+  );
 };
-
 
 export const ScrollDownComponent = Template.bind({});
-ScrollDownComponent.args = {
-};
+ScrollDownComponent.args = {};

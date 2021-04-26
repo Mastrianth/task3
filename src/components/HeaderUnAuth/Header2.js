@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import {
-  Container, Grid, Button, makeStyles,
+  AppBar,
+  Toolbar,
+  List,
+  Hidden,
+  Link,
+  ListItem,
+  Box, makeStyles,
 } from '@material-ui/core';
 import Logo from '../../assets/icons/Logo.svg';
 
@@ -110,6 +117,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     width: '1024px',
+
   },
 }));
 
@@ -135,6 +143,7 @@ const btnPrimarySmallStyles = {
       backgroundColor: '#ffe302',
       color: 'rgba(0, 0, 0, 0.87)',
       boxShadow: 'none',
+
     },
     '&:focus': {
       color: 'rgba(0, 0, 0, 0.87)',
@@ -143,73 +152,49 @@ const btnPrimarySmallStyles = {
   },
 };
 
-const useStylesPrimarySmall = makeStyles(() => ({ ...btnPrimarySmallStyles }));
-
 const Header = () => {
   const classes = useStyles();
-  const classesPrimarySmall = useStylesPrimarySmall();
-  return (
-    <Container className={classes.container}>
-      <Grid
-        className={classes.content}
-        container
-        direction="row"
-        display="flex"
-        justify="space-between"
-      >
-        <Grid
-          className={classes.leftMenu}
-          direction="row"
-          justify="flex-start"
-          alignItems="left"
-          container
-        >
-          <Grid item>
-            <img className={classes.logo} src={Logo} alt="logo Pupvote" />
-          </Grid>
-          <Grid item>
-            <a className={classes.menuItem} href="#">
-              About me
-            </a>
-          </Grid>
-          <Grid item>
-            <a className={classes.menuItem} href="#">
-              Relationship
-            </a>
-          </Grid>
-          <Grid item>
-            <a className={classes.menuItem} href="#">
-              Users
-            </a>
-          </Grid>
-        </Grid>
+  const [ selectedIndex, setSelectedIndex ] = useState(null);
 
-        <Grid
-          className={classes.rightMenu}
-          direction="row"
-          justify="flex-end"
-          alignItems="right"
-          container
-        >
-          <Grid className={classes.langMenu} container>
-            <Grid item>
-              <a className={classes.langMenuItemSelected} href="#">
-                En
-              </a>
-            </Grid>
-            <Grid item>
-              <a className={classes.langMenuItem} href="#">
-                De
-              </a>
-            </Grid>
-          </Grid>
-          <Button variant="contained" className={classesPrimarySmall.root}>
-            Sign Up
-          </Button>
-        </Grid>
-      </Grid>
-    </Container>
-  );
+  const handleLogoClick = () => {
+    setSelectedIndex(null);
+  };
+ return (
+   <AppBar position="sticky" color="inherit" className={classes.appBar}>
+     <Toolbar className={classes.toolbar}>
+       <Link component="a"
+       href="#"
+       className={classes.logoLink}>
+         <img src={Logo} alt="logo" className={classes.logoImg} />
+       </Link>
+       <Hidden mdDown>
+         <Box component='nav'>
+           <List
+             component="ul"
+             aria-label="main navigation"
+             className={classes.navList}
+           >
+             {navLinks.map(({ title, path }, index) => (
+               <ListItem
+                 component='li'
+                 key={title}
+                 className={[
+                   classes.listItem,
+                   selectedIndex === index ? classes.selected : ''
+                 ].join(' ')}>
+                 <Link
+                   href={path}
+                   color='inherit'
+                   onClick={() => setSelectedIndex(index)}
+                 >
+                   {title}
+                 </Link>
+               </ListItem>
+             ))}
+           </List>
+         </Box>
+       </Hidden>
+     </Toolbar>
+   </AppBar>
+ )
 };
-
-export default Header;

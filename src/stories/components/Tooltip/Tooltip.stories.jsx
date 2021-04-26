@@ -1,30 +1,36 @@
-import React from 'react';
+import React from "react";
 
 import TooltipComponent from "./Tooltip";
 
 export default {
-  title: 'Tooltip/Tooltip1',
+  title: "Tooltip/Tooltip1",
   component: TooltipComponent,
-  decorators: [(Story) =>
+  decorators: [
+    (Story) => (
       <div>
-        <Story/>
+        <Story />
       </div>
-    ],
-    argsTypes: {
-      backgroundColor: {control: 'color'},
-    },
+    ),
+  ],
+  argsTypes: {
+    backgroundColor: { control: "color" },
+  },
 };
 
 const Template = (args) => {
-  return (<div style={{padding:"10px",}}><TooltipComponent {...args} /></div>);
+  return (
+    <div style={{ padding: "10px" }}>
+      <TooltipComponent {...args} />
+    </div>
+  );
 };
 
 export const Tooltip1 = Template.bind({});
 Tooltip1.args = {
   fontWeight: "400",
-  cls:"tooltip-class",
+  cls: "tooltip-class",
   fontSize: "14px",
   fontFamily: "'Nunito', sans-serif",
   label: "verylongtext",
   color: "#4c4b4b",
-}
+};

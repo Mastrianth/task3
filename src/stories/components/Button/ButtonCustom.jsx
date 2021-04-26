@@ -1,21 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import { StylesProvider } from '@material-ui/core/styles';
-import styles from './ButtonCustom.module.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import Button from "@material-ui/core/Button";
+import { StylesProvider } from "@material-ui/core/styles";
+import styles from "./ButtonCustom.module.scss";
 
 const ButtonCustom = (props) => {
-  const {
-    text, disabled, onClick, type,
-  } = props;
+  const { text, disabled, onClick, type } = props;
 
-  const buttonClassName = type === 'secondary'
-    ? `${styles.btn} ${styles.secondary}`
-    : type === 'primary'
+  const buttonClassName =
+    type === "secondary"
+      ? `${styles.btn} ${styles.secondary}`
+      : type === "primary"
       ? `${styles.btn} ${styles.primary}`
-      : type === 'primary_small'
-        ? `${styles.btn} ${styles.primary_small}`
-        : `${styles.btn} ${styles.outlined}`;
+      : type === "primary_small"
+      ? `${styles.btn} ${styles.primary_small}`
+      : `${styles.btn} ${styles.outlined}`;
 
   return (
     <StylesProvider injectFirst>
@@ -44,5 +43,5 @@ ButtonCustom.propTypes = {
 ButtonCustom.defaultProps = {
   disabled: false,
   onClick: () => {},
-  type: 'primary',
+  type: "primary",
 };

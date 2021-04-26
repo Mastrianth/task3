@@ -1,10 +1,9 @@
-
 .right-menu-authorized {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  font-family: Asap,sans-serif;
+  font-family: Asap, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -19,12 +18,12 @@
 
   position: relative;
   z-index: 2;
-  color:rgba(126, 126, 126, 1);
+  color: rgba(126, 126, 126, 1);
 }
 
 .right-menu a.selected {
   color: rgba(234, 89, 36, 1);
-  cursor:default !important;
+  cursor: default !important;
   pointer-events: none;
 }
 
@@ -35,25 +34,22 @@
   width: 62px;
 }
 
-
 .authorized-menu {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-
 .user-logo-menu {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding-right:23px;
+  padding-right: 23px;
 }
 
 .menu-user-name {
-  font-family: Asap,sans-serif;
+  font-family: Asap, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -62,8 +58,8 @@
   text-align: left;
 }
 
-.menu-user-email{
-  font-family: Asap,sans-serif;
+.menu-user-email {
+  font-family: Asap, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -79,12 +75,12 @@
 }
 
 .user-logo {
-  padding-right:14px;
+  padding-right: 14px;
 }
 
 .menu-user-exit {
   position: relative;
-  top:2px;
+  top: 2px;
 }
 
 a.menu-user-exit:after {
@@ -103,11 +99,8 @@ a.menu-user-exit:hover:after {
   background: rgba(234, 89, 36, 0.3);
 }
 
-
-
 .right-menu-authorized a.selected {
   color: rgba(234, 89, 36, 1);
-  cursor:default !important;
+  cursor: default !important;
   pointer-events: none;
 }
-

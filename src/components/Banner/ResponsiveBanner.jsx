@@ -1,6 +1,6 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core';
 import bannerImage1024 from '../../assets/icons/banner1024.jpg';
-import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   img: {
@@ -11,9 +11,9 @@ const useStyles = makeStyles((theme) => ({
     objectFit: 'cover',
     zIndex: '-1',
     maxWidth: '1024',
-    height: '650px'
-  }
-}))
+    height: 'auto',
+  },
+}));
 
 const ResponsiveBanner = () => {
   const classes = useStyles();
@@ -28,7 +28,7 @@ const ResponsiveBanner = () => {
         />
       </picture>
     </>
-  )
-}
+  );
+};
 
 export default ResponsiveBanner;
