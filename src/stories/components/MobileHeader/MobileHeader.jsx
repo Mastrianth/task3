@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Container,
   Grid,
@@ -7,52 +7,52 @@ import {
   MenuItem,
   Paper,
   Typography,
-} from "@material-ui/core";
-import Logo from "../../assets/icons/Logo.svg";
-import SelectArrow from "../../assets/icons/caret-down.svg";
-import MenuBurger from "../../assets/icons/Menu.svg";
-import MenuItemCustom from "../MenuItemCustom";
-import england from "../../assets/icons/england.svg";
-import germany from "../../assets/icons/germany.svg";
+} from '@material-ui/core';
+import Logo from '../../assets/icons/Logo.svg';
+import SelectArrow from '../../assets/icons/caret-down.svg';
+import MenuBurger from '../../assets/icons/Menu.svg';
+import MenuItemCustom from '../MenuItemCustom';
+import england from '../../assets/icons/england.svg';
+import germany from '../../assets/icons/germany.svg';
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    width: "360px",
-    boxShadow: "0px 4px 15px 0px rgba(0, 0, 0, 0.15)",
-    height: '60px'
+    width: '360px',
+    boxShadow: '0px 4px 15px 0px rgba(0, 0, 0, 0.15)',
+    height: '60px',
   },
   arrow: {
-    width: "10px",
-    height: "5px",
-    cursor: "pointer",
+    width: '10px',
+    height: '5px',
+    cursor: 'pointer',
   },
   pupLogo: {
-    align: "left",
-    paddingLeft: "20px",
+    align: 'left',
+    paddingLeft: '20px',
     cursor: 'pointer',
   },
   eng: {
-    paddingLeft: "120px",
+    paddingLeft: '120px',
     cursor: 'pointer',
   },
   words: {
     fontFamily: "'Asap', sans-serif",
-    fontWeight: "400",
-    fontStyle: "normal",
-    lineHeight: "26px",
-    color: "rgba(0,0,0,0.87)",
-    fontSize: "16px",
-    cursor: "pointer",
+    fontWeight: '400',
+    fontStyle: 'normal',
+    lineHeight: '26px',
+    color: 'rgba(0,0,0,0.87)',
+    fontSize: '16px',
+    cursor: 'pointer',
   },
   drop: {
-    backgroundColor: "#fff !important",
+    backgroundColor: '#fff !important',
     width: '92px',
     justifyContent: 'center',
-    borderRadius: '4px'
+    borderRadius: '4px',
   },
   burger: {
     cursor: 'pointer',
-  }
+  },
 }));
 
 const MobileHeader = () => {
@@ -82,7 +82,7 @@ const MobileHeader = () => {
           <Grid align="left">
             <img className={classes.pupLogo} src={Logo} alt="Logo" />
           </Grid>
-          <Grid className={classes.eng}  item>
+          <Grid className={classes.eng} item>
             <img onClick={handleClick} src={england} alt="england" />
           </Grid>
           <Grid align="right" item>
@@ -106,11 +106,11 @@ const MobileHeader = () => {
               alt="arrow"
             />
           </Grid>
-          <Grid
-            align="right"
-            item
-          >
-            <a style={{padding:'15px'}} href="#"> <img className={classes.burger} src={MenuBurger} alt="menu" /></a>
+          <Grid align="right" item>
+            <a style={{ padding: '15px' }} href="#">
+              {' '}
+              <img className={classes.burger} src={MenuBurger} alt="menu" />
+            </a>
           </Grid>
         </Grid>
       </Grid>
@@ -120,12 +120,12 @@ const MobileHeader = () => {
         elevation={0}
         getContentAnchorEl={null}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
+          vertical: 'bottom',
+          horizontal: 'center',
         }}
         transformOrigin={{
-          vertical: "top",
-          horizontal: "center",
+          vertical: 'top',
+          horizontal: 'center',
         }}
         keepMounted
         open={Boolean(anchorEl)}
@@ -133,10 +133,14 @@ const MobileHeader = () => {
       >
         <Paper>
           <MenuItemCustom className={classes.drop} onClick={handleClose}>
-            <img src={england} alt="england" /> En
+            <img src={england} alt="england" />
+            {' '}
+            En
           </MenuItemCustom>
           <MenuItemCustom className={classes.drop} onClick={handleClose}>
-            <img src={germany} alt="germany" /> De
+            <img src={germany} alt="germany" />
+            {' '}
+            De
           </MenuItemCustom>
         </Paper>
       </Menu>

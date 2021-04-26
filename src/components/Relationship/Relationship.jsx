@@ -1,8 +1,14 @@
 import React from 'react';
 import {
-  Container, Grid, makeStyles, Typography,
+  Box,
+  Container,
+  Grid,
+  makeStyles,
+  Typography,
 } from '@material-ui/core';
-import IconJS from '../../assets/icons/IconJS.jpg';
+import HTML from '../../assets/icons/HTML.svg';
+import CSS from '../../assets/icons/CSS.svg';
+import JS from '../../assets/icons/JS.svg';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -38,69 +44,61 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     align: 'center',
   },
+  container: {
+    height: '752px',
+  },
 }));
 
 const rel = [
-    {
-      title: 'I’m in love with HTML',
-      subtitle:
-        'Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.',
-    },
-    {
-      title: 'CSS is my inspiration',
-      subtitle:
-        'Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics.',
-    },
-    {
-      title: 'JavaScript is my friend',
-      subtitle:
-        'JavaScript often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.',
-    },
+  {
+    title: 'I’m in love with HTML',
+    image: HTML,
+    subtitle:
+      'Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.',
+  },
+  {
+    title: 'CSS is my inspiration',
+    image: CSS,
+    subtitle:
+      'Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics.',
+  },
+  {
+    title: 'JavaScript is my friend',
+    image: JS,
+    subtitle:
+      'JavaScript often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.',
+  },
 ];
 
 const Relationship = () => {
   const classes = useStyles();
   return (
-    <Container>
-      <Grid direction="column" alignItems="center" justify="center" container>
-        <Grid item>
-          <Typography
-            align="center"
-            className={classes.title}
-            component="h1"
-            variant="h1"
-          >
-            About my relationship with web-development
-          </Typography>
-        </Grid>
-        <Grid item>
-          {rel.map((title, subtitle) => (
-            <Grid
-              direction="column"
-              alignItems="center"
-              justify="space-between"
-              container
-            >
-              <Grid className={classes.img} item>
-                <img src={IconJS} alt="icon JS" />
-              </Grid>
-              <Grid item>
-                <Typography className={classes.subTitle2}>
-                  JavaScript is my friend
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography className={classes.subTitle}>
-                  JavaScript often abbreviated as JS, is a programming language
-                  that conforms to the ECMAScript specification. JavaScript is
-                  high-level, often just-in-time compiled, and multi-paradigm.
-                  It has curly-bracket syntax, dynamic typing, prototype-based
-                  object-orientation, and first-class functions.
-                </Typography>
-              </Grid>
-            </Grid>
-          ))}
-        </Grid>
+    <Container className={classes.container}>
+      <Grid direction="row" alignItems="center" justify="center" container>
+        <Typography
+          align="center"
+          className={classes.title}
+          component="h1"
+          variant="h1"
+        >
+          About my relationship with web-development
+        </Typography>
+      </Grid>
+      <Grid
+        direction="row"
+        alignItems="flex-start"
+        justify="space-between"
+        container
+      >
+        {rel.map(({ title, subtitle, image }) => (
+          <Grid item>
+            <Box component="div" className={classes.img} item>
+              <img src={image} alt="icon" />
+            </Box>
+            <Typography className={classes.subTitle2}>{title}</Typography>
+            <Typography className={classes.subTitle}>{subtitle}</Typography>
+          </Grid>
+        ))}
       </Grid>
     </Container>
   );

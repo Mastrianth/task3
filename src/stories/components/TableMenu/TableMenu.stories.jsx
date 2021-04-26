@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import TableMenu from "./TableMenu";
+import TableMenu from './TableMenu';
 
 export default {
-  title: "TableMenu/TableMenu1",
+  title: 'TableMenu/TableMenu1',
   component: TableMenu,
   argTypes: {
-    backgroundColor: { control: "color" },
+    backgroundColor: { control: 'color' },
   },
 };
 
@@ -14,9 +14,9 @@ const Template = (args) => <TableMenu {...args} />;
 
 export const TableMenu1 = Template.bind({});
 TableMenu1.args = {
-  cls: "mobileMenu",
+  cls: 'mobileMenu',
   fontWeight: 400,
-  backgroundColor: "#fff",
-  fontSize: "16px",
-  fontFamily: "Source Sans Pro",
+  backgroundColor: '#fff',
+  fontSize: '16px',
+  fontFamily: 'Source Sans Pro',
 };

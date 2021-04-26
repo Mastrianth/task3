@@ -7,7 +7,8 @@ import {
   Hidden,
   Link,
   ListItem,
-  Box, makeStyles,
+  Box,
+  makeStyles,
 } from '@material-ui/core';
 import Logo from '../../assets/icons/Logo.svg';
 
@@ -117,7 +118,6 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     width: '1024px',
-
   },
 }));
 
@@ -143,7 +143,6 @@ const btnPrimarySmallStyles = {
       backgroundColor: '#ffe302',
       color: 'rgba(0, 0, 0, 0.87)',
       boxShadow: 'none',
-
     },
     '&:focus': {
       color: 'rgba(0, 0, 0, 0.87)',
@@ -154,47 +153,46 @@ const btnPrimarySmallStyles = {
 
 const Header = () => {
   const classes = useStyles();
-  const [ selectedIndex, setSelectedIndex ] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const handleLogoClick = () => {
     setSelectedIndex(null);
   };
- return (
-   <AppBar position="sticky" color="inherit" className={classes.appBar}>
-     <Toolbar className={classes.toolbar}>
-       <Link component="a"
-       href="#"
-       className={classes.logoLink}>
-         <img src={Logo} alt="logo" className={classes.logoImg} />
-       </Link>
-       <Hidden mdDown>
-         <Box component='nav'>
-           <List
-             component="ul"
-             aria-label="main navigation"
-             className={classes.navList}
-           >
-             {navLinks.map(({ title, path }, index) => (
-               <ListItem
-                 component='li'
-                 key={title}
-                 className={[
-                   classes.listItem,
-                   selectedIndex === index ? classes.selected : ''
-                 ].join(' ')}>
-                 <Link
-                   href={path}
-                   color='inherit'
-                   onClick={() => setSelectedIndex(index)}
-                 >
-                   {title}
-                 </Link>
-               </ListItem>
-             ))}
-           </List>
-         </Box>
-       </Hidden>
-     </Toolbar>
-   </AppBar>
- )
+  return (
+    <AppBar position="sticky" color="inherit" className={classes.appBar}>
+      <Toolbar className={classes.toolbar}>
+        <Link component="a" href="#" className={classes.logoLink}>
+          <img src={Logo} alt="logo" className={classes.logoImg} />
+        </Link>
+        <Hidden mdDown>
+          <Box component="nav">
+            <List
+              component="ul"
+              aria-label="main navigation"
+              className={classes.navList}
+            >
+              {navLinks.map(({ title, path }, index) => (
+                <ListItem
+                  component="li"
+                  key={title}
+                  className={[
+                    classes.listItem,
+                    selectedIndex === index ? classes.selected : '',
+                  ].join(' ')}
+                >
+                  <Link
+                    href={path}
+                    color="inherit"
+                    onClick={() => setSelectedIndex(index)}
+                  >
+                    {title}
+                  </Link>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Hidden>
+      </Toolbar>
+    </AppBar>
+  );
 };

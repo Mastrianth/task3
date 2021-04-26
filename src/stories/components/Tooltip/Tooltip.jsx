@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 import {
   createMuiTheme,
   makeStyles,
   ThemeProvider,
   Tooltip,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
 const theme = createMuiTheme({
   overrides: {
     MuiTooltip: {
       tooltip: {
-        backgroundColor: "#707070",
-        boxShadow: "0 4px 4px 1px rgba(0, 0, 0, 0.11)",
-        color: "#fefefe",
+        backgroundColor: '#707070',
+        boxShadow: '0 4px 4px 1px rgba(0, 0, 0, 0.11)',
+        color: '#fefefe',
         fontFamily: "'Nunito', sans-serif",
-        fontSize: "14px",
-        fontWeight: "400",
+        fontSize: '14px',
+        fontWeight: '400',
       },
     },
   },
@@ -23,11 +23,11 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles(() => ({
   tooltip: {
-    maxWidth: "61px",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    cursor: "pointer",
+    maxWidth: '61px',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    cursor: 'pointer',
   },
 }));
 
@@ -51,7 +51,7 @@ const TooltipComponent = ({
             modifiers: {
               offset: {
                 enabled: true,
-                offset: "50px, 5px",
+                offset: '50px, 5px',
               },
             },
           },

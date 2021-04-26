@@ -1,177 +1,176 @@
-import React from "react";
+import React from 'react';
 import {
   Container,
   Grid,
   Button,
   makeStyles,
   Typography,
-} from "@material-ui/core";
-import Logo from "../../assets/icons/Logo.svg";
+} from '@material-ui/core';
+import Logo from '../../assets/icons/Logo.svg';
 
 const useStyle = makeStyles((theme) => ({
   container: {
-    height: "60px",
-    width: "1024px",
-    borderBottom: "1px solid #F4E041",
-    boxShadow: "none",
-    padding: "0 60px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    height: '60px',
+    width: '1024px',
+    borderBottom: '1px solid #F4E041',
+    boxShadow: 'none',
+    padding: '0 60px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   logo: {
-    width: "100px",
-    height: "26px",
-    margin: '0 auto'
+    width: '100px',
+    height: '26px',
+    margin: '0 auto',
   },
   leftMenu: {
-    width: "482px",
-    position: "relative",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    textAlign: "left",
+    width: '482px',
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    textAlign: 'left',
   },
   rightMenu: {
-    color: "rgba(0, 0, 0, 0.87)",
-    position: "relative",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: "62px",
-    textDecoration: "none",
+    color: 'rgba(0, 0, 0, 0.87)',
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '62px',
+    textDecoration: 'none',
   },
   langMenuItem: {
-    color: "rgba(0, 0, 0, 0.87)",
+    color: 'rgba(0, 0, 0, 0.87)',
     fontFamily: "'Asap', sans-serif",
-    fontSize: "16px",
-    lineHeight: "26px",
-    fontWeight: "400",
-    textAlign: "left",
-    fontStyle: "normal",
-    letterSpacing: "0em",
-    textDecoration: "none",
-    "&:hover": {
-      color: "#0052B4",
+    fontSize: '16px',
+    lineHeight: '26px',
+    fontWeight: '400',
+    textAlign: 'left',
+    fontStyle: 'normal',
+    letterSpacing: '0em',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#0052B4',
     },
   },
   menuItem: {
-    color: "rgba(0, 0, 0, 0.87)",
+    color: 'rgba(0, 0, 0, 0.87)',
     fontFamily: "'Asap', sans-serif",
-    fontSize: "16px",
-    lineHeight: "26px",
-    fontWeight: "400",
-    textAlign: "left",
-    fontStyle: "normal",
-    letterSpacing: "0em",
-    textDecoration: "none",
-    "&:hover": {
-      color: "#0052B4",
+    fontSize: '16px',
+    lineHeight: '26px',
+    fontWeight: '400',
+    textAlign: 'left',
+    fontStyle: 'normal',
+    letterSpacing: '0em',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#0052B4',
     },
   },
 }));
 
 const useStylesFooterRows = makeStyles((theme) => ({
   title: {
-    color: "rgba(0, 0, 0, 0.87)",
+    color: 'rgba(0, 0, 0, 0.87)',
     fontFamily: "'Asap', sans-serif",
-    fontSize: "16px",
-    lineHeight: "26px",
-    fontWeight: "700",
-    textAlign: "left",
-    fontStyle: "normal",
-    letterSpacing: "0em",
-    textDecoration: "none",
-    "&:hover": {
-      color: "#0052B4",
+    fontSize: '16px',
+    lineHeight: '26px',
+    fontWeight: '700',
+    textAlign: 'left',
+    fontStyle: 'normal',
+    letterSpacing: '0em',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#0052B4',
     },
   },
   subTitle: {
-    color: "rgba(0, 0, 0, 0.87)",
+    color: 'rgba(0, 0, 0, 0.87)',
     fontFamily: "'Asap', sans-serif",
-    fontSize: "16px",
-    lineHeight: "26px",
-    fontWeight: "400",
-    textAlign: "left",
-    fontStyle: "normal",
-    letterSpacing: "0em",
-    textDecoration: "none",
+    fontSize: '16px',
+    lineHeight: '26px',
+    fontWeight: '400',
+    textAlign: 'left',
+    fontStyle: 'normal',
+    letterSpacing: '0em',
+    textDecoration: 'none',
     cursor: 'pointer',
-    "&:hover": {
-      color: "#0052B4",
+    '&:hover': {
+      color: '#0052B4',
     },
   },
   rightFoot: {
-    paddingLeft: "100px",
-    alignItems: "right",
+    paddingLeft: '100px',
+    alignItems: 'right',
   },
   container: {
-    paddingTop: "25px",
-    paddingLeft: "55px",
-    maxWidth: '1024px'
+    paddingTop: '25px',
+    paddingLeft: '55px',
+    maxWidth: '1024px',
   },
   rightSubTitle: {
-    color: "rgba(0, 0, 0, 0.87)",
+    color: 'rgba(0, 0, 0, 0.87)',
     fontFamily: "'Asap', sans-serif",
-    fontSize: "16px",
-    lineHeight: "26px",
-    fontWeight: "400",
-    textAlign: "right",
-    fontStyle: "normal",
-    letterSpacing: "0em",
-    textDecoration: "none",
-    "&:hover": {
-      color: "#0052B4",
+    fontSize: '16px',
+    lineHeight: '26px',
+    fontWeight: '400',
+    textAlign: 'right',
+    fontStyle: 'normal',
+    letterSpacing: '0em',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#0052B4',
     },
   },
   rightTitle: {
-    color: "rgba(0, 0, 0, 0.87)",
+    color: 'rgba(0, 0, 0, 0.87)',
     fontFamily: "'Asap', sans-serif",
-    fontSize: "16px",
-    lineHeight: "26px",
-    fontWeight: "700",
-    textAlign: "right",
-    fontStyle: "normal",
-    letterSpacing: "0em",
-    textDecoration: "none",
-    "&:hover": {
-      color: "#0052B4",
+    fontSize: '16px',
+    lineHeight: '26px',
+    fontWeight: '700',
+    textAlign: 'right',
+    fontStyle: 'normal',
+    letterSpacing: '0em',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#0052B4',
     },
   },
   footer: {
-    paddingTop: "100px",
-    paddingLeft: "50px",
+    paddingTop: '100px',
+    paddingLeft: '50px',
     maxWidth: '1024px',
   },
   footerIcons: {
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   footerIconsLink: {
-    border: "1px solid #f4e041",
-    borderRadius: "50%",
-    paddingLeft: "10px",
-    paddingTop: "10px",
-    width: "30px",
-    height: "30px",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "relative",
+    border: '1px solid #f4e041',
+    borderRadius: '50%',
+    paddingLeft: '10px',
+    paddingTop: '10px',
+    width: '30px',
+    height: '30px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
     margin: '5px',
-    "&:after": {
-      content: "",
-      position: "absolute",
-      width: "48px",
-      height: "48px",
+    '&:after': {
+      content: '',
+      position: 'absolute',
+      width: '48px',
+      height: '48px',
       margin: '5px',
     },
-    "&:hover": {
-      border: "1px solid #ea5924",
+    '&:hover': {
+      border: '1px solid #ea5924',
     },
-    "&:hover path": {
-      fill: "#EA5924",
+    '&:hover path': {
+      fill: '#EA5924',
     },
   },
 }));
@@ -195,8 +194,10 @@ const FooterUnAuth = () => {
           alignItems="left"
           container
         >
-          <Grid  item>
-            <a href="#"><img className={classes.logo} src={Logo} alt="logo Pupvote" /></a>
+          <Grid item>
+            <a href="#">
+              <img className={classes.logo} src={Logo} alt="logo Pupvote" />
+            </a>
           </Grid>
           <Grid item>
             <a className={classes.menuItem} href="#">
@@ -228,7 +229,7 @@ const FooterUnAuth = () => {
         >
           <Grid item>
             <a
-              style={{ color: "#ea5924" }}
+              style={{ color: '#ea5924' }}
               className={classes.langMenuItem}
               href="#"
             >
@@ -261,27 +262,32 @@ const FooterUnAuth = () => {
           <Typography>
             <a className={classesFooter.title} href="#">
               Information
-            </a>{" "}
+            </a>
+            {' '}
           </Typography>
           <Typography>
             <a className={classesFooter.subTitle} href="#">
               News
-            </a>{" "}
+            </a>
+            {' '}
           </Typography>
           <Typography>
             <a className={classesFooter.subTitle} href="#">
               Blog
-            </a>{" "}
+            </a>
+            {' '}
           </Typography>
           <Typography>
             <a className={classesFooter.subTitle} href="#">
               Partners
-            </a>{" "}
+            </a>
+            {' '}
           </Typography>
           <Typography>
             <a className={classesFooter.subTitle} href="#">
               Shop
-            </a>{" "}
+            </a>
+            {' '}
           </Typography>
         </Grid>
         <Grid
