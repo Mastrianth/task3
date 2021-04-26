@@ -13,7 +13,7 @@
   border: 1px solid $INPUT-ENABLED-BORDER;
 }
 .inputFocused fieldset {
-  border-color: $INPUT-ENABLED-BORDER !important;
+  border-color: $COLOR-SECONDARY !important;
 }
 
 //Input select
@@ -45,6 +45,8 @@
 .selectInputRoot svg {
   right: 13px;
   top: calc(50% - 7px);
+  width: 10px;
+  height: 5px;
 }
 
 .selectInputError:hover fieldset {
@@ -56,7 +58,7 @@
 }
 
 .inputRoot:hover fieldset {
-  border-color: $INPUT-ENABLED-BORDER !important;
+  border-color: $COLOR-BLACK87 ;
 }
 
 .inputError:hover fieldset {
@@ -75,7 +77,7 @@
 }
 
 .labelFocused {
-  color: $INPUT-LABEL-COLOR !important;
+  color: $COLOR-SECONDARY !important;
 }
 
 .labelError {
@@ -104,7 +106,7 @@
 
 //Helper text
 .helperRoot {
-  color: $INPUT-LABEL-COLOR;
+  color: $COLOR-BLACK87;
   font-family: $FONT-SECONDARY;
   font-size: 12px;
 }

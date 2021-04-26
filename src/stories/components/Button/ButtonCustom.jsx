@@ -14,7 +14,9 @@ const ButtonCustom = (props) => {
       ? `${styles.btn} ${styles.primary}`
       : type === "primary_small"
       ? `${styles.btn} ${styles.primary_small}`
-      : `${styles.btn} ${styles.outlined}`;
+      : type === "outlined"
+      ? `${styles.btn} ${styles.outlined}`
+      : `${styles.btn} ${styles.outlined_white}`;
 
   return (
     <StylesProvider injectFirst>

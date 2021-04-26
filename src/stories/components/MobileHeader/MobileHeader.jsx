@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   eng: {
     paddingLeft: "120px",
+    cursor: 'pointer',
   },
   words: {
     fontFamily: "'Asap', sans-serif",
@@ -45,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
   },
   drop: {
     backgroundColor: "#fff !important",
+    width: '92px',
+    justifyContent: 'center',
+    borderRadius: '4px'
   },
   burger: {
     cursor: 'pointer',
@@ -54,11 +58,15 @@ const useStyles = makeStyles((theme) => ({
 const MobileHeader = () => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
+  const handleMenuItemClick = (event, index) => {
+    setSelectedIndex(index);
+    setAnchorEl(null);
+  };
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -74,13 +82,14 @@ const MobileHeader = () => {
           <Grid align="left">
             <img className={classes.pupLogo} src={Logo} alt="Logo" />
           </Grid>
-          <Grid className={classes.eng} item>
-            <img src={england} alt="england" />
+          <Grid className={classes.eng}  item>
+            <img onClick={handleClick} src={england} alt="england" />
           </Grid>
           <Grid align="right" item>
             <Typography
               aria-controls="simple-menu"
               aria-haspopup="true"
+              keepMounted
               onClick={handleClick}
               className={classes.words}
             >
@@ -99,10 +108,9 @@ const MobileHeader = () => {
           </Grid>
           <Grid
             align="right"
-            style={{ paddingLeft: "20px", paddingRight: "20px" }}
             item
           >
-            <img className={classes.burger} src={MenuBurger} alt="menu" />
+            <a style={{padding:'15px'}} href="#"> <img className={classes.burger} src={MenuBurger} alt="menu" /></a>
           </Grid>
         </Grid>
       </Grid>

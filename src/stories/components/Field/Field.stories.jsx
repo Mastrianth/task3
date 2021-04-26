@@ -35,7 +35,7 @@ export default {
 };
 
 const Template = (args) => {
-  const { label, required, helperText, disabled, error, select } = args;
+  const { label, required, helperText, disabled, error, select, placeholder } = args;
 
   return (
     <Field
@@ -45,6 +45,7 @@ const Template = (args) => {
       disabled={disabled}
       error={error}
       select={select}
+      placeholder={placeholder}
       {...args}
     />
   );
@@ -72,6 +73,7 @@ const SelectTemplate = (args) => {
 export const Enabled = Template.bind({});
 Enabled.args = {
   label: "Label",
+  placeholder:'Placeholder'
 };
 
 export const Error = Template.bind({});

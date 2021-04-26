@@ -39,8 +39,8 @@ Secondary.args = {
   text: "Secondary",
 };
 
-export const Secondary_small = Template.bind({});
-Secondary_small.args = {
+export const Primary_small = Template.bind({});
+Primary_small.args = {
   type: "primary_small",
   text: "Small",
 };
@@ -49,4 +49,10 @@ export const Outlined = Template.bind({});
 Outlined.args = {
   type: "outlined",
   text: "Outlined",
+};
+
+export const Outlined_white = Template.bind({});
+Outlined_white.args = {
+  type: "outlined-white",
+  text: "White",
 };

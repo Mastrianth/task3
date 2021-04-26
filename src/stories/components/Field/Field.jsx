@@ -24,6 +24,7 @@ const Field = (props) => {
     disabled,
     select,
     children,
+    placeholder,
   } = props;
   const { inputsLength, changeCharactersCount } = useInputsLength();
   const handleChange = (e) => {
@@ -69,6 +70,7 @@ const Field = (props) => {
         name={name}
         required={required}
         error={error}
+        placeholder={placeholder}
         helperText={helperText}
         disabled={disabled}
         select={select}
@@ -141,4 +143,5 @@ Field.defaultProps = {
   required: false,
   select: false,
   children: null,
+  placeholder: '',
 };

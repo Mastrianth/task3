@@ -155,7 +155,7 @@ const Header = () => {
           container
         >
           <Grid item>
-            <img className={classes.logo} src={Logo} alt="logo Pupvote" />
+            <a href="#"><img className={classes.logo} src={Logo} alt="logo Pupvote" /></a>
           </Grid>
           <Grid item>
             <a className={classes.menuItem} href="#">

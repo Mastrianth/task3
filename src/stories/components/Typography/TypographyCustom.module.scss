@@ -8,20 +8,24 @@
   margin: 0 auto;
 }
 
-.h1.heading {
-  font-size: 48px;
+h1.heading {
+  font-size: 60px;
+  line-height: 63px;
 }
 
-.h2.heading {
-  font-size: 28px;
+h2.heading {
+  font-size: 38px;
+  line-height: 39.2px;
 }
 
-.h2-mobile.heading {
+h2.h2-mobile.heading {
   font-size: 18px;
+  line-height: 25.2px;
 }
 
-.h3.heading {
+h3.heading {
   font-size: 28px;
+  line-height: 39.2px;
 }
 
 //
@@ -32,28 +36,28 @@
 }
 
 .paragraph.type1 {
-  line-height: 140%;
+  line-height: 16.8px;
   font-size: 12px;
 }
 
 .paragraph.type2 {
-  line-height: 140%;
+  line-height: 25.2px;
   font-size: 18px;
 }
 
 .paragraph.type3 {
   font-size: 16px;
-  line-height: 160%;
+  line-height: 25.6px;
 }
 
 .paragraph.type4 {
-  font-size: 16px;
-  line-height: 160%;
+  line-height: 25.2px;
+  font-size: 18px;
   font-weight: 700;
 }
 
 .paragraph.type5 {
   font-size: 16px;
-  line-height: 140%;
+  line-height: 25.6px;
   font-weight: 700;
 }

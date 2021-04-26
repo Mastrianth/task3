@@ -130,7 +130,7 @@ const useStyles = makeStyles((theme) => ({
   },
   rightBack: {
     backgroundColor: "rgba(0,0,0,0.5)",
-    width: "90px",
+    width: "500px",
     left: '630px',
     height: "1350px",
     position: "absolute",
@@ -160,7 +160,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const MobileMenu = () => {
+const TableMenu = () => {
   const classes = useStyles();
   return (
     <Container className={classes.mainContainer}>
@@ -269,128 +269,8 @@ const MobileMenu = () => {
           </Grid>
         </Grid>
       </Grid>
-
-      <Grid className={classes.hr} />
-      <Grid  container>
-        <Grid item>
-          <Typography
-            style={{ paddingTop: "20px" }}
-            className={classes.subTitle}
-          >
-            Information
-          </Typography>
-        </Grid>
-        {items1.map((item) => (
-          <Grid className={classes.hover} container>
-            <Grid className={classes.svgIcon5} item>
-              <svg
-                width="14"
-                height="18"
-                viewBox="0 0 14 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M14 0H0V18L7 15L14 18V0Z" fill="#D0CFCF" />
-              </svg>
-            </Grid>
-            <Grid item>
-              <Typography className={classes.MenuItemText}>{item}</Typography>
-            </Grid>
-          </Grid>
-        ))}
-      </Grid>
-
-      <Grid className={classes.hr} />
-      <Grid container>
-        <Grid item>
-          <Typography
-            style={{ paddingTop: "20px" }}
-            className={classes.subTitle}
-          >
-            About
-          </Typography>
-        </Grid>
-        {items2.map((item) => (
-          <Grid className={classes.hover} container>
-            <Grid className={classes.svgIcon5} item>
-              <svg
-                width="14"
-                height="18"
-                viewBox="0 0 14 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M14 0H0V18L7 15L14 18V0Z" fill="#D0CFCF" />
-              </svg>
-            </Grid>
-            <Grid item>
-              <Typography className={classes.MenuItemText}>{item}</Typography>
-            </Grid>
-          </Grid>
-        ))}
-      </Grid>
-
-      <Grid className={classes.hr} />
-      <Grid container>
-        <Grid item>
-          <Typography
-            style={{ paddingTop: "20px" }}
-            className={classes.subTitle}
-          >
-            Tools
-          </Typography>
-        </Grid>
-        {items3.map((item) => (
-          <Grid className={classes.hover} container>
-            <Grid  className={classes.svgIcon5} item>
-              <svg
-                width="14"
-                height="18"
-                viewBox="0 0 14 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M14 0H0V18L7 15L14 18V0Z" fill="#D0CFCF" />
-              </svg>
-            </Grid>
-            <Grid item>
-              <Typography className={classes.MenuItemText}>{item}</Typography>
-            </Grid>
-          </Grid>
-        ))}
-      </Grid>
-
-      <Grid className={classes.hr} />
-      <Grid container>
-        <Grid item>
-          <Typography
-            style={{ paddingTop: "20px" }}
-            className={classes.subTitle}
-          >
-            Support
-          </Typography>
-        </Grid>
-        {items4.map((item) => (
-          <Grid className={classes.hover} container>
-            <Grid className={classes.svgIcon5} item>
-              <svg
-                width="14"
-                height="18"
-                viewBox="0 0 14 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M14 0H0V18L7 15L14 18V0Z" fill="#D0CFCF" />
-              </svg>
-            </Grid>
-            <Grid item>
-              <Typography className={classes.MenuItemText}>{item}</Typography>
-            </Grid>
-          </Grid>
-        ))}
-      </Grid>
     </Container>
   );
 };
 
-export default MobileMenu;
+export default TableMenu;

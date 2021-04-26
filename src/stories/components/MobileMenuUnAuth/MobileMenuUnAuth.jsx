@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Grid, makeStyles, Typography } from "@material-ui/core";
-import userLogo from "../../assets/icons/user-logo.png";
 import Logo from "../../assets/icons/Logo.svg";
 
 // const title = {
@@ -160,7 +159,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const MobileMenu = () => {
+const MobileMenuUnAuth = () => {
   const classes = useStyles();
   return (
     <Container className={classes.mainContainer}>
@@ -172,22 +171,6 @@ const MobileMenu = () => {
       ></Grid>
       <Grid className={classes.logo}>
         <img className={classes.pupLogo} src={Logo} alt="Logo" />
-      </Grid>
-      <Grid
-        direction="column"
-        justify="center"
-        alignItems="flex-start"
-        container
-      >
-        <Grid item>
-          <img className={classes.userImage} src={userLogo} alt="user logo" />
-        </Grid>
-        <Grid item>
-          <Typography className={classes.userTitle}>Maximilian</Typography>
-          <Typography className={classes.userSubtitle}>
-            Maximilian@gmail.com
-          </Typography>
-        </Grid>
       </Grid>
       <Grid container>
         <Grid className={classes.hover} container>
@@ -393,4 +376,4 @@ const MobileMenu = () => {
   );
 };
 
-export default MobileMenu;
+export default MobileMenuUnAuth;

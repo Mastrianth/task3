@@ -69,3 +69,18 @@
   background: rgba(244, 224, 65, 0.3);
   box-shadow: none;
 }
+
+.outlined_white {
+  width: 93px;
+  height: 38px;
+  font-size: 16px;
+  line-height: 160%;
+  background: $COLOR-TERTIARY;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: none;
+}
+.outlined_white:hover {
+  background: rgba(234, 89, 36, 0.75);
+  box-shadow: none;
+}

@@ -25,7 +25,7 @@ const useStyle = makeStyles((theme) => ({
     margin: '0 auto'
   },
   leftMenu: {
-    width: "400px",
+    width: "482px",
     position: "relative",
     display: "flex",
     justifyContent: "space-between",
@@ -145,8 +145,9 @@ const useStylesFooterRows = makeStyles((theme) => ({
   },
   footerIcons: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     alignItems: "center",
+
   },
   footerIconsLink: {
     border: "1px solid #f4e041",
@@ -175,7 +176,7 @@ const useStylesFooterRows = makeStyles((theme) => ({
   },
 }));
 
-const Footer = () => {
+const FooterUnAuth = () => {
   const classes = useStyle();
   const classesFooter = useStylesFooterRows();
   return (
@@ -210,6 +211,11 @@ const Footer = () => {
           <Grid item>
             <a className={classes.menuItem} href="#">
               Users
+            </a>
+          </Grid>
+          <Grid item>
+            <a className={classes.menuItem} href="#">
+              Sign up
             </a>
           </Grid>
         </Grid>
@@ -512,4 +518,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterUnAuth;
