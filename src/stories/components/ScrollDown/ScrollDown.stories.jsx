@@ -1,8 +1,8 @@
-import React from 'react';
-import ScrollDown from './ScrollDown';
+import React from "react";
+import ScrollDown from "./ScrollDown";
 
 export default {
-  title: 'ScrollDown/ScrollDown1',
+  title: "ScrollDown/ScrollDown1",
   component: ScrollDown,
   decorators: [
     (Story) => (
@@ -12,12 +12,12 @@ export default {
     ),
   ],
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: "color" },
   },
 };
 
 const Template = (args) => (
-  <div style={{ padding: '10px' }}>
+  <div style={{ padding: "10px" }}>
     <ScrollDown {...args} />
   </div>
 );

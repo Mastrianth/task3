@@ -1,17 +1,17 @@
-import React from 'react';
-import ButtonCustom from './ButtonCustom';
+import React from "react";
+import ButtonCustom from "./ButtonCustom";
 
 export default {
-  title: 'Button',
+  title: "Button",
   component: ButtonCustom,
   parameters: {
     actions: {
-      handles: ['clicks'],
+      handles: ["clicks"],
     },
   },
   argTypes: {
     onClick: {
-      actions: 'clicked',
+      actions: "clicked",
     },
     type: {
       table: {
@@ -29,30 +29,30 @@ const Template = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  type: 'primary',
-  text: 'Primary',
+  type: "primary",
+  text: "Primary",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  type: 'secondary',
-  text: 'Secondary',
+  type: "secondary",
+  text: "Secondary",
 };
 
 export const Primary_small = Template.bind({});
 Primary_small.args = {
-  type: 'primary_small',
-  text: 'Small',
+  type: "primary_small",
+  text: "Small",
 };
 
 export const Outlined = Template.bind({});
 Outlined.args = {
-  type: 'outlined',
-  text: 'Outlined',
+  type: "outlined",
+  text: "Outlined",
 };
 
 export const Outlined_white = Template.bind({});
 Outlined_white.args = {
-  type: 'outlined-white',
-  text: 'White',
+  type: "outlined-white",
+  text: "White",
 };

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { TextField } from '@material-ui/core';
-import { StylesProvider } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
-import styles from './Field.module.scss';
-import { ReactComponent as SelectArrow } from '../../assets/icons/caret-down.svg';
+import React, { useState } from "react";
+import { TextField } from "@material-ui/core";
+import { StylesProvider } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import styles from "./Field.module.scss";
+import { ReactComponent as SelectArrow } from "../../assets/icons/caret-down.svg";
 
 function useInputsLength() {
   const [inputsLength, setInputsLength] = React.useState(0);
@@ -14,7 +14,7 @@ function useInputsLength() {
 }
 
 const Field = (props) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const {
     label,
     name,
@@ -34,29 +34,29 @@ const Field = (props) => {
 
   const labelClasses = select
     ? {
-      root: styles.selectLabelRoot,
-      focused: styles.selectLabelFocused,
-      error: styles.selectLabelError,
-      shrink: styles.selectLabelShrink,
-    }
+        root: styles.selectLabelRoot,
+        focused: styles.selectLabelFocused,
+        error: styles.selectLabelError,
+        shrink: styles.selectLabelShrink,
+      }
     : {
-      root: styles.selectInputRoot,
-      focused: styles.labelFocused,
-      error: styles.labelError,
-    };
+        root: styles.selectInputRoot,
+        focused: styles.labelFocused,
+        error: styles.labelError,
+      };
 
   const inputClasses = select
     ? {
-      root: styles.selectInputRoot,
-      focused: styles.selectInputFocused,
-      error: styles.selectInputError,
-      filled: styles.selectInputFilled,
-    }
+        root: styles.selectInputRoot,
+        focused: styles.selectInputFocused,
+        error: styles.selectInputError,
+        filled: styles.selectInputFilled,
+      }
     : {
-      root: styles.inputRoot,
-      focused: styles.inputFocused,
-      error: styles.inputError,
-    };
+        root: styles.inputRoot,
+        focused: styles.inputFocused,
+        error: styles.inputError,
+      };
 
   return (
     <StylesProvider injectFirst>
@@ -99,20 +99,20 @@ const Field = (props) => {
       </TextField>
       <div
         style={{
-          position: 'absolute',
-          top: '75px',
-          left: '300px',
-          bottom: '0px',
-          right: '6px',
+          position: "absolute",
+          top: "75px",
+          left: "300px",
+          bottom: "0px",
+          right: "6px",
           zIndex: 3,
-          fontFamily: 'Asap, sans-serif',
-          color: disabled ? 'rgba(188, 188, 188, 1)' : 'rgba(0, 0, 0, 0.87)',
-          fontSize: '12px',
-          fontWeight: '400',
-          fontStyle: 'normal',
-          letterSpacing: 'normal',
-          lineHeight: '12px',
-          textAlign: 'left',
+          fontFamily: "Asap, sans-serif",
+          color: disabled ? "rgba(188, 188, 188, 1)" : "rgba(0, 0, 0, 0.87)",
+          fontSize: "12px",
+          fontWeight: "400",
+          fontStyle: "normal",
+          letterSpacing: "normal",
+          lineHeight: "12px",
+          textAlign: "left",
         }}
       >
         {`${inputsLength} / n`}
@@ -137,11 +137,11 @@ Field.propTypes = {
 Field.defaultProps = {
   disabled: false,
   error: false,
-  helperText: 'Assistive text',
-  label: 'Label',
-  name: 'field',
+  helperText: "Assistive text",
+  label: "Label",
+  name: "field",
   required: false,
   select: false,
   children: null,
-  placeholder: '',
+  placeholder: "",
 };

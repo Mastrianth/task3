@@ -40,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '39.2px',
     fontWeight: '400',
     align: 'left',
-
   },
   img: {
     textAlign: 'center',
@@ -53,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     height: 'auto',
     minWidth: '340px',
     maxWidth: '1140px',
-    width: '100%'
+    width: '100%',
   },
 }));
 
@@ -97,7 +96,6 @@ const Relationship = () => {
         alignItems="flex-start"
         justify="space-between"
         container
-
       >
         {rel.map(({ title, subtitle, image }) => (
           <Grid md={4} xs={12} sm={6} alignItems="center" item>

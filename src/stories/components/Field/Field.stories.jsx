@@ -1,13 +1,13 @@
-import React from 'react';
-import Field from './Field';
-import MenuItemCustom from '../MenuItemCustom';
+import React from "react";
+import Field from "./Field";
+import MenuItemCustom from "../MenuItemCustom";
 
 export default {
-  title: 'Field',
+  title: "Field",
   component: Field,
   parameters: {
     actions: {
-      handles: ['click', 'change'],
+      handles: ["click", "change"],
     },
   },
   argsTypes: {
@@ -60,9 +60,7 @@ const Template = (args) => {
 };
 
 const SelectTemplate = (args) => {
-  const {
-    label, required, helperText, disabled, error, select,
-  } = args;
+  const { label, required, helperText, disabled, error, select } = args;
 
   return (
     <Field
@@ -82,14 +80,14 @@ const SelectTemplate = (args) => {
 
 export const Enabled = Template.bind({});
 Enabled.args = {
-  label: 'Label',
-  placeholder: 'Placeholder',
+  label: "Label",
+  placeholder: "Placeholder",
 };
 
 export const Error = Template.bind({});
 Error.args = {
   error: true,
-  helperText: 'Error',
+  helperText: "Error",
 };
 
 export const Select = SelectTemplate.bind({});

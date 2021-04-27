@@ -4,8 +4,8 @@ import {
   Container,
   Grid,
   makeStyles,
-  Typography
-} from "@material-ui/core";
+  Typography,
+} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Programmer from '../../assets/icons/Programmer.svg';
 
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     position: 'relative',
     overflow: 'hidden',
-    padding: '180px 120px 75px',
+    padding: '59px 30px 66px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'left',
@@ -21,16 +21,16 @@ const useStyles = makeStyles((theme) => ({
     height: '752px',
     maxWidth: '1140px',
     margin: '0 auto',
-    // [theme.breakpoints.up('sm')]: {
-    //   padding: '59px 30px 66px',
-    // },
-    // [theme.breakpoints.up('md')]: {
-    //   padding: '59px 30px 66px',
-    //   textAlign: 'left',
-    // },
-    // [theme.breakpoints.up('lg')]: {
-    //   padding: '106px 30px 116px',
-    // },
+    [theme.breakpoints.up('sm')]: {
+      padding: '59px 30px 66px',
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: '59px 30px 66px',
+      textAlign: 'left',
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: '106px 30px 116px',
+    },
   },
   title: {
     fontSize: '60px',
@@ -142,11 +142,8 @@ const Acquainted = () => {
   const classes = useStyles();
   const classesSecondaryLarge = useStylesSecondaryLarge();
   return (
-    <Container
-      component="section"
-      maxWidth={false}
-    >
-      <Grid  className={classes.container}  direction="column" container>
+    <Container component="section" maxWidth={false}>
+      <Grid className={classes.container} direction="column" container>
         <Box item className={classes.wrapperImg}>
           <img
             src={Programmer}
@@ -155,19 +152,19 @@ const Acquainted = () => {
             loading="lazy"
           />
         </Box>
-          <Typography className={classes.title} component="h1" variant="h1">
-            Let's get acquainted
-          </Typography>
-          <Typography className={classes.subTitle2} component="h4" variant="h4">
-            I'm a good front-end developer
-          </Typography>
-          <Typography className={classes.subTitle} variant="body2">
-            What defines a good front-end developer is one that has skilled
-            knowledge of HTML, CSS, JS with a vast understanding of User design
-            thinking as they'll be building web interfaces with accessibility in
-            mind. They should also be excited to learn, as the world of
-            Front-End Development keeps evolving.
-          </Typography>
+        <Typography className={classes.title} component="h1" variant="h1">
+          Let's get acquainted
+        </Typography>
+        <Typography className={classes.subTitle2} component="h4" variant="h4">
+          I'm a good front-end developer
+        </Typography>
+        <Typography className={classes.subTitle} variant="body2">
+          What defines a good front-end developer is one that has skilled
+          knowledge of HTML, CSS, JS with a vast understanding of User design
+          thinking as they'll be building web interfaces with accessibility in
+          mind. They should also be excited to learn, as the world of Front-End
+          Development keeps evolving.
+        </Typography>
         <Button variant="contained" className={classesSecondaryLarge.root}>
           Sign up
         </Button>

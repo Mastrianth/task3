@@ -8,7 +8,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import ResponsiveBanner from './ResponsiveBanner';
+import ResponsiveBanner from './ResponsiveBannerRegistration';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '59px 30px 66px',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'left',
+    alignItems: 'center',
     textAlign: 'left',
     height: '650px',
     maxWidth: '1140px',
@@ -39,13 +39,10 @@ const useStyles = makeStyles((theme) => ({
     fontStyle: 'normal',
     fontFamily: "'Nunito', sans-serif",
     color: 'rgba(0,0,0,0.87)',
-    padding: '0 11px',
-    maxWidth: '472px',
+    padding: '0 0 0 450px',
   },
   subTitle: {
-    minWidth: '330px',
-    maxWidth: '527px',
-    padding: '28px 11px 40px',
+    padding: '28px 137px 40px 450px',
     fontSize: '16px',
     fontFamily: "'Nunito', sans-serif",
     lineHeight: '25.6px',
@@ -87,7 +84,7 @@ const btnPrimaryLargeStyles = {
 
 const useStylesPrimaryLarge = makeStyles(() => ({ ...btnPrimaryLargeStyles }));
 
-const Banner = () => {
+const BannerRegistration = () => {
   const classes = useStyles();
   const classesPrimaryLarge = useStylesPrimaryLarge();
   return (
@@ -96,16 +93,17 @@ const Banner = () => {
         <ResponsiveBanner />
         <Box component="div">
           <Typography className={classes.title} component="h1" variant="h1">
-            Test assigment for front-end developers
+            Required skills for specialist in web
           </Typography>
         </Box>
         <Hidden smDown>
           <Typography className={classes.subTitle} variant="body2">
-            Front-end developers make sure the user sees and interacts with all
-            the necessary elements to ensure conversion. Therefore, responsive
-            design, programming languages and specific frameworks are the
-            must-have skillsets to look for when assessing your front-end
-            developers.
+            A front-end developer doesn't just typeset layouts. He knows
+            JavaScript well, understands frameworks and libraries (and actively
+            uses some of them), understands what is "under the hood" on the
+            server side. He is not afraid of preprocessors and collectors LESS,
+            SASS, GRUNT, GULP, he knows how to work with the DOM, API, SVG
+            objects, AJAX and CORS, can compose SQL queries and dig into data.
           </Typography>
         </Hidden>
         <Button variant="contained" className={classesPrimaryLarge.root}>
@@ -115,4 +113,4 @@ const Banner = () => {
     </Container>
   );
 };
-export default Banner;
+export default BannerRegistration;

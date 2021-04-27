@@ -1,50 +1,48 @@
-import React from 'react';
-import {
-  Container, Grid, makeStyles, Typography,
-} from '@material-ui/core';
-import Logo from '../../assets/icons/Logo.svg';
+import React from "react";
+import { Container, Grid, makeStyles, Typography } from "@material-ui/core";
+import Logo from "../../assets/icons/Logo.svg";
 
 // const title = {
 //
 // }
 
-const items1 = ['News', 'Blog', 'Partners', 'Shop'];
-const items2 = ['Overview', 'Design', 'Code', 'Collaborate'];
-const items3 = ['Tutorials', 'Resources', 'Guides', 'Examples'];
-const items4 = ['FAQ', 'Terms', 'Conditions', 'Help'];
+const items1 = ["News", "Blog", "Partners", "Shop"];
+const items2 = ["Overview", "Design", "Code", "Collaborate"];
+const items3 = ["Tutorials", "Resources", "Guides", "Examples"];
+const items4 = ["FAQ", "Terms", "Conditions", "Help"];
 
 const useStyles = makeStyles((theme) => ({
   userImage: {
-    width: '70px',
-    height: '70px',
-    borderRadius: '50%',
+    width: "70px",
+    height: "70px",
+    borderRadius: "50%",
   },
   userTitle: {
     fontFamily: "'Asap', sans-serif",
-    fontWeight: '400',
-    fontStyle: 'normal',
-    lineHeight: '25px',
-    color: 'rgba(0,0,0,0.87)',
-    fontSize: '18px',
+    fontWeight: "400",
+    fontStyle: "normal",
+    lineHeight: "25px",
+    color: "rgba(0,0,0,0.87)",
+    fontSize: "18px",
   },
   userSubtitle: {
     fontFamily: "'Asap', sans-serif",
-    fontWeight: '400',
-    fontStyle: 'normal',
-    fontSize: '12px',
-    lineHeight: '140%',
-    color: '#7e7e7e',
-    paddingBottom: '20px',
+    fontWeight: "400",
+    fontStyle: "normal",
+    fontSize: "12px",
+    lineHeight: "140%",
+    color: "#7e7e7e",
+    paddingBottom: "20px",
   },
   MenuItemText: {
     fontFamily: "'Asap', sans-serif",
-    fontWeight: '400',
-    fontStyle: 'normal',
-    lineHeight: '26px',
-    color: 'rgba(0,0,0,0.87)',
-    fontSize: '16px',
-    paddingLeft: '25px',
-    position: 'relative',
+    fontWeight: "400",
+    fontStyle: "normal",
+    lineHeight: "26px",
+    color: "rgba(0,0,0,0.87)",
+    fontSize: "16px",
+    paddingLeft: "25px",
+    position: "relative",
     // "&:after": {
     //   content: "",
     //   position: "absolute",
@@ -63,100 +61,100 @@ const useStyles = makeStyles((theme) => ({
     // },
   },
   svgIcon1: {
-    paddingTop: '5px',
-    paddingLeft: '2px',
-    paddingRight: '3px',
-    paddingBottom: '20px',
-    '&:hover path': {
-      fill: '#00BDD3',
-      backgroundColor: 'rgba(0, 189, 211, 0.1)',
+    paddingTop: "5px",
+    paddingLeft: "2px",
+    paddingRight: "3px",
+    paddingBottom: "20px",
+    "&:hover path": {
+      fill: "#00BDD3",
+      backgroundColor: "rgba(0, 189, 211, 0.1)",
     },
   },
   svgIcon2: {
-    paddingTop: '5px',
-    paddingRight: '1px',
-    paddingBottom: '20px',
-    '&:hover path': {
-      fill: '#00BDD3',
+    paddingTop: "5px",
+    paddingRight: "1px",
+    paddingBottom: "20px",
+    "&:hover path": {
+      fill: "#00BDD3",
     },
   },
   svgIcon3: {
-    paddingTop: '5px',
-    paddingRight: '0',
-    paddingBottom: '20px',
-    '&:hover path': {
-      fill: '#00BDD3',
+    paddingTop: "5px",
+    paddingRight: "0",
+    paddingBottom: "20px",
+    "&:hover path": {
+      fill: "#00BDD3",
     },
   },
   svgIcon4: {
-    paddingTop: '5px',
-    paddingRight: '2px',
-    paddingLeft: '2px',
-    paddingBottom: '20px',
-    '&:hover path': {
-      fill: '#00BDD3',
+    paddingTop: "5px",
+    paddingRight: "2px",
+    paddingLeft: "2px",
+    paddingBottom: "20px",
+    "&:hover path": {
+      fill: "#00BDD3",
     },
   },
   pupLogo: {
-    width: '100px',
-    height: '26px',
+    width: "100px",
+    height: "26px",
   },
   logo: {
-    paddingBottom: '30px',
+    paddingBottom: "30px",
   },
   subTitle: {
     fontFamily: "'Asap', sans-serif",
-    fontWeight: '400',
-    fontStyle: 'normal',
-    lineHeight: '17px',
-    color: 'rgba(0,0,0,0.87)',
-    fontSize: '12px',
-    paddingBottom: '10px',
+    fontWeight: "400",
+    fontStyle: "normal",
+    lineHeight: "17px",
+    color: "rgba(0,0,0,0.87)",
+    fontSize: "12px",
+    paddingBottom: "10px",
   },
   svgIcon5: {
-    paddingTop: '5px',
-    paddingRight: '7px',
-    paddingBottom: '20px',
-    '&:hover path': {
-      fill: '#00BDD3',
+    paddingTop: "5px",
+    paddingRight: "7px",
+    paddingBottom: "20px",
+    "&:hover path": {
+      fill: "#00BDD3",
     },
   },
   hr: {
-    border: '1px solid #F4E041',
-    width: '270px',
-    height: '1px',
+    border: "1px solid #F4E041",
+    width: "270px",
+    height: "1px",
   },
   mainContainer: {
-    width: '370px',
+    width: "370px",
   },
   rightBack: {
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    width: '90px',
-    left: '630px',
-    height: '1350px',
-    position: 'absolute',
+    backgroundColor: "rgba(0,0,0,0.5)",
+    width: "90px",
+    left: "630px",
+    height: "1350px",
+    position: "absolute",
   },
   hover: {
-    position: 'relative',
-    '&:after': {
-      content: '',
-      position: 'absolute',
-      width: '225px',
-      height: '40px',
+    position: "relative",
+    "&:after": {
+      content: "",
+      position: "absolute",
+      width: "225px",
+      height: "40px",
     },
-    '&:hover p': {
-      backgroundColor: 'rgba(0, 189, 211, 0.1)',
-      color: '#00BDD3',
-      width: '225px',
-      height: '40px',
-      cursor: 'pointer',
+    "&:hover p": {
+      backgroundColor: "rgba(0, 189, 211, 0.1)",
+      color: "#00BDD3",
+      width: "225px",
+      height: "40px",
+      cursor: "pointer",
     },
-    '&:hover path': {
-      fill: '#00BDD3',
-      backgroundColor: 'rgba(0, 189, 211, 0.1)',
+    "&:hover path": {
+      fill: "#00BDD3",
+      backgroundColor: "rgba(0, 189, 211, 0.1)",
     },
-    '&:hover svg': {
-      backgroundColor: 'rgba(0, 189, 211, 0.1)',
+    "&:hover svg": {
+      backgroundColor: "rgba(0, 189, 211, 0.1)",
     },
   },
 }));
@@ -259,7 +257,7 @@ const MobileMenuUnAuth = () => {
       <Grid container>
         <Grid item>
           <Typography
-            style={{ paddingTop: '20px' }}
+            style={{ paddingTop: "20px" }}
             className={classes.subTitle}
           >
             Information
@@ -289,7 +287,7 @@ const MobileMenuUnAuth = () => {
       <Grid container>
         <Grid item>
           <Typography
-            style={{ paddingTop: '20px' }}
+            style={{ paddingTop: "20px" }}
             className={classes.subTitle}
           >
             About
@@ -319,7 +317,7 @@ const MobileMenuUnAuth = () => {
       <Grid container>
         <Grid item>
           <Typography
-            style={{ paddingTop: '20px' }}
+            style={{ paddingTop: "20px" }}
             className={classes.subTitle}
           >
             Tools
@@ -349,7 +347,7 @@ const MobileMenuUnAuth = () => {
       <Grid container>
         <Grid item>
           <Typography
-            style={{ paddingTop: '20px' }}
+            style={{ paddingTop: "20px" }}
             className={classes.subTitle}
           >
             Support

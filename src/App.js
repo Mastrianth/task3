@@ -9,7 +9,12 @@ import Footer from './components/Footer/Footer';
 
 function App() {
   const loadFontsCallback = useCallback(loadFonts, []);
-  useEffect(() => loadFontsCallback('https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Nunito:wght@300;400;700&display=swap'), [loadFonts]);
+  useEffect(
+    () => loadFontsCallback(
+      'https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Nunito:wght@300;400;700&display=swap',
+    ),
+    [loadFonts],
+  );
   return (
     // eslint-disable-next-line react/jsx-filename-extension
     <>

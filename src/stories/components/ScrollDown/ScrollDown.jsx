@@ -1,5 +1,5 @@
-import React from 'react';
-import './ScrollDown.scss';
+import React from "react";
+import "./ScrollDown.scss";
 
 const ScrollDown = ({
   fontWeight,

@@ -1,1 +1,1 @@
-export { default } from './TypographyCustom';
+export { default } from "./TypographyCustom";

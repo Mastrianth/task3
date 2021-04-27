@@ -1,15 +1,14 @@
-import React from 'react';
-import { Typography } from '@material-ui/core';
-import PropTypes from 'prop-types';
-import styles from './TypographyCustom.module.scss';
+import React from "react";
+import { Typography } from "@material-ui/core";
+import PropTypes from "prop-types";
+import styles from "./TypographyCustom.module.scss";
 
 const TypographyCustom = (props) => {
-  const {
-    align, variant, component, text, type,
-  } = props;
+  const { align, variant, component, text, type } = props;
 
-  const typographyClassName = component === 'p' ? styles.paragraph : styles.heading;
-  const typeClassName = type !== '' ? styles[`type${type}`] : '';
+  const typographyClassName =
+    component === "p" ? styles.paragraph : styles.heading;
+  const typeClassName = type !== "" ? styles[`type${type}`] : "";
   return (
     <Typography
       align={align}

@@ -1,8 +1,8 @@
-import React from 'react';
-import File from './File';
+import React from "react";
+import File from "./File";
 
 export default {
-  title: 'Upload',
+  title: "Upload",
   component: File,
   decorators: [
     (Story) => (
@@ -26,7 +26,7 @@ FileUpload.args = {
 
 export const FileUploadError = Template.bind({});
 FileUploadError.args = {
-  error: 'Helper text',
+  error: "Helper text",
 };
 
 export const FileUploadDisabled = Template.bind({});

@@ -1,16 +1,13 @@
 import React from 'react';
 import {
-  Container,
-  Grid,
-  makeStyles,
-  Typography,
+  Container, Grid, makeStyles, Typography,
 } from '@material-ui/core';
 import Logo from '../../assets/icons/Logo.svg';
 
 const useStyle = makeStyles((theme) => ({
   container: {
     height: '60px',
-    width: '1140px',
+    maxWidth: '1140px',
     borderBottom: '1px solid #F4E041',
     boxShadow: 'none',
     padding: '0 60px',
@@ -142,7 +139,7 @@ const useStylesFooterRows = makeStyles((theme) => ({
     paddingTop: '100px',
     paddingLeft: '50px',
     maxWidth: '1140px',
-    paddingBottom: '75px'
+    paddingBottom: '75px',
   },
   footerIcons: {
     display: 'flex',
