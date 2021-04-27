@@ -5,6 +5,7 @@ import Acquainted from './components/Acquainted/Acquainted';
 import Relationship from './components/Relationship/Relationship';
 import loadFonts from './utils/loadFonts';
 import Users from './components/OurCheerfulUser/Users';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const loadFontsCallback = useCallback(loadFonts, []);
@@ -17,6 +18,7 @@ function App() {
       <Acquainted />
       <Relationship />
       <Users />
+      <Footer />
     </>
   );
 }

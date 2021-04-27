@@ -1,11 +1,11 @@
 import React from 'react';
 import {
   Box,
-  Container,
+  Container, Grid,
   Hidden,
   makeStyles,
-  Typography,
-} from '@material-ui/core';
+  Typography
+} from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import ResponsiveBanner from './ResponsiveBanner';
 
@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'left',
     textAlign: 'left',
     height: '650px',
+    maxWidth: '1140px',
+    margin: '0 auto',
     // [theme.breakpoints.up('sm')]: {
     //   padding: '59px 30px 66px',
     // },
@@ -91,10 +93,10 @@ const Banner = () => {
     <Container
       component="section"
       maxWidth={false}
-      className={classes.container}
     >
-      <ResponsiveBanner />
 
+      <Grid  className={classes.container}>
+        <ResponsiveBanner  />
       <Box component="div">
         <Typography className={classes.title} component="h1" variant="h1">
           Test assigment for front-end developers
@@ -112,6 +114,7 @@ const Banner = () => {
       <Button variant="contained" className={classesPrimaryLarge.root}>
         Sign up
       </Button>
+      </Grid>
     </Container>
   );
 };

@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Nunito', sans-serif",
     color: 'rgba(0,0,0,0.87)',
     padding: '20px 20px',
-    maxWidth: '600px',
+    maxWidth: '700px',
+    paddingBottom: '60px',
   },
   subTitle: {
     minWidth: '330px',
@@ -39,13 +40,20 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '39.2px',
     fontWeight: '400',
     align: 'left',
+
   },
   img: {
     textAlign: 'center',
     align: 'center',
+    width: '204px',
+    height: '161px',
+    margin: '0 auto',
   },
   container: {
-    height: '752px',
+    height: 'auto',
+    minWidth: '340px',
+    maxWidth: '1140px',
+    width: '100%'
   },
 }));
 
@@ -89,9 +97,10 @@ const Relationship = () => {
         alignItems="flex-start"
         justify="space-between"
         container
+
       >
         {rel.map(({ title, subtitle, image }) => (
-          <Grid item>
+          <Grid md={4} xs={12} sm={6} alignItems="center" item>
             <Box component="div" className={classes.img} item>
               <img src={image} alt="icon" />
             </Box>

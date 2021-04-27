@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
+    margin: '0 auto',
   },
   logo: {
     width: '100px',
@@ -149,7 +150,7 @@ const Header = () => {
   const classes = useStyles();
   const classesPrimarySmall = useStylesPrimarySmall();
   return (
-    <Container className={classes.container}>
+    <Container maxWidth={false} className={classes.container}>
       <Grid
         className={classes.content}
         container

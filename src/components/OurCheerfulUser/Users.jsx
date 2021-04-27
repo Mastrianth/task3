@@ -17,7 +17,7 @@ const MOBILE_MAX_WIDTH = 600;
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: '0 16px 80px',
-    backgroundColor: '#fff',
+    backgroundColor: '#fafafa',
     textAlign: 'center',
     overflow: 'hidden',
     [theme.breakpoints.up('md')]: {
@@ -40,6 +40,8 @@ const useStyles = makeStyles((theme) => ({
   },
   usersList: {
     paddingTop: '37px',
+    maxWidth: '1140px',
+    margin: '0 auto' ,
     [theme.breakpoints.up('md')]: {
       paddingTop: '77px',
     },
@@ -60,8 +62,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const btnPrimaryLargeStyles = {
+  root: {
+    width: '148px',
+    height: '50px',
+    fontWeight: '400',
+    textTransform: 'capitalize',
+    fontSize: '18px',
+    boxShadow: 'none',
+    textAlign: 'center',
+    fontFamily: 'Asap',
+    borderRadius: '80px',
+    backgroundColor: '#f4e041',
+    color: 'rgba(0, 0, 0, 0.87)',
+
+    '&.Mui-disabled': {
+      color: 'rgba(255, 255, 255, 1)',
+      backgroundColor: '#B4B4B4',
+      boxShadow: 'none',
+    },
+    '&:hover': {
+      backgroundColor: '#ffe302',
+      color: 'rgba(0, 0, 0, 0.87)',
+      boxShadow: 'none',
+    },
+    '&:focus': {
+      color: 'rgba(0, 0, 0, 0.87)',
+      // border: "2px solid #40a5f5",
+      boxShadow: 'none',
+    },
+  },
+};
+
+const useStylesPrimaryLarge = makeStyles(() => ({ ...btnPrimaryLargeStyles }));
+
 const Users = () => {
   const classes = useStyles();
+  const classesPrimaryLarge = useStylesPrimaryLarge();
   const dispatch = useDispatch();
 
   const { users, totalPages, nextUrl } = useSelector((store) => store.usersReducer, shallowEqual);
@@ -125,7 +162,7 @@ const Users = () => {
           variant="contained"
           color="primary"
           disabled={isFetching}
-          className={classes.btn}
+          className={classesPrimaryLarge.root}
           onClick={handleNextUsersList}
         >
           Show more
