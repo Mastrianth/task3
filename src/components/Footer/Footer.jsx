@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  Container, Grid, makeStyles, Typography,
-} from '@material-ui/core';
+  Container, Grid, Hidden, makeStyles, Typography
+} from "@material-ui/core";
 import Logo from '../../assets/icons/Logo.svg';
 
 const useStyle = makeStyles((theme) => ({
@@ -10,7 +10,7 @@ const useStyle = makeStyles((theme) => ({
     maxWidth: '1140px',
     borderBottom: '1px solid #F4E041',
     boxShadow: 'none',
-    padding: '0 60px',
+    padding: '0 20px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -26,8 +26,13 @@ const useStyle = makeStyles((theme) => ({
     position: 'relative',
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     textAlign: 'left',
+    [theme.breakpoints.down('xs')]: {
+      alignItems: 'center',
+      width: '100%',
+      justifyContent: 'center'
+    }
   },
   rightMenu: {
     color: 'rgba(0, 0, 0, 0.87)',
@@ -101,11 +106,18 @@ const useStylesFooterRows = makeStyles((theme) => ({
   rightFoot: {
     paddingLeft: '50px',
     alignItems: 'right',
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: '0px',
+    }
   },
   container: {
     paddingTop: '25px',
-    paddingLeft: '55px',
+    paddingLeft: '20px',
+    margin: '0 auto',
     maxWidth: '1140px',
+    [theme.breakpoints.down('sm')]: {
+      padding: '20px',
+    }
   },
   rightSubTitle: {
     color: 'rgba(0, 0, 0, 0.87)',
@@ -140,17 +152,29 @@ const useStylesFooterRows = makeStyles((theme) => ({
     paddingLeft: '50px',
     maxWidth: '1140px',
     paddingBottom: '75px',
+    [theme.breakpoints.down('md')]: {
+      paddingLeft: '20px',
+    },
   },
   footerIcons: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingBottom: '75px',
+    [theme.breakpoints.down('md')]: {
+      paddingRight: '10px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      margin: '0 auto',
+      align:'center',
+      justifyContent: 'center',
+    },
   },
   footerIconsLink: {
     border: '1px solid #f4e041',
     borderRadius: '50%',
-    paddingLeft: '10px',
-    paddingTop: '10px',
+    paddingLeft: '9px',
+    paddingTop: '9px',
     width: '38px',
     height: '38px',
     justifyContent: 'center',
@@ -197,6 +221,7 @@ const Footer = () => {
               <img className={classes.logo} src={Logo} alt="logo Pupvote" />
             </a>
           </Grid>
+          <Hidden xsDown>
           <Grid item>
             <a className={classes.menuItem} href="#">
               About me
@@ -212,7 +237,9 @@ const Footer = () => {
               Users
             </a>
           </Grid>
+          </Hidden>
         </Grid>
+        <Hidden xsDown>
         <Grid
           className={classes.rightMenu}
           direction="row"
@@ -235,8 +262,9 @@ const Footer = () => {
             </a>
           </Grid>
         </Grid>
+        </Hidden>
       </Grid>
-
+<Hidden xsDown>
       <Grid
         className={classesFooter.container}
         display="flex"
@@ -411,6 +439,7 @@ const Footer = () => {
           </Typography>
         </Grid>
       </Grid>
+</Hidden>
 
       <Grid
         className={classesFooter.footer}
@@ -418,11 +447,13 @@ const Footer = () => {
         justify="space-between"
         container
       >
+        <Hidden xsDown>
         <Grid item>
           <Typography className={classesFooter.subTitle}>
             @abz.agency specially for the test task
           </Typography>
         </Grid>
+        </Hidden>
         <Grid className={classesFooter.footerIcons} item>
           <a className={classesFooter.footerIconsLink} href="#">
             <svg

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'left',
     textAlign: 'left',
-    height: '650px',
+    height: 'auto',
     maxWidth: '1140px',
     margin: '0 auto',
     [theme.breakpoints.up('sm')]: {
@@ -41,15 +41,27 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgba(0,0,0,0.87)',
     padding: '0 11px',
     maxWidth: '472px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '38px',
+      lineHeight: '39.9px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '28px',
+      lineHeight: '39.2px',
+    },
   },
   subTitle: {
     minWidth: '330px',
-    maxWidth: '527px',
+    maxWidth: '386px',
     padding: '28px 11px 40px',
     fontSize: '16px',
     fontFamily: "'Nunito', sans-serif",
     lineHeight: '25.6px',
     fontWeight: '400',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '16px',
+      lineHeight: '25.6px',
+    },
   },
 }));
 
@@ -99,7 +111,7 @@ const Banner = () => {
             Test assigment for front-end developers
           </Typography>
         </Box>
-        <Hidden smDown>
+        <Hidden xsDown>
           <Typography className={classes.subTitle} variant="body2">
             Front-end developers make sure the user sees and interacts with all
             the necessary elements to ensure conversion. Therefore, responsive
@@ -108,8 +120,13 @@ const Banner = () => {
             developers.
           </Typography>
         </Hidden>
+        <Hidden smUp>
+          <Typography className={classes.subTitle} variant="body2">
+            Front-end developers make sure the user sees and interacts with all the necessary elements to ensure conversion.
+          </Typography>
+        </Hidden>
         <Button variant="contained" className={classesPrimaryLarge.root}>
-          Sign up
+          Users
         </Button>
       </Grid>
     </Container>

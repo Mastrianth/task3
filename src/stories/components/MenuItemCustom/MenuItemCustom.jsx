@@ -11,10 +11,11 @@ const MenuItemCustom = withStyles(() => ({
     fontWeight: "400",
     "&:hover": {
       backgroundColor: "#00bdd3 !important",
+      color: '#ffffff'
     },
   },
   selected: {
-    color: "#FFF",
+
   },
 }))(MenuItem);
 export default MenuItemCustom;

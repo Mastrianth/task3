@@ -92,5 +92,7 @@ Error.args = {
 
 export const Select = SelectTemplate.bind({});
 Select.args = {
+  label: "Selected item",
   select: true,
+  helperText:'',
 };

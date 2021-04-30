@@ -1,58 +1,60 @@
-import React from "react";
-import ButtonCustom from "./ButtonCustom";
+import React from 'react';
+
+import { ButtonComponent } from './ButtonCustom';
 
 export default {
-  title: "Button",
-  component: ButtonCustom,
-  parameters: {
-    actions: {
-      handles: ["clicks"],
-    },
-  },
+  title: 'Buttons',
+  component: ButtonComponent,
   argTypes: {
-    onClick: {
-      actions: "clicked",
-    },
-    type: {
-      table: {
-        disabled: true,
-      },
-    },
+    backgroundColor: { control: 'color' },
   },
 };
 
-const Template = (args) => {
-  const { type, disabled, text } = args;
+const Template = (args) => <ButtonComponent {...args} />;
 
-  return <ButtonCustom type={type} disabled={disabled} text={text} />;
+export const PrimaryLarge = Template.bind({});
+PrimaryLarge.args = {
+  variant: 'contained',
+  label:'Large',
+  color: 'primary',
+  disabled:false,
+  backgroundColor:"#fff",
+  size:"large"
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
-  type: "primary",
-  text: "Primary",
+export const PrimarySmall = Template.bind({});
+PrimarySmall.args = {
+  variant: 'contained',
+  label:'Small',
+  color: 'primary',
+  disabled:false,
+  backgroundColor:"#fff",
+  size:"small"
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  type: "secondary",
-  text: "Secondary",
+export const SecondaryLarge = Template.bind({});
+SecondaryLarge.args = {
+  variant: 'contained',
+  label:'Large',
+  color: 'secondary',
+  disabled:false,
+  backgroundColor:"#fff",
+  size:"large"
 };
 
-export const Primary_small = Template.bind({});
-Primary_small.args = {
-  type: "primary_small",
-  text: "Small",
+export const SmallOutline = Template.bind({});
+SmallOutline.args = {
+  variant: "outlined",
+  label: 'Normal',
+  color: 'secondary',
+  disabled:false,
+  backgroundColor:"#EA5924",
 };
 
-export const Outlined = Template.bind({});
-Outlined.args = {
-  type: "outlined",
-  text: "Outlined",
-};
-
-export const Outlined_white = Template.bind({});
-Outlined_white.args = {
-  type: "outlined-white",
-  text: "White",
+export const SmallOutlineWhite = Template.bind({});
+SmallOutlineWhite.args = {
+  variant: "outlined",
+  label: 'Normal',
+  color: '333',
+  disabled:false,
 };

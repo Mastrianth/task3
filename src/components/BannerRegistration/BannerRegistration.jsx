@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'left',
-    height: '650px',
+    height: 'auto',
     maxWidth: '1140px',
     margin: '0 auto',
     [theme.breakpoints.up('sm')]: {
@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('lg')]: {
       padding: '106px 30px 116px',
     },
+    [theme.breakpoints.down('md')]: {
+      alignItems: 'flex-end',
+    }
   },
   title: {
     fontSize: '60px',
@@ -40,6 +43,19 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Nunito', sans-serif",
     color: 'rgba(0,0,0,0.87)',
     padding: '0 0 0 450px',
+    [theme.breakpoints.down('md')]: {
+      textAlign: 'right',
+      paddingRight: '32px',
+      fontSize: '38px',
+      lineHeight: '39.9px',
+      padding: '0 0 0 300px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      paddingRight: '16px',
+      fontSize: '28px',
+      lineHeight: '39.9px',
+      padding: '0 0 0 100px',
+    },
   },
   subTitle: {
     padding: '28px 137px 40px 450px',
@@ -47,10 +63,27 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Nunito', sans-serif",
     lineHeight: '25.6px',
     fontWeight: '400',
+    textAlign: 'right',
+    [theme.breakpoints.down('md')]: {
+      textAlign: 'right',
+      paddingRight: '32px',
+      fontSize: '16px',
+      lineHeight: '25.6px',
+      padding: '18px 57px 40px 200px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      paddingRight: '16px',
+      fontSize: '16px',
+      lineHeight: '25.6px',
+      padding: '28px 137px 40px 150px',
+    },
   },
+  btn: {
+alignItems: 'right !important'
+  }
 }));
 
-const btnPrimaryLargeStyles = {
+const useStylesPrimaryLarge = makeStyles((theme) => ({
   root: {
     width: '148px',
     height: '50px',
@@ -63,7 +96,6 @@ const btnPrimaryLargeStyles = {
     borderRadius: '80px',
     backgroundColor: '#f4e041',
     color: 'rgba(0, 0, 0, 0.87)',
-
     '&.Mui-disabled': {
       color: 'rgba(255, 255, 255, 1)',
       backgroundColor: '#B4B4B4',
@@ -79,10 +111,11 @@ const btnPrimaryLargeStyles = {
       // border: "2px solid #40a5f5",
       boxShadow: 'none',
     },
+    [theme.breakpoints.down('md')]: {
+     right: '0px'
+    },
   },
-};
-
-const useStylesPrimaryLarge = makeStyles(() => ({ ...btnPrimaryLargeStyles }));
+}));
 
 const BannerRegistration = () => {
   const classes = useStyles();
@@ -96,7 +129,7 @@ const BannerRegistration = () => {
             Required skills for specialist in web
           </Typography>
         </Box>
-        <Hidden smDown>
+        <Hidden xsDown>
           <Typography className={classes.subTitle} variant="body2">
             A front-end developer doesn't just typeset layouts. He knows
             JavaScript well, understands frameworks and libraries (and actively
@@ -106,9 +139,17 @@ const BannerRegistration = () => {
             objects, AJAX and CORS, can compose SQL queries and dig into data.
           </Typography>
         </Hidden>
-        <Button variant="contained" className={classesPrimaryLarge.root}>
-          Sign up
-        </Button>
+        <Hidden smUp>
+          <Typography className={classes.subTitle} variant="body2">
+            A front-end developer doesn't just typeset layouts. He is not afraid of preprocessors and collectors LESS,
+            SASS, GRUNT, GULP.
+          </Typography>
+        </Hidden>
+        <Box className={classes.btn} component="div">
+          <Button variant="contained" className={classesPrimaryLarge.root}>
+            Sign up
+          </Button>
+        </Box>
       </Grid>
     </Container>
   );

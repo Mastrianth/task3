@@ -26,7 +26,6 @@
 }
 
 .selectInputRoot fieldset {
-  border: 1px solid $INPUT-ENABLED-BORDER;
   text-align: left;
 }
 
@@ -44,24 +43,31 @@
 
 .selectInputRoot svg {
   right: 13px;
-  top: calc(50% - 7px);
+  top: calc(50%);
   width: 10px;
   height: 5px;
+  fill: #7E7E7E !important;
+;
 }
 
-.selectInputError:hover fieldset {
+.selectInputRoot path {
+  fill: #7E7E7E !important;
+;
+}
+
+.selectInputError fieldset {
   border-color: $ERROR !important;
 }
 
 .selectInputRoot:hover fieldset {
-  border-color: $INPUT-ENABLED-BORDER !important;
+  border-color: $COLOR-BLACK87 !important;
 }
 
 .inputRoot:hover fieldset {
   border-color: $COLOR-BLACK87;
 }
 
-.inputError:hover fieldset {
+.inputError fieldset {
   border-color: $ERROR !important;
 }
 
@@ -72,8 +78,8 @@
 // LABEL
 .labelRoot {
   color: $INPUT-LABEL-COLOR;
-  font-size: 12px;
-  line-height: 16.8px;
+  font-size: 16px;
+  line-height: 25.6px;
 }
 
 .labelFocused {
@@ -85,9 +91,9 @@
 }
 
 .selectLabelRoot {
-  color: $INPUT-TEXT-COLOR;
-  font-size: 12px;
-  line-height: 16.8px;
+  color: $INPUT-LABEL-COLOR;
+  font-size: 16px;
+  line-height: 25.6px;
   margin-top: -4px;
 }
 
@@ -111,10 +117,14 @@
   font-size: 12px;
 }
 
+.helperError {
+  color: $ERROR !important;
+}
+
 //Select
 
 .selectRoot {
-  background: $COLOR-BACKGROUND !important;
+  background: #ffffff !important;
   font-family: $FONT-SECONDARY;
   margin-top: -6px;
   text-align: left;

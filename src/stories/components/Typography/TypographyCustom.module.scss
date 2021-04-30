@@ -6,26 +6,31 @@
   font-weight: 400;
   max-width: 1140px;
   margin: 0 auto;
+  color: rgba(0,0,0,0.87);
 }
 
 h1.heading {
   font-size: 60px;
   line-height: 63px;
+  letter-spacing: normal;
 }
 
 h2.heading {
   font-size: 38px;
   line-height: 39.2px;
+  letter-spacing: normal;
 }
 
 h2.h2-mobile.heading {
   font-size: 18px;
   line-height: 25.2px;
+  letter-spacing: normal;
 }
 
 h3.heading {
   font-size: 28px;
   line-height: 39.2px;
+  letter-spacing: normal;
 }
 
 //
@@ -38,26 +43,31 @@ h3.heading {
 .paragraph.type1 {
   line-height: 16.8px;
   font-size: 12px;
+  letter-spacing: normal;
 }
 
 .paragraph.type2 {
   line-height: 25.2px;
   font-size: 18px;
+  letter-spacing: normal;
 }
 
 .paragraph.type3 {
   font-size: 16px;
   line-height: 25.6px;
+  letter-spacing: normal;
 }
 
 .paragraph.type4 {
   line-height: 25.2px;
   font-size: 18px;
   font-weight: 700;
+  letter-spacing: normal;
 }
 
 .paragraph.type5 {
   font-size: 16px;
   line-height: 25.6px;
   font-weight: 700;
+  letter-spacing: normal;
 }

@@ -2,27 +2,28 @@ import React from 'react';
 import {
   Box,
   Container,
-  Grid,
+  Grid, Hidden,
   makeStyles,
-  Typography,
-} from '@material-ui/core';
+  Typography
+} from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import Programmer from '../../assets/icons/Programmer.svg';
+import SlideDown from "./SlideDown/SlideDown";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     position: 'relative',
     overflow: 'hidden',
-    padding: '59px 30px 66px',
+    padding: '30px 30px 66px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'left',
     textAlign: 'left',
-    height: '752px',
+    height: 'auto',
     maxWidth: '1140px',
     margin: '0 auto',
     [theme.breakpoints.up('sm')]: {
-      padding: '59px 30px 66px',
+      padding: '20px 30px 66px',
     },
     [theme.breakpoints.up('md')]: {
       padding: '59px 30px 66px',
@@ -31,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('lg')]: {
       padding: '106px 30px 116px',
     },
+    [theme.breakpoints.down('xs')]: {
+      alignItems:"center",
+    },
+
   },
   title: {
     fontSize: '60px',
@@ -40,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgba(0,0,0,0.87)',
     padding: '0 11px',
     maxWidth: '472px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '38px',
+      lineHeight: '39.2px',
+    },
   },
   subTitle: {
     minWidth: '330px',
@@ -49,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Nunito', sans-serif",
     lineHeight: '25.6px',
     fontWeight: '400',
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '386px',
+    },
   },
   subTitle2: {
     minWidth: '330px',
@@ -62,10 +74,22 @@ const useStyles = makeStyles((theme) => ({
   img: {
     position: 'absolute',
     right: '100px',
+    top:'150px',
     objectFit: 'cover',
     zIndex: '-1',
     width: '387px',
     height: '340px',
+    [theme.breakpoints.down('xs')]: {
+     width: '100%',
+      height:'auto',
+      position: 'relative'
+    },
+    [theme.breakpoints.down('md')]: {
+      width: '313px',
+      height: '275px',
+      right: '0',
+      top:'50px',
+    },
   },
 }));
 
@@ -143,15 +167,11 @@ const Acquainted = () => {
   const classesSecondaryLarge = useStylesSecondaryLarge();
   return (
     <Container component="section" maxWidth={false}>
-      <Grid className={classes.container} direction="column" container>
-        <Box item className={classes.wrapperImg}>
-          <img
-            src={Programmer}
-            alt="man with laptop"
-            className={classes.img}
-            loading="lazy"
-          />
-        </Box>
+      <Hidden mdUp>
+        <SlideDown/>
+      </Hidden>
+      <Grid className={classes.container} direction="column" justify='center' container>
+        <Grid item>
         <Typography className={classes.title} component="h1" variant="h1">
           Let's get acquainted
         </Typography>
@@ -166,8 +186,17 @@ const Acquainted = () => {
           Development keeps evolving.
         </Typography>
         <Button variant="contained" className={classesSecondaryLarge.root}>
-          Sign up
+          Users
         </Button>
+        </Grid>
+        <Grid item className={classes.wrapperImg}>
+          <img
+            src={Programmer}
+            alt="man with laptop"
+            className={classes.img}
+            loading="lazy"
+          />
+        </Grid>
       </Grid>
     </Container>
   );

@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#fafafa',
     textAlign: 'center',
     overflow: 'hidden',
+    maxWidth: '1140px',
     [theme.breakpoints.up('md')]: {
       paddingBottom: '122px',
     },
@@ -35,6 +36,13 @@ const useStyles = makeStyles((theme) => ({
   },
   titleH2: {
     padding: '68px 0 2px 1px',
+    fontSize: '38px',
+    lineHeight: '39.2px',
+    fontFamily: "'Nunito', sans-serif",
+    fontWeight: '400',
+    fontStyle: 'normal',
+    textAlign: 'center',
+    color: 'rgba(0,0,0,0.87)',
     [theme.breakpoints.up('md')]: {
       padding: '112px 0 16px',
       fontSize: '60px',
@@ -49,6 +57,10 @@ const useStyles = makeStyles((theme) => ({
       padding: '155px 0 20px',
       fontSize: '60px',
     },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '28px',
+      lineHeight: '39.2px',
+    },
   },
   titleH3: {
     fontSize: '28px',
@@ -58,10 +70,14 @@ const useStyles = makeStyles((theme) => ({
     fontStyle: 'normal',
     textAlign: 'center',
     color: 'rgba(0,0,0,0.87)',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '19px',
+      lineHeight: '25.2px',
+    },
   },
   usersList: {
-    paddingTop: '37px',
-    maxWidth: '1140px',
+    paddingTop: '15px',
+    maxWidth: '900px',
     margin: '0 auto',
     [theme.breakpoints.up('md')]: {
       paddingTop: '77px',
@@ -181,7 +197,7 @@ const Users = () => {
           <CircularProgress
             thickness={5}
             size={26}
-            color="secondary"
+            color="primary"
             className={classes.preloader}
           />
         )}

@@ -1,0 +1,23 @@
+.slideDown {
+  font-family: Asap, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(126, 126, 126, 1);
+  margin-top: 15px;
+}
+
+.slideDownIcon {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.slideDownContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

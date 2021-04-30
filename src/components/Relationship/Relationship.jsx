@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '60px',
   },
   subTitle: {
-    minWidth: '330px',
     maxWidth: '360px',
     padding: '28px 11px 40px',
     fontSize: '16px',
@@ -30,9 +29,11 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '25.6px',
     fontWeight: '400',
     align: 'left',
+    [theme.breakpoints.down('md')]: {
+     margin: '0 auto',
+    },
   },
   subTitle2: {
-    minWidth: '330px',
     maxWidth: '360px',
     padding: '28px 11px 0px',
     fontSize: '28px',
@@ -40,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '39.2px',
     fontWeight: '400',
     align: 'left',
+    [theme.breakpoints.down('md')]: {
+      margin: '0 auto',
+    },
   },
   img: {
     textAlign: 'center',
@@ -47,6 +51,11 @@ const useStyles = makeStyles((theme) => ({
     width: '204px',
     height: '161px',
     margin: '0 auto',
+    [theme.breakpoints.down('sm')]: {
+      width: '146px',
+      height: 'auto',
+      margin: '0 auto',
+    },
   },
   container: {
     height: 'auto',
@@ -98,7 +107,7 @@ const Relationship = () => {
         container
       >
         {rel.map(({ title, subtitle, image }) => (
-          <Grid md={4} xs={12} sm={6} alignItems="center" item>
+          <Grid md={4} xs={12} sm={4} alignItems="center" item>
             <Box component="div" className={classes.img} item>
               <img src={image} alt="icon" />
             </Box>

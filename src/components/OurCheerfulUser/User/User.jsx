@@ -12,13 +12,7 @@ import defaultAvatar from '../../../assets/icons/defaultAvetar.svg';
 
 const useStyles = makeStyles((theme) => ({
   gridItem: {
-    paddingBottom: '35px',
-    [theme.breakpoints.up('md')]: {
-      paddingBottom: '55px',
-    },
-    [theme.breakpoints.up('lg')]: {
-      paddingBottom: '50px',
-    },
+    paddingBottom: '25px',
   },
   userContent: {
     width: '282px',
@@ -39,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     wordBreak: 'break-word',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    paddingBottom: '10px',
+    padding: ' 0 22px',
     fontFamily: "'Asap', sans-serif",
     fontWeight: '700',
     fontStyle: 'normal',

@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, memo } from "react";
 import Header from './components/HeaderUnAuth/Header';
 import Banner from './components/Banner/Banner';
 import Acquainted from './components/Acquainted/Acquainted';
@@ -6,6 +6,7 @@ import Relationship from './components/Relationship/Relationship';
 import loadFonts from './utils/loadFonts';
 import Users from './components/OurCheerfulUser/Users';
 import Footer from './components/Footer/Footer';
+// import {withTranslation} from './i18n';
 
 function App() {
   const loadFontsCallback = useCallback(loadFonts, []);
@@ -28,4 +29,5 @@ function App() {
   );
 }
 
-export default App;
+// export default withTranslation(['webdevelopment', 'common'])(App);
+export default memo(App);

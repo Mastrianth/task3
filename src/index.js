@@ -12,8 +12,8 @@ ReactDOM.render(
   // eslint-disable-next-line react/jsx-filename-extension
   <Provider store={store}>
     <CssBaseline />
-    {/* <App /> */}
-    <RegistrationPage />
+     <App />
+    {/*<RegistrationPage />*/}
     <ToastContainer />
   </Provider>,
   document.getElementById('root'),

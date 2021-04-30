@@ -40,7 +40,7 @@ const Field = (props) => {
         shrink: styles.selectLabelShrink,
       }
     : {
-        root: styles.selectInputRoot,
+        root: styles.labelRoot,
         focused: styles.labelFocused,
         error: styles.labelError,
       };
@@ -92,31 +92,34 @@ const Field = (props) => {
         FormHelperTextProps={{
           classes: {
             root: styles.helperRoot,
+            error: styles.helperError,
           },
         }}
       >
         {children}
       </TextField>
-      <div
-        style={{
-          position: "absolute",
-          top: "75px",
-          left: "300px",
-          bottom: "0px",
-          right: "6px",
-          zIndex: 3,
-          fontFamily: "Asap, sans-serif",
-          color: disabled ? "rgba(188, 188, 188, 1)" : "rgba(0, 0, 0, 0.87)",
-          fontSize: "12px",
-          fontWeight: "400",
-          fontStyle: "normal",
-          letterSpacing: "normal",
-          lineHeight: "12px",
-          textAlign: "left",
-        }}
-      >
-        {`${inputsLength} / n`}
-      </div>
+      {select === true ? null :
+        <div
+          style={{
+            position: "absolute",
+            top: "75px",
+            left: "305px",
+            bottom: "0px",
+            right: "6px",
+            zIndex: 3,
+            fontFamily: "Asap, sans-serif",
+            color: disabled ? "rgba(188, 188, 188, 1)" : "rgba(0, 0, 0, 0.87)",
+            fontSize: "12px",
+            fontWeight: "400",
+            fontStyle: "normal",
+            letterSpacing: "normal",
+            lineHeight: "12px",
+            textAlign: "left",
+          }}
+        >
+          {`${inputsLength} / n`}
+        </div>}
+
     </StylesProvider>
   );
 };

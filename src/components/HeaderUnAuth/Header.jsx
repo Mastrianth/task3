@@ -31,6 +31,10 @@ import SelectArrow from '../../stories/assets/icons/caret-down.svg';
 import MenuBurger from '../../stories/assets/icons/Menu.svg';
 import MenuItemCustom from '../../stories/components/MenuItemCustom';
 import germany from '../../stories/assets/icons/germany.svg';
+import PersonIcon from '@material-ui/icons/Person';
+import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -43,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     alignItems: 'center',
     margin: '0 auto',
+    [theme.breakpoints.down('md')]: {
+      paddingLeft: '20px'
+    }
   },
   logo: {
     width: '100px',
@@ -224,6 +231,39 @@ const useStyles = makeStyles((theme) => ({
   fullList: {
     width: 'auto',
   },
+  divider: {
+    backgroundColor: '#F4E041',
+  },
+  mobileMenuItems: {
+    fontFamily: "'Asap', sans-serif",
+    fontWeight: "400",
+    fontStyle: "normal",
+    lineHeight: "26px",
+    color: "rgba(0,0,0,0.87)",
+    fontSize: "16px",
+    position: "relative",
+    // "&:after": {
+    //   content: "",
+    //   position: "absolute",
+    //   width: "225px",
+    //   height: "40px",
+    // },
+    // "&:hover": {
+    //   backgroundColor: "rgba(0, 189, 211, 0.1)",
+    //   color: "#00BDD3",
+    //   width: "100%",
+    //   height: "auto",
+    //   cursor: "pointer",
+    //   fill: "#00BDD3",
+    // },
+    // "&:hover img": {
+    //   fill: "#00BDD3",
+    //   backgroundColor: "rgba(0, 189, 211, 0.1)",
+    // },
+    // "&:hover svg": {
+    //   backgroundColor: "rgba(0, 189, 211, 0.1)",
+    // },
+  },
 }));
 
 const Header = () => {
@@ -270,14 +310,21 @@ const Header = () => {
         {['About me', 'Relationship', 'Users', 'Quit'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {index === 0
+                ? <PersonIcon />
+                : index === 1
+                  ? <AccountTreeIcon />
+                  : index === 2
+                    ? <PeopleAltIcon />
+                    : <ExitToAppIcon />}
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText className={classes.mobileMenuItems} primary={text} />
           </ListItem>
         ))}
       </List>
-      <Divider />
+      <Divider className={classes.divider} />
       <List>
+        <Typography style={{paddingLeft: '20px',paddingTop: "17px"}} className={classes.userSubtitle}>Information</Typography>
         {['News', 'Blog', 'Partners', 'Shop'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
@@ -287,8 +334,9 @@ const Header = () => {
           </ListItem>
         ))}
       </List>
-      <Divider />
+      <Divider className={classes.divider} />
       <List>
+        <Typography style={{paddingLeft: '20px',paddingTop: "17px"}} className={classes.userSubtitle}>About</Typography>
         {['Overview', 'Design', 'Code', 'Collaborate'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
@@ -298,8 +346,9 @@ const Header = () => {
           </ListItem>
         ))}
       </List>
-      <Divider />
+      <Divider className={classes.divider} />
       <List>
+        <Typography style={{paddingLeft: '20px',paddingTop: "17px"}} className={classes.userSubtitle}>Tools</Typography>
         {['Tutorials', 'Resources', 'Guides', 'Examples'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
@@ -309,8 +358,9 @@ const Header = () => {
           </ListItem>
         ))}
       </List>
-      <Divider />
+      <Divider className={classes.divider} />
       <List>
+        <Typography style={{paddingLeft: '20px',paddingTop: "17px"}} className={classes.userSubtitle}>Support</Typography>
         {['FAQ', 'Terms', 'Conditions', 'Help'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
@@ -368,7 +418,7 @@ const Header = () => {
             </Link>
           </Box>
         </Hidden>
-        <Hidden mdUp>
+        <Hidden lgUp>
           <Grid
             container
             direction="row"
