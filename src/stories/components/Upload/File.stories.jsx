@@ -6,10 +6,8 @@ export default {
   component: File,
   decorators: [
     (Story) => (
-      // <ThemeProvider theme={muiTheme}>
       <Story />
     ),
-    // </ThemeProvider>
   ],
 };
 
