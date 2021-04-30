@@ -9,7 +9,7 @@ import Footer from './components/Footer/Footer';
 // import {withTranslation} from './i18n';
 
 function App() {
-  const loadFontsCallback = useCallback(loadFonts, []);
+  const loadFontsCallback =  useCallback(loadFonts, []);
   useEffect(
     () => loadFontsCallback(
       'https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Nunito:wght@300;400;700&display=swap',
