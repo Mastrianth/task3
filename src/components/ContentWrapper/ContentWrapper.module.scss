@@ -1,0 +1,19 @@
+@use '../../assets/scss/mixins/media';
+
+.contentWrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0px 46px 0px 46px;
+}
+
+@include media.for-tablet-portrait-down {
+  .contentWrapper {
+    padding: 0px 25px;
+  }
+}
+
+@include media.for-phone-only {
+  .contentWrapper {
+    padding: 0px 15px;
+  }
+}

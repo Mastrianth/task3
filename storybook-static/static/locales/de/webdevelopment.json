@@ -1,9 +1,0 @@
-{
-  "webDev": "Über meine Beziehung mit Web-Entwicklung",
-  "webDevTitle1": "Ich bin verliebt in HTML",
-  "webDevText1": "Hypertext Markup Language (HTML) ist die Standard-Markup-Sprache für Dokumente, die in einem Webbrowser angezeigt werden sollen. Webbrowser empfangen HTML-Dokumente von einem Webserver oder vom lokalen Speicher und rendern die Dokumente in Multimedia-Webseiten. HTML beschreibt die Struktur einer Webseite semantisch und enthält ursprünglich Hinweise für das Erscheinungsbild des Dokuments.",
-  "webDevTitle2": "CSS ist meine Inspiration",
-  "webDevText2": "Cascading Style Sheets (CSS) ist eine Stylesheet-Sprache, mit der die Präsentation eines Dokuments beschrieben wird, das in einer Auszeichnungssprache wie HTML geschrieben ist. CSS wurde entwickelt, um die Trennung von Präsentation und Inhalt zu ermöglichen, einschließlich Layout, Farben und Schriftarten. Diese Trennung kann die Zugänglichkeit von Inhalten verbessern, mehr Flexibilität und Kontrolle bei der Spezifikation von Präsentationseigenschaften bieten.",
-  "webDevTitle3": "JavaScript ist mein Freund",
-  "webDevText3": "JavaScript, oft als JS abgekürzt, ist eine Programmiersprache, die der ECMAScript-Spezifikation entspricht. JavaScript ist auf hoher Ebene, oft just-in-time kompiliert und ein Multi-Paradigma. Es verfügt über Curly-Bracket-Syntax, dynamische Typisierung, prototypbasierte Objektorientierung und erstklassige Funktionen."
-}

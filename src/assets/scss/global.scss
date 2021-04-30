@@ -1,0 +1,79 @@
+@use 'vars/colors';
+@use 'vars/sizes';
+@use 'mixins/media';
+
+* {
+  outline: none;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: auto;
+}
+
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.show-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  overflow-y: scroll; /* render disabled scroll bar to keep the same width */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.nav-link_active.nav-link_active {
+  color: colors.$secondary;
+}
+
+.tooltip.tooltip.tooltip {
+  max-width: 284px;
+  padding: 6px 10px;
+  border-radius: sizes.$border-radius;
+  box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.11);
+  background-color: colors.$tooltip-background;
+  box-sizing: border-box;
+
+  color: colors.$tooltip-text;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: normal;
+  word-break: break-all;
+}
+
+@include media.for-desktop-up {
+  .tooltip.tooltip.tooltip {
+    max-width: 352px;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .tooltip.tooltip.tooltip {
+    max-width: 219px;
+  }
+}
+
+@include media.for-phone-only {
+  .tooltip.tooltip.tooltip {
+    max-width: 273px;
+  }
+}

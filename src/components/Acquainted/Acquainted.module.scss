@@ -1,0 +1,233 @@
+@import '../../assets/scss/vars/constans.scss';
+
+.about {
+  background-color: #F8F8F8;
+  &ContentContainer {
+    display: flex;
+    flex-direction: column;
+    color:rgba(0, 0, 0, 0.87);
+    margin: 0 auto;
+    height: auto;
+  }
+
+  &Title {
+    margin-block-start:0;
+    text-align: left;
+    font-family: $FONT-SECONDARY;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 39.2px;
+    letter-spacing: 0em;
+
+  }
+
+  &Subtitle {
+
+    font-family: $FONT-MAIN;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    margin-top:18px;
+  }
+
+  &ButtonContainer {
+    margin-top:33px;
+  }
+
+  &Logo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.aboutLogoContainer {
+  max-width: 328px;
+  margin:40px auto 0;
+}
+
+.slideDownContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:17px;
+  margin-bottom: 17px;
+
+}
+
+.aboutText {
+  margin-top:10px;
+  font-family: Asap, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
+@media (min-width: 576px) {
+  .aboutTitle {
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+
+  }
+
+  .aboutSubtitle {
+    font-family: $FONT-SECONDARY;
+    font-size: 28px;
+    line-height: 39px;
+
+    margin-top: 5px;
+    position: relative;
+
+  }
+}
+
+
+@media (min-width: 640px) {
+
+  .aboutLeftColumn {
+    width: 56%;
+    padding-right:10px;
+  }
+
+  .aboutRightColumn {
+    width: 44%;
+    align-self: center;
+  }
+
+
+  .slideDownContainer {
+    margin-top:36px;
+    margin-bottom: 36px;
+  }
+
+  .aboutTitle {
+
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+
+  }
+
+  .aboutSubtitle {
+    font-family: $FONT-SECONDARY;
+    font-size: 28px;
+    line-height: 39px;
+
+    margin-top: 5px;
+    position: relative;
+
+  }
+
+  .aboutContentContainer {
+    flex-direction: row;
+  }
+  .aboutLogoContainer {
+    width: 100%;
+    max-width: 387px;
+    margin: 10px auto 0;
+  }
+
+
+
+  .aboutText {
+    margin-top: 19px;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .aboutLeftColumn {
+    padding-right:0;
+  }
+}
+
+@media (min-width: 769px) {
+  .aboutSubtitle {
+    font-family: $FONT-SECONDARY;
+    font-size: 28px;
+    line-height: 39px;
+
+    margin-top: 11px;
+    position: relative;
+    //left: -1px;
+    //letter-spacing: 0.3px;
+  }
+
+  .aboutLogoContainer {
+    width: 100%;
+    max-width: 387px;
+    margin:13px auto 0;
+  }
+
+  .aboutText {
+    margin-top: 19px;
+  }
+
+
+}
+
+@media (min-width: 992px) {
+
+  .aboutTitle {
+    text-align: left;
+
+    font-size: 60px;
+    line-height: 63px;
+  }
+
+  .aboutContentContainer {
+    padding-top: 172px;
+  }
+
+  .slideDownContainer {
+    display: none;
+  }
+
+  .aboutLeftColumn {
+    width: 58%;
+  }
+}
+@media (min-width: 2560px) {
+  .aboutContentContainer {
+    padding-top: 170px;
+    justify-content: space-between;
+
+  }
+
+  .aboutLeftColumn {
+    width: 684px;
+  }
+
+  .aboutTitle {
+    margin-top: 17px;
+
+  }
+
+  .aboutLogoContainer {
+    margin:10px auto 0;
+  }
+
+  .aboutLeftColumn {
+    width: 60%;
+  }
+
+  .aboutRightColumn {
+    width: 34%;
+  }
+}
+

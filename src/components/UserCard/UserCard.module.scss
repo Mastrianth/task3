@@ -1,0 +1,183 @@
+@use '../../assets/scss/vars/colors';
+@use '../../assets/scss/mixins/media';
+
+.UserCard {
+  width: 100%;
+  max-width: 284px;
+  margin-top: 62px;
+  margin-right: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.UserCardPlaceholder {
+  max-width: 262px;
+  margin-top: 66px;
+  margin-right: 61px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: colors.$loader;
+}
+
+.avatarPlaceholder {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: colors.$loader;
+}
+
+.textWrapper {
+  width: 100%;
+  margin-left: 8px;
+  padding-top: 22px;
+}
+
+.textWrapperPlaceholder {
+  margin-left: 9px;
+  padding-top: 27px;
+}
+
+.name {
+  margin: 0px 0px 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: colors.$text;
+}
+
+.namePlaceholder {
+  width: 130px;
+  height: 16px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  background-color: colors.$loader;
+}
+
+.position {
+  margin: 0px;
+
+  color: colors.$text2;
+  line-height: 17px;
+}
+
+.positionPlaceholder {
+  width: 160px;
+  height: 10px;
+  margin-bottom: 8px;
+  border-radius: 2px;
+  background-color: colors.$loader;
+}
+
+.email {
+  margin: 0px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  color: colors.$text2;
+  line-height: 17px;
+}
+
+.emailPlaceholder {
+  width: 180px;
+  height: 10px;
+  margin-bottom: 8px;
+  border-radius: 2px;
+  background-color: colors.$loader;
+}
+
+.phone {
+  margin: 0px;
+
+  color: colors.$text2;
+}
+
+.phonePlaceholder {
+  width: 110px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: colors.$loader;
+}
+
+@include media.for-desktop-up {
+  .UserCard {
+    max-width: 352px;
+    margin-top: 59px;
+    margin-right: 38px;
+  }
+
+  .textWrapper {
+    padding-top: 20px;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .UserCard {
+    max-width: 215px;
+    margin-top: 36px;
+    margin-right: 24px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .textWrapper {
+    padding-top: 10px;
+  }
+
+  .name {
+    margin: 0px 0px 8px;
+
+    text-align: center;
+  }
+
+  .position {
+    text-align: center;
+  }
+
+  .email {
+    text-align: center;
+  }
+
+  .phone {
+    text-align: center;
+  }
+}
+
+@include media.for-phone-only {
+  .UserCard {
+    max-width: 273px;
+    margin-top: 30px;
+    margin-right: 0px;
+    position: relative;
+    left: -2px;
+  }
+
+  .avatar {
+    position: relative;
+    left: 4px;
+  }
+
+  .name {
+
+  }
+
+  .position {
+
+  }
+
+  .email {
+
+  }
+
+  .phone {
+
+  }
+}

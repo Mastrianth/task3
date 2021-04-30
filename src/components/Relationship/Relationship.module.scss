@@ -1,0 +1,272 @@
+@use '../../assets/scss/vars/colors';
+@use '../../assets/scss/mixins/media';
+
+.Relationships {
+  padding: 131px 0px 135px;
+  background-color: #F8F8F8;
+}
+
+.heading {
+  max-width: 535px;
+  margin: 0px auto 49px;
+
+  text-align: center;
+}
+
+.container {
+  margin: 0px 3px 0px 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.techWrapper {
+  max-width: 288px;
+  width: 100%;
+}
+
+.HTMLImg {
+  width: 204px;
+  height: 161px;
+  margin-bottom: 19px;
+}
+
+.CSSImg {
+  width: 204px;
+  height: 161px;
+  margin-bottom: 19px;
+}
+
+.JSImg {
+  width: 204px;
+  height: 161px;
+  margin-bottom: 16px;
+}
+
+.subheading {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: -1px;
+}
+
+.text {
+  margin: 0px;
+
+  color: colors.$text2;
+}
+
+.text1 {
+  max-width: 282px;
+  margin-top: 10px;
+  margin-left: 2px;
+}
+
+.text2 {
+  max-width: 282px;
+  margin-top: 10px;
+  margin-left: 2px;
+}
+
+.text3 {
+  max-width: 282px;
+  margin-top: 10px;
+  margin-left: 2px;
+}
+
+
+.link {
+  margin-left: -3px;
+}
+
+@include media.for-desktop-up {
+  .Relationships {
+    padding: 131px 0px 135px;
+  }
+
+  .container {
+    margin: 0px 10px 0px 0px;
+  }
+
+  .heading {
+    margin: 0px auto 49px;
+  }
+
+  .techWrapper {
+    max-width: 350px;
+  }
+
+  .subheading {
+    margin-left: 0px;
+  }
+
+  .text1 {
+    max-width: 345px;
+    margin-left: 0px;
+  }
+
+  .text2 {
+    max-width: 306px;
+    margin-left: 0px;
+  }
+
+  .text3 {
+    max-width: 355px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and (max-width: 1010px) {
+  .Relationships {
+    padding: 90px 0px 95px;
+  }
+
+  .heading {
+    margin: 0px auto 43px;
+  }
+
+  .container {
+    margin-left: -4px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .techWrapper {
+    max-width: 587px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .techWrapper:last-child {
+    margin-top: -25px;
+  }
+
+  .HTMLImg {
+    max-width: 204px;
+    min-width: 88px;
+    height: 161px;
+    margin: 0px;
+    top: 5px;
+    position: relative;
+  }
+
+  .CSSImg {
+    margin: 0px;
+    max-width: 204px;
+    min-width: 88px;
+    height: 161px;
+    top: 6px;
+    position: relative;
+  }
+
+  .JSImg {
+    margin: 0px;
+    max-width: 204px;
+    min-width: 90px;
+    height: 161px;
+    top: 6px;
+    position: relative;
+  }
+
+  .textWrapper {
+    margin-left: 36px;
+  }
+
+  .subheading {
+    max-width: initial;
+  }
+
+  .text1 {
+    max-width: 463px;
+    margin-top: 7px;
+    margin-left: 1px;
+  }
+
+  .text2 {
+    max-width: 418px;
+    margin-top: 8px;
+    margin-left: 0px;
+  }
+
+  .text3 {
+    max-width: 461px;
+    margin-top: 8px;
+    margin-left: -1px;
+  }
+}
+
+@include media.for-phone-only {
+  .Relationships {
+    padding: 54px 0px 55px;
+  }
+
+  .heading {
+    margin: 0px auto 34px;
+  }
+
+  .container {
+    margin: 0px;
+  }
+
+  .techWrapper {
+    margin-top: 28px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .techWrapper:first-child {
+    top: -1px;
+    position: relative;
+  }
+
+  .techWrapper:last-child {
+    margin-top: 28px;
+  }
+
+  .HTMLImg {
+    top: 0px;
+    position: static;
+  }
+
+  .CSSImg {
+    top: 0px;
+    position: static;
+  }
+
+  .JSImg {
+    margin-bottom: 3px;
+    top: 0px;
+    position: static;
+  }
+
+  .textWrapper {
+    margin: 10px auto 0px;
+  }
+
+  .subheading {
+    text-align: left;
+  }
+
+  .text {
+    text-align: left;
+  }
+
+  .text1 {
+    margin-top: 4px;
+    margin-left: 0px;
+  }
+
+  .text2 {
+    margin-top: 4px;
+  }
+
+  .text3 {
+    margin-top: 4px;
+    padding: 0px 6px;
+  }
+}
