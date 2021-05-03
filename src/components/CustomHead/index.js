@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import favIcon from '../../../public/assets/favicon.png';
 
 const CustomHead = ({ title }) => {
   const titleBase = 'Test assignment for Frontend Developer position';
@@ -14,7 +15,7 @@ const CustomHead = ({ title }) => {
         name="description"
         content="We kindly remind you that your test assignment should be submitted as a link to github/bitbucket repository. Please be patient, we consider and respond to every application that meets minimum requirements. We look forward to your submission. Good luck!"
       />
-      <link rel="icon" href="/favicon-32x32.png" />
+      <link rel="icon" href={favIcon} />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <meta name="robots" content="noindex, nofollow" />
       <script dangerouslySetInnerHTML={{

@@ -4,11 +4,10 @@ import {
   SET_SCROLL_POSITION,
   SHOW_USER_BTN_SPINNER,
   HIDE_USER_BTN_SPINNER,
-
   FETCH_CURRENT_USER,
   FETCH_CURRENT_USER_FAIL,
   SET_CURRENT_USER,
-
+  PAGE_LOADED,
   FETCH_USERS,
   FETCH_USERS_START,
   FETCH_USERS_SUCCESS,
@@ -17,6 +16,7 @@ import {
   CLEAR_USERS,
 } from '../constants/actionTypes';
 
+export const pageLoaded = () => ({ type: PAGE_LOADED });
 export const openSideDrawer = () => ({ type: OPEN_SIDEDRAWER });
 export const closeSideDrawer = () => ({ type: CLOSE_SIDEDRAWER });
 export const setScrollPosition = (scrollPosition) => ({

@@ -9,7 +9,7 @@
   "aboutText": "Was einen guten Front-End-Entwickler auszeichnet, ist einer, der über fundierte Kenntnisse in HTML, CSS und JS verfügt und ein umfassendes Verständnis des User Design-Denkens besitzt, da er Webschnittstellen mit Blick auf die Barrierefreiheit erstellt. Sie sollten auch begeistert sein zu lernen, da sich die Welt der Front-End-Entwicklung weiterentwickelt.",
   "bannerTitle": "Testaufgabe für Front-End-Entwickler",
   "bannerText": "Front-End-Entwickler stellen sicher, dass der Benutzer alle erforderlichen Elemente sieht und mit ihnen interagiert, um die Konvertierung sicherzustellen.",
-  "bannerTextForDesktop": "Responsive Design, Programmiersprachen und spezifische Frameworks sind daher die unverzichtbaren Fähigkeiten, auf die Sie bei der Beurteilung Ihrer Front-End-Entwickler achten müssen.",
+  "bannerTextForDesktop": "Front-End-Entwickler stellen sicher, dass der Benutzer alle erforderlichen Elemente sieht und mit ihnen interagiert, um die Konvertierung sicherzustellen. Responsive Design, Programmiersprachen und spezifische Frameworks sind daher die unverzichtbaren Fähigkeiten, auf die Sie bei der Beurteilung Ihrer Front-End-Entwickler achten müssen.",
   "error-with-status": "Auf dem Server ist ein Fehler ({{statusCode}}) aufgetreten",
   "error-without-status": "Auf dem Server ist ein Fehler aufgetreten",
   "about-me": "Über mich",

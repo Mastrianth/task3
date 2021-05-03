@@ -21,23 +21,23 @@ const Relationships = ({ t }) => {
     {
       imgSrc: htmlImg,
       imgClasses: classes.HTMLImg,
-      i18nHeadingId: 'I\'m in love with HTML',
+      i18nHeadingId: 'webDevTitle1',
       textClasses: textClasses1,
-      i18nTextId: 'Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.',
+      i18nTextId: 'webDevText1',
     },
     {
       imgSrc: cssImg,
       imgClasses: classes.CSSImg,
-      i18nHeadingId: 'CSS is my inspiration',
+      i18nHeadingId: 'webDevTitle2',
       textClasses: textClasses2,
-      i18nTextId: 'Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics.',
+      i18nTextId: 'webDevText2',
     },
     {
       imgSrc: jsImg,
       imgClasses: classes.JSImg,
-      i18nHeadingId: 'JavaScript is my friend',
+      i18nHeadingId: 'webDevTitle3',
       textClasses: textClasses3,
-      i18nTextId: 'JavaScript often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.',
+      i18nTextId: 'webDevText3',
     },
   ];
 
@@ -62,7 +62,7 @@ const Relationships = ({ t }) => {
   return (
     <section className={classes.Relationships} id="relationships">
       <ContentWrapper>
-        <h2 className={headingClasses}>{t('About my relationships with web-development')}</h2>
+        <h2 className={headingClasses}>{t('webDev')}</h2>
         <div className={classes.container}>
           {techsHTML}
         </div>
@@ -75,4 +75,4 @@ Relationships.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default memo(withTranslation('main')(Relationships));
+export default memo(withTranslation('webdevelopment')(Relationships));

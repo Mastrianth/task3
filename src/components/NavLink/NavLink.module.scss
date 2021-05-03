@@ -49,8 +49,8 @@
     content: "";
     display: block;
     border-radius: 4px;
-    width: auto;
-    height: auto;
+    width: calc(100%);
+    height: calc(100% + 12px);
 
     background: rgba(234, 89, 36, 0.2);
     z-index: -1;

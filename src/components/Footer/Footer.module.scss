@@ -1,0 +1,417 @@
+@import '../../assets/scss/vars/constans.scss';
+
+.logoLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerWrapper {
+  height: 339px;
+}
+
+.footprints {
+  position: absolute;
+  z-index: -1;
+  top: -123px;
+
+  right: -248px;
+  width: 575px;
+
+}
+
+.rightMenuFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: Asap, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+
+
+
+.leftMenuFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: Asap, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.leftMenuFooter a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+  margin-left: 33px;
+
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.leftMenuFooter a:after {
+  content: "";
+  display: block;
+  border-radius: 4px;
+  width: calc(100% + 36px);
+  height: calc(100% + 12px);
+
+  background: rgba(234, 89, 36, 0);
+  position: absolute;
+  z-index: -1;
+  transform: translateY(-31px) translateX(-18px);
+}
+
+.leftMenuFooter a:hover:after {
+  background: rgba(234, 89, 36, 0.2);
+}
+
+.leftMenuFooter a.selected {
+  color: rgba(234, 89, 36, 1);
+  cursor:default !important;
+  pointer-events: none;
+}
+
+.leftMenuFooter.authorized {
+  width: 400px;
+}
+
+
+
+
+.rightMenuFooter a {
+  text-decoration: none;
+
+  position: relative;
+  z-index: 1;
+  color:rgba(126, 126, 126, 1);
+}
+
+.rightMenuFooter button.selected {
+  color: rgba(234, 89, 36, 1);
+  cursor:default !important;
+  pointer-events: none;
+
+}
+
+.langMenu {
+  display: flex;
+  justify-content: space-between;
+
+  width: 62px;
+}
+
+
+.langMenu button {
+  outline: none;
+  background: #fff;
+  border: none;
+  cursor:pointer;
+  position: relative;
+  padding: 0;
+
+  font-family: Asap, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0;
+  text-align: center;
+
+  color: rgba(126, 126, 126, 1);
+
+}
+
+.langMenu button:after {
+  content: "";
+  display: block;
+  border-radius: 4px;
+
+  top: -6px;
+  left: -10px;
+  right: -9px;
+  bottom: -6px;
+
+  background: rgba(234, 89, 36, 0);
+  position: absolute;
+  z-index: 1;
+
+}
+
+.langMenu button:hover:after {
+  background: rgba(234, 89, 36, 0.2);
+}
+
+
+.footerMenuWrapper {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 17px;
+}
+
+
+.hrFooter {
+  border-top: 1px solid #F4E041;
+  margin-top: 0
+}
+
+.footerSitemapWrapper {
+  display:none;
+
+  margin-top: 52px;
+}
+
+.footerCopyrightAndLinksWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 59px;
+}
+
+.footerSitemapColumn1{
+  display: flex;
+  justify-content: space-between;
+
+  font-family: Asap, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
+.footerCol {
+  //width: 156px;
+  margin-right:61px;
+}
+
+.footerCol:last-of-type {
+  margin-right:0;
+}
+
+.footerSitemapColumn1 a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.footerSitemapColumn1 a:hover {
+  color: rgba(0, 82, 180, 1);
+}
+
+.footerSitemapColumn2 a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.footerSitemapColumn2 a:hover {
+  color: rgba(0, 82, 180, 1);
+}
+
+
+
+.columnTitle{
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+
+.footerSitemapColumn2{
+  text-align: right;
+  font-family: Asap, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0;
+}
+
+
+.footerCopyright {
+  font-family: Asap, sans-serif;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0;
+  text-align: left;
+
+  order:3;
+  margin-top: 19px;
+}
+
+.footerIcons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  bottom: 6px;
+
+  order:2;
+}
+
+.footerIcons a {
+  -webkit-tap-highlight-color: transparent;
+
+  border: 1px solid #F4E041;
+  border-radius: 50%;
+  width: 37px;
+  height: 37px;
+
+  margin-left: 21px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.footerIcons a:nth-of-type(1){
+  margin-left: 0;
+}
+
+
+.footerIcons a:after {
+  content:"";
+  position: absolute;
+  width:48px;
+  height: 48px;
+
+
+}
+
+.footerIcons a:hover {
+  border: 1px solid #EA5924;
+}
+
+.footerIcons a:hover path {
+  fill: #EA5924;
+}
+.footerIcons a:hover svg {
+  fill: #EA5924;
+}
+
+.linksWrapper {
+  display: none;
+}
+
+
+.headerMenuWrapper {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  justify-content: center;
+}
+
+.footerButton{
+  order:1;
+}
+
+
+@media (min-width: 576px) {
+  .footprints {
+    top:-175px;
+    right: -351px;
+    width: 816px;
+  }
+
+  .footerCol {
+    margin-right:44px;
+  }
+}
+
+@media (min-width: 768px) {
+
+
+  .footerWrapper {
+    height: 411px;
+  }
+
+  .linksWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex:1
+
+  }
+
+  .footerSitemapWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footerButton{
+    display: none;
+  }
+
+  .footerCopyrightAndLinksWrapper {
+    flex-direction: row;
+
+    margin-top: 43px;
+  }
+
+  .footerCopyright {
+    order:2;
+    margin-top: 0;
+  }
+
+  .footerIcons {
+    order:3;
+    margin-top:0;
+    bottom: -2px;
+  }
+
+  .footerIcons a {
+    margin-left: 12px;
+  }
+
+
+
+
+  .footerIcons a:after {
+    width:40px;
+    height: 40px;
+  }
+
+
+
+}
+@media (min-width: 992px) {
+  .footprints {
+    top:-175px;
+    right: -351px;
+    width: 816px;
+  }
+
+  .footerCol {
+    margin-right:61px;
+  }
+}
+
+@media  (min-width: 2560px)   {
+  .leftMenuFooter a {
+    margin-left: 60px;
+  }
+
+  .footprints {
+    right: 356px;
+    width: 816px;
+  }
+
+}

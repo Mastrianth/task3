@@ -16,7 +16,7 @@ import GermanyLogo from '../../assets/img/svg/germany.svg';
 import Arrow from '../../assets/img/svg/arrow.svg';
 
 const Header = ({
-  t, userName, userEmail, userAvatar, logOut,
+  t, userName, userEmail, userAvatar, logOut, isLoaded, openSideDrawer,
 }) => {
   const [activeLanguageMenu, setActiveLanguageMenu] = useState(false);
   const { i18n: { language, changeLanguage } } = useContext(I18nContext);
@@ -35,14 +35,13 @@ const Header = ({
           <div className={classes.container}>
             <nav className={classes.menu}>
               <ul className={classes.menu__ul}>
-                <NavLink to="about-me">{t('About me')}</NavLink>
-                <NavLink to="relationships">{t('Relationships')}</NavLink>
-                <NavLink to="users">{t('Users')}</NavLink>
-                <NavLink to="sign-up">{t('Sign Up')}</NavLink>
+                <NavLink to="about-me">{t('about-me')}</NavLink>
+                <NavLink to="relationships">{t('relationship')}</NavLink>
+                <NavLink to="users">{t('users')}</NavLink>
+                <NavLink to="sign-up">{t('sign-up')}</NavLink>
               </ul>
             </nav>
           </div>
-
           <div className={classes.mobMenu}>
             <ClickAwayListener onClickAway={() => setActiveLanguageMenu(false)}>
               <div className={classes.mobileLangContainer}>
@@ -87,13 +86,13 @@ const Header = ({
               userAvatar={userAvatar}
               userEmail={userEmail}
               logOut={logOut}
+              isLoaded
             />
           </div>
 
           <IconButton
             isSecondary
-            onClick={() => {
-            }}
+            onClick={openSideDrawer}
             className={classes.burgerBtn}
           >
             <BurgerIcon className={classes.burgerImg} />
@@ -112,10 +111,11 @@ Header.defaultProps = {
 
 Header.propTypes = {
   t: PropTypes.func.isRequired,
-  userName: PropTypes.string,
-  userEmail: PropTypes.string,
-  userAvatar: PropTypes.string,
-  logOut: PropTypes.func,
+  userName: PropTypes.string.isRequired,
+  userEmail: PropTypes.string.isRequired,
+  userAvatar: PropTypes.string.isRequired,
+  isLoaded: PropTypes.bool.isRequired,
+  openSideDrawer: PropTypes.func.isRequired,
+  logOut: PropTypes.func.isRequired,
 };
-
 export default withTranslation('common')(Header);

@@ -11,6 +11,8 @@ import { getApiUsersLength, getIsInitialLoadingComplete, getUsers } from '../../
 import classes from './Users.module.scss';
 import UserCard from '../UserCard';
 import Button from '../Button';
+import Preloader from '../Preloader/Preloader';
+import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 
 const Users = ({ t }) => {
   const dispatch = useDispatch();
@@ -28,26 +30,35 @@ const Users = ({ t }) => {
   const subheadingClasses = classNames('h5', classes.subheading);
   const containerClasses = classNames(classes.container, { [classes.isLoading]: !isInitialLoadingComplete });
 
-  const btnContent =
-  //     isUserBtnSpinnerActive ? (
-  //   <CircularProgress
-  //     thickness={5}
-  //     size={26}
-  //     color="primary"
-  //   />
-  // ) :
-      t('Show more');
+  const btnContent = isUserBtnSpinnerActive
+    ? <Preloader />
+    : t('users-button');
 
   const button = users.length >= apiUsersLength ? null : (
-    <Button
-      onClick={() => dispatch(fetchUsers(users.length))}
-      variant="secondary"
-      isCentered
-      className={classes.button}
-      isDisabled={isUserBtnSpinnerActive}
-    >
-      {btnContent}
-    </Button>
+  // <Button
+  //   onClick={() => dispatch(fetchUsers(users.length))}
+  //   variant="secondary"
+  //   isCentered
+  //   className={classes.button}
+  //   isDisabled={isUserBtnSpinnerActive}
+  // >
+  //   {btnContent}
+  // </Button>
+    <div className={classes.button}>
+      <ButtonComponent
+        onClick={() => dispatch(fetchUsers(users.length))}
+        variant="contained"
+        color="primary"
+        size="large"
+        className={classes.button}
+        disabled={false}
+        label={t('users-button')}
+      >
+        {' '}
+        {btnContent}
+      </ButtonComponent>
+    </div>
+
   );
 
   const usersCard = users.map(({
@@ -67,13 +78,12 @@ const Users = ({ t }) => {
   return (
     <section className={classes.Users} id="users">
       <ContentWrapper>
-        <h2 className={headingClasses}>{t('Our cheerful users')}</h2>
-        <h3 className={subheadingClasses}>{t('The best specialists are shown below')}</h3>
+        <h2 className={headingClasses}>{t('users-text')}</h2>
+        <h3 className={subheadingClasses}>{t('best')}</h3>
 
         <div className={containerClasses}>
           {usersCard}
         </div>
-
         {button}
       </ContentWrapper>
     </section>

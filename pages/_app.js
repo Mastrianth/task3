@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import App from 'next/app';
 import { useRouter } from 'next/router';
 import ReactTooltip from 'react-tooltip';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { appWithTranslation } from '../i18n';
 import loadFonts from '../src/components/utils/loadFonts';
 import wrapper from '../redux/store';

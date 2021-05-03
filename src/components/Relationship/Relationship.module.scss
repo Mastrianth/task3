@@ -23,6 +23,8 @@
 .techWrapper {
   max-width: 288px;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .HTMLImg {

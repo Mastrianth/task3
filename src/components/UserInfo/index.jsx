@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import classNames from 'classnames';
 import IconButton from '../IconButton';
-
+import userPlaceholderImg from '../../assets/img/svg/do-not-inline/ImagePlaceHolder.svg';
 import LogOutIcon from '../../assets/img/svg/exit.svg';
 import classes from './UserInfo.module.scss';
 
 const UserInfo = ({
-  userName, userEmail, userAvatar, logOut, isLoaded,
+  userName, userEmail, userAvatar, logOut, isLoaded, isOnSideBar,
 }) => {
+  const userInfoClasses = classNames(classes.UserInfo, { [classes.onSideBar]: isOnSideBar });
+  const nameClasses = classNames('p3', classes.name);
   const userInfo = isLoaded ? (
     <>
       <img src={userAvatar} alt={userName} className={classes.avatar} />
       <div className={classes.container}>
-        <p className={`p3 ${classes.name}`}>{userName}</p>
+        <p className={nameClasses}>{userName}</p>
         <p className={classes.email}>{userEmail}</p>
       </div>
 
@@ -29,7 +31,7 @@ const UserInfo = ({
   );
 
   return (
-    <div className={classes.UserInfo}>
+    <div className={userInfoClasses}>
       {userInfo}
       <IconButton isSecondary onClick={logOut} className={classes.logOutButton}>
         <LogOutIcon className={classes.logOutIcon} />
@@ -39,8 +41,9 @@ const UserInfo = ({
 };
 
 UserInfo.defaultProps = {
-  userAvatar: null,
+  userAvatar: userPlaceholderImg,
   isLoaded: false,
+  isOnSideBar: false,
 };
 
 UserInfo.propTypes = {
@@ -49,6 +52,7 @@ UserInfo.propTypes = {
   userAvatar: PropTypes.string,
   logOut: PropTypes.func.isRequired,
   isLoaded: PropTypes.bool,
+  isOnSideBar: PropTypes.bool,
 };
 
 export default UserInfo;

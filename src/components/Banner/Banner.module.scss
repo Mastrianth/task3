@@ -3,9 +3,8 @@
 
 .Banner {
   margin: 64px 0px 0px;
-  height: auto;
+  height: 650px;
   padding-top: 128px;
-  padding-bottom: 158px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left top;
@@ -14,6 +13,7 @@
 @media (max-height: 750px) and (max-width: 1440px) and (min-width: 769px) {
   .Banner {
     padding-bottom: 50px;
+    height: 500px;
   }
 }
 
@@ -30,6 +30,7 @@
   /* Small screen, non-retina */
   .Banner {
     background-image: url('../../assets/img/banner/banner-background-360.jpg');
+    height: auto;
   }
 
   :global(html.webp) .Banner {

@@ -43,6 +43,10 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-left: 0;
+}
+.menu__ul a:hover:after {
+  background: rgba(234, 89, 36, 0.2);
 }
 
 .users {
@@ -208,4 +212,8 @@
   &:hover {
     color: rgba(0, 0, 0, 0.87);
   }
+}
+
+.right {
+  align-items: center;
 }

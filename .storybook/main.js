@@ -1,10 +1,22 @@
 module.exports = {
   "stories": [
-    "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
+    "../stories/**/*.stories.js"
   ],
   "addons": [
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
+    "@storybook/addon-essentials",
+    "@storybook/addon-actions",
+    "@storybook/addon-knobs",
+    {
+      name: '@storybook/preset-scss',
+      options: {
+        cssLoaderOptions: {
+          modules: {
+            localIdentName: '[name]__[local]___[hash:base64:5]'
+          },
+          sourceMap: true,
+        }
+      },
+    }
   ]
 }
