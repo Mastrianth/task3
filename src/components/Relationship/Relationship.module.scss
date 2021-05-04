@@ -1,5 +1,6 @@
 @use '../../assets/scss/vars/colors';
 @use '../../assets/scss/mixins/media';
+@import '../../assets/scss/vars/constans.scss';
 
 .Relationships {
   padding: 131px 0px 135px;
@@ -272,3 +273,192 @@
     padding: 0px 6px;
   }
 }
+
+
+
+//mybonesintothesea
+
+
+
+.webdevTitle {
+  font-family: $FONT-SECONDARY;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  margin-top: 84px;
+  margin-bottom: 29px;
+
+  color: rgba(0, 0, 0, 0.87);
+
+}
+
+.webdevSubtitle {
+  font-family: $FONT-SECONDARY;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.webdevTechContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.webdevLogoContainer {
+  max-width: 282px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.third {
+  bottom: 1px;
+}
+
+.webdevText {
+  margin-top: 10px;
+  word-wrap: normal;
+  font-family: $FONT-MAIN;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0;
+  text-align: left;
+
+  color: rgba(0, 0, 0, 0.87);
+
+}
+
+.webdevSubtitle {
+  margin-top: 29px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.webdevColumn {
+  margin-bottom: 52px;
+  text-align: center;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+
+@media (min-width: 576px) {
+  .webdevTitle {
+    font-size: 38px;
+    line-height: 40px;
+    max-width: 450px;
+    margin: 135px auto 52px;
+
+    letter-spacing: -0.3px;
+  }
+  .webdevColumn {
+  text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .webdevColumn {
+    width: calc(32% - 18px);
+    margin-top: 0;
+    margin-bottom: 27px;
+  }
+
+  .webdevTechContainer {
+    flex-direction: row;
+    margin-top: 48px;
+  }
+
+  .webdevLogoContainer {
+    max-width: 250px;
+  }
+}
+
+@media (min-width: 992px) {
+  .webdevColumn {
+    width: 281px;
+    margin-top: 0;
+    margin-bottom: 27px;
+  }
+
+  .webdevTechContainer {
+    flex-direction: row;
+    margin-top: 48px;
+  }
+
+  .webdevLogoContainer {
+    margin: 0 auto;
+    max-width: 204px;
+  }
+
+  .webdevTitle {
+    font-size: 60px;
+    line-height: 63px;
+    max-width: 700px;
+    margin: 172px auto 0;
+    letter-spacing: -0.3px;
+
+  }
+
+  .webdevSubtitle {
+    margin-top: 29px;
+  }
+
+  .first {
+    right: 8px;
+  }
+
+  .second {
+    right: 10px;
+  }
+
+  .third {
+    right: 10px;
+    bottom: 0;
+  }
+}
+
+
+@media (min-width: 2560px) {
+  .webdevColumn {
+    width: 360px;
+    margin-top: 0px;
+  }
+
+  .webdevTechContainer {
+    flex-direction: row;
+    margin-top: 46px;
+  }
+
+  .webdevLogoContainer {
+    margin: 0 auto;
+
+  }
+
+  .webdevTitle {
+    margin: 169px auto 0;
+  }
+
+  .first {
+    right: 0;
+  }
+
+  .second {
+    right: 0;
+  }
+
+  .third {
+    right: 0;
+
+  }
+}
+

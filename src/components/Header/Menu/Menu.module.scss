@@ -1,0 +1,339 @@
+@import '../../../assets/scss/vars/constans.scss';
+
+.logoLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuWrapper {
+  background: #fff;
+  height: 60px;
+
+
+  margin-right: -16px;
+  display: flex;
+  align-items: center;
+
+
+}
+
+.linksWrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex:1;
+}
+
+.leftMenu {
+
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: Asap, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.leftMenu a {
+  cursor: pointer;
+  margin-left: 33px;
+
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+
+  position: relative;
+  z-index: 2;
+}
+
+.leftMenu a:after {
+  content: "";
+  display: block;
+  border-radius: 4px;
+  width: calc(100% + 36px);
+  height: calc(100% + 12px);
+
+  background: rgba(234, 89, 36, 0);
+  position: absolute;
+  z-index: -1;
+  transform: translateY(-31px) translateX(-18px);
+}
+
+
+.leftMenu a:hover:after {
+  background: rgba(234, 89, 36, 0.2);
+}
+
+.leftMenu a.selected {
+  color: rgba(234, 89, 36, 1);
+  cursor:default !important;
+  pointer-events: none;
+}
+
+.rightMenu {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: Asap,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.rightMenu a {
+
+  text-decoration: none;
+
+  position: relative;
+  z-index: 2;
+  color:rgba(126, 126, 126, 1);
+}
+
+.rightMenu button.selected {
+  color: rgba(234, 89, 36, 1);
+  cursor:default !important;
+  pointer-events: none;
+}
+
+.langMenu {
+  display: flex;
+  justify-content: space-between;
+
+  width: 62px;
+}
+
+
+.langMenu button {
+  outline: none;
+  background: #fff;
+  border: none;
+  cursor:pointer;
+  position: relative;
+  padding: 0;
+
+  font-family: Asap, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0;
+  text-align: center;
+
+  color: rgba(126, 126, 126, 1);
+
+
+}
+
+.langMenu button:after {
+  content: "";
+  display: block;
+  border-radius: 4px;
+
+  top: -6px;
+  left: -10px;
+  right: -9px;
+  bottom: -6px;
+
+  background: rgba(234, 89, 36, 0);
+  position: absolute;
+  z-index: 1;
+
+}
+
+.langMenu button:hover:after {
+  background: rgba(234, 89, 36, 0.2);
+}
+
+.buttonContainer {
+  margin-left:33px;
+}
+
+
+
+
+
+.authorizedMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.userLogoMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-right:12px;
+}
+
+.menuUserName {
+  display: block;
+  font-family: Asap, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.menuUserEmail{
+  cursor: pointer;
+
+  display: block;
+  font-family: Asap, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  color: rgba(126, 126, 126, 1);
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.authorizedMenu {
+  padding-left: 33px;
+}
+
+.userLogo {
+  //padding-right:14px;
+  border-radius: 50%;
+
+}
+
+.usersData {
+  width: 160px;
+  padding-left:14px;
+}
+
+.menuUserExit {
+  position: relative;
+  top:2px;
+}
+
+a.menuUserExit:after {
+  content: "";
+  display: block;
+  border-radius: 4px;
+  width: calc(100% + 20px);
+  height: calc(100% + 12px);
+  background: rgba(234, 89, 36, 0);
+  position: absolute;
+  z-index: -1;
+  transform: translateY(-35px) translateX(-10px);
+}
+
+a.menuUserExit:hover:after {
+  background: rgba(234, 89, 36, 0.3);
+}
+
+
+
+.rightMenuAuthorized a.selected {
+  color: rgba(234, 89, 36, 1);
+  cursor:default !important;
+  pointer-events: none;
+}
+
+.placeholderUserLogo {
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  background-color: #D0CFCF;
+}
+
+.placeholderName {
+  height: 13px;
+  width: 85px;
+  border-radius: 2px;
+  background: rgba(208, 207, 207, 1);
+
+
+}
+.placeholderEmail{
+  margin-top: 4px;
+
+  height: 13px;
+  width: 127px;
+  border-radius: 2px;
+  background: rgba(208, 207, 207, 1);
+
+}
+
+
+.mail {
+  width: 100px;
+  display: block;
+
+  text-decoration: none;
+
+
+  font-family: Asap,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: #7E7E7E;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+}
+
+
+@media (min-width: 992px) {
+  .leftMenu {
+    display: flex;
+  }
+
+  .rightMenu {
+    display: flex;
+  }
+
+  .linksWrapper {
+    justify-content: space-between;
+    flex:1;
+  }
+
+  .menuWrapper {
+    margin-right: 0;
+  }
+}
+
+
+@media (min-width: $WIDTH-2K) {
+  .leftMenu {
+    //width: 478px;
+
+  }
+
+  .leftMenu a {
+    margin-left: 60px;
+  }
+
+  .buttonContainer {
+    margin-left:60px;
+  }
+
+}
+

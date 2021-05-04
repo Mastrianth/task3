@@ -42,7 +42,7 @@ function Footer({ t }) {
                     <>
                       <LinkScroll
                         activeClass={styles.selected}
-                        to="about"
+                        to="about-me"
                         spy
                         smooth
                         duration={500}
@@ -51,7 +51,7 @@ function Footer({ t }) {
                       </LinkScroll>
                       <LinkScroll
                         activeClass={styles.selected}
-                        to="relationship"
+                        to="relationships"
                         spy
                         smooth
                         duration={500}

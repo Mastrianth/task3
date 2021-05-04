@@ -5,36 +5,39 @@ import { withTranslation } from '../../../i18n';
 
 import ContentWrapper from '../ContentWrapper';
 
-import classes from './Relationship.module.scss';
+import styles from './Relationship.module.scss';
 import htmlImg from '../../assets/img/svg/do-not-inline/HTML.svg';
 import cssImg from '../../assets/img/svg/do-not-inline/CSS.svg';
 import jsImg from '../../assets/img/svg/do-not-inline/JS.svg';
 
-const headingClasses = classNames('h2', classes.heading);
-const subheadingClasses = classNames('h3', classes.subheading);
-const textClasses1 = classNames('p2', classes.text, classes.text1);
-const textClasses2 = classNames('p2', classes.text, classes.text2);
-const textClasses3 = classNames('p2', classes.text, classes.text3);
+const headingClasses = classNames('h2', styles.heading);
+const subheadingClasses = classNames(styles.webdevSubtitle);
+const textClasses1 = classNames(styles.webdevText);
+const textClasses2 = classNames(styles.webdevText);
+const textClasses3 = classNames(styles.webdevText);
+const imgClasses1 = classNames(styles.webdevLogoContainer, styles.first);
+const imgClasses2 = classNames(styles.webdevLogoContainer, styles.second);
+const imgClasses3 = classNames(styles.webdevLogoContainer, styles.third);
 
 const Relationships = ({ t }) => {
   const techs = [
     {
       imgSrc: htmlImg,
-      imgClasses: classes.HTMLImg,
+      imgClasses: imgClasses1,
       i18nHeadingId: 'webDevTitle1',
       textClasses: textClasses1,
       i18nTextId: 'webDevText1',
     },
     {
       imgSrc: cssImg,
-      imgClasses: classes.CSSImg,
+      imgClasses: imgClasses2,
       i18nHeadingId: 'webDevTitle2',
       textClasses: textClasses2,
       i18nTextId: 'webDevText2',
     },
     {
       imgSrc: jsImg,
-      imgClasses: classes.JSImg,
+      imgClasses: imgClasses3,
       i18nHeadingId: 'webDevTitle3',
       textClasses: textClasses3,
       i18nTextId: 'webDevText3',
@@ -46,9 +49,9 @@ const Relationships = ({ t }) => {
     textClasses, i18nTextId,
   }) => (
   // eslint-disable-next-line react/jsx-filename-extension
-    <div className={classes.techWrapper} key={i18nHeadingId}>
+    <div className={styles.webdevColumn} key={i18nHeadingId}>
       <img src={imgSrc} alt={i18nHeadingId} className={imgClasses} />
-      <div className={classes.textWrapper}>
+      <div className={styles.textWrapper}>
         <h3 className={subheadingClasses}>{t(i18nHeadingId)}</h3>
         <p className={textClasses}>
           {t(
@@ -60,10 +63,10 @@ const Relationships = ({ t }) => {
   ));
 
   return (
-    <section className={classes.Relationships} id="relationships">
+    <section className={styles.Relationships} id="relationships">
       <ContentWrapper>
         <h2 className={headingClasses}>{t('webDev')}</h2>
-        <div className={classes.container}>
+        <div className={styles.webdevTechContainer}>
           {techsHTML}
         </div>
       </ContentWrapper>

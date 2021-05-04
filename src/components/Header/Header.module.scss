@@ -1,219 +1,242 @@
-@use '../../assets/scss/vars/colors';
-@use '../../assets/scss/mixins/media';
-
-.Header {
-  top: 0px;
-  left: 0px;
-  right: 0px;
+.header {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
   background-color: #fff;
-  z-index: 100;
+
+  &.error {
+    top: 90px;
+  }
+
 }
 
-.headerWrapper {
-  height: 64px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.buttonContainer {
+  margin-left: 20px;
+
+  flex-shrink: 0;
 }
 
-.logoLink {
-  margin-top: 2px;
-}
-
-.logoImg {
-  width: 134px;
-  height: 24px;
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.menu {
-  margin-right: 150px;
-  margin-top: -4px;
-}
-
-.menu__ul {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 0;
-}
-.menu__ul a:hover:after {
-  background: rgba(234, 89, 36, 0.2);
-}
-
-.users {
-  padding-left: 100px;
-}
-.burgerBtn {
+.connectionError {
   display: none;
-  width: 23px;
-  height: 22px;
-  left: -1px;
-  position: relative;
-}
-
-.burgerImg.burgerImg {
-  width: 20px;
-  height: 20px;
-  color: #ffffff;
-}
-
-@include media.for-desktop-up {
-  .headerWrapper {
-    margin: 0px;
-  }
-
-  .menu {
-    margin-right: 350px;
-    margin-top: -2px;
-  }
-}
-
-@include media.for-tablet-portrait-down {
-  .headerWrapper {
-    margin: 0px -2px;
-  }
-
-  .container {
-    display: none;
-  }
-
-  .users {
-    display: none;
-  }
-
-  .burgerBtn {
-    display: block;
-  }
-}
-
-@include media.for-phone-only {
-  .headerWrapper {
-    margin: 0px;
-  }
-
-  .burgerBtn {
-    left: 0px;
-  }
-}
-@media screen and (max-width: 1000px)   {
-.menu {
-  margin-right: 0px;
-  margin-top: -4px;
-}
-  .users {
-    padding-left: 0;
-  }
-}
-.mobMenu {
-  justify-content: flex-end;
-}
-.headerWrapper {
-  justify-content: space-between;
-}
-//
-
-.DropdownMenu a {
-  border-radius: 4px;
-  display: flex;
   align-items: center;
-  cursor: pointer;
+  justify-content: center;
+
+  height: 90px;
+  opacity: 1;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  background-color: #EA5924;
+
+  &.active {
+    display: flex;
+  }
+
 }
 
-.DropdownMenu span {
-  margin-left: 8px;
 
-}
-
-.DropdownMenu svg {
-  margin-left: 15px;
-}
-
-.selected {
-  background-color: #00BDD3;
-  cursor: default;
-  color: #fff;
-}
-
-.DropdownMenu.Show {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.DropdownMenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: -50%;
-  z-index: 1;
-
-  transform: translate(12.5%, -5px);
-
-  height: 64px;
-  width: 92px;
-  border-radius: 4px;
-  background-color: #fff;
-  box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.15), 0px 4px 15px rgba(0, 0, 0, 0.15);
-
-  padding: 3px;
-
-
-  font-family: Asap, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 26px;
-  letter-spacing: 0em;
-}
-
-.mobileLangContainer {
-
-  width: 60px;
-  height: 60px;
+.connectionErrorContainer,
+.cookiePolicyContainer {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  position: relative;
+  font-size: 14px;
+  line-height: 21px;
 
+  font-family: Asap, sans-serif;
+
+  font-style: normal;
+  font-weight: 400;
+
+  letter-spacing: 0em;
+  text-align: left;
+  color: #fff;
+}
+
+.cookiePolicy {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  height: 90px;
+  opacity: 1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  &.active {
+    display: flex;
+  }
 
 }
 
-.langhref {
-
+.cookieLink {
+  color: #287ee7;
+  text-decoration: none;
+  font-family: Asap, sans-serif;
   -webkit-tap-highlight-color: transparent;
 
-  width: 60px;
-  height: 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.87);
-
-  font-family: Asap, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 26px;
-  letter-spacing: 0em;
-  text-align: center;
-
   &:hover {
-    color: rgba(0, 0, 0, 0.87);
+    text-decoration: underline;
   }
 }
 
-.right {
-  align-items: center;
+.buttonCookieContainer {
+  margin-left: 20px;
+
+  flex-shrink: 0;
 }
+
+.errorContainer {
+
+}
+
+//@media (min-width: 600px) {
+//  .buttonContainer {
+//    margin-left: 58px;
+//  }
+//}
+
+.errorContainer {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-right: 16px;
+  padding-left: 16px;
+
+}
+
+@media (min-width: 576px) {
+  .errorContainer {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}
+
+
+
+@media (min-width: 768px) {
+
+  .errorContainer {
+    width: 100%;
+    max-width: 768px;
+  }
+
+  .connectionError {
+    justify-content: space-between;
+  }
+
+  .connectionErrorContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 14px;
+    line-height: 21px;
+
+    font-family: Asap, sans-serif;
+
+    font-style: normal;
+    font-weight: 400;
+
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+  }
+
+  .buttonContainer {
+    margin-left: 40px;
+  }
+
+  .connectionError {
+    height: 60px;
+  }
+  .connectionErrorContainer {
+    line-height: 26px;
+    font-size: 16px;
+  }
+
+  .header.error {
+    top: 60px;
+  }
+
+  .cookiePolicy {
+    height: 64px;
+  }
+
+  .cookiePolicyContainer {
+    line-height: 22px;
+    font-size: 16px;
+  }
+
+  .buttonCookieContainer {
+    margin-left: 142px;
+  }
+
+}
+
+@media (min-width: 992px) {
+
+  .errorContainer {
+    width: auto;
+    max-width: 840px;
+  }
+
+  .connectionError {
+    justify-content: center;
+  }
+
+  .buttonCookieContainer {
+    margin-left: 93px;
+  }
+
+  .cookiePolicy {
+    height: 64px;
+  }
+
+  .cookiePolicyContainer {
+    line-height: 22px;
+    font-size: 16px;
+    margin: 0 133px;
+  }
+
+
+  .connectionError {
+    height: 60px;
+  }
+  .connectionErrorContainer {
+    line-height: 26px;
+    font-size: 16px;
+  }
+
+  .header.error {
+    top: 60px;
+  }
+
+  .errorContainer {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+
+  .buttonContainer {
+    margin-left: 58px;
+  }
+}
+
+
+@media (min-width: 2560px) {
+  .errorContainer {
+    max-width: 1140px;
+    padding: 0;
+  }
+}
+
+

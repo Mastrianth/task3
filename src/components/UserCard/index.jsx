@@ -76,15 +76,15 @@ const UserCard = ({
     // );
   }
   return (
-    <article className={classes.UserCardPlaceholder}>
-      <div className={classes.avatarPlaceholder} />
-      <div className={classes.textWrapperPlaceholder}>
-        <div className={classes.namePlaceholder} />
-        <div className={classes.positionPlaceholder} />
-        <div className={classes.emailPlaceholder} />
-        <div className={classes.phonePlaceholder} />
+    <div className={classNames(classes.usersCard, classes.placeholderCard)} key={id}>
+      <div className={classes.imageContainer}>
+        <div className={classes.imagePlaceholder} />
       </div>
-    </article>
+      <h3 className={classes.namePlaceholder} />
+      <p className={classes.positionPlaceholder} />
+      <p className={classes.emailPlaceholder} />
+      <p className={classes.phonePlaceholder} />
+    </div>
   );
 };
 
