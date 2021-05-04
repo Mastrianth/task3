@@ -32,8 +32,6 @@ const MobileHeader = ({ openBurgerMenu }) => {
             <Arrow />
           </a>
 
-          {isGoogleSpeedTest ? null
-            : (
               <div className={activeLanguageMenu ? classNames(styles.DropdownMenu, styles.Show) : styles.DropdownMenu}>
                 <a
                   className={language !== 'de' ? styles.selected : null}
@@ -60,7 +58,6 @@ const MobileHeader = ({ openBurgerMenu }) => {
                   </span>
                 </a>
               </div>
-            )}
         </div>
       </ClickAwayListener>
 
