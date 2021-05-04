@@ -41,7 +41,7 @@ const About = ({ t }) => (
         </div>
         <div className={styles.aboutRightColumn}>
           <div className={styles.aboutLogoContainer}>
-            <Programmer />
+            <Programmer loading="lazy" />
           </div>
         </div>
       </div>

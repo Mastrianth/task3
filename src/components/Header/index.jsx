@@ -2,16 +2,18 @@ import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-
+import dynamic from 'next/dynamic';
 import MyContext from '../../utils/context';
 
 import Menu from './Menu/Menu';
-import BurgerMenu from './BurgerMenu/BurgerMenu';
+
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 import { withTranslation } from '../../../i18n';
 import { selectApiError, selectCookiePolicy, acceptCookiesPolicy } from '../../utils/usersSlice';
 
 import styles from './Header.module.scss';
+
+const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
 
 function Header({ t, openModal }) {
   const dispatch = useDispatch();
@@ -47,34 +49,12 @@ function Header({ t, openModal }) {
         </div>
       </div>
       <div className={isApiError ? classNames(styles.header, styles.error) : styles.header}>
-           <BurgerMenu openModal={openModal} burgerActive={burgerActive} closeBurgerMenu={closeBurgerMenu} />
+        <BurgerMenu openModal={openModal} burgerActive={burgerActive} closeBurgerMenu={closeBurgerMenu} />
         <div className="container">
           <Menu
             openModal={openModal}
             openBurgerMenu={openBurgerMenu}
           />
-        </div>
-      </div>
-
-      <div className={showCookiesPolicy ? classNames(styles.cookiePolicy, styles.active) : styles.cookiePolicy}>
-        <div className="container">
-          <div className={styles.cookiePolicyContainer}>
-            <div>
-              {t('cookie-policy-text')}
-              {' '}
-              <a href="#" className={styles.cookieLink}>{t('Cookies Policy')}</a>
-            </div>
-            <div className={styles.buttonCookieContainer}>
-              <ButtonComponent
-                onClick={() => dispatch(acceptCookiesPolicy())}
-                variant="outlined"
-                color="secondary"
-                size="small"
-                disabled={false}
-                label={t('Got it')}
-              />
-            </div>
-          </div>
         </div>
       </div>
     </>

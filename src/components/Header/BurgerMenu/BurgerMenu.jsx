@@ -360,4 +360,4 @@ BurgerMenu.defaultProps = {
   burgerActive: false,
 };
 
-export default withTranslation('common')(BurgerMenu);
+export default (withTranslation('common')(BurgerMenu));

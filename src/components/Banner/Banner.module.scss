@@ -225,7 +225,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
   }
 
   .text.desktop {
-    display: none;
+    display: block;
   }
 
   .text.textWide1 {

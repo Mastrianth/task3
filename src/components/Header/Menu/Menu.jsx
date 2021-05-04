@@ -2,9 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import classNames from 'classnames';
 import { Link as LinkScroll } from 'react-scroll';
-import Button from '@material-ui/core/Button';
 import { I18nContext } from 'next-i18next';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -14,19 +12,15 @@ import {
   selectFormFilled,
   clearUserData,
   selectPlaceholderForAuthorizedUser,
-  hideAuthorizedPlaceholder,
 } from '../../../utils/usersSlice';
 import { i18n, withTranslation } from '../../../../i18n';
 
-import UsersWithTooltip from '../../UserCard/fk/UsersWithTooltip';
-import EmailWithTooltip from '../../UserCard/fk/EmailWithTooltip';
 import MobileHeader from '../MobileMenu/MobileHeader';
 
 import Logo from '../../../assets/img/svg/Logo.svg';
 import Exit from '../../../assets/img/svg/exit.svg';
 import styles from './Menu.module.scss';
-import userPlaceholderImg from '../../../assets/img/svg/do-not-inline/ImagePlaceHolder.svg';
-import ContentWrapper from "../../ContentWrapper";
+import ContentWrapper from '../../ContentWrapper';
 
 const btnPrimarySmallStyles = {
   root: {
@@ -67,8 +61,9 @@ const btnPrimarySmallStyles = {
 
 const useStylesPrimarySmall = makeStyles(() => ({ ...btnPrimarySmallStyles }));
 
-
-const Menu = ({ openBurgerMenu, t, openModal,name,email }) => {
+const Menu = ({
+  openBurgerMenu, t, openModal, name, email,
+}) => {
   const { i18n: { language } } = useContext(I18nContext);
   const router = useRouter();
   const classesPrimarySmall = useStylesPrimarySmall();
@@ -95,109 +90,109 @@ const Menu = ({ openBurgerMenu, t, openModal,name,email }) => {
 
   return (
     <ContentWrapper>
-    <div className={styles.menuWrapper}>
-      {router.pathname === '/'
-        ? <Logo />
-        : (
-          <Link href="/" passHref>
-            <a className={styles.logoLink}>
-              <img width={100} height={26} onClick={(e) => checkIfFilled(e)} alt="Logo" src="/assets/svg/Logo.svg" />
-            </a>
-          </Link>
-        )}
-      <div className={styles.linksWrapper}>
-        <span className={styles.leftMenu}>
-          {router.pathname === '/'
-            ? (
-              <>
-                <LinkScroll
-                  activeClass={styles.selected}
-                  to="about-me"
-                  spy
-                  smooth
-                  duration={500}
-                >
-                  {t('about-me')}
-                </LinkScroll>
-                <LinkScroll
-                  activeClass={styles.selected}
-                  to="relationships"
-                  spy
-                  smooth
-                  duration={500}
-                >
-                  {t('relationship')}
-                </LinkScroll>
-                <LinkScroll
-                  activeClass={styles.selected}
-                  to="users"
-                  spy
-                  smooth
-                  duration={500}
-                >
-                  {t('users')}
-                </LinkScroll>
-              </>
-            )
-            : (
-              <>
-                <Link scroll={false} href="/#about-me"><a onClick={(e) => checkIfFilled(e)}>{t('about-me')}</a></Link>
-                <Link scroll={false} href="/#relationships"><a onClick={(e) => checkIfFilled(e)}>{t('relationship')}</a></Link>
-                <Link scroll={false} href="/#users"><a onClick={(e) => checkIfFilled(e)}>{t('users')}</a></Link>
-              </>
-            )}
+      <div className={styles.menuWrapper}>
+        {router.pathname === '/'
+          ? <Logo />
+          : (
+            <Link href="/" passHref>
+              <a className={styles.logoLink}>
+                <img width={100} height={26} onClick={(e) => checkIfFilled(e)} alt="Logo" src="/assets/svg/Logo.svg" />
+              </a>
+            </Link>
+          )}
+        <div className={styles.linksWrapper}>
+          <span className={styles.leftMenu}>
+            {router.pathname === '/'
+              ? (
+                <>
+                  <LinkScroll
+                    activeClass={styles.selected}
+                    to="about-me"
+                    spy
+                    smooth
+                    duration={500}
+                  >
+                    {t('about-me')}
+                  </LinkScroll>
+                  <LinkScroll
+                    activeClass={styles.selected}
+                    to="relationships"
+                    spy
+                    smooth
+                    duration={500}
+                  >
+                    {t('relationship')}
+                  </LinkScroll>
+                  <LinkScroll
+                    activeClass={styles.selected}
+                    to="users"
+                    spy
+                    smooth
+                    duration={500}
+                  >
+                    {t('users')}
+                  </LinkScroll>
+                </>
+              )
+              : (
+                <>
+                  <Link scroll={false} href="/#about-me"><a onClick={(e) => checkIfFilled(e)}>{t('about-me')}</a></Link>
+                  <Link scroll={false} href="/#relationships"><a onClick={(e) => checkIfFilled(e)}>{t('relationship')}</a></Link>
+                  <Link scroll={false} href="/#users"><a onClick={(e) => checkIfFilled(e)}>{t('users')}</a></Link>
+                </>
+              )}
 
-        </span>
-
-        <MobileHeader openBurgerMenu={openBurgerMenu} />
-        <span className={styles.rightMenu}>
-          <span className={styles.langMenu}>
-            <button
-              type="button"
-              className={language !== 'de' ? styles.selected : null}
-              onClick={(e) => {
-                i18n.changeLanguage('en');
-              }}
-            >
-              En
-            </button>
-            <button
-              type="button"
-              className={language === 'de' ? styles.selected : null}
-              onClick={(e) => {
-                i18n.changeLanguage('de');
-              }}
-            >
-              De
-            </button>
           </span>
-              <>
-                <span className={styles.authorizedMenu}>
-                  <span className={styles.userLogoMenu}>
-                    <div className={styles.placeholderUserLogo} />
-                    <span className={styles.usersData}>
-                       <div className={styles.placeholderName} />
-                       <div className={styles.placeholderEmail} />
-                    </span>
+
+          <MobileHeader openBurgerMenu={openBurgerMenu} />
+          <span className={styles.rightMenu}>
+            <span className={styles.langMenu}>
+              <button
+                type="button"
+                className={language !== 'de' ? styles.selected : null}
+                onClick={(e) => {
+                  i18n.changeLanguage('en');
+                }}
+              >
+                En
+              </button>
+              <button
+                type="button"
+                className={language === 'de' ? styles.selected : null}
+                onClick={(e) => {
+                  i18n.changeLanguage('de');
+                }}
+              >
+                De
+              </button>
+            </span>
+            <>
+              <span className={styles.authorizedMenu}>
+                <span className={styles.userLogoMenu}>
+                  <div className={styles.placeholderUserLogo} />
+                  <span className={styles.usersData}>
+                    <div className={styles.placeholderName} />
+                    <div className={styles.placeholderEmail} />
                   </span>
-                  <a
-                    onClick={
+                </span>
+                <a
+                  onClick={
                 (e) => {
                   dispatch(clearUserData());
                   e.preventDefault();
                 }
               }
-                    href="#"
-                    className={styles.menuUserExit}
-                  >
-                    <Exit />
-                  </a>
-                </span>
-              </>
-        </span>
-      </div>
+                  href="#"
+                  className={styles.menuUserExit}
+                >
+                  <Exit />
+                </a>
+              </span>
+            </>
+          </span>
+        </div>
 
-    </div>
+      </div>
     </ContentWrapper>
   );
 };

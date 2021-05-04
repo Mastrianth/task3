@@ -13,7 +13,7 @@ import Arrow from '../../../assets/img/svg/arrow.svg';
 
 import styles from './MobileHeader.module.scss';
 
-function MobileHeader({ openBurgerMenu }) {
+const MobileHeader = ({ openBurgerMenu }) => {
   const [activeLanguageMenu, setActiveLanguageMenu] = useState(false);
   const { i18n: { language } } = useContext(I18nContext);
   const { isGoogleSpeedTest } = useContext(MyContext);
@@ -71,10 +71,10 @@ function MobileHeader({ openBurgerMenu }) {
       </div>
     </>
   );
-}
+};
 
 MobileHeader.propTypes = {
   openBurgerMenu: PropTypes.func,
 };
 
-export default MobileHeader;
+export default React.memo(MobileHeader);
