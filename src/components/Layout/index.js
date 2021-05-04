@@ -3,9 +3,10 @@ import React, {
   memo, useEffect, useState, useContext,
 } from 'react';
 import Header from '../Header';
-import Footer from '../Footer';
 import classes from './Layout.module.scss';
+import dynamic from "next/dynamic";
 
+const Footer = dynamic(() => import('../Footer'));
 const Layout = ({ children, isPageSpeedNotFound }) => (
   // eslint-disable-next-line react/jsx-filename-extension
   <>

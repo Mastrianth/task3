@@ -18,10 +18,6 @@ import MyContext from '../src/utils/context';
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps, ua }) {
-  useEffect(() => {
-    loadFonts('https://fonts.googleapis.com/css2?family=Overpass:wght@600&family=Source+Sans+Pro:wght@400;700');
-  }, []);
-
   const router = useRouter();
   const [isGoogleSpeedTest, setGoogleSpeedTest] = useState(true);
 

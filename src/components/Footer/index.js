@@ -41,42 +41,42 @@ function Footer({ t }) {
                     ? (
                       <>
                         <LinkScroll
-                        activeClass={styles.selected}
-                        to="about-me"
-                        spy
-                        smooth
-                        duration={500}
-                      >
-                        {t('about-me')}
-                      </LinkScroll>
+                          activeClass={styles.selected}
+                          to="about-me"
+                          spy
+                          smooth
+                          duration={500}
+                        >
+                          {t('about-me')}
+                        </LinkScroll>
                         <LinkScroll
-                        activeClass={styles.selected}
-                        to="relationships"
-                        spy
-                        smooth
-                        duration={500}
-                      >
-                        {t('relationship')}
-                      </LinkScroll>
+                          activeClass={styles.selected}
+                          to="relationships"
+                          spy
+                          smooth
+                          duration={500}
+                        >
+                          {t('relationship')}
+                        </LinkScroll>
                         <LinkScroll
-                        activeClass={styles.selected}
-                        to="users"
-                        spy
-                        smooth
-                        duration={500}
-                      >
-                        {t('users')}
-                      </LinkScroll>
+                          activeClass={styles.selected}
+                          to="users"
+                          spy
+                          smooth
+                          duration={500}
+                        >
+                          {t('users')}
+                        </LinkScroll>
                       </>
                     )
                     : (
                       <>
-                        <Link scroll={false} href="/#about"><a>{t('about-me')}</a></Link>
-                        <Link scroll={false} href="/#relationship">
-                        <a>
-                          {t('relationship')}
-                        </a>
-                      </Link>
+                        <Link scroll={false} href="/#about-me"><a>{t('about-me')}</a></Link>
+                        <Link scroll={false} href="/#relationships">
+                          <a>
+                            {t('relationship')}
+                          </a>
+                        </Link>
                         <Link scroll={false} href="/#users"><a>{t('users')}</a></Link>
                       </>
                     )}
