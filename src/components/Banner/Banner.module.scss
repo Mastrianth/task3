@@ -30,11 +30,13 @@
   /* Small screen, non-retina */
   .Banner {
     background-image: url('../../assets/img/banner/banner-background-360.jpg');
+    background-position: 85% 100%;
     height: auto;
   }
 
   :global(html.webp) .Banner {
     background-image: url('../../assets/img/banner/banner-background-360.webp');
+    background-position: 85% 100%;
   }
 }
 
@@ -263,7 +265,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
 @include media.for-phone-only {
   .Banner {
     padding-top: 64px;
-    padding-bottom: 64px;
+    padding-bottom: 230px;
   }
 
   .h1.h1 {
