@@ -263,7 +263,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
 @include media.for-phone-only {
   .Banner {
     padding-top: 64px;
-    padding-bottom: 70px;
+    padding-bottom: 230px;
   }
 
   .h1.h1 {

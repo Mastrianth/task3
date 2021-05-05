@@ -15,7 +15,9 @@ function Index() {
   // eslint-disable-next-line react/jsx-filename-extension
     <>
       <Banner />
-      <AboutMe />
+      <LazyLoad once>
+        <AboutMe />
+      </LazyLoad>
       <LazyLoad once>
         <Relationships />
       </LazyLoad>
