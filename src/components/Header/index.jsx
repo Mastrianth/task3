@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
-
+import MyContext from '../../utils/context';
 import Menu from './Menu/Menu';
 
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
@@ -16,7 +16,7 @@ const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
 
 function Header({ t, openModal }) {
   const [burgerActive, setActive] = useState(false);
-
+  const { isGoogleSpeedTest } = useContext(MyContext);
   const isApiError = useSelector(selectApiError);
 
   const closeBurgerMenu = () => setActive(false);
@@ -44,7 +44,8 @@ function Header({ t, openModal }) {
         </div>
       </div>
       <div className={isApiError ? classNames(styles.header, styles.error) : styles.header}>
-        <BurgerMenu openModal={openModal} burgerActive={burgerActive} closeBurgerMenu={closeBurgerMenu} />
+        {isGoogleSpeedTest ? null
+          : <BurgerMenu openModal={openModal} burgerActive={burgerActive} closeBurgerMenu={closeBurgerMenu} />}
         <div className="container">
           <Menu
             openModal={openModal}

@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import App from 'next/app';
 import { useRouter } from 'next/router';
 import ReactTooltip from 'react-tooltip';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { withUserAgent, useUserAgent } from 'next-useragent';
+import LazyHydrate from 'react-lazy-hydration';
+import PropTypes from 'prop-types';
 import { appWithTranslation } from '../i18n';
-import loadFonts from '../src/components/utils/loadFonts';
 import wrapper from '../redux/store';
 import '../src/assets/scss/global.scss';
 import '../src/assets/scss/typography.scss';
@@ -21,9 +22,9 @@ function MyApp({ Component, pageProps, ua }) {
   const router = useRouter();
   const [isGoogleSpeedTest, setGoogleSpeedTest] = useState(true);
 
-  // useEffect(() => {
-  //   setGoogleSpeedTest(/Speed/.test(ua.source) || /Lighthouse/.test(ua.source));
-  // }, [ua]);
+  useEffect(() => {
+    setGoogleSpeedTest(/Speed/.test(ua.source) || /Lighthouse/.test(ua.source));
+  }, [ua]);
 
   const route = routes.find((routeObj) => routeObj.route === router.pathname);
   const is404 = !route; // false if route found, true of not
@@ -32,22 +33,32 @@ function MyApp({ Component, pageProps, ua }) {
   const isSideDrawerOpen = useSelector((state) => getIsSideDrawerOpen(state));
   const currentUser = useSelector((state) => getCurrentUser(state));
 
+  if (isGoogleSpeedTest) {
+    return (
+      // eslint-disable-next-line react/jsx-filename-extension
+      <>
+        <CustomHead title={title} />
+        <LazyHydrate ssrOnly>
+          <MyContext.Provider value={{ isGoogleSpeedTest }}>
+            <Layout currentUser={currentUser} isSideDrawerOpen={isSideDrawerOpen} is404={is404}>
+              {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+              <Component {...pageProps} />
+            </Layout>
+          </MyContext.Provider>
+        </LazyHydrate>
+      </>
+    );
+  }
   return (
-  // eslint-disable-next-line react/jsx-filename-extension
+    // eslint-disable-next-line react/jsx-filename-extension
     <>
       <CustomHead title={title} />
-      <MyContext.Provider value={{ isGoogleSpeedTest }}>
-        <Layout currentUser={currentUser} isSideDrawerOpen={isSideDrawerOpen} is404={is404}>
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          <Component {...pageProps} />
-        </Layout>
-      </MyContext.Provider>
-      <ReactTooltip
-        place="bottom"
-        effect="solid"
-        arrowColor="transparent"
-        className="tooltip"
-      />
+        <MyContext.Provider value={{ isGoogleSpeedTest }}>
+          <Layout currentUser={currentUser} isSideDrawerOpen={isSideDrawerOpen} is404={is404}>
+            {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+            <Component {...pageProps} />
+          </Layout>
+        </MyContext.Provider>
     </>
   );
 }
@@ -62,4 +73,10 @@ export function getServerSideProps(context) {
   };
 }
 
-export default wrapper.withRedux(appWithTranslation(MyApp));
+MyApp.propTypes = {
+  Component: PropTypes.func.isRequired,
+  pageProps: PropTypes.object,
+  ua: PropTypes.object,
+};
+
+export default wrapper.withRedux(appWithTranslation(withUserAgent(MyApp)));
