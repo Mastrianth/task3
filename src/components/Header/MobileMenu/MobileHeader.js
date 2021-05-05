@@ -63,7 +63,7 @@ const MobileHeader = ({ openBurgerMenu }) => {
         <button
           className={styles.navToggle}
           type="button"
-                // onClick={openBurgerMenu}
+          onClick={openBurgerMenu}
           aria-label="Burger menu"
         >
           <span className={styles.navToggleItem} />
