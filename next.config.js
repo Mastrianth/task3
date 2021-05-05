@@ -13,8 +13,7 @@ module.exports = withPlugins([
   [
     optimizedImages, {
       optimizeImages: false,
-      imagesPublicPath: isProd ? '/_next/static/images/' : '/_next/static/images/',
-      // imagesPublicPath: isProd ? 'https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/' : '/_next/static/images/',
+      imagesPublicPath: isProd ? 'https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/' : '/_next/static/images/',
       inlineImageLimit: 1,
     },
   ],
@@ -26,7 +25,7 @@ module.exports = withPlugins([
   publicRuntimeConfig: {
     localeSubpaths,
   },
-  assetPrefix: isProd ? 'https://test2021-frontend-nick-k-task3-source.abzdev2.com' : '',
+  // assetPrefix: isProd ? 'https://test2021-frontend-nick-k-task3-source.abzdev2.com' : '',
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.node = {
