@@ -11,8 +11,8 @@ import { withTranslation } from '../../../i18n';
 import { selectApiError } from '../../utils/usersSlice';
 
 import styles from './Header.module.scss';
-import BurgerMenu from './BurgerMenu/BurgerMenu';
-// const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
+// import BurgerMenu from './BurgerMenu/BurgerMenu';
+const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
 
 function Header({ t, openModal }) {
 
