@@ -17,5 +17,8 @@ function Index() {
     </>
   );
 }
+Index.getInitialProps = async () => ({
+  namespacesRequired: ['common', 'terms', 'webdevelopment'],
+});
 
 export default Index;
