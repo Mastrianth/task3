@@ -44,7 +44,7 @@ function Header({ t, openModal }) {
         </div>
       </div>
       <div className={isApiError ? classNames(styles.header, styles.error) : styles.header}>
-        {/*<BurgerMenu openModal={openModal} burgerActive={burgerActive} closeBurgerMenu={closeBurgerMenu} />*/}
+        <BurgerMenu openModal={openModal} burgerActive={burgerActive} closeBurgerMenu={closeBurgerMenu} />
         <div className="container">
           <Menu
             openModal={openModal}

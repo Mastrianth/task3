@@ -1,77 +1,34 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Link as LinkScroll } from 'react-scroll';
 import { I18nContext } from 'next-i18next';
-import { makeStyles } from '@material-ui/core/styles';
 
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import {
-  selectAuthorizedUserData,
   selectFormFilled,
   clearUserData,
-  selectPlaceholderForAuthorizedUser,
 } from '../../../utils/usersSlice';
 import { i18n, withTranslation } from '../../../../i18n';
 
-import MobileHeader from '../MobileMenu/MobileHeader';
+// import MobileHeader from '../MobileMenu/MobileHeader';
 
 import Logo from '../../../assets/img/svg/Logo.svg';
 import Exit from '../../../assets/img/svg/exit.svg';
 import styles from './Menu.module.scss';
 import ContentWrapper from '../../ContentWrapper';
 
-const btnPrimarySmallStyles = {
-  root: {
-    paddingRight: '18px',
-    paddingLeft: '18px',
-    minWidth: '93px',
-    height: '38px !important',
-    fontWeight: '400',
-    textTransform: 'capitalize',
-    fontSize: '16px',
-    boxShadow: 'none',
-    textAlign: 'center',
-    fontFamily: 'Asap, sans-serif',
-    borderRadius: '80px !important',
-    backgroundColor: '#f4e041',
-    color: 'rgba(0, 0, 0, 0.87) !important',
-
-    '&.Mui-disabled': {
-      color: 'rgba(255, 255, 255, 1)',
-      backgroundColor: '#B4B4B4',
-      boxShadow: 'none',
-    },
-    '&:hover': {
-      backgroundColor: '#ffe302',
-      color: 'rgba(0, 0, 0, 0.87)',
-      boxShadow: 'none',
-
-    },
-    '&:focus': {
-      color: 'rgba(0, 0, 0, 0.87)',
-      boxShadow: 'none',
-    },
-    '& > span': {
-      pointerEvents: 'none',
-    },
-  },
-};
-
-const useStylesPrimarySmall = makeStyles(() => ({ ...btnPrimarySmallStyles }));
+const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
 
 const Menu = ({
-  openBurgerMenu, t, openModal, name, email,
+  openBurgerMenu, t, openModal,
 }) => {
   const { i18n: { language } } = useContext(I18nContext);
   const router = useRouter();
-  const classesPrimarySmall = useStylesPrimarySmall();
 
   const isFormFilled = useSelector(selectFormFilled);
-  const authorizedUserData = useSelector(selectAuthorizedUserData);
-  const showUserPlaceholder = useSelector(selectPlaceholderForAuthorizedUser);
-  const [showButton, setShowButton] = useState(false);
   const dispatch = useDispatch();
 
   const checkIfFilled = (e) => {
@@ -96,7 +53,7 @@ const Menu = ({
           : (
             <Link href="/" passHref>
               <a className={styles.logoLink}>
-                <img width={100} height={26} onClick={(e) => checkIfFilled(e)} alt="Logo" src="/assets/svg/Logo.svg" />
+                <img width={100} height={26} alt="Logo" src="/assets/svg/do-not-inline/Logo.svg" />
               </a>
             </Link>
           )}

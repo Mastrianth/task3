@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link as LinkScroll } from 'react-scroll';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 

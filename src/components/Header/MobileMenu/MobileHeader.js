@@ -60,7 +60,12 @@ const MobileHeader = ({ openBurgerMenu }) => {
       </ClickAwayListener>
 
       <div className={styles.mobileBurgerContainer}>
-        <button className={styles.navToggle} type="button" onClick={openBurgerMenu} aria-label="Burger menu">
+        <button
+          className={styles.navToggle}
+          type="button"
+                // onClick={openBurgerMenu}
+          aria-label="Burger menu"
+        >
           <span className={styles.navToggleItem} />
         </button>
       </div>
