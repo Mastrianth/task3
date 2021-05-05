@@ -1,0 +1,10 @@
+.preloader {
+  width: 48px;
+  height: 48px;
+  animation: loader 1.3s linear infinite;
+}
+@keyframes loader {
+  100% {
+    transform: rotate(360deg);
+  }
+}

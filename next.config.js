@@ -13,7 +13,7 @@ module.exports = withPlugins([
   [
     optimizedImages, {
       optimizeImages: false,
-      imagesPublicPath: '/_next/static/images/',
+      imagesPublicPath: !isProd ? '/_next/static/images/' : '',
       inlineImageLimit: 1,
     },
   ],
@@ -33,7 +33,6 @@ module.exports = withPlugins([
         net: 'empty',
       };
 
-      require('./scripts/generate-sitemap');
       // config.plugins.push(new HtmlCriticalWebpackPlugin({
       //   base: path.resolve(__dirname, 'dist'),
       //   src: 'index.html',
