@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link as LinkScroll } from 'react-scroll';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -14,17 +14,15 @@ import AboutSvg from '../../../assets/img/svg/burger-menu-icons/about.svg';
 import RelationshipSvg from '../../../assets/img/svg/burger-menu-icons/relationship.svg';
 import UsersSvg from '../../../assets/img/svg/burger-menu-icons/users.svg';
 import SignIn from '../../../assets/img/svg/burger-menu-icons/sign-in.svg';
-import QuitSvg from '../../../assets/img/svg/burger-menu-icons/quit.svg';
+
 import BookmarkSvg from '../../../assets/img/svg/burger-menu-icons/bookmark.svg';
 
 import styles from './BurgerMenu.module.scss';
-import UsersWithTooltip from '../../UserCard/fk/UsersWithTooltip';
-import EmailWithTooltip from '../../UserCard/fk/EmailWithTooltip';
+
 
 const BurgerMenu = ({
   burgerActive, closeBurgerMenu, t,
 }) => {
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (burgerActive) {

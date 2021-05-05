@@ -4,7 +4,6 @@ import { I18nContext } from 'next-i18next';
 import classNames from 'classnames';
 
 import PropTypes from 'prop-types';
-import MyContext from '../../../utils/context';
 import { i18n } from '../../../../i18n';
 
 import UKLogo from '../../../assets/img/svg/uk.svg';
@@ -16,7 +15,6 @@ import styles from './MobileHeader.module.scss';
 const MobileHeader = ({ openBurgerMenu }) => {
   const [activeLanguageMenu, setActiveLanguageMenu] = useState(false);
   const { i18n: { language } } = useContext(I18nContext);
-  const { isGoogleSpeedTest } = useContext(MyContext);
 
   const toggleLangMenu = (e) => {
     setActiveLanguageMenu((state) => !state);
@@ -32,32 +30,32 @@ const MobileHeader = ({ openBurgerMenu }) => {
             <Arrow />
           </a>
 
-              <div className={activeLanguageMenu ? classNames(styles.DropdownMenu, styles.Show) : styles.DropdownMenu}>
-                <a
-                  className={language !== 'de' ? styles.selected : null}
-                  onClick={(e) => {
-                    i18n.changeLanguage('en');
-                    setActiveLanguageMenu(false);
-                  }}
-                >
-                  <UKLogo />
-                  <span>
-                    En
-                  </span>
-                </a>
-                <a
-                  className={language === 'de' ? styles.selected : null}
-                  onClick={(e) => {
-                    i18n.changeLanguage('de');
-                    setActiveLanguageMenu(false);
-                  }}
-                >
-                  <GermanyLogo />
-                  <span>
-                    De
-                  </span>
-                </a>
-              </div>
+          <div className={activeLanguageMenu ? classNames(styles.DropdownMenu, styles.Show) : styles.DropdownMenu}>
+            <a
+              className={language !== 'de' ? styles.selected : null}
+              onClick={(e) => {
+                i18n.changeLanguage('en');
+                setActiveLanguageMenu(false);
+              }}
+            >
+              <UKLogo />
+              <span>
+                En
+              </span>
+            </a>
+            <a
+              className={language === 'de' ? styles.selected : null}
+              onClick={(e) => {
+                i18n.changeLanguage('de');
+                setActiveLanguageMenu(false);
+              }}
+            >
+              <GermanyLogo />
+              <span>
+                De
+              </span>
+            </a>
+          </div>
         </div>
       </ClickAwayListener>
 

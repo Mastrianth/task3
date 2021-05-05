@@ -1,28 +1,24 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
-import MyContext from '../../utils/context';
 
 import Menu from './Menu/Menu';
 
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 import { withTranslation } from '../../../i18n';
-import { selectApiError, selectCookiePolicy, acceptCookiesPolicy } from '../../utils/usersSlice';
+import { selectApiError } from '../../utils/usersSlice';
 
 import styles from './Header.module.scss';
-
-const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
+import BurgerMenu from './BurgerMenu/BurgerMenu';
+// const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
 
 function Header({ t, openModal }) {
-  const dispatch = useDispatch();
 
   const [burgerActive, setActive] = useState(false);
-  const { isGoogleSpeedTest } = useContext(MyContext);
 
   const isApiError = useSelector(selectApiError);
-  const showCookiesPolicy = useSelector(selectCookiePolicy);
 
   const closeBurgerMenu = () => setActive(false);
   const openBurgerMenu = () => setActive(true);

@@ -13,7 +13,7 @@ module.exports = withPlugins([
   [
     optimizedImages, {
       optimizeImages: false,
-      imagesPublicPath: isProd ? '' : '/_next/static/images/',
+      imagesPublicPath: isProd ? 'https://test2021-frontend-nick-k-task3-source.abzdev2.com' : '/_next/static/images/',
       inlineImageLimit: 1,
     },
   ],
@@ -25,12 +25,15 @@ module.exports = withPlugins([
   publicRuntimeConfig: {
     localeSubpaths,
   },
+  assetPrefix: isProd ? 'https://test2021-frontend-nick-k-task3-source.abzdev2.com' : '',
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.node = {
         fs: 'empty',
         net: 'empty',
       };
+
+      require('./scripts/generate-sitemap');
       // config.plugins.push(new HtmlCriticalWebpackPlugin({
       //   base: path.resolve(__dirname, 'dist'),
       //   src: 'index.html',

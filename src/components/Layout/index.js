@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React, {
   memo, useEffect, useState, useContext,
 } from 'react';
+import dynamic from 'next/dynamic';
 import Header from '../Header';
 import classes from './Layout.module.scss';
-import dynamic from "next/dynamic";
 
 const Footer = dynamic(() => import('../Footer'));
 const Layout = ({ children, isPageSpeedNotFound }) => (
