@@ -32,7 +32,7 @@ function Footer({ t }) {
             <div className={styles.headerMenuWrapper}>
               <Link href="/" passHref>
                 <a className={styles.logoLink}>
-                  <img width={100} height={26} alt="Logo" src={Logo} />
+                  <img loading="lazy" width={100} height={26} alt="Logo" src={Logo} />
                 </a>
               </Link>
               <div className={styles.linksWrapper}>

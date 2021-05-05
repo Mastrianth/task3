@@ -19,11 +19,9 @@ import BookmarkSvg from '../../../assets/img/svg/burger-menu-icons/bookmark.svg'
 
 import styles from './BurgerMenu.module.scss';
 
-
 const BurgerMenu = ({
   burgerActive, closeBurgerMenu, t,
 }) => {
-
   useEffect(() => {
     if (burgerActive) {
       disableScroll();

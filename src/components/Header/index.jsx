@@ -15,7 +15,6 @@ import styles from './Header.module.scss';
 const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
 
 function Header({ t, openModal }) {
-
   const [burgerActive, setActive] = useState(false);
 
   const isApiError = useSelector(selectApiError);
@@ -45,7 +44,7 @@ function Header({ t, openModal }) {
         </div>
       </div>
       <div className={isApiError ? classNames(styles.header, styles.error) : styles.header}>
-        <BurgerMenu openModal={openModal} burgerActive={burgerActive} closeBurgerMenu={closeBurgerMenu} />
+        {/*<BurgerMenu openModal={openModal} burgerActive={burgerActive} closeBurgerMenu={closeBurgerMenu} />*/}
         <div className="container">
           <Menu
             openModal={openModal}

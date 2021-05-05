@@ -50,7 +50,7 @@ const Relationships = ({ t }) => {
   }) => (
   // eslint-disable-next-line react/jsx-filename-extension
     <div className={styles.webdevColumn} key={i18nHeadingId}>
-      <img src={imgSrc} alt={i18nHeadingId} className={imgClasses} />
+      <img loading="lazy" src={imgSrc} alt={i18nHeadingId} className={imgClasses} />
       <div className={styles.textWrapper}>
         <h3 className={subheadingClasses}>{t(i18nHeadingId)}</h3>
         <p className={textClasses}>
