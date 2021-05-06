@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { useRouter } from 'next/router';
 import { withTranslation } from '../../../i18n';
-
 import classes from './Banner.module.scss';
 import ContentWrapper from '../ContentWrapper';
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
@@ -14,6 +14,7 @@ const Banner = ({ t }) => {
   const textClassesDesktop = classNames('p1', classes.text, classes.desktop);
   const textClassesMobile = classNames('p1', classes.text, classes.mobile);
   const [isWebp, setIsWebp] = useState(true);
+  const router = useRouter();
   useEffect(() => {
     setIsWebp(canUseWebP());
   }, []);
@@ -33,6 +34,7 @@ const Banner = ({ t }) => {
             variant="contained"
             color="primary"
             size="large"
+            onClick={() => router.push('/sign-up').then(() => window.scrollTo(0, 0))}
             disabled={false}
             label={t('sign-up')}
           />

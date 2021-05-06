@@ -1,0 +1,25 @@
+@use '../../assets/scss/mixins/media';
+
+.inputsContainer {
+  margin: 23px 0px 0px;
+  display: grid;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.inputWrapper {
+  margin: 57px 0px 0px;
+}
+
+.bottomInputWrapper {
+  margin: 57px 0px 0px;
+}
+
+.fileInputWrapper {
+
+}
+
+.button {
+  margin: 30px auto 0px;
+}

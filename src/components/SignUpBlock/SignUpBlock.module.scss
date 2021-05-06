@@ -1,0 +1,20 @@
+@use '../../assets/scss/vars/colors';
+@use '../../assets/scss/mixins/media';
+
+.SignUpBlock {
+  padding: 180px 0px 180px;
+  background-color: #f8f8f8;
+}
+
+.title {
+  margin: 0px auto 23px;
+  display: flex;
+  justify-content: center;
+}
+
+.subtitle {
+  margin: 0px auto;
+  color: colors.$input-filled-text;
+  display: flex;
+  justify-content: center;
+}

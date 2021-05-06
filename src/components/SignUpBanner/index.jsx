@@ -18,7 +18,7 @@ const SignUpBanner = ({ t }) => {
   return (
     <div style={{ flex: 1 }} className={styles.bannerColor}>
       <section className={isWebp ? classNames(styles.banner, styles.webp) : styles.banner}>
-        <div className="container">
+        <div className={styles.container}>
           <div className={styles.bannerContentContainer}>
             <div className={styles.bannerContent}>
               <h2 className={styles.bannerTitle}>{t('reg-title')}</h2>

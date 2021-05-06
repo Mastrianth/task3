@@ -8,62 +8,75 @@ export default createMuiTheme({
         fontSize: '16px',
         color: '#8d8c8c',
         '&$focused': {
-          color: '#8d8c8c',
+          color: '#00BDD3',
         },
         '&$error': {
-          color: '#f44336;',
+          color: '#CB3D40',
         },
       },
       focused: {},
       error: {},
-      outlined: {
-        '&$marginDense': {
-          transform: 'translate(16px, 19px) scale(1)',
-        },
-        '&$shrink': {
-          transform: 'translate(17px, -6px) scale(0.75)',
-        },
-      },
+      // outlined: {
+      //   '&$marginDense': {
+      //     transform: 'translate(16px, 19px) scale(1)',
+      //   },
+      //   '&$shrink': {
+      //     transform: 'translate(17px, -6px) scale(0.75)',
+      //   },
+      // },
       marginDense: {},
     },
     MuiInputBase: {
       input: {
-        minWidth: '403px',
-        maxWidth: '403px',
-        height: '56px',
-        fontFamily: "'Source Sans Pro', sans-serif",
+        minWidth: '380px',
+        maxWidth: '380px',
+        height: '54px',
+        fontFamily: "'Asap', sans-serif",
         fontSize: '16px',
-        color: '#010000',
+        color: 'rgba(0,0,0,0.87)',
         boxSizing: 'border-box',
+        '&:hover': {
+          borderColor: 'rgba(0,0,0,0.87)',
+        },
+        '&$focused': {
+          borderColor: '#00BDD3',
+        },
+        '&$error': {
+          borderColor: '#CB3D40',
+        },
       },
     },
     MuiOutlinedInput: {
       root: {
         '&:hover $notchedOutline$notchedOutline': {
-          borderColor: '#b7b7b7',
+          borderColor: 'rgba(0,0,0,0.87)',
         },
         '&$focused $notchedOutline$notchedOutline': {
-          borderColor: '#b7b7b7',
+          borderColor: '#00BDD3',
         },
         '&$error $notchedOutline$notchedOutline': {
-          borderColor: '#f44336',
+          borderColor: '#CB3D40',
         },
       },
       input: {
         paddingLeft: '17px',
       },
-      notchedOutline: {
-        borderColor: '#b7b7b7',
-      },
+      // notchedOutline: {
+      //   borderColor: '#D0CFCF',
+      // },
       focused: {},
       error: {},
     },
     MuiFormHelperText: {
       root: {
-        fontFamily: "'Source Sans Pro', sans-serif",
+        fontFamily: "'Asap', sans-serif",
         fontSize: '12px',
-        lineHeight: '1',
-        color: '#8d8c8c',
+        lineHeight: '16.8px',
+        color: '#BCBCBC',
+        paddingTop: '5px',
+        '&$error': {
+          color: '#CB3D40',
+        },
       },
       contained: {
         marginLeft: '17px',

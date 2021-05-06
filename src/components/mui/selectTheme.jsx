@@ -4,14 +4,14 @@ export default createMuiTheme({
   overrides: {
     MuiInputLabel: {
       root: {
-        fontFamily: "'Source Sans Pro', sans-serif",
+        fontFamily: "'Asap', sans-serif",
         fontSize: '16px',
-        color: '#8d8c8c',
+        color: '#D0CFCF',
         '&$focused': {
-          color: '#8d8c8c',
+          color: '#00BDD3',
         },
         '&$error': {
-          color: '#f44336;',
+          color: '#f44336',
         },
       },
       focused: {},
@@ -30,13 +30,13 @@ export default createMuiTheme({
     MuiSelect: {
       root: {
         '&&': {
-          minWidth: '403px',
-          maxWidth: '403px',
-          height: '56px',
-          fontFamily: "'Source Sans Pro', sans-serif",
+          minWidth: '380px',
+          maxWidth: '380px',
+          height: '54px',
+          fontFamily: "'Asap', sans-serif",
           fontSize: '16px',
           lineHeight: '35px',
-          color: '#010000',
+          color: 'rgba(0,0,0,0.87)',
           boxSizing: 'border-box',
         },
         '&&:focus': {
@@ -58,8 +58,8 @@ export default createMuiTheme({
     MuiListItem: {
       root: {
         '&$selected': {
-          color: '#ef6c00',
-          backgroundColor: '#fff',
+          color: '#fff',
+          backgroundColor: '#00BDD3',
         },
         '&$selected:hover': {
           backgroundColor: 'rgba(239, 108, 0, 0.2)',

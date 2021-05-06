@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import SignUpBanner from '../src/components/SignUpBanner';
+import SignUpBlock from '../src/components/SignUpBlock';
 
 function SignUp() {
   useEffect(() => {
@@ -17,6 +18,7 @@ function SignUp() {
   return (
     <>
       <SignUpBanner />
+      <SignUpBlock />
     </>
   );
 }

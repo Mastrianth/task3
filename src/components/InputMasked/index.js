@@ -4,39 +4,42 @@ import InputMask from 'react-input-mask';
 import TextField from '@material-ui/core/TextField';
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import theme from '../../mui/inputTheme';
+import theme from '../mui/inputTheme';
 
 function InputMasked({
-  mask, value, onChange, onBlur, id, name, type, label, helperText,
-  hasError, margin, variant, isRequired, isOptionalShowing, isDisabled, isFullWidth,
+  mask, maskPlaceholder, value, onChange, onBlur, id, name, type, label, helperText,
+  hasError, variant, isRequired, isOptionalShowing, isDisabled, wrapperClassName,
 }) {
   const requiredMessage = isOptionalShowing ? '' : '*';
   const optionalMessage = isOptionalShowing ? ' (optional)' : '';
 
   return (
-  // eslint-disable-next-line react/jsx-filename-extension
+    // eslint-disable-next-line react/jsx-filename-extension
     <ThemeProvider theme={theme}>
-      <InputMask
-        mask={mask}
-        value={value}
-        onChange={onChange}
-        onBlur={onBlur}
-        disabled={isDisabled}
-      >
-        {() => (
-          <TextField
-            id={id}
-            name={name}
-            type={type}
-            label={`${label}${isRequired ? requiredMessage : optionalMessage}`}
-            helperText={helperText}
-            error={hasError}
-            margin={margin}
-            variant={variant}
-            fullWidth={isFullWidth}
-          />
-        )}
-      </InputMask>
+      <div className={wrapperClassName}>
+        <InputMask
+          mask={mask}
+          maskPlaceholder={maskPlaceholder}
+          // alwaysShowMask
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
+          disabled={isDisabled}
+        >
+          {() => (
+            <TextField
+              id={id}
+              name={name}
+              type={type}
+              label={`${label}${isRequired ? requiredMessage : optionalMessage}`}
+              helperText={helperText}
+              error={hasError}
+              variant={variant}
+              fullWidth
+            />
+          )}
+        </InputMask>
+      </div>
     </ThemeProvider>
   );
 }
@@ -44,6 +47,7 @@ function InputMasked({
 export default memo(InputMasked);
 
 InputMasked.defaultProps = {
+  maskPlaceholder: null,
   type: 'text',
   value: '',
   helperText: '',
@@ -51,13 +55,13 @@ InputMasked.defaultProps = {
   isOptionalShowing: false,
   isDisabled: false,
   hasError: false,
-  variant: null,
-  margin: null,
-  isFullWidth: false,
+  variant: 'outlined',
+  wrapperClassName: null,
 };
 
 InputMasked.propTypes = {
   mask: PropTypes.string.isRequired,
+  maskPlaceholder: PropTypes.string,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
@@ -71,6 +75,5 @@ InputMasked.propTypes = {
   isDisabled: PropTypes.bool,
   hasError: PropTypes.bool,
   variant: PropTypes.string,
-  margin: PropTypes.string,
-  isFullWidth: PropTypes.bool,
+  wrapperClassName: PropTypes.string,
 };
