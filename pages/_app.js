@@ -11,7 +11,6 @@ import wrapper from '../redux/store';
 import '../src/assets/scss/global.scss';
 import '../src/assets/scss/typography.scss';
 import routes from '../src/routing/routes';
-import { getIsSideDrawerOpen } from '../redux/reducers/ui';
 import { getCurrentUser } from '../redux/reducers/auth';
 import CustomHead from '../src/components/CustomHead';
 import Layout from '../src/components/Layout';
@@ -30,7 +29,6 @@ function MyApp({ Component, pageProps, ua }) {
   const is404 = !route; // false if route found, true of not
   const title = is404 ? 'Page is not found' : route.title;
 
-  const isSideDrawerOpen = useSelector((state) => getIsSideDrawerOpen(state));
   const currentUser = useSelector((state) => getCurrentUser(state));
 
   if (isGoogleSpeedTest) {
@@ -40,7 +38,7 @@ function MyApp({ Component, pageProps, ua }) {
         <CustomHead title={title} />
         <LazyHydrate ssrOnly>
           <MyContext.Provider value={{ isGoogleSpeedTest }}>
-            <Layout currentUser={currentUser} isSideDrawerOpen={isSideDrawerOpen} is404={is404}>
+            <Layout currentUser={currentUser}>
               {/* eslint-disable-next-line react/jsx-props-no-spreading */}
               <Component {...pageProps} />
             </Layout>
@@ -54,7 +52,7 @@ function MyApp({ Component, pageProps, ua }) {
     <>
       <CustomHead title={title} />
         <MyContext.Provider value={{ isGoogleSpeedTest }}>
-          <Layout currentUser={currentUser} isSideDrawerOpen={isSideDrawerOpen} is404={is404}>
+          <Layout currentUser={currentUser}>
             {/* eslint-disable-next-line react/jsx-props-no-spreading */}
             <Component {...pageProps} />
           </Layout>
