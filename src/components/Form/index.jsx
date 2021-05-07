@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import PropTypes from 'prop-types';
 
+import { useDispatch, useSelector } from 'react-redux';
 import Input from '../Input';
 import InputMasked from '../InputMasked';
 import Select from '../Select';
@@ -12,7 +13,8 @@ import {
   handleBlurTextFactory,
   validatePhoto,
 } from '../utils/formHelpers';
-
+import { signUp, signUpFail, signUpSuccess } from '../../../redux/actions';
+import { getPositions } from '../../../redux/reducers/signUp';
 import classes from './Form.module.scss';
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 import useInputsLength, { initialValuesLength } from '../../utils/useInputLength';
@@ -28,6 +30,7 @@ export const NakedForm = ({
   isSubmitting,
   handleChange,
   handleBlur,
+  positions,
   handleSubmit,
   setFieldValue,
   setStatus,
@@ -43,11 +46,29 @@ export const NakedForm = ({
     lowercase: true,
   });
   const { inputsLength, changeCharactersCount, setInputsLength } = useInputsLength();
+
   const photoValidations = {
     allowedExtensions: ['jpg', 'jpeg'],
     maxFileSize: 5000000,
     minWidth: 70,
     minHeight: 70,
+  };
+
+  const photoValidationSuccess = (file) => {
+    setFieldValue('photo', file);
+    setStatus({
+      photoValid: true,
+      photoTouched: true,
+      photoErrorMessage: '',
+    });
+  };
+  const photoValidationFail = () => {
+    setFieldValue('photo', '');
+    setStatus({
+      photoValid: false,
+      photoTouched: true,
+      photoErrorMessage: '',
+    });
   };
 
   const handleChangePhoto = (event) => {
@@ -99,11 +120,7 @@ export const NakedForm = ({
     },
     {
       name: 'position',
-      options: [
-        { value: 10, title: 'Ten' },
-        { value: 20, title: 'Twenty' },
-        { value: 30, title: 'Thirty' },
-      ],
+      options: positions,
       onChange: handleChange,
       wrapperClassName: classes.bottomInputWrapper,
     },
@@ -135,7 +152,7 @@ export const NakedForm = ({
           buttonLabel={t(`${name}ButtonLabel`)}
           value={values[name]}
           onChange={onChange}
-          helperText={t(`${name}HelperText`)}
+          helperText={status[`${name}ErrorMessage`] || t(`${name}HelperText`)}
           hasError={status[`${name}Touched`] && !status[`${name}Valid`]}
           wrapperClassName={wrapperClassName}
           key={name}
@@ -152,7 +169,7 @@ export const NakedForm = ({
           value={values[name]}
           options={options}
           onChange={onChange}
-          helperText={touched[name] ? t(`${name}HelperText`) : ''}
+          helperText={touched[name] && Boolean(errors[name]) ? t(errors[name]) : ''}
           hasError={touched[name] && Boolean(errors[name])}
           isRequired={requiredFields[name]}
           isOptionalShowing={isOptionalShowing}
@@ -174,7 +191,7 @@ export const NakedForm = ({
           value={values[name]}
           onChange={onChange}
           onBlur={onBlur}
-          helperText={t(`${name}HelperText`)}
+          helperText={touched[name] && Boolean(errors[name]) ? t(errors[name]) : t(`${name}HelperText`)}
           hasError={touched[name] && Boolean(errors[name])}
           isRequired={requiredFields[name]}
           isOptionalShowing={isOptionalShowing}
@@ -193,7 +210,7 @@ export const NakedForm = ({
         value={values[name]}
         onChange={onChange}
         onBlur={onBlur}
-        helperText={t(`${name}HelperText`)}
+        helperText={touched[name] && Boolean(errors[name]) ? t(errors[name]) : t(`${name}HelperText`)}
         hasError={touched[name] && Boolean(errors[name])}
         isRequired={requiredFields[name]}
         isOptionalShowing={isOptionalShowing}
@@ -251,6 +268,10 @@ NakedForm.propTypes = {
     photoValid: PropTypes.bool,
     photoTouched: PropTypes.bool,
   }).isRequired,
+  positions: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    title: PropTypes.string,
+  })).isRequired,
   touched: PropTypes.shape({
     name: PropTypes.bool,
     email: PropTypes.bool,
@@ -284,6 +305,7 @@ const initialValues = {
 const initialStatus = {
   photoValid: false,
   photoTouched: false,
+  photoErrorMessage: '',
 };
 
 const requiredFields = {
@@ -319,34 +341,115 @@ const getValidationSchema = (t) => (
   })
 );
 
-const onSubmit = (values, { setSubmitting, resetForm }) => {
-  setTimeout(() => {
-    // const filteredValues = Object.fromEntries(
-    //   Object.entries(values).map(([key, value]) => [key, value.trim().replace(/ {2,}/g, ' ')]),
-    // );
-    alert(JSON.stringify(values, null, 2));
-    setSubmitting(false);
-    resetForm(initialValues, initialValuesLength);
-  }, 1000);
-};
+const FormikForm = (({ t }) => {
+  const dispatch = useDispatch();
+  const positions = useSelector((state) => getPositions(state));
+  const onSubmit = (values, {
+    setSubmitting, resetForm, setErrors, setStatus,
+  }) => {
+    const formData = new FormData();
+    for (const [key, value] of Object.entries(values)) {
+      if (key === 'phone') {
+        formData.append(key, `+${value}`);
+        continue;
+      }
+      if (key === 'position') {
+        formData.append('position_id', value);
+        continue;
+      }
+      formData.append(key, value);
+    }
+    const successCallback = () => {
+      setSubmitting(false);
+      resetForm(initialValues, initialValuesLength);
+    };
 
-const FormikForm = (({ t }) => (
-  <Formik
-    initialValues={initialValues}
-    initialStatus={initialStatus}
-    onSubmit={onSubmit}
-    validationSchema={getValidationSchema(t)}
-  >
-    {(formikProps) => (
-      <NakedForm
-        {...formikProps}
-        t={t}
-        requiredFields={requiredFields}
-        regexes={regexList}
-      />
-    )}
-  </Formik>
-));
+    const failCallback = () => {
+      setSubmitting(false);
+    };
+
+    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
+      .then((response) => response.json())
+      .then((data) => {
+        const { token } = data;
+
+        return fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users',
+          {
+            method: 'POST',
+            body: formData,
+            headers: {
+              Token: token,
+            },
+          });
+      })
+      .then((response) => {
+        if (!response.ok) throw response;
+
+        return response.json();
+      })
+      .then((data) => {
+        if (!data.success) throw new Error(data.message);
+
+        successCallback();
+        dispatch(signUpSuccess());
+      })
+      .catch((error) => {
+        if (error instanceof Error) {
+          console.log(error.message);
+          return;
+        }
+
+        error.json().then()((errorData) => {
+          const { status } = error;
+          const { message, fails } = errorData;
+
+          if (status === 400) {
+            setErrors({ email: message, phone: message });
+            failCallback();
+            return;
+          }
+
+          const formErrors = {};
+          const formStatus = {};
+
+          for (const key of Object.keys(fails)) {
+            if (key === 'position_id') {
+              formErrors.position = fails[key].join(' ');
+              continue;
+            }
+
+            if (key === 'photo') {
+              formStatus.photoErrorMessage = fails[key].join(' ');
+              continue;
+            }
+            formErrors[key] = fails[key].join(' ');
+          }
+          setErrors(formErrors);
+          setStatus(formStatus);
+          failCallback();
+          dispatch(signUpFail());
+        });
+      });
+  };
+  return (
+    <Formik
+      initialValues={initialValues}
+      initialStatus={initialStatus}
+      onSubmit={onSubmit}
+      validationSchema={getValidationSchema(t)}
+    >
+      {(formikProps) => (
+        <NakedForm
+          {...formikProps}
+          t={t}
+          requiredFields={requiredFields}
+          regexes={regexList}
+          positions={positions}
+        />
+      )}
+    </Formik>
+  );
+});
 
 FormikForm.propTypes = {
   t: PropTypes.func.isRequired,

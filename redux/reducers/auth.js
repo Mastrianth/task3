@@ -1,4 +1,6 @@
-import { SET_CURRENT_USER } from '../constants/actionTypes';
+import {
+  SET_CURRENT_USER,
+} from '../constants/actionTypes';
 
 export const initialState = {
   currentUser: {
@@ -25,8 +27,9 @@ export default function auth(state = initialState, action) {
         },
       };
     }
-    default: return state;
+    default:
+      return state;
   }
 }
 
-export const getCurrentUser = (state) => ({ ...state.auth.currentUser });
+export const getCurrentUser = (state) => (state.auth.currentUser);

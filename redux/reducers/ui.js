@@ -1,17 +1,20 @@
 import {
+  PAGE_LOADED,
   OPEN_SIDEDRAWER,
   CLOSE_SIDEDRAWER,
   SET_SCROLL_POSITION,
   SHOW_USER_BTN_SPINNER,
   HIDE_USER_BTN_SPINNER,
-  PAGE_LOADED,
+  SHOW_SUCCESS_POPUP,
+  HIDE_SUCCESS_POPUP,
 } from '../constants/actionTypes';
 
 export const initialState = {
+  isPageLoaded: false,
   isSideDrawerOpen: false,
   isUserBtnSpinnerActive: false,
   scrollPosition: 0,
-  isPageLoaded: false,
+  isSuccessPopupActive: false,
 };
 
 export default function ui(state = initialState, action) {
@@ -30,6 +33,10 @@ export default function ui(state = initialState, action) {
       return { ...state, isUserBtnSpinnerActive: true };
     case HIDE_USER_BTN_SPINNER:
       return { ...state, isUserBtnSpinnerActive: false };
+    case SHOW_SUCCESS_POPUP:
+      return { ...state, isSuccessPopupActive: true };
+    case HIDE_SUCCESS_POPUP:
+      return { ...state, isSuccessPopupActive: false };
     default:
       return state;
   }
@@ -39,3 +46,4 @@ export const getIsPageLoaded = (state) => state.ui.isPageLoaded;
 export const getIsSideDrawerOpen = (state) => state.ui.isSideDrawerOpen;
 export const getScrollPosition = (state) => state.ui.scrollPosition;
 export const getIsUserBtnSpinnerActive = (state) => state.ui.isUserBtnSpinnerActive;
+export const getIsSuccessPopupActive = (state) => state.ui.isSuccessPopupActive;

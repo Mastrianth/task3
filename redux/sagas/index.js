@@ -2,6 +2,7 @@ import {
   call, put, takeEvery, takeLatest, select,
 } from 'redux-saga/effects';
 import ReactTooltip from 'react-tooltip';
+
 import {
   OPEN_SIDEDRAWER,
   CLOSE_SIDEDRAWER,
@@ -11,6 +12,8 @@ import {
   FETCH_USERS_START,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAIL,
+  GET_POSITIONS,
+  SIGN_UP_SUCCESS,
 } from '../constants/actionTypes';
 import {
   setScrollPosition,
@@ -20,8 +23,13 @@ import {
   fetchUsersSuccess,
   fetchUsersFail,
   addUsers,
+  clearUsers,
   showUserBtnSpinner,
   hideUserBtnSpinner,
+  showSuccessPopup,
+  getPositionsStart,
+  getPositionsSuccess,
+  getPositionsFail,
 } from '../actions';
 import {
   getScrollPosition,
@@ -41,10 +49,11 @@ function* onCloseSideDrawer() {
   mainEl.style.top = 0;
   yield call(window.scrollTo, 0, scrollPosition);
 }
+
 function* onFetchCurrentUser({ payload }) {
   try {
     const response = yield call(fetch, `https://frontend-test-assignment-api.abz.agency/api/v1/users/${payload}`);
-    if (!response.ok) throw new Error(`${response.status} ${response.status.text}`);
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
 
     const data = yield response.json();
     if (!data.success) throw new Error(data.message);
@@ -59,8 +68,14 @@ function* onFetchCurrentUserFail({ payload }) {
   yield console.log(payload);
 }
 
-function* onFetchUsers({ payload: currentLength }) {
-  const numberToFetch = window.innerWidth < 600 ? 3 : 9;
+function* onFetchUsers({ payload: currentLength, imperativeCount }) {
+  let numberToFetch;
+  if (imperativeCount) {
+    numberToFetch = imperativeCount;
+  } else {
+    numberToFetch = window.innerWidth < 600 ? 3 : 9;
+  }
+
   yield put(fetchUsersStart(numberToFetch));
 
   try {
@@ -88,9 +103,36 @@ function* onFetchUsersSuccess() {
   yield setTimeout(ReactTooltip.rebuild);
 }
 
-function* onFetchUsersSFail({ payload: { error } }) {
+function* onFetchUsersFail({ error }) {
   yield console.log(error);
   yield put(hideUserBtnSpinner());
+}
+
+function* onGetPositions() {
+  try {
+    yield put(getPositionsStart());
+
+    const response = yield call(fetch, 'https://frontend-test-assignment-api.abz.agency/api/v1/positions');
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+
+    const data = yield response.json();
+    if (!data.success) throw new Error(data.message);
+
+    const positions = Object.values(data.positions).map(({ id, name }) => ({
+      value: id,
+      title: name,
+    }));
+
+    yield put(getPositionsSuccess(positions));
+  } catch (error) {
+    console.log(error);
+    yield put(getPositionsFail());
+  }
+}
+
+function* onSignUpSuccess() {
+  yield put(showSuccessPopup());
+  yield put(clearUsers());
 }
 
 export default function* rootSaga() {
@@ -101,5 +143,7 @@ export default function* rootSaga() {
   yield takeLatest(FETCH_USERS, onFetchUsers);
   yield takeEvery(FETCH_USERS_START, onFetchUsersStart);
   yield takeEvery(FETCH_USERS_SUCCESS, onFetchUsersSuccess);
-  yield takeEvery(FETCH_USERS_FAIL, onFetchUsersSFail);
+  yield takeEvery(FETCH_USERS_FAIL, onFetchUsersFail);
+  yield takeLatest(GET_POSITIONS, onGetPositions);
+  yield takeEvery(SIGN_UP_SUCCESS, onSignUpSuccess);
 }

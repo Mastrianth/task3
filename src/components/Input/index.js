@@ -17,7 +17,7 @@ function Input({
 
   return (
     // eslint-disable-next-line react/jsx-filename-extension
-    <ThemeProvider theme={theme}>
+
       <div className={wrapperClassName}>
         <TextField
           id={id}
@@ -44,7 +44,7 @@ function Input({
           style={{
             position: 'absolute',
             paddingLeft: '330px',
-            marginTop: '-15px',
+            marginTop: '12px',
             zIndex: '1',
             color: 'rgba(0, 0, 0, 0.87)',
             fontFamily: "'Asap', sans-serif",
@@ -63,7 +63,6 @@ function Input({
           {initialProps[name].maxLength}
         </div>
       </div>
-    </ThemeProvider>
   );
 }
 
