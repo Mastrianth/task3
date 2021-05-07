@@ -16,14 +16,14 @@ export default createMuiTheme({
       },
       focused: {},
       error: {},
-      // outlined: {
-      //   '&$marginDense': {
-      //     transform: 'translate(16px, 19px) scale(1)',
-      //   },
-      //   '&$shrink': {
-      //     transform: 'translate(17px, -6px) scale(0.75)',
-      //   },
-      // },
+      outlined: {
+        '&$marginDense': {
+          transform: 'translate(16px, 19px) scale(1)',
+        },
+        '&$shrink': {
+          transform: 'translate(17px, -6px) scale(0.75)',
+        },
+      },
       marginDense: {},
     },
     MuiInputBase: {
@@ -52,7 +52,7 @@ export default createMuiTheme({
           borderColor: 'rgba(0,0,0,0.87)',
         },
         '&$focused $notchedOutline$notchedOutline': {
-          borderColor: '#00BDD3',
+          borderColor: '#00BDD3 ',
         },
         '&$error $notchedOutline$notchedOutline': {
           borderColor: '#CB3D40',
@@ -61,9 +61,9 @@ export default createMuiTheme({
       input: {
         paddingLeft: '17px',
       },
-      // notchedOutline: {
-      //   borderColor: '#D0CFCF',
-      // },
+      notchedOutline: {
+        borderColor: '#D0CFCF',
+      },
       focused: {},
       error: {},
     },

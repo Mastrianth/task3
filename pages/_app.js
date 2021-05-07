@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import App from 'next/app';
 import { useRouter } from 'next/router';
-import ReactTooltip from 'react-tooltip';
 import { useSelector } from 'react-redux';
 import { withUserAgent, useUserAgent } from 'next-useragent';
 import LazyHydrate from 'react-lazy-hydration';
