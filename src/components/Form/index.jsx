@@ -23,6 +23,7 @@ export const NakedForm = ({
   t,
   regexes,
   requiredFields,
+  positions,
   values,
   status,
   touched,
@@ -30,7 +31,6 @@ export const NakedForm = ({
   isSubmitting,
   handleChange,
   handleBlur,
-  positions,
   handleSubmit,
   setFieldValue,
   setStatus,
@@ -41,6 +41,7 @@ export const NakedForm = ({
   const handleBlurReplaceSpaces = handleBlurTextFactory(handleBlur, setFieldValue, {
     onlySingleSpaces: true,
   });
+
   const handleBlurReplaceAllSpacesAndLowercase = handleBlurTextFactory(handleBlur, setFieldValue, {
     noSpaces: true,
     lowercase: true,

@@ -67,9 +67,12 @@ export const clearUsers = () => ({ type: CLEAR_USERS });
 
 export const getPositions = () => ({ type: GET_POSITIONS });
 export const getPositionsStart = () => ({ type: GET_POSITIONS_START });
-export const getPositionsSuccess = () => ({ type: GET_POSITIONS_SUCCESS });
+export const getPositionsSuccess = (positions) => ({
+  type: GET_POSITIONS_SUCCESS,
+  payload: positions,
+});
 export const getPositionsFail = () => ({ type: GET_POSITIONS_FAIL });
-export const signUp = (formData, successCallback) => ({ type: SIGN_UP, payload: { formData, successCallback } });
+export const signUp = (formData) => ({ type: SIGN_UP, payload: formData });
 export const signUpStart = () => ({ type: SIGN_UP_START });
 export const signUpSuccess = () => ({ type: SIGN_UP_SUCCESS });
 export const signUpFail = (errors) => ({ type: SIGN_UP_FAIL, payload: errors });
