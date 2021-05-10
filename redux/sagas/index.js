@@ -34,6 +34,7 @@ import {
 import {
   getScrollPosition,
 } from '../reducers/ui';
+import { onFetchCurrentUser, onFetchCurrentUserFail } from './user';
 
 function* onOpenSideDrawer() {
   const scrollPosition = window.pageYOffset;
@@ -48,24 +49,6 @@ function* onCloseSideDrawer() {
   mainEl.classList.remove('show-overlay');
   mainEl.style.top = 0;
   yield call(window.scrollTo, 0, scrollPosition);
-}
-
-function* onFetchCurrentUser({ payload }) {
-  try {
-    const response = yield call(fetch, `https://frontend-test-assignment-api.abz.agency/api/v1/users/${payload}`);
-    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-
-    const data = yield response.json();
-    if (!data.success) throw new Error(data.message);
-
-    yield put(setCurrentUser(data.user));
-  } catch (error) {
-    yield put(fetchCurrentUserFail(error));
-  }
-}
-
-function* onFetchCurrentUserFail({ payload }) {
-  yield console.log(payload);
 }
 
 function* onFetchUsers({ payload: currentLength, imperativeCount }) {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import App from 'next/app';
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { withUserAgent, useUserAgent } from 'next-useragent';
 import LazyHydrate from 'react-lazy-hydration';
 import PropTypes from 'prop-types';
@@ -21,7 +21,7 @@ import { getIsPageLoaded } from '../redux/reducers/ui';
 function MyApp({ Component, pageProps, ua }) {
   const router = useRouter();
   const [isGoogleSpeedTest, setGoogleSpeedTest] = useState(true);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     setGoogleSpeedTest(/Speed/.test(ua.source) || /Lighthouse/.test(ua.source));
   }, [ua]);

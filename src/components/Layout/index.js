@@ -1,15 +1,16 @@
-import React, { memo, useContext, useState, useEffect } from 'react';
+import React, {
+  memo, useContext, useState, useEffect,
+} from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import classNames from 'classnames';
-import LazyLoad from 'react-lazyload';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header';
 import classes from './Layout.module.scss';
 import MyContext from '../../utils/context';
 import {
-  fetchCurrentUser, openSideDrawer
-} from "../../../redux/actions";
+  fetchCurrentUser, openSideDrawer,
+} from '../../../redux/actions';
 
 const Footer = dynamic(() => import('../Footer'),
   { ssr: false });
@@ -33,8 +34,8 @@ const Layout = ({
   };
 
   useEffect(() => {
-      dispatch(fetchCurrentUser(1));
-      setUserFetched(true);
+    dispatch(fetchCurrentUser(1));
+    setUserFetched(true);
   }, []);
 
   const {
@@ -66,7 +67,7 @@ const Layout = ({
           }}
         />
         {children}
-          {isGoogleSpeedTest ? null : <Footer />}
+        {isGoogleSpeedTest ? null : <Footer />}
       </div>
     </>
   );

@@ -1,10 +1,12 @@
 import React, {
-  useContext, useEffect, useRef, useState,
+  useContext, useEffect, useRef, useState, memo,
 } from 'react';
 import PropTypes from 'prop-types';
+import {useRouter} from "next/router";
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInViewport } from 'react-in-viewport';
+import { Link as LinkScroll } from 'react-scroll';
 import { withTranslation } from '../../../i18n';
 import ContentWrapper from '../ContentWrapper';
 import MyContext from '../../utils/context';
@@ -13,6 +15,11 @@ import Form from '../Form';
 import { getPositions, hideSuccessPopup } from '../../../redux/actions';
 import { getIsPageLoaded, getIsSuccessPopupActive } from '../../../redux/reducers/ui';
 import { getIsSignUpActive } from '../../../redux/reducers/signUp';
+import SlideDown from '../Acquainted/SlideDown/SlideDown';
+import ButtonComponent from "../Button/LargePrimaryButtons/LargePrimaryButton";
+import styles2 from '../Form/Modal.module.scss';
+import Success from '../../assets/img/svg/Success.svg';
+import { selectPositionsError } from "../../utils/usersSlice";
 
 const SignUpBlock = ({ t }) => {
   const [isPositionFetched, setIsPositionsFetched] = useState(false);
@@ -25,7 +32,9 @@ const SignUpBlock = ({ t }) => {
   const titleClasses = classNames('h2', styles.title);
   const subtitleClasses = classNames('h5', styles.subtitle);
   const { isGoogleSpeedTest } = useContext(MyContext);
-
+  const positionsError = useSelector(selectPositionsError);
+  const [showAfter, setShowAfter] = useState(false);
+  const router = useRouter();
   useEffect(() => {
     dispatch(getPositions());
   }, []);
@@ -37,6 +46,8 @@ const SignUpBlock = ({ t }) => {
     }
   }, [isPageLoaded, inViewport]);
 
+
+  const [isLoadingForm, setIsLoadingForm] = useState(false);
   // if (!isSignUpActive) {
   //   return null;
   // }
@@ -44,16 +55,66 @@ const SignUpBlock = ({ t }) => {
   return (
     <section ref={signUpBlockRef} className={styles.SignUpBlock} id="sign-up">
       <ContentWrapper>
-        <h2 className={titleClasses}>{t('reg-form-title')}</h2>
+         <LinkScroll
+          className={styles2.slideDownContainer}
+          to="sign-up"
+          spy
+          smooth
+          duration={500}
+         >
+          <SlideDown />
+         </LinkScroll>
+        <h2 className={titleClasses}>{showAfter ? t('Thank you') : t('reg-form-title')}</h2>
         <h3 className={subtitleClasses}>
-          {t(
-            'reg-form-subtitle',
-          )}
+          {showAfter ? t('Registration completed successfully') : t('reg-form-subtitle')}
         </h3>
-        {isGoogleSpeedTest ? null : <Form t={t} />}
+        {showAfter
+          ? (
+            <>
+              <div className={styles2.successContainer}>
+                <Success />
+              </div>
+              <div className={styles2.successText}>
+                {t('redirect')}
+              </div>
+              <div className={styles2.buttonContainer}>
+                <ButtonComponent
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  disabled={false}
+                  onClick={() => router.push('/').then(() => window.scrollTo(0, 0))}
+                  label={t('Go to home')}
+                />
+              </div>
+            </>
+          )
+          : (
+            <div className={styles2.overlayContainer}>
+              {positionsError ? (
+                <div className={styles2.overlay}>
+                  <div className={styles2.innerOverlayContainer}>
+                    <h2 className={styles2.overlaySubtitle}>{t('reg-unavailable')}</h2>
+                    <h2 className={styles2.overlaySubtitle}>{t('Please try later')}</h2>
+                    <div className={styles2.buttonContainerError}>
+                      <ButtonComponent
+                        onClick={() => window.location.reload()}
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        disabled={false}
+                        label={t('Reload this page')}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ) : ''}
+              {isGoogleSpeedTest ? null : <Form router={router} setShowAfter={setShowAfter} t={t} />}
+            </div>
+          )}
       </ContentWrapper>
     </section>
   );
 };
 
-export default withTranslation('common')(SignUpBlock);
+export default memo(withTranslation('common')(SignUpBlock));

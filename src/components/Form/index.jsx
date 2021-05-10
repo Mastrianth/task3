@@ -319,7 +319,6 @@ const submittingStatus = {
   photoErrorMessage: '',
 };
 
-
 const regexList = {
   name: /^[A-z][A-z\s]{1,59}$/,
   // eslint-disable-next-line no-control-regex
@@ -345,7 +344,7 @@ const getValidationSchema = (t) => (
   })
 );
 
-const FormikForm = (({ t }) => {
+const FormikForm = (({ t, setShowAfter, router }) => {
   const dispatch = useDispatch();
   const positions = useSelector((state) => getPositions(state));
 
@@ -369,6 +368,8 @@ const FormikForm = (({ t }) => {
     const successCallback = () => {
       setSubmitting(false);
       resetForm(initialValues, initialValuesLength);
+      setShowAfter(true);
+      setTimeout(() => router.push('/').then(() => window.scrollTo(0, 0)), 3000);
     };
 
     const failCallback = () => {
