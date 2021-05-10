@@ -195,14 +195,6 @@ export const fetchUsers = (getUsers, usersCount) => async (dispatch) => {
   try {
     const response = await getUsers(usersCount);
     const data = await response.json();
-    // response = await getUsers(usersCount, data.totalPages);
-    // data = await response.json();
-    // if(data.users.length < usersCount) {
-    //   cons
-    //   response = await fetch(data.nextUrl);
-    // }
-    // console.log(data);
-    // console.log(data.totalPages);
 
     dispatch(usersSuccess(data));
   } catch (error) {
@@ -215,7 +207,6 @@ export const fetchMoreUsers = (getUrl) => async (dispatch, getState) => {
   dispatch(startLoading());
   try {
     const url = getState().users.nextUrl;
-    // const url=getState().users.nextUrl.replace('http:', 'https:')
     const response = await getUrl(url);
     const data = await response.json();
     dispatch(usersAddMore(data));
@@ -225,11 +216,6 @@ export const fetchMoreUsers = (getUrl) => async (dispatch, getState) => {
   }
 };
 
-// export const usersRequested = () => {
-//     dispatch(setFirstLoading(true));
-//     dispatch(setUsers([]));
-//     dispatch(setError(null));
-// }
 
 export const selectPlaceholderForAuthorizedUser = (state) => state.users.showPlaceholderForAuthorizedUser;
 export const selectPlaceholder = (state) => state.users.showPlaceholder;

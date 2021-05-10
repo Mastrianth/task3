@@ -1,7 +1,10 @@
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import classNames from 'classnames/bind';
+import { useSelector } from 'react-redux';
 import classes from './IconButton.module.scss';
+import { getIsPageLoaded } from '../../../redux/reducers/ui';
 
 function IconButton({
   children,
@@ -13,12 +16,14 @@ function IconButton({
   isCentered,
   className,
 }) {
-  const cx = classNames.bind(classes);
+  const isPageLoaded = useSelector((state) => getIsPageLoaded(state));
 
+  const cx = classNames.bind(classes);
   const IconButtonClasses = cx(
     'IconButton',
     className,
     {
+      loaded: isPageLoaded,
       secondary: isSecondary,
       centered: isCentered,
       disabled: isDisabled,
@@ -69,4 +74,4 @@ IconButton.propTypes = {
   className: PropTypes.string,
 };
 
-export default IconButton;
+export default memo(IconButton);

@@ -33,9 +33,9 @@ const UserInfo = ({
   return (
     <div className={userInfoClasses}>
       {userInfo}
-      <IconButton isSecondary onClick={logOut} className={classes.logOutButton}>
-        <LogOutIcon className={classes.logOutIcon} />
-      </IconButton>
+      {/*<IconButton isSecondary onClick={logOut} className={classes.logOutButton}>*/}
+      {/*  <LogOutIcon className={classes.logOutIcon} />*/}
+      {/*</IconButton>*/}
     </div>
   );
 };

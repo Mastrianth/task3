@@ -32,7 +32,10 @@ export const handleBlurTextFactory = (handleBlur, setFieldValue, {
   setFieldValue(name, newValue);
 };
 
-export const validatePhoto = (file, allowedExtensions, maxFileSize, minWidth, minHeight) => {
+export const validatePhoto = (
+  file, successCallback, failCallback,
+  allowedExtensions, maxFileSize, minWidth, minHeight,
+) => {
   const fileName = file.name;
   const fileExtension = fileName.replace(/^.*\./, '');
   const fileSize = file.size;
@@ -47,18 +50,19 @@ export const validatePhoto = (file, allowedExtensions, maxFileSize, minWidth, mi
         const height = event.target.naturalHeight;
 
         if (width >= minWidth && height >= minHeight) {
-          // success
-          return true;
+          successCallback(file);
+          return;
         }
+
         // wrong dimensions
-        return false;
+        failCallback();
       };
+      img.onerror = failCallback;
+      return;
     }
-    // wrong file size
-    return false;
   }
-  // wrong extension
-  return false;
+  // catch all fail
+  failCallback();
 };
 
 export const initialProps = {

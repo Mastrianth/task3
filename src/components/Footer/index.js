@@ -9,11 +9,11 @@ import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 
 import Logo from '../../assets/img/svg/do-not-inline/Logo.svg';
 import FootPrints from '../../assets/img/svg/do-not-inline/Footprints.svg';
-import Facebook from '../../assets/img/svg/do-not-inline/social-icons/facebook.svg';
-import Twitter from '../../assets/img/svg/do-not-inline/social-icons/twitter.svg';
-import Instagram from '../../assets/img/svg/do-not-inline/social-icons/instagram.svg';
-import Pinterest from '../../assets/img/svg/do-not-inline/social-icons/pinterest.svg';
-import LinkedIn from '../../assets/img/svg/do-not-inline/social-icons/linkedin.svg';
+import Facebook from '../../assets/img/svg/social-icons/facebook.svg';
+import Twitter from '../../assets/img/svg/social-icons/twitter.svg';
+import Instagram from '../../assets/img/svg/social-icons/instagram.svg';
+import Pinterest from '../../assets/img/svg/social-icons/pinterest.svg';
+import LinkedIn from '../../assets/img/svg/social-icons/linkedin.svg';
 
 import styles from './Footer.module.scss';
 import ContentWrapper from '../ContentWrapper';
@@ -80,7 +80,7 @@ function Footer({ t }) {
                         <Link scroll={false} href="/#users"><a>{t('users')}</a></Link>
                       </>
                     )}
-                  <Link href="/registration"><a>{t('sign-up')}</a></Link>
+                  <Link href="/sign-up"><a>{t('sign-up')}</a></Link>
                 </span>
                 <span className={styles.rightMenuFooter}>
                   <span className={styles.langMenu}>
@@ -204,11 +204,11 @@ function Footer({ t }) {
                 />
               </div>
               <div className={styles.footerIcons}>
-                <a href="https://www.facebook.com/"><img src={Facebook} alt="facebook" /></a>
-                <a href="https://twitter.com/"><img src={Twitter} alt="twitter" /></a>
-                <a href="https://www.instagram.com/"><img src={Instagram} alt="instagram" /></a>
-                <a href="https://www.linkedin.com/"><img src={LinkedIn} alt="linkedin" /></a>
-                <a href="https://www.pinterest.com/"><img src={Pinterest} alt="pinterest" /></a>
+                <a href="https://www.facebook.com/"><Facebook /></a>
+                <a href="https://twitter.com/"><Twitter /></a>
+                <a href="https://www.instagram.com/"><Instagram /></a>
+                <a href="https://www.linkedin.com/"><LinkedIn /></a>
+                <a href="https://www.pinterest.com/"><Pinterest /></a>
               </div>
             </div>
           </div>

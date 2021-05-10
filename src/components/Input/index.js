@@ -17,7 +17,7 @@ function Input({
 
   return (
     // eslint-disable-next-line react/jsx-filename-extension
-
+    <ThemeProvider theme={theme}>
       <div className={wrapperClassName}>
         <TextField
           id={id}
@@ -63,6 +63,7 @@ function Input({
           {initialProps[name].maxLength}
         </div>
       </div>
+    </ThemeProvider>
   );
 }
 

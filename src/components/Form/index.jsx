@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { memo } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import PropTypes from 'prop-types';
@@ -13,11 +13,18 @@ import {
   handleBlurTextFactory,
   validatePhoto,
 } from '../utils/formHelpers';
-import { signUp, signUpFail, signUpSuccess } from '../../../redux/actions';
+import { signUpFail, signUpSuccess } from '../../../redux/actions';
 import { getPositions } from '../../../redux/reducers/signUp';
 import classes from './Form.module.scss';
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 import useInputsLength, { initialValuesLength } from '../../utils/useInputLength';
+
+const photoValidations = {
+  allowedExtensions: ['jpg', 'jpeg'],
+  maxFileSize: 5000000,
+  minWidth: 70,
+  minHeight: 70,
+};
 
 export const NakedForm = ({
   t,
@@ -41,19 +48,11 @@ export const NakedForm = ({
   const handleBlurReplaceSpaces = handleBlurTextFactory(handleBlur, setFieldValue, {
     onlySingleSpaces: true,
   });
-
   const handleBlurReplaceAllSpacesAndLowercase = handleBlurTextFactory(handleBlur, setFieldValue, {
     noSpaces: true,
     lowercase: true,
   });
   const { inputsLength, changeCharactersCount, setInputsLength } = useInputsLength();
-
-  const photoValidations = {
-    allowedExtensions: ['jpg', 'jpeg'],
-    maxFileSize: 5000000,
-    minWidth: 70,
-    minHeight: 70,
-  };
 
   const photoValidationSuccess = (file) => {
     setFieldValue('photo', file);
@@ -79,12 +78,9 @@ export const NakedForm = ({
     } = photoValidations;
 
     if (file && file.name) {
-      if (validatePhoto(file, allowedExtensions, maxFileSize, minWidth, minHeight)) {
-        setFieldValue('photo', file);
-        setStatus({ photoValid: true, photoTouched: true });
-        return;
-      }
-      setStatus({ photoValid: false, photoTouched: true });
+      validatePhoto(file, photoValidationSuccess,
+        photoValidationFail, allowedExtensions,
+        maxFileSize, minWidth, minHeight);
     }
   };
 
@@ -317,6 +313,13 @@ const requiredFields = {
   photo: true,
 };
 
+const submittingStatus = {
+  photoValid: true,
+  photoTouched: true,
+  photoErrorMessage: '',
+};
+
+
 const regexList = {
   name: /^[A-z][A-z\s]{1,59}$/,
   // eslint-disable-next-line no-control-regex
@@ -345,6 +348,7 @@ const getValidationSchema = (t) => (
 const FormikForm = (({ t }) => {
   const dispatch = useDispatch();
   const positions = useSelector((state) => getPositions(state));
+
   const onSubmit = (values, {
     setSubmitting, resetForm, setErrors, setStatus,
   }) => {
@@ -358,8 +362,10 @@ const FormikForm = (({ t }) => {
         formData.append('position_id', value);
         continue;
       }
+
       formData.append(key, value);
     }
+
     const successCallback = () => {
       setSubmitting(false);
       resetForm(initialValues, initialValuesLength);
@@ -400,18 +406,17 @@ const FormikForm = (({ t }) => {
           return;
         }
 
-        error.json().then()((errorData) => {
+        error.json().then((errorData) => {
           const { status } = error;
           const { message, fails } = errorData;
 
-          if (status === 400) {
-            setErrors({ email: message, phone: message });
+          if (status === 409) {
             failCallback();
             return;
           }
 
           const formErrors = {};
-          const formStatus = {};
+          const formStatus = { ...submittingStatus };
 
           for (const key of Object.keys(fails)) {
             if (key === 'position_id') {
@@ -421,14 +426,16 @@ const FormikForm = (({ t }) => {
 
             if (key === 'photo') {
               formStatus.photoErrorMessage = fails[key].join(' ');
+              formStatus.photoValid = false;
               continue;
             }
+
             formErrors[key] = fails[key].join(' ');
           }
+
           setErrors(formErrors);
           setStatus(formStatus);
           failCallback();
-          dispatch(signUpFail());
         });
       });
   };
@@ -456,4 +463,4 @@ FormikForm.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default FormikForm;
+export default memo(FormikForm);

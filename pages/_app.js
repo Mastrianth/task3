@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { withUserAgent, useUserAgent } from 'next-useragent';
 import LazyHydrate from 'react-lazy-hydration';
 import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip';
 import { appWithTranslation } from '../i18n';
 import wrapper from '../redux/store';
 import '../src/assets/scss/global.scss';
@@ -14,6 +15,7 @@ import { getCurrentUser } from '../redux/reducers/auth';
 import CustomHead from '../src/components/CustomHead';
 import Layout from '../src/components/Layout';
 import MyContext from '../src/utils/context';
+import { getIsPageLoaded } from '../redux/reducers/ui';
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps, ua }) {
@@ -27,7 +29,7 @@ function MyApp({ Component, pageProps, ua }) {
   const route = routes.find((routeObj) => routeObj.route === router.pathname);
   const is404 = !route; // false if route found, true of not
   const title = is404 ? 'Page is not found' : route.title;
-
+  const isPageLoaded = useSelector((state) => getIsPageLoaded(state));
   const currentUser = useSelector((state) => getCurrentUser(state));
 
   if (isGoogleSpeedTest) {
@@ -37,7 +39,7 @@ function MyApp({ Component, pageProps, ua }) {
         <CustomHead title={title} />
         <LazyHydrate ssrOnly>
           <MyContext.Provider value={{ isGoogleSpeedTest }}>
-            <Layout currentUser={currentUser}>
+            <Layout currentUser={currentUser} currentRoute={router.pathname}>
               {/* eslint-disable-next-line react/jsx-props-no-spreading */}
               <Component {...pageProps} />
             </Layout>
@@ -49,13 +51,49 @@ function MyApp({ Component, pageProps, ua }) {
   return (
     // eslint-disable-next-line react/jsx-filename-extension
     <>
-      <CustomHead title={title} />
-        <MyContext.Provider value={{ isGoogleSpeedTest }}>
-          <Layout currentUser={currentUser}>
-            {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-            <Component {...pageProps} />
-          </Layout>
-        </MyContext.Provider>
+      <CustomHead title={title} currentRoute={router.pathname} />
+      <MyContext.Provider value={{ isGoogleSpeedTest }}>
+        <Layout
+          currentUser={currentUser}
+          isPageLoaded={isPageLoaded}
+        >
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <Component
+            {...pageProps}
+            isPageLoaded={isPageLoaded}
+          />
+        </Layout>
+        {!isGoogleSpeedTest ? (
+          <ReactTooltip
+            place="bottom"
+            effect="solid"
+            arrowColor="transparent"
+            className="tooltip"
+            overridePosition={({ top, left }, _currentEvent, currentTarget, refNode) => {
+              const { align } = currentTarget.dataset;
+              const closestTooltipContainer = currentTarget.closest('.tooltip-container');
+
+              // if no "tooltip-container" found in parent elements, fall back to default coords
+              if (!closestTooltipContainer) {
+                return { top, left };
+              }
+
+              const containerRect = closestTooltipContainer.getBoundingClientRect();
+
+              // if align left specified, align left edges of tooltip and container
+              if (align && align === 'left') {
+                return { top, left: containerRect.left };
+              }
+
+              // if align left NOT specified, align right edges of tooltip and container
+              return {
+                top,
+                left: containerRect.right - refNode.offsetWidth,
+              };
+            }}
+          />
+        ) : null}
+      </MyContext.Provider>
     </>
   );
 }

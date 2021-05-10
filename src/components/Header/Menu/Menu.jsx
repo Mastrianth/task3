@@ -19,11 +19,12 @@ import Logo from '../../../assets/img/svg/Logo.svg';
 import Exit from '../../../assets/img/svg/exit.svg';
 import styles from './Menu.module.scss';
 import ContentWrapper from '../../ContentWrapper';
+import UserInfo from "../../UserInfo";
 
 const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
 
 const Menu = ({
-  openBurgerMenu, t, openModal,
+  openBurgerMenu, t, openModal,  userName, userEmail, userAvatar, isUserLoaded, isApiErrorActive, openSideDrawer, logOut, isDesktop,
 }) => {
   const { i18n: { language } } = useContext(I18nContext);
   const router = useRouter();
@@ -125,13 +126,13 @@ const Menu = ({
             </span>
             <>
               <span className={styles.authorizedMenu}>
-                <span className={styles.userLogoMenu}>
-                  <div className={styles.placeholderUserLogo} />
-                  <span className={styles.usersData}>
-                    <div className={styles.placeholderName} />
-                    <div className={styles.placeholderEmail} />
-                  </span>
-                </span>
+                <UserInfo
+                  userName={userName}
+                  userEmail={userEmail}
+                  userAvatar={userAvatar}
+                  logOut={logOut}
+                  isLoaded={isUserLoaded}
+                />
                 <a
                   onClick={
                 (e) => {

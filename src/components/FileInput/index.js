@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
 import classes from './FileInput.module.scss';
+import uploadIcon from '../../assets/img/svg/arrow.svg';
+import Img from '../Img';
 
 const FileInput = ({
   id, name, label, buttonLabel, value, onChange,
-  helperText, hasError, isRequired, wrapperClassName,
+  helperText, hasError, wrapperClassName,
 }) => {
+  const fileName = value.name;
+
   const cx = classNames.bind(classes);
   const wrapperClasses = classNames(wrapperClassName, classes.fileInputWrapper);
   const inputClasses = cx('fileInput', { error: hasError });
   const mainFileLabelClasses = cx('mainFileLabel', {
-    mainFileLabel_filled: value !== 'Upload your photo' && value !== 'No file chosen',
+    mainFileLabel_filled: fileName,
   });
   const helperTextClasses = cx('helperText', { error: hasError });
 
@@ -25,17 +29,18 @@ const FileInput = ({
         name={name}
         onChange={onChange}
         className={inputClasses}
-        required={isRequired}
       />
-      <label
-        htmlFor={id}
-        className={mainFileLabelClasses}
-      >
-        {value || label}
-      </label>
-      <label htmlFor={id} className={classes.browseFileLabel}>
-        {buttonLabel}
-      </label>
+      <div className={classes.labelWrapper}>
+        <label htmlFor={id} className={classes.browseFileLabel}>
+          <span className={classes.uploadText}>{label}</span>
+        </label>
+        <label
+          htmlFor={id}
+          className={mainFileLabelClasses}
+        >
+          {fileName || buttonLabel}
+        </label>
+      </div>
       {helperText ? <p className={helperTextClasses}>{helperText}</p> : null}
     </div>
   );
@@ -43,7 +48,6 @@ const FileInput = ({
 
 FileInput.defaultProps = {
   helperText: null,
-  isRequired: false,
   wrapperClassName: null,
 };
 
@@ -56,8 +60,7 @@ FileInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   helperText: PropTypes.string,
   hasError: PropTypes.bool.isRequired,
-  isRequired: PropTypes.bool,
   wrapperClassName: PropTypes.string,
 };
 
-export default FileInput;
+export default memo(FileInput);

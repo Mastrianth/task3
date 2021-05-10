@@ -1,0 +1,218 @@
+@import './src/assets/scss/vars/constans.scss';
+
+
+.pawsContainer {
+  padding-bottom: 93px;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.footprints {
+  position: absolute;
+  z-index: -1;
+  bottom: -6px;
+  right: -248px;
+  width: 575px;
+}
+
+.error404 {
+  &ContentContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &Title {
+
+    margin-top: 93px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    font-family: $FONT-MAIN;
+
+    color: #00BDD3;
+
+    font-size: 148px;
+    line-height: 155px;
+
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+  }
+
+  &Subtitle {
+    display: flex;
+    justify-content: center;
+
+    font-family: $FONT-SECONDARY;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    margin-top: 18px;
+
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &ButtonContainer {
+    margin-top: 33px;
+    text-align: center;
+  }
+
+  &Logo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.error404LogoContainer {
+  max-width: 328px;
+  margin: 29px auto 0;
+}
+
+.slideDownContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 17px;
+  margin-bottom: 12px;
+
+}
+
+.error404Text {
+  margin-top: 19px;
+  font-family: Asap, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25.2px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  color: rgba(0, 0, 0, 0.87);
+
+}
+
+
+
+@media (min-width: 768px) {
+  .error404VerticalContainer {
+
+    max-width: 694px;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .footprints {
+    right: -360px;
+    width: 827px;
+  }
+
+  .error404Title {
+    justify-content: flex-start;
+  }
+
+  .error404ButtonContainer {
+    text-align: left;
+  }
+
+
+  .error404Subtitle {
+    font-family: $FONT-SECONDARY;
+    margin-top: 8px;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0em;
+    justify-content: flex-start;
+
+  }
+
+  .error404ContentContainer {
+    flex-direction: row;
+
+
+  }
+
+  .error404LeftColumn {
+    width: 45%;
+  }
+
+  .pawsContainer {
+    padding-bottom: 120px;
+  }
+  .error404RightColumn {
+    width: 500px;
+    align-self: flex-end;
+  }
+
+  .error404Text {
+
+  }
+
+  .error404ButtonContainer {
+
+  }
+
+  .error404LogoContainer {
+
+    position: relative;
+    left: -25px;
+    bottom: 24px;
+    width: 106%;
+    max-width: 405px;
+    margin: 152px auto 0;
+
+
+  }
+
+  .slideDownContainer {
+    display: none;
+  }
+
+  .error404Text {
+    margin-top: 0;
+    text-align: left;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .error404LeftColumn {
+    padding-left: 0;
+  }
+
+  .error404VerticalContainer {
+    max-width: 904px;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .pawsContainer {
+    padding-bottom: 123px;
+  }
+  .error404LogoContainer {
+    height: auto;
+    width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 2560px) {
+  .error404LeftColumn {
+    width: 684px;
+  }
+  .error404VerticalContainer {
+    max-width: none;
+  }
+  .error404LogoContainer {
+    max-width: none;
+  }
+}
+

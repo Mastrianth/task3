@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { ThemeProvider } from '@material-ui/core/styles';
 import arrowDownIcon from '../../assets/img/svg/arrow.svg';
-import theme from '../mui/selectTheme';
+import theme from '../mui/inputTheme';
 
 function Select({
   id, name, label, value, options, onChange,
