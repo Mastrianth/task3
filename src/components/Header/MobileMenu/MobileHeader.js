@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, memo } from 'react';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { I18nContext } from 'next-i18next';
 import classNames from 'classnames';

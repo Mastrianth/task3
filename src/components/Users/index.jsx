@@ -10,7 +10,6 @@ import { getApiUsersLength, getIsInitialLoadingComplete, getUsers } from '../../
 
 import classes from './Users.module.scss';
 import UserCard from '../UserCard';
-import Button from '../Button';
 import Preloader from '../Preloader/Preloader';
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 

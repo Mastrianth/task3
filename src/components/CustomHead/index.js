@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import favIcon from '../../../public/assets/favicon.png';
+import MyContext from '../../utils/context';
+
+const { isGoogleSpeedTest } = useContext(MyContext);
 
 const CustomHead = ({ title }) => {
   const titleBase = 'Test assignment for Frontend Developer position';
@@ -19,7 +22,34 @@ const CustomHead = ({ title }) => {
       <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preload" as="image" href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-360-2x-1cd3a846fcb64971da37100438adff5b.webp" />
+      {!isGoogleSpeedTest ? null : (
+        <link
+          rel="preload"
+          as="image"
+          href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-360-2x-1cd3a846fcb64971da37100438adff5b.webp"
+        />
+      )}
+      {!isGoogleSpeedTest ? null : (
+        <link
+          rel="preload"
+          as="image"
+          href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-360-2x-1cd3a846fcb64971da37100438adff5b.jpg"
+        />
+      )}
+      {!isGoogleSpeedTest ? null : (
+        <link
+          rel="preload"
+          as="image"
+          href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-reg-360-2b8668deae9690115bd6cd3c8b656913.jpg"
+        />
+      )}
+      {!isGoogleSpeedTest ? null : (
+        <link
+          rel="preload"
+          as="image"
+          href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-reg-360-2b8668deae9690115bd6cd3c8b656913.webp"
+        />
+      )}
       <meta name="robots" content="noindex, nofollow" />
       <script dangerouslySetInnerHTML={{
         __html: `

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -207,4 +207,4 @@ Menu.propTypes = {
   openBurgerMenu: PropTypes.func,
 };
 
-export default withTranslation('common')(Menu);
+export default React.memo(withTranslation('common')(Menu));

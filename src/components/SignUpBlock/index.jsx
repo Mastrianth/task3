@@ -2,7 +2,7 @@ import React, {
   useContext, useEffect, useRef, useState, memo,
 } from 'react';
 import PropTypes from 'prop-types';
-import {useRouter} from "next/router";
+import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInViewport } from 'react-in-viewport';
@@ -16,10 +16,10 @@ import { getPositions, hideSuccessPopup } from '../../../redux/actions';
 import { getIsPageLoaded, getIsSuccessPopupActive } from '../../../redux/reducers/ui';
 import { getIsSignUpActive } from '../../../redux/reducers/signUp';
 import SlideDown from '../Acquainted/SlideDown/SlideDown';
-import ButtonComponent from "../Button/LargePrimaryButtons/LargePrimaryButton";
+import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 import styles2 from '../Form/Modal.module.scss';
 import Success from '../../assets/img/svg/Success.svg';
-import { selectPositionsError } from "../../utils/usersSlice";
+import { selectPositionsError } from '../../utils/usersSlice';
 
 const SignUpBlock = ({ t }) => {
   const [isPositionFetched, setIsPositionsFetched] = useState(false);
@@ -46,7 +46,6 @@ const SignUpBlock = ({ t }) => {
     }
   }, [isPageLoaded, inViewport]);
 
-
   const [isLoadingForm, setIsLoadingForm] = useState(false);
   // if (!isSignUpActive) {
   //   return null;
@@ -55,20 +54,20 @@ const SignUpBlock = ({ t }) => {
   return (
     <section ref={signUpBlockRef} className={styles.SignUpBlock} id="sign-up">
       <ContentWrapper>
-         <LinkScroll
+        <LinkScroll
           className={styles2.slideDownContainer}
           to="sign-up"
           spy
           smooth
           duration={500}
-         >
+        >
           <SlideDown />
-         </LinkScroll>
+        </LinkScroll>
         <h2 className={titleClasses}>{showAfter ? t('Thank you') : t('reg-form-title')}</h2>
         <h3 className={subtitleClasses}>
           {showAfter ? t('Registration completed successfully') : t('reg-form-subtitle')}
         </h3>
-        {showAfter
+        {isGoogleSpeedTest ? null : (showAfter
           ? (
             <>
               <div className={styles2.successContainer}>
@@ -109,9 +108,9 @@ const SignUpBlock = ({ t }) => {
                   </div>
                 </div>
               ) : ''}
-              {isGoogleSpeedTest ? null : <Form router={router} setShowAfter={setShowAfter} t={t} />}
+              <Form router={router} setShowAfter={setShowAfter} t={t} />
             </div>
-          )}
+          ))}
       </ContentWrapper>
     </section>
   );
