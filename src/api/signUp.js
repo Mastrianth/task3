@@ -10,3 +10,7 @@ export const postForm = (formData, token) => fetch(
     },
   },
 );
+
+const _apiBase = 'https://frontend-test-assignment-api.abz.agency/api/v1';
+const getResourse = async (url) => await fetch(`${_apiBase}${url}`);
+const getUserInfo = async (userId) => await getResourse(`/users/${userId}`);

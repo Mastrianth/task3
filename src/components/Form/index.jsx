@@ -13,7 +13,7 @@ import {
   handleBlurTextFactory,
   validatePhoto,
 } from '../utils/formHelpers';
-import { signUpFail, signUpSuccess } from '../../../redux/actions';
+import { fetchCurrentUser, signUpFail, signUpSuccess } from "../../../redux/actions";
 import { getPositions } from '../../../redux/reducers/signUp';
 import classes from './Form.module.scss';
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
@@ -324,8 +324,9 @@ const regexList = {
   // eslint-disable-next-line no-control-regex
   email: /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/,
   phone: /^380\d\d\d\d\d\d\d\d\d$/,
-  phoneMask: '+38 (099) 999 99 99',
+  phoneMask: '+38 (099) 999 - 99 - 99',
   phoneMaskCharacters: '\\-\\+\\(\\)\\s',
+  phoneWithoutMask: /^\+38 \(0\d\d\)\s\d\d\d\s-\s\d\d\s-\s\d\d$/,
 };
 
 const getValidationSchema = (t) => (
@@ -369,7 +370,7 @@ const FormikForm = (({ t, setShowAfter, router }) => {
       setSubmitting(false);
       resetForm(initialValues, initialValuesLength);
       setShowAfter(true);
-      setTimeout(() => router.push('/').then(() => window.scrollTo(0, 0)), 3000);
+      dispatch(fetchCurrentUser(1));
     };
 
     const failCallback = () => {

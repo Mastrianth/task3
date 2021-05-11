@@ -9,9 +9,12 @@ import { withTranslation } from '../../../i18n';
 
 import styles from './Acquainted.module.scss';
 import ContentWrapper from '../ContentWrapper';
+import { useSelector } from "react-redux";
+import { getCurrentUser } from "../../../redux/reducers/auth";
 
 const About = ({ t }) => {
   const router = useRouter();
+  const authorizedUserData = useSelector(getCurrentUser);
   return (
     <section className={styles.about} id="about-me">
       <ContentWrapper className="container">
@@ -36,9 +39,9 @@ const About = ({ t }) => {
                 variant="contained"
                 color="secondary"
                 size="large"
-                onClick={() => router.push('/sign-up').then(() => window.scrollTo(0, 0))}
+                onClick={authorizedUserData.name ? () => router.push('#users') : () => router.push('/sign-up').then(() => window.scrollTo(0, 0))}
                 disabled={false}
-                label={t('sign-up')}
+                label={authorizedUserData.name ? t('users') : t('sign-up')}
               />
             </p>
           </div>

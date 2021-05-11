@@ -2,18 +2,21 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 import { withTranslation } from '../../../i18n';
 import classes from './Banner.module.scss';
 import ContentWrapper from '../ContentWrapper';
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 import canUseWebP from '../../utils/canUseWebP';
+import { getCurrentUser } from "../../../redux/reducers/auth";
 
-const Banner = ({ t }) => {
+const Banner = ({ t, isUserLoaded }) => {
   const h1Classes = classNames('h1', classes.h1);
   const textClassesWide1 = classNames('p1', classes.text, classes.desktop, classes.textWide1);
   const textClassesDesktop = classNames('p1', classes.text, classes.desktop);
   const textClassesMobile = classNames('p1', classes.text, classes.mobile);
   const [isWebp, setIsWebp] = useState(true);
+  const authorizedUserData = useSelector(getCurrentUser);
   const router = useRouter();
   useEffect(() => {
     setIsWebp(canUseWebP());
@@ -34,9 +37,8 @@ const Banner = ({ t }) => {
             variant="contained"
             color="primary"
             size="large"
-            onClick={() => router.push('/sign-up').then(() => window.scrollTo(0, 0))}
-            disabled={false}
-            label={t('sign-up')}
+            onClick={authorizedUserData.isLoaded ? () => router.push('/#users') : () => router.push('/sign-up')}
+            label={authorizedUserData.isLoaded ? t('users') : t('sign-up')}
           />
         </div>
       </ContentWrapper>

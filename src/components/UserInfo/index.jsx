@@ -1,26 +1,63 @@
-import React from 'react';
+import React, { useEffect, useRef }  from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import IconButton from '../IconButton';
 import userPlaceholderImg from '../../assets/img/svg/do-not-inline/ImagePlaceHolder.svg';
 import LogOutIcon from '../../assets/img/svg/exit.svg';
 import classes from './UserInfo.module.scss';
+import ReactTooltip from 'react-tooltip';
+import { isEllipsisActive } from "../utils/fixUserCard";
+import { preloadImgAndReplaceSrc } from "../utils/imgManipulation";
+import { clearCurrentUser } from "../../../redux/actions";
+import styles from "../Header/Menu/Menu.module.scss";
+import Exit from "../../assets/img/svg/exit.svg";
+import { useDispatch } from "react-redux";
 
 const UserInfo = ({
-  userName, userEmail, userAvatar, logOut, isLoaded, isOnSideBar,
+  userName, userEmail, userAvatar, logOut, isLoaded, isOnSideBar, showButton,
 }) => {
-  const userInfoClasses = classNames(classes.UserInfo, { [classes.onSideBar]: isOnSideBar });
+  const imgRef = useRef(null);
+  // Create ref to show tooltip if content overflows
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+
+  useEffect(() => {
+    if (isLoaded) {
+      const imgCurr = imgRef.current;
+      const nameCurr = nameRef.current;
+      const emailCurr = emailRef.current;
+
+      // React Tooltip needs to be rebuild after new users load
+      if (nameCurr) {
+        nameCurr.dataset.tip = nameCurr.textContent;
+        nameCurr.dataset.align = 'left';
+        nameCurr.style.cursor = 'pointer';
+      }
+      if (emailCurr) {
+        emailCurr.dataset.tip = emailCurr.textContent;
+        emailCurr.dataset.align = 'left';
+        emailCurr.style.cursor = 'pointer';
+      }
+
+      //preloadImgAndReplaceSrc(userAvatar, imgCurr);
+
+      ReactTooltip.rebuild();
+    }
+  }, [isLoaded, imgRef]);
+
+  const userInfoClasses = classNames('tooltip-container', classes.UserInfo, { [classes.onSideBar]: isOnSideBar });
   const nameClasses = classNames('p3', classes.name);
+  const dispatch = useDispatch();
   const userInfo = isLoaded ? (
     <>
-      <img src={userAvatar} alt={userName} className={classes.avatar} />
+      <img ref={imgRef} src={userAvatar} alt={userName} itemProp="image" className={classes.avatar} />
       <div className={classes.container}>
-        <p className={nameClasses}>{userName}</p>
-        <p className={classes.email}>{userEmail}</p>
+        <p ref={nameRef} className={nameClasses}>{userName}</p>
+        <p ref={emailRef} className={classes.email}>{userEmail}</p>
       </div>
 
     </>
-  ) : (
+  ) : showButton ? (
     <>
       <div className={classes.loadingAvatar} />
       <div className={classes.container}>
@@ -28,14 +65,28 @@ const UserInfo = ({
         <div className={classes.loadingEmail} />
       </div>
     </>
-  );
+  ) : null;
+  const exitButton = (
+    <>
+      <a
+        onClick={
+          (e) => {
+            dispatch(clearCurrentUser());
+            e.preventDefault();
+          }
+        }
+        href="#"
+        className={styles.menuUserExit}
+      >
+        <Exit />
+      </a>
+    </>
+  )
 
   return (
     <div className={userInfoClasses}>
       {userInfo}
-      {/*<IconButton isSecondary onClick={logOut} className={classes.logOutButton}>*/}
-      {/*  <LogOutIcon className={classes.logOutIcon} />*/}
-      {/*</IconButton>*/}
+      {showButton ? exitButton : null}
     </div>
   );
 };

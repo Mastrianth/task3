@@ -17,10 +17,13 @@ import LinkedIn from '../../assets/img/svg/social-icons/linkedin.svg';
 
 import styles from './Footer.module.scss';
 import ContentWrapper from '../ContentWrapper';
+import { useSelector } from "react-redux";
+import { getCurrentUser } from "../../../redux/reducers/auth";
 
 function Footer({ t }) {
   const router = useRouter();
   const { i18n: { language } } = useContext(I18nContext);
+  const authorizedUserData = useSelector(getCurrentUser);
   return (
     <ContentWrapper>
       <div className="bg-white">
@@ -80,7 +83,7 @@ function Footer({ t }) {
                         <Link scroll={false} href="/#users"><a>{t('users')}</a></Link>
                       </>
                     )}
-                  <Link href="/sign-up"><a>{t('sign-up')}</a></Link>
+                  {authorizedUserData.name ? null : <Link href="/sign-up"><a>{t('sign-up')}</a></Link>}
                 </span>
                 <span className={styles.rightMenuFooter}>
                   <span className={styles.langMenu}>

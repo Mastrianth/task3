@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Link as LinkScroll } from 'react-scroll';
@@ -7,30 +7,66 @@ import { I18nContext } from 'next-i18next';
 
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   selectFormFilled,
-  clearUserData,
 } from '../../../utils/usersSlice';
 import { i18n, withTranslation } from '../../../../i18n';
 
-// import MobileHeader from '../MobileMenu/MobileHeader';
-
 import Logo from '../../../assets/img/svg/Logo.svg';
-import Exit from '../../../assets/img/svg/exit.svg';
 import styles from './Menu.module.scss';
 import ContentWrapper from '../../ContentWrapper';
-import UserInfo from "../../UserInfo";
+import UserInfo from '../../UserInfo';
 
 const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
 
+const btnPrimarySmallStyles = {
+  root: {
+    paddingRight: '18px',
+    paddingLeft: '18px',
+    minWidth: '93px',
+    height: '38px !important',
+    fontWeight: '400',
+    textTransform: 'capitalize',
+    fontSize: '16px',
+    boxShadow: 'none',
+    textAlign: 'center',
+    fontFamily: 'Asap, sans-serif',
+    borderRadius: '80px !important',
+    backgroundColor: '#f4e041',
+    color: 'rgba(0, 0, 0, 0.87) !important',
+
+    '&.Mui-disabled': {
+      color: 'rgba(255, 255, 255, 1)',
+      backgroundColor: '#B4B4B4',
+      boxShadow: 'none',
+    },
+    '&:hover': {
+      backgroundColor: '#ffe302',
+      color: 'rgba(0, 0, 0, 0.87)',
+      boxShadow: 'none',
+
+    },
+    '&:focus': {
+      color: 'rgba(0, 0, 0, 0.87)',
+      boxShadow: 'none',
+    },
+    '& > span': {
+      pointerEvents: 'none',
+    },
+  },
+};
+
+const useStylesPrimarySmall = makeStyles(() => ({ ...btnPrimarySmallStyles }));
+
 const Menu = ({
-  openBurgerMenu, t, openModal,  userName, userEmail, userAvatar, isUserLoaded, isApiErrorActive, openSideDrawer, logOut, isDesktop,
+  openBurgerMenu, t, openModal, userName, userEmail, userAvatar, isUserLoaded, showButton, logOut,
 }) => {
   const { i18n: { language } } = useContext(I18nContext);
   const router = useRouter();
-
+  const classesPrimarySmall = useStylesPrimarySmall();
   const isFormFilled = useSelector(selectFormFilled);
-  const dispatch = useDispatch();
 
   const checkIfFilled = (e) => {
     if (isFormFilled) {
@@ -132,21 +168,27 @@ const Menu = ({
                   userAvatar={userAvatar}
                   logOut={logOut}
                   isLoaded={isUserLoaded}
+                  showButton={showButton}
                 />
-                <a
-                  onClick={
-                (e) => {
-                  dispatch(clearUserData());
-                  e.preventDefault();
-                }
-              }
-                  href="#"
-                  className={styles.menuUserExit}
-                >
-                  <Exit />
-                </a>
               </span>
             </>
+            {!isUserLoaded
+              ? (
+                <span className={styles.buttonContainer}>
+                  <Button
+                    onClick={
+                  router.pathname === '/sign-up'
+                    ? () => document.getElementById('sign-up').scrollIntoView({ behavior: 'smooth' })
+                    : () => router.push('/sign-up').then(() => window.scrollTo(0, 0))
+                }
+                    variant="contained"
+                    className={classesPrimarySmall.root}
+                  >
+                    {t('sign-up')}
+                  </Button>
+                </span>
+              )
+              : null}
           </span>
         </div>
 

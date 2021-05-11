@@ -26,8 +26,9 @@ import {
   SIGN_UP,
   SIGN_UP_START,
   SIGN_UP_SUCCESS,
-  SIGN_UP_FAIL, SIGN_UP_CLEAR,
+  SIGN_UP_FAIL, SIGN_UP_CLEAR, CLEAR_CURRENT_USER,
 } from '../constants/actionTypes';
+import { initialState } from "../reducers/auth";
 
 export const pageLoaded = () => ({ type: PAGE_LOADED });
 export const openSideDrawer = () => ({ type: OPEN_SIDEDRAWER });
@@ -44,6 +45,7 @@ export const hideSuccessPopup = () => ({ type: HIDE_SUCCESS_POPUP });
 export const fetchCurrentUser = (id) => ({ type: FETCH_CURRENT_USER, payload: id });
 export const fetchCurrentUserFail = (error) => ({ type: FETCH_CURRENT_USER_FAIL, payload: error });
 export const setCurrentUser = (user) => ({ type: SET_CURRENT_USER, payload: user });
+export const clearCurrentUser = () => ({ type: CLEAR_CURRENT_USER, payload: initialState, isLoaded: false });
 
 export const fetchUsers = (currentLength, imperativeCount) => ({
   type: FETCH_USERS,
@@ -77,3 +79,5 @@ export const signUpStart = () => ({ type: SIGN_UP_START });
 export const signUpSuccess = () => ({ type: SIGN_UP_SUCCESS });
 export const signUpFail = (errors) => ({ type: SIGN_UP_FAIL, payload: errors });
 export const signUpClear = () => ({ type: SIGN_UP_CLEAR });
+
+export const selectAuthorizedUserData = (state) => state.auth.currentUser;

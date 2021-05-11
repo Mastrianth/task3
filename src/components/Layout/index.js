@@ -33,13 +33,13 @@ const Layout = ({
     }
   };
 
-  useEffect(() => {
-    dispatch(fetchCurrentUser(1));
-    setUserFetched(true);
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchCurrentUser(1));
+  //   setUserFetched(true);
+  // }, []);
 
   const {
-    name, email, avatarSrc, isLoaded: isUserLoaded,
+    name, email, avatarSrc, isLoaded: isUserLoaded, showButton
   } = currentUser;
 
   const siteWrapperClasses = classNames('main-content', classes.siteWrapper);
@@ -53,6 +53,7 @@ const Layout = ({
           userEmail={email}
           userAvatar={avatarSrc}
           isUserLoaded={isUserLoaded}
+          showButton={showButton}
           isDesktop={!isGoogleSpeedTest && isHeaderDesktop}
           openSideDrawer={() => {
             dispatch(openSideDrawer());
@@ -62,8 +63,8 @@ const Layout = ({
               setUserFetched(true);
             }
           }}
-          logOut={() => {
-            console.log('Log out');
+          logOut={(name, email, avatarSrc, isLoaded) => {
+            name = '', email = '';
           }}
         />
         {children}

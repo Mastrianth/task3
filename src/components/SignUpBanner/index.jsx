@@ -33,12 +33,12 @@ const SignUpBanner = ({ t }) => {
               <p className={styles.bannerTextForMobile}>{t('reg-text-mobile')}</p>
               <p className={styles.buttonContainer}>
                 <ButtonComponent
-                  onClick={() => router.push('/#users')}
+                  onClick={() => document.getElementById('sign-up').scrollIntoView({ behavior: 'smooth' })}
                   variant="contained"
                   color="primary"
                   size="large"
                   disabled={false}
-                  label={t('users')}
+                  label={t('sign-up')}
                 />
               </p>
             </div>

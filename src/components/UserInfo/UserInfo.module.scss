@@ -1,24 +1,31 @@
 @use '../../assets/scss/vars/colors';
 @use '../../assets/scss/mixins/media';
+@import './src/assets/scss/vars/constans.scss';
 
 .UserInfo {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
 }
 
 .container {
   padding-right: 30px;
+  padding-top: 6px;
+  padding-left: 10px;
 }
 
 .name {
-  max-width: 110px;
+  max-width: 143px;
   margin: -6px 0px 1px;
-
-  text-align: right;
+  font-family: $FONT-MAIN;
+  text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 12px;
+  line-height: 16.81px;
+  font-weight: 700;
 }
 
 .loadingName {
@@ -30,18 +37,18 @@
 }
 
 .email {
-  max-width: 110px;
+  max-width: 143px;
   margin: 0px;
 
   color: colors.$text-disabled;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: $FONT-MAIN;
   font-size: 12px;
   font-weight: 400;
-  line-height: 1;
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  line-height: 16.81px;
 }
 
 .loadingEmail {
@@ -56,6 +63,7 @@
   height: 40px;
   margin: 0 auto;
   display: block;
+  border-radius: 50%;
 }
 
 .avatarWrapper {

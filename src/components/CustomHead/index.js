@@ -15,7 +15,9 @@ const CustomHead = ({ title }) => {
         name="description"
         content="We kindly remind you that your test assignment should be submitted as a link to github/bitbucket repository. Please be patient, we consider and respond to every application that meets minimum requirements. We look forward to your submission. Good luck!"
       />
-      <link rel="icon" href={favIcon} />
+      <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
+      <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preload" as="image" href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-360-2x-1cd3a846fcb64971da37100438adff5b.webp" />
       <meta name="robots" content="noindex, nofollow" />

@@ -14,7 +14,7 @@ import styles from './Header.module.scss';
 // import BurgerMenu from './BurgerMenu/BurgerMenu';
 const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
 
-function Header({ t, openModal }) {
+function Header({ t, openModal, userAvatar, userEmail, userName, isUserLoaded, showButton }) {
   const [burgerActive, setActive] = useState(false);
   const { isGoogleSpeedTest } = useContext(MyContext);
   const isApiError = useSelector(selectApiError);
@@ -50,6 +50,11 @@ function Header({ t, openModal }) {
           <Menu
             openModal={openModal}
             openBurgerMenu={openBurgerMenu}
+            userName={userName}
+            userEmail={userEmail}
+            userAvatar={userAvatar}
+            isUserLoaded={isUserLoaded}
+            showButton={showButton}
           />
         </div>
       </div>

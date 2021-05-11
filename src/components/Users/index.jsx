@@ -81,7 +81,7 @@ const Users = ({ t }) => {
         <h2 className={headingClasses}>{t('users-text')}</h2>
         <h3 className={subheadingClasses}>{t('best')}</h3>
 
-        <div className={containerClasses}>
+        <div className={containerClasses} id="user">
           {usersCard}
         </div>
         {button}
