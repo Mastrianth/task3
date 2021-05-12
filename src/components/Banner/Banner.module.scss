@@ -114,10 +114,12 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 721px) 
   /* Medium screen, retina, stuff to override above media query */
   .Banner {
     background-image: url('../../assets/img/banner/banner-background-768.jpg');
+    background-position: 85% 100%;
   }
 
   :global(html.webp) .Banner {
     background-image: url('../../assets/img/banner/banner-background-768.webp');
+    background-position: 85% 100%;
   }
 }
 
