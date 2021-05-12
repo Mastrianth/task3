@@ -7,7 +7,8 @@
 
 .heading {
   margin: 0px auto 16px;
-
+  font-size: 60px;
+  line-height: 63px;
   text-align: center;
 }
 
@@ -59,7 +60,7 @@
   }
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 990px) {
   .Users {
     padding: 91px 0px 101px;
   }
@@ -68,6 +69,10 @@
     letter-spacing: 0px;
   }
 
+  .heading {
+    font-size: 38px;
+    line-height: 39.9px;
+  }
   .container {
     margin-top: 5px;
     margin-right: -21px;
@@ -88,12 +93,14 @@
 
   .heading {
     margin: 0px auto 16px;
+    font-size: 28px;
+    line-height: 39.2px;
   }
 
   .subheading {
-    max-width: 158px;
 
-    line-height: 22px;
+    font-size: 18px;
+    line-height: 25.2px;
   }
 
   .container {

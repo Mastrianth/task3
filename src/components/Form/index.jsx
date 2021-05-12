@@ -19,6 +19,7 @@ import classes from './Form.module.scss';
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 import useInputsLength, { initialValuesLength } from '../../utils/useInputLength';
 import Preloader from '../Preloader/Preloader';
+import { onFetchCurrentUser, setUserDataFromLocalStorage } from "../../../redux/sagas/user";
 
 const photoValidations = {
   allowedExtensions: ['jpg', 'jpeg'],
@@ -322,9 +323,9 @@ const submittingStatus = {
   photoErrorMessage: '',
 };
 
-// export const setLocalStorage = (values) => {
-//   localStorage.setItem('form', JSON.stringify(values));
-// };
+export const setLocalStorage = (values) => {
+  localStorage.setItem('form', JSON.stringify(values));
+};
 
 const regexList = {
   name: /^[A-z][A-z\s]{1,59}$/,
@@ -372,8 +373,12 @@ const FormikForm = (({ t, setShowAfter, router }) => {
 
       formData.append(key, value);
     }
+   // const regData = formData.json();
 
     const successCallback = () => {
+      // dispatch(setUserDataFromLocalStorage(getUserInfo, regData.id));
+      // dispatch(makeFormUnFilled());
+      // localStorage.removeItem('form');
       setSubmitting(false);
       resetForm(initialValues, initialValuesLength);
       setShowAfter(true);

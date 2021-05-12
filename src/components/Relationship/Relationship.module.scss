@@ -8,10 +8,11 @@
 }
 
 .heading {
-  max-width: 535px;
+  max-width: 650px;
   margin: 0px auto 49px;
-
   text-align: center;
+  font-size: 60px;
+  line-height: 63px;
 }
 
 .container {
@@ -118,13 +119,15 @@
   }
 }
 
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 990px) {
   .Relationships {
     padding: 90px 0px 95px;
   }
 
   .heading {
     margin: 0px auto 43px;
+    font-size: 38px;
+    line-height: 39.9px;
   }
 
   .container {
@@ -209,6 +212,8 @@
 
   .heading {
     margin: 0px auto 34px;
+    font-size: 28px;
+    line-height: 39.2px;
   }
 
   .container {

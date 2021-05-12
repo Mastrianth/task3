@@ -101,6 +101,7 @@ const Layout = ({
           isUserLoaded={isUserLoaded}
           showButton={showButton}
           isDesktop={!isGoogleSpeedTest && isHeaderDesktop}
+          openModal={openModal}
           openSideDrawer={() => {
             dispatch(openSideDrawer());
 
@@ -114,7 +115,7 @@ const Layout = ({
           }}
         />
         {children}
-        {isGoogleSpeedTest ? null : <Footer />}
+        {isGoogleSpeedTest ? null : <Footer openModal={openModal} />}
         <Modal
           overlayClassName="modalOverlay"
           className="modalWindow"

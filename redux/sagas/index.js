@@ -13,7 +13,13 @@ import {
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAIL,
   GET_POSITIONS,
-  SIGN_UP_SUCCESS, SHOW_COOKIES_POLICY, HIDE_COOKIES_POLICY, SET_USERS_VALUES, CLEAR_USERS,
+  SIGN_UP_SUCCESS,
+  SHOW_COOKIES_POLICY,
+  HIDE_COOKIES_POLICY,
+  SET_USERS_VALUES,
+  CLEAR_USERS,
+  SET_FORM_FILLED,
+  SET_FORM_UNFILLED,
 } from '../constants/actionTypes';
 import {
   setScrollPosition,
@@ -32,7 +38,7 @@ import {
   getPositionsFail,
   hideCookiesPolicy,
   apiError,
-  showCookiesPolicy,
+  showCookiesPolicy, setFormFilled, setFormUnFilled,
 } from '../actions';
 import {
   getScrollPosition,
@@ -137,6 +143,14 @@ function* acceptCookiesPolicy() {
   localStorage.setItem('accept-cookies-policy', 'true');
 }
 
+function* makeFormFilled() {
+  yield put(setFormFilled());
+}
+
+function* makeFormUnFilled() {
+  yield put(setFormUnFilled());
+}
+
 export default function* rootSaga() {
   yield takeEvery(OPEN_SIDEDRAWER, onOpenSideDrawer);
   yield takeEvery(CLOSE_SIDEDRAWER, onCloseSideDrawer);
@@ -153,4 +167,6 @@ export default function* rootSaga() {
   yield takeLatest(SET_USERS_VALUES, onFetchCurrentUser);
   yield takeEvery(CLEAR_USERS, clearUserData);
   yield takeLatest(SET_USERS_VALUES, setUserDataFromLocalStorage);
+  yield takeEvery(SET_FORM_FILLED, makeFormFilled);
+  yield takeEvery(SET_FORM_UNFILLED, makeFormUnFilled);
 }
