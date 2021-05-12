@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import LazyLoad from 'react-lazyload';
 import SignUpBanner from '../src/components/SignUpBanner';
 
 const SignUpBlock = dynamic(() => import('../src/components/SignUpBlock'),
@@ -23,7 +22,7 @@ function SignUp() {
     // eslint-disable-next-line react/jsx-filename-extension
     <>
       <SignUpBanner />
-        <SignUpBlock />
+      <SignUpBlock />
     </>
   );
 }

@@ -34,6 +34,7 @@
     "react-input-mask": "^2.0.4",
     "react-lazy-hydration": "^0.1.0",
     "react-lazyload": "^3.2.0",
+    "react-modal": "^3.13.1",
     "react-redux": "^7.2.4",
     "react-scroll": "^1.8.2",
     "react-tooltip": "^4.2.18",
