@@ -322,9 +322,9 @@ const submittingStatus = {
   photoErrorMessage: '',
 };
 
-export const setLocalStorage = (values) => {
-  localStorage.setItem('form', JSON.stringify(values));
-};
+// export const setLocalStorage = (values) => {
+//   localStorage.setItem('form', JSON.stringify(values));
+// };
 
 const regexList = {
   name: /^[A-z][A-z\s]{1,59}$/,
@@ -377,7 +377,7 @@ const FormikForm = (({ t, setShowAfter, router }) => {
       setSubmitting(false);
       resetForm(initialValues, initialValuesLength);
       setShowAfter(true);
-      dispatch(fetchCurrentUser(588));
+      dispatch(fetchCurrentUser(1));
     };
 
     const failCallback = () => {

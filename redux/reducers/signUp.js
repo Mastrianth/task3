@@ -41,3 +41,7 @@ export const getIsSignedUp = (state) => state.signUp.isSignedUp;
 export const getIsSignUpActive = (state) => state.signUp.isSignUpActive;
 export const getPositions = (state) => state.signUp.positions;
 export const getErrors = (state) => (state.signUp.errors);
+export const makeFormFilled = (state) => (state.signUp.isFormFilled(true));
+export const makeFormUnFilled = (state) => (state.signUp.isFormFilled(false));
+export const startFormLoading = (state) => (state.signUp.isFormLoading(true));
+export const positionsApiError = (state) => (state.signUp.positionsError(true));

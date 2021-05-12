@@ -2,6 +2,7 @@
 
 .about {
   background-color: #F8F8F8;
+  height: 600px;
   &ContentContainer {
     display: flex;
     flex-direction: column;
@@ -134,6 +135,7 @@
 
   .aboutContentContainer {
     flex-direction: row;
+
   }
   .aboutLogoContainer {
     width: 100%;
@@ -149,6 +151,10 @@
 
 }
 
+.about {
+  height: auto;
+}
+
 @media (min-width: 768px) {
   .aboutLeftColumn {
     padding-right:0;
@@ -156,6 +162,9 @@
 }
 
 @media (min-width: 769px) {
+  .about {
+    height: 600px;
+  }
   .aboutSubtitle {
     font-family: $FONT-SECONDARY;
     font-size: 28px;
@@ -181,6 +190,7 @@
 }
 
 @media (min-width: 992px) {
+
 
   .aboutTitle {
     text-align: left;

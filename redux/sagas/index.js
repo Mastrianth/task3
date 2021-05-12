@@ -13,7 +13,7 @@ import {
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAIL,
   GET_POSITIONS,
-  SIGN_UP_SUCCESS,
+  SIGN_UP_SUCCESS, SHOW_COOKIES_POLICY, HIDE_COOKIES_POLICY, SET_USERS_VALUES, CLEAR_USERS,
 } from '../constants/actionTypes';
 import {
   setScrollPosition,
@@ -30,11 +30,19 @@ import {
   getPositionsStart,
   getPositionsSuccess,
   getPositionsFail,
+  hideCookiesPolicy,
+  apiError,
+  showCookiesPolicy,
 } from '../actions';
 import {
   getScrollPosition,
 } from '../reducers/ui';
-import { onFetchCurrentUser, onFetchCurrentUserFail } from './user';
+import {
+  onFetchCurrentUser,
+  onFetchCurrentUserFail,
+  clearUserData,
+  setUserDataFromLocalStorage,
+} from './user';
 
 function* onOpenSideDrawer() {
   const scrollPosition = window.pageYOffset;
@@ -89,6 +97,7 @@ function* onFetchUsersSuccess() {
 function* onFetchUsersFail({ error }) {
   yield console.log(error);
   yield put(hideUserBtnSpinner());
+  yield put(apiError());
 }
 
 function* onGetPositions() {
@@ -110,12 +119,22 @@ function* onGetPositions() {
   } catch (error) {
     console.log(error);
     yield put(getPositionsFail());
+    yield put(apiError());
   }
 }
 
 function* onSignUpSuccess() {
   yield put(showSuccessPopup());
   yield put(clearUsers());
+}
+
+function* onCookiesPolicy() {
+  yield put(showCookiesPolicy());
+}
+
+function* acceptCookiesPolicy() {
+  yield put(hideCookiesPolicy());
+  localStorage.setItem('accept-cookies-policy', 'true');
 }
 
 export default function* rootSaga() {
@@ -129,4 +148,9 @@ export default function* rootSaga() {
   yield takeEvery(FETCH_USERS_FAIL, onFetchUsersFail);
   yield takeLatest(GET_POSITIONS, onGetPositions);
   yield takeEvery(SIGN_UP_SUCCESS, onSignUpSuccess);
+  yield takeEvery(SHOW_COOKIES_POLICY, onCookiesPolicy);
+  yield takeEvery(HIDE_COOKIES_POLICY, acceptCookiesPolicy);
+  yield takeLatest(SET_USERS_VALUES, onFetchCurrentUser);
+  yield takeEvery(CLEAR_USERS, clearUserData);
+  yield takeLatest(SET_USERS_VALUES, setUserDataFromLocalStorage);
 }

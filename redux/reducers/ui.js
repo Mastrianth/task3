@@ -6,7 +6,7 @@ import {
   SHOW_USER_BTN_SPINNER,
   HIDE_USER_BTN_SPINNER,
   SHOW_SUCCESS_POPUP,
-  HIDE_SUCCESS_POPUP,
+  HIDE_SUCCESS_POPUP, SHOW_COOKIES_POLICY, HIDE_COOKIES_POLICY, SET_API_ERROR,
 } from '../constants/actionTypes';
 
 export const initialState = {
@@ -39,6 +39,12 @@ export default function ui(state = initialState, action) {
       return { ...state, isSuccessPopupActive: true };
     case HIDE_SUCCESS_POPUP:
       return { ...state, isSuccessPopupActive: false };
+    case SHOW_COOKIES_POLICY:
+      return { ...state, showCookiesPolicy: true };
+    case HIDE_COOKIES_POLICY:
+      return { ...state, showCookiesPolicy: false };
+    case SET_API_ERROR:
+      return { ...state, showApiError: true };
     default:
       return state;
   }
@@ -49,5 +55,5 @@ export const getIsSideDrawerOpen = (state) => state.ui.isSideDrawerOpen;
 export const getScrollPosition = (state) => state.ui.scrollPosition;
 export const getIsUserBtnSpinnerActive = (state) => state.ui.isUserBtnSpinnerActive;
 export const getIsSuccessPopupActive = (state) => state.ui.isSuccessPopupActive;
-export const hideCookiesPolicy = (state) => state.ui.showCookiesPolicy(false);
-export const showCookiesPolicy = (state) => state.ui.showCookiesPolicy(true);
+export const selectCookiesPolicy = (state) => state.ui.showCookiesPolicy;
+export const selectApiError = (state) => (state.ui.showApiError);

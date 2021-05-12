@@ -26,7 +26,10 @@ import {
   SIGN_UP,
   SIGN_UP_START,
   SIGN_UP_SUCCESS,
-  SIGN_UP_FAIL, SIGN_UP_CLEAR, CLEAR_CURRENT_USER,
+  SIGN_UP_FAIL,
+  SIGN_UP_CLEAR,
+  CLEAR_CURRENT_USER,
+  HIDE_COOKIES_POLICY, SHOW_COOKIES_POLICY, SET_USERS_VALUES, SET_FORM_FILLED, SET_FORM_UNFILLED, SET_API_ERROR,
 } from '../constants/actionTypes';
 import { initialState } from '../reducers/auth';
 
@@ -45,7 +48,7 @@ export const hideSuccessPopup = () => ({ type: HIDE_SUCCESS_POPUP });
 export const fetchCurrentUser = (id) => ({ type: FETCH_CURRENT_USER, payload: id });
 export const fetchCurrentUserFail = (error) => ({ type: FETCH_CURRENT_USER_FAIL, payload: error });
 export const setCurrentUser = (user) => ({ type: SET_CURRENT_USER, payload: user });
-export const clearCurrentUser = () => ({ type: CLEAR_CURRENT_USER, payload: initialState, isLoaded: false });
+export const clearCurrentUser = () => ({ type: CLEAR_CURRENT_USER });
 
 export const fetchUsers = (currentLength, imperativeCount) => ({
   type: FETCH_USERS,
@@ -81,3 +84,10 @@ export const signUpFail = (errors) => ({ type: SIGN_UP_FAIL, payload: errors });
 export const signUpClear = () => ({ type: SIGN_UP_CLEAR });
 
 export const selectAuthorizedUserData = (state) => state.auth.currentUser;
+
+export const hideCookiesPolicy = () => ({ type: HIDE_COOKIES_POLICY });
+export const showCookiesPolicy = () => ({ type: SHOW_COOKIES_POLICY });
+export const setUserValues = (data) => ({ type: SET_USERS_VALUES, payload: data });
+export const setFormFilled = () => ({ type: SET_FORM_FILLED });
+export const setFormUnFilled = () => ({ type: SET_FORM_UNFILLED });
+export const apiError = () => ({ type: SET_API_ERROR });

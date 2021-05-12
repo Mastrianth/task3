@@ -32,13 +32,13 @@ function MyApp({ Component, pageProps, ua }) {
   const isPageLoaded = useSelector((state) => getIsPageLoaded(state));
   const currentUser = useSelector((state) => getCurrentUser(state));
 
-  useEffect(() => {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Remove the server-side injected CSS.
+  //   const jssStyles = document.querySelector('#jss-server-side');
+  //   if (jssStyles) {
+  //     jssStyles.parentElement.removeChild(jssStyles);
+  //   }
+  // }, []);
 
   // useEffect(() => {
   //   const authorizedData = JSON.parse(localStorage.getItem('user'));
