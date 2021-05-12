@@ -12,6 +12,9 @@ export const initialState = {
   positions: [],
   globalError: '',
   errors: {},
+  isFormLoading: false,
+  showApiError: false,
+  isFormFilled: false,
 };
 
 export default function signUp(state = initialState, action) {

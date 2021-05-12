@@ -46,11 +46,6 @@ const SignUpBlock = ({ t }) => {
     }
   }, [isPageLoaded, inViewport]);
 
-  const [isLoadingForm, setIsLoadingForm] = useState(false);
-  // if (!isSignUpActive) {
-  //   return null;
-  // }
-
   return (
     <section ref={signUpBlockRef} className={styles.SignUpBlock} id="sign-up">
       <ContentWrapper>

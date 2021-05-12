@@ -28,7 +28,7 @@ import {
   SIGN_UP_SUCCESS,
   SIGN_UP_FAIL, SIGN_UP_CLEAR, CLEAR_CURRENT_USER,
 } from '../constants/actionTypes';
-import { initialState } from "../reducers/auth";
+import { initialState } from '../reducers/auth';
 
 export const pageLoaded = () => ({ type: PAGE_LOADED });
 export const openSideDrawer = () => ({ type: OPEN_SIDEDRAWER });

@@ -23,9 +23,7 @@ function SignUp() {
     // eslint-disable-next-line react/jsx-filename-extension
     <>
       <SignUpBanner />
-      <LazyLoad once>
         <SignUpBlock />
-      </LazyLoad>
     </>
   );
 }

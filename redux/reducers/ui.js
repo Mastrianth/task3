@@ -15,6 +15,8 @@ export const initialState = {
   isUserBtnSpinnerActive: false,
   scrollPosition: 0,
   isSuccessPopupActive: false,
+  showCookiesPolicy: false,
+  showApiError: false,
 };
 
 export default function ui(state = initialState, action) {
@@ -47,3 +49,5 @@ export const getIsSideDrawerOpen = (state) => state.ui.isSideDrawerOpen;
 export const getScrollPosition = (state) => state.ui.scrollPosition;
 export const getIsUserBtnSpinnerActive = (state) => state.ui.isUserBtnSpinnerActive;
 export const getIsSuccessPopupActive = (state) => state.ui.isSuccessPopupActive;
+export const hideCookiesPolicy = (state) => state.ui.showCookiesPolicy(false);
+export const showCookiesPolicy = (state) => state.ui.showCookiesPolicy(true);

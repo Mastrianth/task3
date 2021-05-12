@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { Formik } from 'formik';
+import React, { memo, useState } from 'react';
+import { Formik, useFormikContext } from 'formik';
 import * as yup from 'yup';
 import PropTypes from 'prop-types';
 
@@ -13,11 +13,12 @@ import {
   handleBlurTextFactory,
   validatePhoto,
 } from '../utils/formHelpers';
-import { fetchCurrentUser, signUpFail, signUpSuccess } from "../../../redux/actions";
+import { fetchCurrentUser, signUpFail, signUpSuccess } from '../../../redux/actions';
 import { getPositions } from '../../../redux/reducers/signUp';
 import classes from './Form.module.scss';
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 import useInputsLength, { initialValuesLength } from '../../utils/useInputLength';
+import Preloader from '../Preloader/Preloader';
 
 const photoValidations = {
   allowedExtensions: ['jpg', 'jpeg'],
@@ -53,7 +54,7 @@ export const NakedForm = ({
     lowercase: true,
   });
   const { inputsLength, changeCharactersCount, setInputsLength } = useInputsLength();
-
+  const context = useFormikContext();
   const photoValidationSuccess = (file) => {
     setFieldValue('photo', file);
     setStatus({
@@ -70,7 +71,7 @@ export const NakedForm = ({
       photoErrorMessage: '',
     });
   };
-
+  const [isLoadingForm, setIsLoadingForm] = useState(false);
   const handleChangePhoto = (event) => {
     const file = event.target.files[0];
     const {
@@ -85,7 +86,6 @@ export const NakedForm = ({
   };
 
   const isSubmitDisabled = !(isValid && dirty && status.photoValid) || isSubmitting;
-
   const requiredFieldsValues = Object.values(requiredFields);
   const requiredFieldsLength = requiredFieldsValues.reduce((prev, curr) => (prev + (curr ? 1 : 0)), 0);
   const isOptionalShowing = requiredFieldsLength >= requiredFieldsValues.length / 2;
@@ -226,17 +226,20 @@ export const NakedForm = ({
         {inputsHTML}
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '70px' }}>
-        <ButtonComponent
-          type="submit"
-          variant="contained"
-          color="primary"
-          size="large"
-          className={classes.button}
-          isDisabled={isSubmitDisabled}
-          label={t('sign-up')}
-        />
+        {isLoadingForm
+          ? <Preloader />
+          : (
+            <ButtonComponent
+              type="submit"
+              variant="contained"
+              color="primary"
+              size="large"
+              className={classes.button}
+              disabled={(context.values.name.length == 0) || (!context.isValid)}
+              label={t('sign-up')}
+            />
+          )}
       </div>
-
     </form>
   );
 };
@@ -319,6 +322,10 @@ const submittingStatus = {
   photoErrorMessage: '',
 };
 
+export const setLocalStorage = (values) => {
+  localStorage.setItem('form', JSON.stringify(values));
+};
+
 const regexList = {
   name: /^[A-z][A-z\s]{1,59}$/,
   // eslint-disable-next-line no-control-regex
@@ -370,7 +377,7 @@ const FormikForm = (({ t, setShowAfter, router }) => {
       setSubmitting(false);
       resetForm(initialValues, initialValuesLength);
       setShowAfter(true);
-      dispatch(fetchCurrentUser(1));
+      dispatch(fetchCurrentUser(588));
     };
 
     const failCallback = () => {
@@ -448,9 +455,10 @@ const FormikForm = (({ t, setShowAfter, router }) => {
       onSubmit={onSubmit}
       validationSchema={getValidationSchema(t)}
     >
-      {(formikProps) => (
+      {(formikProps, formik) => (
         <NakedForm
           {...formikProps}
+          formik={formik}
           t={t}
           requiredFields={requiredFields}
           regexes={regexList}

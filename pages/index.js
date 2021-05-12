@@ -21,9 +21,7 @@ function Index() {
       <LazyLoad once>
         <Relationships />
       </LazyLoad>
-      <LazyLoad once>
-        <Users />
-      </LazyLoad>
+      <Users />
     </>
   );
 }
