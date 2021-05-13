@@ -11,13 +11,17 @@ import { withTranslation } from '../../../i18n';
 import { selectApiError } from '../../utils/usersSlice';
 
 import styles from './Header.module.scss';
+import Cookies from '../Cookies';
 // import BurgerMenu from './BurgerMenu/BurgerMenu';
 const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
 
-function Header({ t, openModal, userAvatar, userEmail, userName, isUserLoaded, showButton }) {
+function Header({
+  t, openModal, userAvatar, userEmail, userName, isUserLoaded, showButton,
+}) {
   const [burgerActive, setActive] = useState(false);
   const { isGoogleSpeedTest } = useContext(MyContext);
-  const isApiError = useSelector(selectApiError);
+  // const isApiError = useSelector(selectApiError);
+  const [isApiError, setIsApiError] = useState(false);
   const [showCookiesPolicy, setShowCookiesPolicy] = useState(true);
   const closeBurgerMenu = () => setActive(false);
   const openBurgerMenu = () => setActive(true);
@@ -59,27 +63,7 @@ function Header({ t, openModal, userAvatar, userEmail, userName, isUserLoaded, s
         </div>
       </div>
 
-      <div className={showCookiesPolicy ? classNames(styles.cookiePolicy, styles.active) : styles.cookiePolicy}>
-        <div className="container">
-          <div className={styles.cookiePolicyContainer}>
-            <div>
-              {t('cookie-policy-text')}
-              {' '}
-              <a href="#" className={styles.cookieLink}>{t('Cookies Policy')}</a>
-            </div>
-            <div className={styles.buttonCookieContainer}>
-              <ButtonComponent
-                onClick={() => setShowCookiesPolicy(false)}
-                variant="outlined"
-                color="secondary"
-                size="small"
-                disabled={false}
-                label={t('Got it')}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <Cookies />
     </>
   );
 }

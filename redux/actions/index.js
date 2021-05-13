@@ -29,8 +29,14 @@ import {
   SIGN_UP_FAIL,
   SIGN_UP_CLEAR,
   CLEAR_CURRENT_USER,
-  HIDE_COOKIES_POLICY, SHOW_COOKIES_POLICY, SET_USERS_VALUES, SET_FORM_FILLED, SET_FORM_UNFILLED, SET_API_ERROR,
-} from '../constants/actionTypes';
+  HIDE_COOKIES_POLICY,
+  SHOW_COOKIES_POLICY,
+  SET_USERS_VALUES,
+  SET_FORM_FILLED,
+  SET_FORM_UNFILLED,
+  SET_API_ERROR,
+  HIDE_API_ERROR, SHOW_API_ERROR
+} from "../constants/actionTypes";
 import { initialState } from '../reducers/auth';
 
 export const pageLoaded = () => ({ type: PAGE_LOADED });
@@ -91,3 +97,5 @@ export const setUserValues = (data) => ({ type: SET_USERS_VALUES, payload: data 
 export const setFormFilled = () => ({ type: SET_FORM_FILLED });
 export const setFormUnFilled = () => ({ type: SET_FORM_UNFILLED });
 export const apiError = () => ({ type: SET_API_ERROR });
+export const hideApiError = () => ({ type: HIDE_API_ERROR });
+export const showApiError = () => ({ type: SHOW_API_ERROR });

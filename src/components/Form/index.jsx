@@ -19,7 +19,6 @@ import classes from './Form.module.scss';
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 import useInputsLength, { initialValuesLength } from '../../utils/useInputLength';
 import Preloader from '../Preloader/Preloader';
-import { onFetchCurrentUser, setUserDataFromLocalStorage } from "../../../redux/sagas/user";
 
 const photoValidations = {
   allowedExtensions: ['jpg', 'jpeg'],
@@ -72,6 +71,10 @@ export const NakedForm = ({
       photoErrorMessage: '',
     });
   };
+  const setLocalStorage = (values) => {
+    localStorage.setItem('form', JSON.stringify(values));
+  };
+
   const [isLoadingForm, setIsLoadingForm] = useState(false);
   const handleChangePhoto = (event) => {
     const file = event.target.files[0];
@@ -166,7 +169,10 @@ export const NakedForm = ({
           label={t(`${name}Label`)}
           value={values[name]}
           options={options}
-          onChange={onChange}
+          onChange={(e) => {
+            onChange(e);
+            setLocalStorage(values);
+          }}
           helperText={touched[name] && Boolean(errors[name]) ? t(errors[name]) : ''}
           hasError={touched[name] && Boolean(errors[name])}
           isRequired={requiredFields[name]}
@@ -188,7 +194,10 @@ export const NakedForm = ({
           maskPlaceholder={maskPlaceholder}
           value={values[name]}
           onChange={onChange}
-          onBlur={onBlur}
+          onBlur={(e) => {
+            onBlur(e);
+            setLocalStorage(values);
+          }}
           helperText={touched[name] && Boolean(errors[name]) ? t(errors[name]) : t(`${name}HelperText`)}
           hasError={touched[name] && Boolean(errors[name])}
           isRequired={requiredFields[name]}
@@ -207,7 +216,10 @@ export const NakedForm = ({
         type={type}
         value={values[name]}
         onChange={onChange}
-        onBlur={onBlur}
+        onBlur={(e) => {
+          onBlur(e);
+          setLocalStorage(values);
+        }}
         helperText={touched[name] && Boolean(errors[name]) ? t(errors[name]) : t(`${name}HelperText`)}
         hasError={touched[name] && Boolean(errors[name])}
         isRequired={requiredFields[name]}
@@ -323,10 +335,6 @@ const submittingStatus = {
   photoErrorMessage: '',
 };
 
-export const setLocalStorage = (values) => {
-  localStorage.setItem('form', JSON.stringify(values));
-};
-
 const regexList = {
   name: /^[A-z][A-z\s]{1,59}$/,
   // eslint-disable-next-line no-control-regex
@@ -353,7 +361,9 @@ const getValidationSchema = (t) => (
   })
 );
 
-const FormikForm = (({ t, setShowAfter, router }) => {
+const FormikForm = (({
+  t, setShowAfter,
+}) => {
   const dispatch = useDispatch();
   const positions = useSelector((state) => getPositions(state));
 
@@ -373,16 +383,13 @@ const FormikForm = (({ t, setShowAfter, router }) => {
 
       formData.append(key, value);
     }
-   // const regData = formData.json();
 
-    const successCallback = () => {
-      // dispatch(setUserDataFromLocalStorage(getUserInfo, regData.id));
+    const successCallback = (id) => {
       // dispatch(makeFormUnFilled());
-      // localStorage.removeItem('form');
       setSubmitting(false);
       resetForm(initialValues, initialValuesLength);
       setShowAfter(true);
-      dispatch(fetchCurrentUser(1));
+      dispatch(fetchCurrentUser(id));
     };
 
     const failCallback = () => {
@@ -410,9 +417,9 @@ const FormikForm = (({ t, setShowAfter, router }) => {
       })
       .then((data) => {
         if (!data.success) throw new Error(data.message);
-
-        successCallback();
+        successCallback(data.user_id);
         dispatch(signUpSuccess());
+        localStorage.removeItem('form');
       })
       .catch((error) => {
         if (error instanceof Error) {

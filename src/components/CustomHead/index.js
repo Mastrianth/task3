@@ -5,7 +5,7 @@ import favIcon from '../../../public/assets/favicon.png';
 import { INDEX, SIGN_UP, TERMS } from '../../routing/routes';
 import { withTranslation } from '../../../i18n';
 
-const CustomHead = ({ title, t, currentRoute, }) => {
+const CustomHead = ({ title, t, currentRoute }) => {
   const titleBase = 'Test assignment for Frontend Developer position';
   const displayTitle = title ? `${title} | ${titleBase}` : titleBase;
 
@@ -32,7 +32,6 @@ const CustomHead = ({ title, t, currentRoute, }) => {
   //     ogDescription = t('We kindly remind you that your test assignment');
   //     ogImage = 'https://task3-1-test2020-hryhorii-k.abzdev2.com/main.jpg';
   // }
-
 
   return (
   // eslint-disable-next-line react/jsx-filename-extension

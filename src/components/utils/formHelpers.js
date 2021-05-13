@@ -1,4 +1,6 @@
+import { useDispatch } from 'react-redux';
 import { removeAdditionalSpaces, removeAllSpaces, stripCharacters } from './filterString';
+import { clearCurrentUser } from '../../../redux/actions';
 
 export const handleChangeMaskedFactory = (setFieldValue, charsToStrip) => (event) => {
   const { name, value } = event.target;
@@ -73,3 +75,9 @@ export const initialProps = {
     maxLength: 128,
   },
 };
+
+export const removeUser = () => {
+  localStorage.removeItem('user');
+  return clearCurrentUser();
+};
+

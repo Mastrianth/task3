@@ -11,12 +11,15 @@
 }
 
 .footprints {
-  position: absolute;
+  background-color: #F8F8F8;
   z-index: -1;
-  top: -123px;
+  max-width: 575px;
+  align-self: flex-end;
 
-  right: -248px;
-  width: 575px;
+}
+
+.footprontContainer {
+  background-color:  #f8f8f8;
 
 }
 
@@ -327,11 +330,11 @@
 
 
 @media (min-width: 576px) {
-  .footprints {
-    top:-175px;
-    right: -351px;
-    width: 816px;
-  }
+  //.footprints {
+  //  top:-175px;
+  //  right: -351px;
+  //  width: 816px;
+  //}
 
   .footerCol {
     margin-right:44px;
@@ -393,11 +396,11 @@
 
 }
 @media (min-width: 992px) {
-  .footprints {
-    top:-175px;
-    right: -351px;
-    width: 816px;
-  }
+  //.footprints {
+  //  top:-175px;
+  //  right: -351px;
+  //  width: 816px;
+  //}
 
   .footerCol {
     margin-right:61px;
@@ -409,9 +412,9 @@
     margin-left: 60px;
   }
 
-  .footprints {
-    right: 356px;
-    width: 816px;
-  }
+  //.footprints {
+  //  right: 356px;
+  //  width: 816px;
+  //}
 
 }

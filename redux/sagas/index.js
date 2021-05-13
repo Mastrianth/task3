@@ -41,7 +41,7 @@ import {
   showCookiesPolicy, setFormFilled, setFormUnFilled,
 } from '../actions';
 import {
-  getScrollPosition,
+  getScrollPosition, selectCookiesPolicy,
 } from '../reducers/ui';
 import {
   onFetchCurrentUser,
@@ -70,7 +70,7 @@ function* onFetchUsers({ payload: currentLength, imperativeCount }) {
   if (imperativeCount) {
     numberToFetch = imperativeCount;
   } else {
-    numberToFetch = window.innerWidth < 600 ? 3 : 9;
+    numberToFetch = window.matchMedia('(max-width: 599px)').matches ? 3 : 9;
   }
 
   yield put(fetchUsersStart(numberToFetch));
@@ -78,7 +78,7 @@ function* onFetchUsers({ payload: currentLength, imperativeCount }) {
   try {
     const page = (currentLength / numberToFetch) + 1;
 
-    const response = yield call(fetch, `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=${numberToFetch}`);
+    const response = yield call(fetch, `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${Math.round(page)}&count=${numberToFetch}`);
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
 
     const data = yield response.json();
@@ -103,7 +103,6 @@ function* onFetchUsersSuccess() {
 function* onFetchUsersFail({ error }) {
   yield console.log(error);
   yield put(hideUserBtnSpinner());
-  yield put(apiError());
 }
 
 function* onGetPositions() {
@@ -135,11 +134,12 @@ function* onSignUpSuccess() {
 }
 
 function* onCookiesPolicy() {
-  yield put(showCookiesPolicy());
+  yield put(hideCookiesPolicy());
+  localStorage.setItem('accept-cookies-policy', 'false');
 }
 
 function* acceptCookiesPolicy() {
-  yield put(hideCookiesPolicy());
+  yield put(selectCookiesPolicy());
   localStorage.setItem('accept-cookies-policy', 'true');
 }
 
@@ -162,8 +162,8 @@ export default function* rootSaga() {
   yield takeEvery(FETCH_USERS_FAIL, onFetchUsersFail);
   yield takeLatest(GET_POSITIONS, onGetPositions);
   yield takeEvery(SIGN_UP_SUCCESS, onSignUpSuccess);
-  yield takeEvery(SHOW_COOKIES_POLICY, onCookiesPolicy);
-  yield takeEvery(HIDE_COOKIES_POLICY, acceptCookiesPolicy);
+  yield takeEvery(SHOW_COOKIES_POLICY, acceptCookiesPolicy);
+  yield takeEvery(HIDE_COOKIES_POLICY, onCookiesPolicy);
   yield takeLatest(SET_USERS_VALUES, onFetchCurrentUser);
   yield takeEvery(CLEAR_USERS, clearUserData);
   yield takeLatest(SET_USERS_VALUES, setUserDataFromLocalStorage);

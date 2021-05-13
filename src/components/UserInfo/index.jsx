@@ -1,17 +1,14 @@
-import React, { useEffect, useRef }  from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import IconButton from '../IconButton';
-import userPlaceholderImg from '../../assets/img/svg/do-not-inline/ImagePlaceHolder.svg';
-import LogOutIcon from '../../assets/img/svg/exit.svg';
-import classes from './UserInfo.module.scss';
 import ReactTooltip from 'react-tooltip';
-import { isEllipsisActive } from "../utils/fixUserCard";
-import { preloadImgAndReplaceSrc } from "../utils/imgManipulation";
-import { clearCurrentUser } from "../../../redux/actions";
-import styles from "../Header/Menu/Menu.module.scss";
-import Exit from "../../assets/img/svg/exit.svg";
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
+import userPlaceholderImg from '../../assets/img/svg/do-not-inline/ImagePlaceHolder.svg';
+import classes from './UserInfo.module.scss';
+import { clearCurrentUser } from '../../../redux/actions';
+import styles from '../Header/Menu/Menu.module.scss';
+import Exit from '../../assets/img/svg/exit.svg';
+import { removeUser, useRemoveUser } from "../utils/formHelpers";
 
 const UserInfo = ({
   userName, userEmail, userAvatar, logOut, isLoaded, isOnSideBar, showButton,
@@ -39,7 +36,7 @@ const UserInfo = ({
         emailCurr.style.cursor = 'pointer';
       }
 
-      //preloadImgAndReplaceSrc(userAvatar, imgCurr);
+      // preloadImgAndReplaceSrc(userAvatar, imgCurr);
 
       ReactTooltip.rebuild();
     }
@@ -71,7 +68,7 @@ const UserInfo = ({
       <a
         onClick={
           (e) => {
-            dispatch(clearCurrentUser());
+            dispatch(removeUser());
             e.preventDefault();
           }
         }
@@ -81,7 +78,7 @@ const UserInfo = ({
         <Exit />
       </a>
     </>
-  )
+  );
 
   return (
     <div className={userInfoClasses}>

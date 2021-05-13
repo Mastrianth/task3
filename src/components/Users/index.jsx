@@ -12,6 +12,7 @@ import classes from './Users.module.scss';
 import UserCard from '../UserCard';
 import Preloader from '../Preloader/Preloader';
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
+import debounce from '../utils/debounce';
 
 const Users = ({ t }) => {
   const dispatch = useDispatch();
@@ -20,6 +21,20 @@ const Users = ({ t }) => {
   const users = useSelector((state) => getUsers(state));
   const apiUsersLength = useSelector((state) => getApiUsersLength(state));
   const isInitialLoadingComplete = useSelector((state) => getIsInitialLoadingComplete(state));
+
+  const fetchUsersIfGoingFromMobileToTablet = (usersLength) => () => {
+    if (window.matchMedia('(min-width: 600px)').matches) {
+      if (usersLength === 3) {
+        dispatch(fetchUsers(usersLength, 6));
+      }
+    }
+  };
+
+  useEffect(() => {
+    const fetchUsersDebounced = debounce(fetchUsersIfGoingFromMobileToTablet(users.length), 100);
+    window.addEventListener('resize', fetchUsersDebounced);
+    return () => window.removeEventListener('resize', fetchUsersDebounced);
+  }, [users]);
 
   useEffect(() => {
     dispatch(fetchUsers(users.length));
@@ -34,15 +49,6 @@ const Users = ({ t }) => {
     : t('users-button');
 
   const button = users.length >= apiUsersLength ? null : (
-  // <Button
-  //   onClick={() => dispatch(fetchUsers(users.length))}
-  //   variant="secondary"
-  //   isCentered
-  //   className={classes.button}
-  //   isDisabled={isUserBtnSpinnerActive}
-  // >
-  //   {btnContent}
-  // </Button>
     <div className={classes.button}>
       <ButtonComponent
         onClick={() => dispatch(fetchUsers(users.length))}

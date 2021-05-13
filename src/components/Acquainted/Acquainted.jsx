@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as LinkScroll } from 'react-scroll';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 import Programmer from '../../assets/img/svg/Programmer.svg';
 import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 import SlideDown from './SlideDown/SlideDown';
@@ -9,8 +10,7 @@ import { withTranslation } from '../../../i18n';
 
 import styles from './Acquainted.module.scss';
 import ContentWrapper from '../ContentWrapper';
-import { useSelector } from "react-redux";
-import { getCurrentUser } from "../../../redux/reducers/auth";
+import { getCurrentUser } from '../../../redux/reducers/auth';
 
 const About = ({ t }) => {
   const router = useRouter();

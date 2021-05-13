@@ -6,7 +6,7 @@ import {
   SHOW_USER_BTN_SPINNER,
   HIDE_USER_BTN_SPINNER,
   SHOW_SUCCESS_POPUP,
-  HIDE_SUCCESS_POPUP, SHOW_COOKIES_POLICY, HIDE_COOKIES_POLICY, SET_API_ERROR,
+  HIDE_SUCCESS_POPUP, SHOW_COOKIES_POLICY, HIDE_COOKIES_POLICY, SHOW_API_ERROR, HIDE_API_ERROR,
 } from '../constants/actionTypes';
 
 export const initialState = {
@@ -43,8 +43,10 @@ export default function ui(state = initialState, action) {
       return { ...state, showCookiesPolicy: true };
     case HIDE_COOKIES_POLICY:
       return { ...state, showCookiesPolicy: false };
-    case SET_API_ERROR:
+    case SHOW_API_ERROR:
       return { ...state, showApiError: true };
+    case HIDE_API_ERROR:
+      return { ...state, showApiError: false };
     default:
       return state;
   }

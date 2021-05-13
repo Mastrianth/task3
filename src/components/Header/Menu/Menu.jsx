@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, memo } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Link as LinkScroll } from 'react-scroll';
@@ -18,6 +18,7 @@ import Logo from '../../../assets/img/svg/Logo.svg';
 import styles from './Menu.module.scss';
 import ContentWrapper from '../../ContentWrapper';
 import UserInfo from '../../UserInfo';
+import { setCurrentUser } from '../../../../redux/actions';
 
 const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
 
@@ -65,6 +66,7 @@ const Menu = ({
 }) => {
   const { i18n: { language } } = useContext(I18nContext);
   const router = useRouter();
+  const dispatch = useDispatch();
   const classesPrimarySmall = useStylesPrimarySmall();
   const isFormFilled = useSelector(selectFormFilled);
 
@@ -79,6 +81,11 @@ const Menu = ({
       if (window.location.hash) {
         history.replaceState(null, null, ' ');
       }
+    }
+    const user = localStorage.getItem('user');
+    if (user) {
+      const userJson = JSON.parse(user);
+      dispatch(setCurrentUser(userJson.user));
     }
   }, []);
 

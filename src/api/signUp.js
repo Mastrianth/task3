@@ -11,10 +11,37 @@ export const postForm = (formData, token) => fetch(
   },
 );
 
-const _apiBase = 'https://frontend-test-assignment-api.abz.agency/api/v1';
-const getResourse = async (url) => await fetch(`${_apiBase}${url}`);
-const getUserInfo = async (userId) => await getResourse(`/users/${userId}`);
+const apiBase = 'https://frontend-test-assignment-api.abz.agency/api/v1';
+const getResourse = (url) => fetch(`${apiBase}${url}`);
+const getUserInfo = (userId) => getResourse(`/users/${userId}`);
+const getToken = async () => await getResourse('/token');
+
+const userRegisterRequest = async ({
+  name, email, phone, photo: { 0: photo }, position_id, token,
+}) => {
+  const formData = new FormData();
+  formData.append('position_id', position_id);
+  formData.append('name', name);
+  formData.append('email', email);
+  formData.append('phone', phone);
+  formData.append('photo', photo);
+
+  return fetch(`${apiBase}/users`, {
+    method: 'post',
+    headers: new Headers({
+      Token: token,
+    }),
+    body: formData,
+  });
+
+  // return await axios.post(`${_apiBase}/users`, formData, {
+  //   headers: {
+  //     'Content-Type': 'multipart/form-data',
+  //     Token: token,
+  //   },
+  // });
+};
 
 export {
-  getResourse, getUserInfo,
+  getResourse, getUserInfo, getToken, userRegisterRequest,
 };

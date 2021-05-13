@@ -216,7 +216,6 @@ export const fetchMoreUsers = (getUrl) => async (dispatch, getState) => {
   }
 };
 
-
 export const selectPlaceholderForAuthorizedUser = (state) => state.users.showPlaceholderForAuthorizedUser;
 export const selectPlaceholder = (state) => state.users.showPlaceholder;
 export const selectUsers = (state) => state.users.users;

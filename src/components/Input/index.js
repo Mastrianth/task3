@@ -38,7 +38,7 @@ function Input({
           multiline={isMultiline}
           // InputLabelProps={{ shrink: true }}
           fullWidth
-          style={{position: 'relative'}}
+          style={{ position: 'relative' }}
         />
         <div
           style={{

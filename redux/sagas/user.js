@@ -32,3 +32,14 @@ export function* setUserDataFromLocalStorage(data) {
   yield put(setUserValues(data));
   localStorage.setItem('user', JSON.stringify(data));
 }
+
+// export function* fetchAndSetUserData(getUserInfo, userId) {
+//   try {
+//     const response = yield call(getUserInfo(userId));
+//     const data = response.json();
+//     yield put(setUserValues(data));
+//     localStorage.setItem('user', JSON.stringify(data));
+//   } catch (error) {
+//
+//   }
+// }

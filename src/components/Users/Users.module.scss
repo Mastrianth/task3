@@ -2,7 +2,8 @@
 @use '../../assets/scss/mixins/media';
 
 .Users {
-  padding: 130px 0px 141px;
+  padding: 130px 0px 50px;
+  background-color: #F8F8F8;
 }
 
 .heading {
@@ -26,7 +27,7 @@
   left: -2px;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
 }

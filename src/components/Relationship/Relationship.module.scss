@@ -207,11 +207,11 @@
 
 @include media.for-phone-only {
   .Relationships {
-    padding: 54px 0px 55px;
+    padding: 90px 0px 55px;
   }
 
   .heading {
-    margin: 0px auto 34px;
+    margin: 0px auto 40px;
     font-size: 28px;
     line-height: 39.2px;
   }
@@ -318,7 +318,7 @@
 }
 
 .webdevLogoContainer {
-  max-width: 282px;
+  max-width: 204px;
   position: relative;
   margin: 0 auto;
 }
@@ -373,7 +373,7 @@
 
 @media (min-width: 768px) {
   .webdevColumn {
-    width: calc(32% - 18px);
+    width: calc(32% - 5px);
     margin-top: 0;
     margin-bottom: 27px;
   }
@@ -384,7 +384,7 @@
   }
 
   .webdevLogoContainer {
-    max-width: 250px;
+    max-width: 178px;
   }
 }
 

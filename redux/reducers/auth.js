@@ -1,7 +1,7 @@
 import {
   SET_CURRENT_USER,
-  CLEAR_CURRENT_USER, SET_USERS_VALUES
-} from "../constants/actionTypes";
+  CLEAR_CURRENT_USER, SET_USERS_VALUES,
+} from '../constants/actionTypes';
 
 export const initialState = {
   currentUser: {
@@ -39,19 +39,6 @@ export default function auth(state = initialState, action) {
           avatarSrc: '',
           isLoaded: false,
           showButton: false,
-        },
-      };
-    }
-    case SET_USERS_VALUES: {
-      const { name, email, photo: avatarSrc } = payload;
-      return {
-        ...state,
-        currentUser: {
-          name,
-          email,
-          avatarSrc,
-          isLoaded: true,
-          showButton: true,
         },
       };
     }
