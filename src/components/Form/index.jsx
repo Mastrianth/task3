@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Formik, useFormikContext } from 'formik';
 import * as yup from 'yup';
 import PropTypes from 'prop-types';
@@ -74,6 +74,17 @@ export const NakedForm = ({
   const setLocalStorage = (values) => {
     localStorage.setItem('form', JSON.stringify(values));
   };
+
+  useEffect(() => {
+    const formValuesLS = localStorage.getItem('form');
+    if (formValuesLS) {
+      const formJson = JSON.parse(formValuesLS);
+      context.values.name = formJson.name;
+      context.values.email = formJson.email;
+      context.values.phone = formJson.phone;
+      context.values.position = formJson.position;
+    }
+  }, []);
 
   const [isLoadingForm, setIsLoadingForm] = useState(false);
   const handleChangePhoto = (event) => {

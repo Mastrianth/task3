@@ -129,8 +129,12 @@ function* onGetPositions() {
 }
 
 function* onSignUpSuccess() {
-  yield put(showSuccessPopup());
+  //yield put(showSuccessPopup());
   yield put(clearUsers());
+}
+
+function* popUpActive() {
+  yield put(showSuccessPopup());
 }
 
 function* onCookiesPolicy() {
@@ -169,4 +173,5 @@ export default function* rootSaga() {
   yield takeLatest(SET_USERS_VALUES, setUserDataFromLocalStorage);
   yield takeEvery(SET_FORM_FILLED, makeFormFilled);
   yield takeEvery(SET_FORM_UNFILLED, makeFormUnFilled);
+
 }

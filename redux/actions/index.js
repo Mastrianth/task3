@@ -99,3 +99,4 @@ export const setFormUnFilled = () => ({ type: SET_FORM_UNFILLED });
 export const apiError = () => ({ type: SET_API_ERROR });
 export const hideApiError = () => ({ type: HIDE_API_ERROR });
 export const showApiError = () => ({ type: SHOW_API_ERROR });
+export const showSignUpPopUp = () => ({ type: SHOW_SUCCESS_POPUP });

@@ -7,12 +7,13 @@ import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInViewport } from 'react-in-viewport';
 import { Link as LinkScroll } from 'react-scroll';
+import AriaModal from 'react-aria-modal';
 import { withTranslation } from '../../../i18n';
 import ContentWrapper from '../ContentWrapper';
 import MyContext from '../../utils/context';
 import styles from './SignUpBlock.module.scss';
 import Form from '../Form';
-import { getPositions, hideSuccessPopup } from '../../../redux/actions';
+import { getPositions, hideSuccessPopup, showSuccessPopup } from '../../../redux/actions';
 import { getIsPageLoaded, getIsSuccessPopupActive } from '../../../redux/reducers/ui';
 import { getIsSignUpActive } from '../../../redux/reducers/signUp';
 import SlideDown from '../Acquainted/SlideDown/SlideDown';
@@ -20,6 +21,7 @@ import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
 import styles2 from '../Form/Modal.module.scss';
 import Success from '../../assets/img/svg/Success.svg';
 import { selectPositionsError } from '../../utils/usersSlice';
+import ModalContent from '../ModalContent';
 
 const SignUpBlock = ({ t }) => {
   const [isPositionFetched, setIsPositionsFetched] = useState(false);
@@ -45,6 +47,22 @@ const SignUpBlock = ({ t }) => {
       setIsPositionsFetched(true);
     }
   }, [isPageLoaded, inViewport]);
+
+  const closeSuccessPopup = () => dispatch(hideSuccessPopup());
+  const successPopup = isSuccessPopupActive ? (
+    <AriaModal
+      titleText={t('Congratulations')}
+      onExit={closeSuccessPopup}
+      applicationNode={document.getElementById('__next')}
+      underlayColor="rgba(22, 12, 13, 0.3)"
+    >
+      <ModalContent
+        closeModal={closeSuccessPopup}
+        title={t('Congratulations')}
+        text={t('You have successfully passed the registration')}
+      />
+    </AriaModal>
+  ) : null;
 
   return (
     <section ref={signUpBlockRef} className={styles.SignUpBlock} id="sign-up">
@@ -107,6 +125,7 @@ const SignUpBlock = ({ t }) => {
             </div>
           ))}
       </ContentWrapper>
+      {successPopup}
     </section>
   );
 };

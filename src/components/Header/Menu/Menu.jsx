@@ -18,7 +18,7 @@ import Logo from '../../../assets/img/svg/Logo.svg';
 import styles from './Menu.module.scss';
 import ContentWrapper from '../../ContentWrapper';
 import UserInfo from '../../UserInfo';
-import { setCurrentUser } from '../../../../redux/actions';
+import { setCurrentUser, showSuccessPopup } from '../../../../redux/actions';
 
 const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
 
@@ -70,12 +70,6 @@ const Menu = ({
   const classesPrimarySmall = useStylesPrimarySmall();
   const isFormFilled = useSelector(selectFormFilled);
 
-  const checkIfFilled = (e) => {
-    if (isFormFilled) {
-      openModal(e);
-    }
-  };
-
   useEffect(() => {
     if (process.browser) {
       if (window.location.hash) {
@@ -88,6 +82,13 @@ const Menu = ({
       dispatch(setCurrentUser(userJson.user));
     }
   }, []);
+
+  const checkIfFilled = () => {
+    const checkForm = localStorage.getItem('form');
+    if (checkForm) {
+      dispatch(showSuccessPopup());
+    }
+  };
 
   return (
     <ContentWrapper>
