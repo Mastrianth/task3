@@ -3,7 +3,7 @@
 
 .Banner {
   margin: 60px 0px 0px;
-  height: 500px;
+  height: auto;
   padding-top: 128px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -32,7 +32,7 @@
   .Banner {
     background-image: url('../../assets/img/banner/banner-background-360.jpg');
     background-position: 85% 100%;
-    height: auto;
+    height: 360px;
   }
 
   :global(html.webp) .Banner {
@@ -106,17 +106,18 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 513px) 
 }
 
 @media
-only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 721px) and (max-width: 960px),
-only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 721px) and (max-width: 960px),
-only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 721px) and (max-width: 960px),
-only screen and (        min-device-pixel-ratio: 2)      and (min-width: 721px) and (max-width: 960px),
-only screen and (                min-resolution: 192dpi) and (min-width: 721px) and (max-width: 960px),
-only screen and (                min-resolution: 2dppx)  and (min-width: 721px) and (max-width: 960px) {
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 768px) and (max-width: 960px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 768px) and (max-width: 960px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 768px) and (max-width: 960px),
+only screen and (        min-device-pixel-ratio: 2)      and (min-width: 768px) and (max-width: 960px),
+only screen and (                min-resolution: 192dpi) and (min-width: 768px) and (max-width: 960px),
+only screen and (                min-resolution: 2dppx)  and (min-width: 768px) and (max-width: 960px) {
 
   /* Medium screen, retina, stuff to override above media query */
   .Banner {
     background-image: url('../../assets/img/banner/banner-background-768.jpg');
     background-position: 85% 100%;
+    height: 500px;
   }
 
   :global(html.webp) .Banner {
@@ -224,6 +225,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
 @include media.for-desktop-up {
   .Banner {
     padding-bottom: 141px;
+    height: 750px;
   }
 
   .container {
@@ -243,10 +245,11 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
   }
 }
 
+
 @include media.for-tablet-portrait-down {
   .Banner {
-    padding-top: 109px;
-    padding-bottom: 120px;
+    padding-top: 75px;
+    padding-bottom: 60px;
   }
 
   .h1.h1 {
@@ -254,13 +257,15 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
     letter-spacing: 0.1px;
     font-size: 38px;
     line-height: 39.9px;
+    max-width: 420px;
   }
 
   .text.desktop {
-    max-width: 410px;
+    max-width: 385px;
     margin: 0px 0px 33px 0px;
     letter-spacing: 0px;
-    line-height: 24px;
+    line-height: 25.6px;
+    padding-top: 5px;
   }
 
   .btn {
@@ -270,15 +275,18 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
 
 @include media.for-phone-only {
   .Banner {
-    padding-top: 64px;
-    padding-bottom: 230px;
+    padding-top: 24px;
+    padding-bottom: 0;
+
   }
 
   .h1.h1 {
     margin: 0px 0px 13px 0px;
     width: 285px;
     text-align: left;
-    line-height: 34px;
+    font-size: 28px;
+    padding-top:18px;
+
   }
 
   .text.desktop {
@@ -287,6 +295,9 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
 
   .text.mobile {
     display: block;
+    padding-top: 12px;
+    max-width: 240px;
+    line-height: 25.6px;
   }
 
   .btn {
@@ -296,9 +307,4 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
   }
 }
 
-@media (max-width: 990px) {
-  .h1.h1 {
-    font-size: 38px;
-    line-height: 39.9px;
-  }
-}
+

@@ -48,7 +48,7 @@
 
 .aboutLogoContainer {
   max-width: 328px;
-  margin:40px auto 0;
+  margin:20px auto 0;
 }
 
 .slideDownContainer {
@@ -56,7 +56,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 17px;
-
+  padding-top: 16px;
 }
 
 .aboutText {
@@ -65,7 +65,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 26px;
+  line-height: 25.6px;
   letter-spacing: 0em;
   text-align: left;
 
@@ -109,7 +109,7 @@
 
   .slideDownContainer {
     padding-top:36px;
-    padding-bottom: 36px;
+    padding-bottom: 26px;
   }
 
   .aboutTitle {
@@ -120,7 +120,7 @@
     line-height: 40px;
     letter-spacing: 0em;
     text-align: left;
-
+    margin-bottom: 0;
   }
 
   .aboutSubtitle {
@@ -161,16 +161,16 @@
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 767px) {
   .about {
-    height: 600px;
+    height: auto;
   }
   .aboutSubtitle {
     font-family: $FONT-SECONDARY;
     font-size: 28px;
     line-height: 39px;
 
-    margin-top: 11px;
+    margin-top: 0px;
     position: relative;
     //left: -1px;
     //letter-spacing: 0.3px;

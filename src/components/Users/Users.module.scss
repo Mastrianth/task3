@@ -63,11 +63,14 @@
 
 @media screen and (max-width: 990px) {
   .Users {
-    padding: 91px 0px 101px;
+    padding: 0px 0px 20px;
   }
 
   .subheading {
     letter-spacing: 0px;
+    font-size: 28px;
+    line-height: 39.2px;
+    padding-bottom: 20px;
   }
 
   .heading {
@@ -89,7 +92,7 @@
 
 @include media.for-phone-only {
   .Users {
-    padding: 54px 0px 61px;
+    padding: 10px 0px 10px;
   }
 
   .heading {
@@ -99,7 +102,7 @@
   }
 
   .subheading {
-
+    padding-bottom: 36px;
     font-size: 18px;
     line-height: 25.2px;
   }

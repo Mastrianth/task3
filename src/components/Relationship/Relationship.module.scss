@@ -128,6 +128,8 @@
     margin: 0px auto 43px;
     font-size: 38px;
     line-height: 39.9px;
+    padding-top: 24px;
+    max-width: 450px;
   }
 
   .container {
@@ -179,7 +181,7 @@
   }
 
   .textWrapper {
-    margin-left: 36px;
+    margin-left: 0;
   }
 
   .subheading {
@@ -211,9 +213,10 @@
   }
 
   .heading {
-    margin: 0px auto 40px;
+    margin: 0px auto 24px;
     font-size: 28px;
     line-height: 39.2px;
+
   }
 
   .container {
@@ -344,11 +347,12 @@
 
 .webdevSubtitle {
   margin-top: 29px;
+  margin-bottom: 16px;
   color: rgba(0, 0, 0, 0.87);
 }
 
 .webdevColumn {
-  margin-bottom: 52px;
+  margin-bottom: 30px;
   text-align: center;
 
   &:last-of-type {
@@ -385,6 +389,9 @@
 
   .webdevLogoContainer {
     max-width: 178px;
+  }
+  .webdevText {
+    max-width: 250px;
   }
 }
 
