@@ -19,7 +19,6 @@ function SignUp() {
     }
   }, []);
   return (
-    // eslint-disable-next-line react/jsx-filename-extension
     <>
       <SignUpBanner />
       <SignUpBlock />

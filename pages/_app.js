@@ -12,12 +12,11 @@ import '../src/assets/scss/global.scss';
 import '../src/assets/scss/typography.scss';
 import routes from '../src/routing/routes';
 import { getCurrentUser } from '../redux/reducers/auth';
-import CustomHead from '../src/components/CustomHead';
+import CustomHead from '../src/components/Layout/CustomHead';
 import Layout from '../src/components/Layout';
 import MyContext from '../src/utils/context';
 import { getIsPageLoaded } from '../redux/reducers/ui';
 
-// eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps, ua }) {
   const router = useRouter();
   const [isGoogleSpeedTest, setGoogleSpeedTest] = useState(true);
@@ -35,7 +34,6 @@ function MyApp({ Component, pageProps, ua }) {
 
   if (isGoogleSpeedTest) {
     return (
-      // eslint-disable-next-line react/jsx-filename-extension
       <>
         <CustomHead title={title} />
         <LazyHydrate ssrOnly>
@@ -50,7 +48,6 @@ function MyApp({ Component, pageProps, ua }) {
     );
   }
   return (
-    // eslint-disable-next-line react/jsx-filename-extension
     <>
       <CustomHead title={title} currentRoute={router.pathname} />
       <MyContext.Provider value={{ isGoogleSpeedTest }}>
@@ -58,7 +55,6 @@ function MyApp({ Component, pageProps, ua }) {
           currentUser={currentUser}
           isPageLoaded={isPageLoaded}
         >
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           <Component
             {...pageProps}
             isPageLoaded={isPageLoaded}

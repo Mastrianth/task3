@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 
-import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
+import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
 import { withTranslation } from '../../../i18n';
 import Error404Image from '../../assets/img/svg/404.svg';
 

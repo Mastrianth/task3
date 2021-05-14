@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { withTranslation } from '../../../i18n';
 import classes from './Banner.module.scss';
 import ContentWrapper from '../ContentWrapper';
-import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
+import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
 import canUseWebP from '../../utils/canUseWebP';
 import { getCurrentUser } from '../../../redux/reducers/auth';
 

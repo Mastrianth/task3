@@ -1,0 +1,639 @@
+@use '../../../assets/scss/vars/colors';
+@use '../../../assets/scss/mixins/media';
+
+.UserCard {
+  width: 100%;
+  max-width: 284px;
+  margin-top: 62px;
+  margin-right: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.UserCardPlaceholder {
+  max-width: 262px;
+  margin-top: 66px;
+  margin-right: 61px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: colors.$loader;
+}
+
+.avatarPlaceholder {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: colors.$loader;
+}
+
+.textWrapper {
+  width: 100%;
+  margin-left: 8px;
+  padding-top: 22px;
+}
+
+.textWrapperPlaceholder {
+  margin-left: 9px;
+  padding-top: 27px;
+}
+
+.name {
+  margin: 0px 0px 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: colors.$text;
+}
+
+.namePlaceholder {
+  width: 130px;
+  height: 16px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  background-color: colors.$loader;
+  overflow: hidden;
+}
+
+.position {
+  margin: 0px;
+
+  color: colors.$text2;
+  line-height: 17px;
+}
+
+.positionPlaceholder {
+  width: 160px;
+  height: 10px;
+  margin-bottom: 8px;
+  border-radius: 2px;
+  background-color: colors.$loader;
+  overflow: hidden;
+}
+
+.email {
+  margin: 0px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  color: colors.$text2;
+  line-height: 17px;
+}
+
+.emailPlaceholder {
+  width: 180px;
+  height: 10px;
+  margin-bottom: 8px;
+  border-radius: 2px;
+  background-color: colors.$loader;
+}
+
+.phone {
+  margin: 0px;
+
+  color: colors.$text2;
+}
+
+.phonePlaceholder {
+  width: 110px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: colors.$loader;
+}
+
+@include media.for-desktop-up {
+  .UserCard {
+    max-width: 352px;
+    margin-top: 59px;
+    margin-right: 38px;
+  }
+
+  .textWrapper {
+    padding-top: 20px;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .UserCard {
+    max-width: 215px;
+    margin-top: 36px;
+    margin-right: 24px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .textWrapper {
+    padding-top: 10px;
+  }
+
+  .name {
+    margin: 0px 0px 8px;
+
+    text-align: center;
+  }
+
+  .position {
+    text-align: center;
+  }
+
+  .email {
+    text-align: center;
+  }
+
+  .phone {
+    text-align: center;
+  }
+}
+
+@include media.for-phone-only {
+  .UserCard {
+    max-width: 273px;
+    margin-top: 30px;
+    margin-right: 0px;
+    position: relative;
+    left: -2px;
+  }
+
+  .avatar {
+    position: relative;
+    left: 4px;
+  }
+
+  .name {
+
+  }
+
+  .position {
+
+  }
+
+  .email {
+
+  }
+
+  .phone {
+
+  }
+}
+
+
+//
+
+
+.pawsContainer {
+  margin-top: 83px;
+  padding-bottom: 100px;
+}
+
+.usersTitle {
+  font-family: Nunito,sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  margin-top: 30px;
+  color:rgba(0, 0, 0, 0.87);
+
+}
+.usersSubtitle {
+  font-family: Asap,sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0;
+  text-align: center;
+
+  margin-top: 18px;
+  margin-bottom: 34px;
+
+  color:rgba(0, 0, 0, 0.87);
+}
+
+.usersContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.userCardBorder {
+  margin: 8px;
+  border: 1px solid #F4E041;
+  height:324px;
+
+  border-radius: 10px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.image {
+  border-radius: 50%;
+}
+
+.nameContainer {
+  width: 222px;
+
+  margin: 15px auto 0 ;
+  text-align: center;
+
+  color:rgba(0, 0, 0, 0.87);
+}
+
+.position {
+  width: 222px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+
+  font-family: Asap,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: #7E7E7E;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.mail {
+  width: 222px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+
+
+  font-family: Asap,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: #7E7E7E;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+}
+
+.phone {
+  width: 222px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  color: #7E7E7E;
+  text-decoration: none;
+
+  font-family: Asap,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+
+
+}
+
+
+.cardTitle {
+  font-family: Asap, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: center;
+
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  word-break: break-word;
+
+  max-height: 75px;  /* Fallback for non-webkit не нужно */
+}
+
+.buttonContainer {
+  text-align: center;
+  margin-top: 20px;
+
+}
+
+
+
+
+.usersCard {
+  margin-bottom:20px;
+  width: 328px;
+
+  height: 340px;
+
+  background-color: #fff;
+  border-radius: 10px;
+  &.placeholderCard {
+    background: #F2F2F2;
+  }
+}
+
+.image {
+  width: 70px;
+  height: 70px;
+}
+
+.imagePlaceholder {
+  width: 70px;
+  height: 70px;
+  background: #D0CFCF;
+  border-radius: 50%;
+  margin-top:8px;
+}
+
+.namePlaceholder {
+  height: 18px;
+  width: 120px;
+  border-radius: 2px;
+  background: #D0CFCF;
+  margin: 17px auto 0;
+}
+
+.positionPlaceholder {
+  height: 13px;
+  width: 190px;
+  background: #D0CFCF;
+  border-radius: 2px;
+  margin: 16px auto 0;
+}
+
+.emailPlaceholder {
+  height: 13px;
+  width: 272px;
+  border-radius: 2px;
+  background: #D0CFCF;
+  margin: 12px auto 0;
+}
+
+.phonePlaceholder {
+  height: 13px;
+  width: 180px;
+  border-radius: 2px;
+  background: #D0CFCF;
+  margin: 13px auto 0;
+}
+
+.buttonPlaceholder {
+  margin: 20px auto 0;
+  height: 50px;
+  width: 148px;
+  border-radius: 80px;
+  background: #D0CFCF;
+}
+
+
+@media (min-width: 576px) {
+
+  .usersTitle {
+    font-family: Nunito,sans-serif;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: center;
+
+    margin: 100px auto 0;
+
+
+  }
+
+
+  .usersSubtitle {
+    font-family: Nunito,sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0em;
+    text-align: center;
+
+    margin-top: 18px;
+    margin-bottom:0;
+  }
+
+
+
+  .usersCard {
+
+    width: 344px;
+
+    //flex: 1 1 0;
+    //min-width: 260px;
+    //max-width: 344px;
+    margin-bottom: 0;
+    margin-top: 16px;
+    //margin-right: 16px;
+  }
+
+  //.usersCard:nth-of-type(2n) {
+  //  margin-right: 0;
+  //}
+
+  .usersContainer {
+    margin-top: 29px;
+  }
+
+  .buttonPlaceholder {
+    margin: 60px auto 0;
+  }
+
+  .buttonContainer {
+    margin-top: 60px;
+  }
+
+  .pawsContainer {
+    margin-top: 0;
+    padding-bottom: 140px;
+  }
+
+  .positionPlaceholder {
+    width: 184px;
+    margin: 16px auto 0;
+  }
+
+  .emailPlaceholder {
+    width: 228px;
+    margin: 12px auto 0;
+  }
+
+  .phonePlaceholder {
+    width: 174px;
+    margin: 13px auto 0;
+  }
+
+}
+
+
+@media (min-width: 640px) {
+  .usersCard {
+    width: calc(50% - 8px);
+    max-width: 344px;
+  }
+
+  .usersContainer {
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+
+  .usersCard {
+    margin-right: 16px;
+  }
+
+  .usersCard:nth-of-type(2n) {
+    margin-right: 0;
+  }
+}
+
+
+@media (min-width: 769px) {
+  .usersContainer {
+    margin: 0 auto;
+    max-width: 704px;
+  }
+}
+
+@media (min-width: 992px) {
+
+  .pawsContainer {
+    margin-top: 0;
+    padding-bottom: 180px;
+  }
+
+  .imagePlaceholder {
+    margin-top:9px;
+  }
+
+  .namePlaceholder {
+    width: 102px;
+    margin: 17px auto 0;
+  }
+
+  .positionPlaceholder {
+    width: 164px;
+    margin: 16px auto 0;
+  }
+
+  .emailPlaceholder {
+    width: 208px;
+    margin: 12px auto 0;
+  }
+
+  .phonePlaceholder {
+    width: 154px;
+    margin: 13px auto 0;
+  }
+
+  .buttonPlaceholder {
+    margin: 60px auto 0;
+  }
+
+  .buttonContainer {
+    margin-top: 60px;
+  }
+
+  .usersCard {
+    //min-width: 282px;
+    //max-width: 282px;
+    //width: 282px;
+    max-width: none;
+    width: calc(32% - 8px);
+    margin-bottom: 0;
+    margin-top: 29px;
+    margin-right: 29px;
+  }
+
+  .usersCard:nth-of-type(2n) {
+    margin-right: 29px;
+  }
+
+  .usersCard:nth-of-type(3n) {
+    margin-right: 0;
+  }
+
+  .usersContainer {
+    flex-direction: row;
+    margin-top: 16px;
+    max-width: none;
+
+  }
+
+  .webdevLogoContainer {
+    margin: 0 auto;
+  }
+
+  .usersTitle {
+    margin: 136px auto 0;
+    font-size: 60px;
+    line-height: 63px;
+  }
+
+
+  .usersSubtitle {
+    font-family: Nunito,sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0em;
+    text-align: center;
+
+    margin-top: 24px;
+    margin-bottom:0;
+  }
+
+
+
+}
+
+
+
+@media (min-width: 2560px) {
+  .usersTitle {
+    margin: 135px auto 0;
+  }
+
+
+  .usersCard {
+    min-width: 360px;
+    max-width: 360px;
+    width: 360px;
+    margin-top: 30px;
+    margin-right: 30px;
+  }
+
+  .nameContainer {
+    width: 312px;
+  }
+
+}
+

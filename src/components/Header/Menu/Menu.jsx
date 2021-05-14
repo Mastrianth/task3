@@ -9,15 +9,12 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  selectFormFilled,
-} from '../../../utils/usersSlice';
 import { i18n, withTranslation } from '../../../../i18n';
 
 import Logo from '../../../assets/img/svg/Logo.svg';
 import styles from './Menu.module.scss';
 import ContentWrapper from '../../ContentWrapper';
-import UserInfo from '../../UserInfo';
+import UserInfo from '../../Users/UserInfo';
 import { setCurrentUser, showSuccessPopup } from '../../../../redux/actions';
 
 const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
@@ -68,7 +65,6 @@ const Menu = ({
   const router = useRouter();
   const dispatch = useDispatch();
   const classesPrimarySmall = useStylesPrimarySmall();
-  const isFormFilled = useSelector(selectFormFilled);
 
   useEffect(() => {
     if (process.browser) {

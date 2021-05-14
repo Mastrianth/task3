@@ -1,0 +1,99 @@
+@use '../../../assets/scss/vars/colors';
+@use '../../../assets/scss/mixins/media';
+
+.IconButton {
+  width: 27px;
+  height: 27px;
+  padding: 0;
+  border: 0;
+  position: relative;
+  background-color: initial;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    transform: scale(2);
+  }
+
+  &.disabled {
+    cursor: initial;
+  }
+
+  & svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  & path {
+    fill: colors.$background;
+  }
+
+  &.loaded path {
+    transition: fill 0.2s ease-in-out;
+  }
+
+  &:hover path,
+  &:active path {
+    fill: colors.$primary;
+  }
+
+  &.disabled path{
+    fill: colors.$background-transparent;
+  }
+
+  &.disabled:hover path,
+  &.disabled:active path {
+    fill: colors.$background-transparent;
+  }
+
+  &.secondary path {
+    fill: rgba(126, 126, 126, 1);
+  }
+
+  &.secondary:hover ,
+  &.secondary:after {
+    background: rgba(234, 89, 36, 0.3);
+    width: auto;
+    height: auto;
+  }
+
+  &.secondary.disabled path {
+    fill: colors.$secondary-transparent;
+  }
+
+  &.secondary.disabled:hover path,
+  &.secondary.disabled:active path {
+    fill: colors.$secondary-transparent;
+  }
+}
+
+@include media.for-tablet-portrait-down {
+  .IconButton::before {
+    width: 48px;
+    height: 48px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (hover: none) {
+  .IconButton {
+    &:hover path,
+    &:active path {
+      fill: colors.$background;
+    }
+
+    &.secondary:hover path,
+    &.secondary:active path {
+      fill: colors.$secondary;
+    }
+  }
+}

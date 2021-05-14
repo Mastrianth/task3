@@ -14,7 +14,7 @@
 @media (max-height: 750px) and (max-width: 1440px) and (min-width: 769px) {
   .Banner {
     padding-bottom: 50px;
-    height: 500px;
+    height: 650px;
   }
 }
 
@@ -117,7 +117,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 768px) 
   .Banner {
     background-image: url('../../assets/img/banner/banner-background-768.jpg');
     background-position: 85% 100%;
-    height: 500px;
+    height: 390px;
   }
 
   :global(html.webp) .Banner {
@@ -138,6 +138,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 961px) 
   .Banner {
     background-image: url('../../assets/img/banner/banner-background-1024-2x.jpg');
     background-size: 100%;
+    height: 550px;
   }
 
   :global(html.webp) .Banner {
@@ -179,12 +180,13 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
 }
 
 .container {
-  max-width: 570px;
+  max-width: 600px;
 }
 
 .h1.h1 {
   margin: 0px 0px 24px -5px;
   color: colors.$text;
+  padding-top: 24px;
 }
 
 .text.text {
@@ -193,6 +195,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
 
 .text.desktop {
   margin: 0px 0px 39px -2px;
+  max-width: 500px;
 }
 
 .text.textWide1 {
@@ -248,7 +251,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
 
 @include media.for-tablet-portrait-down {
   .Banner {
-    padding-top: 75px;
+    padding-top: 55px;
     padding-bottom: 60px;
   }
 

@@ -1,0 +1,105 @@
+@use '../../../../assets/scss/vars/colors';
+@use '../../../../assets/scss/vars/sizes';
+@use '../../../../assets/scss/mixins/media';
+
+.fileInputWrapper {
+  position: relative;
+}
+
+.fileInput {
+  height: 0;
+  width: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
+.labelWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mainFileLabel {
+  width: 100%;
+  height: 56px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-right: 1px solid colors.$input-enabled-border;
+  border-top: 1px solid colors.$input-enabled-border;
+  border-bottom: 1px solid colors.$input-enabled-border;
+  border-radius: 0px sizes.$border-radius sizes.$border-radius 0px;
+  display: block;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Asap', sans-serif;
+  color: colors.$text-disabled;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 53px;
+}
+
+.mainFileLabel_filled {
+  color: colors.$darkest;
+}
+
+.browseFileLabel {
+  height: 56px;
+  padding-left: 31px;
+  padding-right: 32px;
+  padding-top: 13px;
+  border: 2px solid colors.$text;
+  border-radius:  sizes.$border-radius 0px 0px sizes.$border-radius;
+  position: relative;
+  top: 0px;
+  right: 0px;
+  display: block;
+  box-sizing: border-box;
+  background-color: colors.$background;
+  cursor: pointer;
+
+  font-family: 'Asap', sans-serif;
+  color: colors.$text;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+}
+
+.uploadText {
+
+}
+
+.uploadIcon {
+  display: none;
+}
+
+.fileInput:focus + label {
+  border: 2px solid colors.$input-enabled-border;
+  line-height: 51px;
+  padding-left: 15px;
+}
+
+.error.fileInput + label {
+  border: 1px solid colors.$error;
+}
+
+.error.fileInput:focus + label {
+  border: 2px solid colors.$error;
+}
+
+.helperText {
+  margin: 4px 0px 0px 17px;
+
+  font-family: 'Asap', sans-serif;
+  font-size: 12px;
+  color: colors.$text-disabled;
+  letter-spacing: normal;
+}
+
+.error.helperText {
+  color: colors.$error;
+}
+

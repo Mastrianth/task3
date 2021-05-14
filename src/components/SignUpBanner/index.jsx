@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { withTranslation } from '../../../i18n';
 import canUseWebP from '../../utils/canUseWebP';
-import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
+import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
 
 import styles from './SignUpBanner.module.scss';
 

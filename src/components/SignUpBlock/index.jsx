@@ -12,16 +12,15 @@ import { withTranslation } from '../../../i18n';
 import ContentWrapper from '../ContentWrapper';
 import MyContext from '../../utils/context';
 import styles from './SignUpBlock.module.scss';
-import Form from '../Form';
+import Form from './Form';
 import { getPositions, hideSuccessPopup, showSuccessPopup } from '../../../redux/actions';
 import { getIsPageLoaded, getIsSuccessPopupActive } from '../../../redux/reducers/ui';
 import { getIsSignUpActive } from '../../../redux/reducers/signUp';
 import SlideDown from '../Acquainted/SlideDown/SlideDown';
-import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
-import styles2 from '../Form/Modal.module.scss';
+import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
+import styles2 from './Form/Modal.module.scss';
 import Success from '../../assets/img/svg/Success.svg';
-import { selectPositionsError } from '../../utils/usersSlice';
-import ModalContent from '../ModalContent';
+import ModalContent from './ModalContent';
 
 const SignUpBlock = ({ t }) => {
   const [isPositionFetched, setIsPositionsFetched] = useState(false);
@@ -34,7 +33,6 @@ const SignUpBlock = ({ t }) => {
   const titleClasses = classNames('h2', styles.title);
   const subtitleClasses = classNames('h5', styles.subtitle);
   const { isGoogleSpeedTest } = useContext(MyContext);
-  const positionsError = useSelector(selectPositionsError);
   const [showAfter, setShowAfter] = useState(false);
   const router = useRouter();
   useEffect(() => {
@@ -103,24 +101,24 @@ const SignUpBlock = ({ t }) => {
           )
           : (
             <div className={styles2.overlayContainer}>
-              {positionsError ? (
-                <div className={styles2.overlay}>
-                  <div className={styles2.innerOverlayContainer}>
-                    <h2 className={styles2.overlaySubtitle}>{t('reg-unavailable')}</h2>
-                    <h2 className={styles2.overlaySubtitle}>{t('Please try later')}</h2>
-                    <div className={styles2.buttonContainerError}>
-                      <ButtonComponent
-                        onClick={() => window.location.reload()}
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        disabled={false}
-                        label={t('Reload this page')}
-                      />
-                    </div>
-                  </div>
-                </div>
-              ) : ''}
+              {/*{positionsError ? (*/}
+              {/*  <div className={styles2.overlay}>*/}
+              {/*    <div className={styles2.innerOverlayContainer}>*/}
+              {/*      <h2 className={styles2.overlaySubtitle}>{t('reg-unavailable')}</h2>*/}
+              {/*      <h2 className={styles2.overlaySubtitle}>{t('Please try later')}</h2>*/}
+              {/*      <div className={styles2.buttonContainerError}>*/}
+              {/*        <ButtonComponent*/}
+              {/*          onClick={() => window.location.reload()}*/}
+              {/*          variant="contained"*/}
+              {/*          color="primary"*/}
+              {/*          size="large"*/}
+              {/*          disabled={false}*/}
+              {/*          label={t('Reload this page')}*/}
+              {/*        />*/}
+              {/*      </div>*/}
+              {/*    </div>*/}
+              {/*  </div>*/}
+              {/*) : ''}*/}
               <Form router={router} setShowAfter={setShowAfter} t={t} />
             </div>
           ))}

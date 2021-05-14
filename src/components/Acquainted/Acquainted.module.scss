@@ -32,7 +32,7 @@
     line-height: 25px;
     letter-spacing: 0em;
     text-align: left;
-
+    padding-top:16px;
     margin-top:18px;
   }
 
@@ -55,7 +55,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 17px;
+  margin-bottom: 5px;
   padding-top: 16px;
 }
 
@@ -175,6 +175,9 @@
     //left: -1px;
     //letter-spacing: 0.3px;
   }
+  .aboutSubtitle {
+    padding-top: 5px;
+  }
 
   .aboutLogoContainer {
     width: 100%;
@@ -200,7 +203,7 @@
   }
 
   .aboutContentContainer {
-    padding-top: 172px;
+    padding-top: 140px;
   }
 
   .slideDownContainer {

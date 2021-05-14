@@ -12,12 +12,9 @@ const Users = dynamic(() => import('../src/components/Users'),
 
 function Index() {
   return (
-  // eslint-disable-next-line react/jsx-filename-extension
     <>
       <Banner />
-      <LazyLoad once>
-        <AboutMe />
-      </LazyLoad>
+      <AboutMe />
       <LazyLoad once>
         <Relationships />
       </LazyLoad>

@@ -3,7 +3,7 @@
 @import '../../assets/scss/vars/constans.scss';
 
 .Relationships {
-  padding: 131px 0px 135px;
+  padding: 145px 0px 70px;
   background-color: #F8F8F8;
 }
 
@@ -209,7 +209,7 @@
 
 @include media.for-phone-only {
   .Relationships {
-    padding: 90px 0px 55px;
+    padding: 55px 0px 55px;
   }
 
   .heading {

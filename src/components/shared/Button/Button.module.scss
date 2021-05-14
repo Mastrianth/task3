@@ -1,0 +1,141 @@
+@use '../../../assets/scss/vars/colors';
+@use '../../../assets/scss/vars/sizes';
+@use '../../../assets/scss/mixins/media';
+
+.button {
+  max-width: 290px;
+  min-width: 290px;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  border: 0;
+  position: relative;
+  border-radius: sizes.$border-radius;
+  display: block;
+  background-color: colors.$primary;
+  cursor: pointer;
+
+  color: colors.$tooltip-text;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.1px;
+  font-family: "Source Sans Pro", sans-serif;
+
+  &.loaded {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+  &:hover, &:active {
+    background-color: colors.$primary-lighter;
+  }
+}
+
+.buttonText {
+  max-width: 250px;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.secondary {
+  max-width: 290px;
+  border: 2px solid colors.$primary;
+  background-color: transparent;
+
+  color: colors.$primary;
+  line-height: 36px;
+
+  &:hover, &:active {
+    background-color: colors.$primary-lighter-transparent;
+    color: colors.$primary-lighter;
+  }
+}
+
+.flat {
+  width: initial;
+  margin-bottom: -2px;
+  background-color: transparent;
+
+  color: colors.$primary;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 22px;
+
+  transition: 0.2s ease-in-out color;
+
+  &:hover, &:active {
+    background-color: transparent;
+    color: colors.$primary-lighter;
+  }
+}
+
+.flat .buttonText {
+  margin: 0;
+  padding-bottom: 2px;
+
+  text-align: left;
+}
+
+.button.disabled.disabled {
+  background-color: colors.$button-disabled-background;
+  color: colors.$text-disabled;
+  cursor: initial;
+}
+
+.secondary.disabled.disabled {
+  background-color: transparent;
+  color: colors.$primary;
+  cursor: initial;
+
+  &:hover, &:active {
+    background-color: transparent;
+    color: colors.$primary;
+  }
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.small {
+  max-width: 180px;
+}
+
+@include media.for-phone-only {
+  .button {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .flat .buttonText {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+@media (hover: none) {
+  .button {
+    &:hover, &:active {
+      background-color: colors.$primary;
+    }
+  }
+
+  .secondary {
+    &:hover, &:active {
+      background-color: transparent;
+      color: colors.$primary;
+    }
+  }
+
+  .flat {
+    &:hover, &:active {
+      background-color: transparent;
+      color: colors.$primary;
+    }
+  }
+}

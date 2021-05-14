@@ -9,10 +9,10 @@ import { getIsUserBtnSpinnerActive } from '../../../redux/reducers/ui';
 import { getApiUsersLength, getIsInitialLoadingComplete, getUsers } from '../../../redux/reducers/users';
 
 import classes from './Users.module.scss';
-import UserCard from '../UserCard';
-import Preloader from '../Preloader/Preloader';
-import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
-import debounce from '../utils/debounce';
+import UserCard from './UserCard';
+import Preloader from '../shared/Preloader/Preloader';
+import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
+import debounce from '../../utils/debounce';
 
 const Users = ({ t }) => {
   const dispatch = useDispatch();

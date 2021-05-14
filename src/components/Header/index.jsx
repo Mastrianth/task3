@@ -5,13 +5,11 @@ import { useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
 import MyContext from '../../utils/context';
 import Menu from './Menu/Menu';
-
-import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
+import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
 import { withTranslation } from '../../../i18n';
-import { selectApiError } from '../../utils/usersSlice';
 
 import styles from './Header.module.scss';
-import Cookies from '../Cookies';
+import Cookies from './Cookies';
 // import BurgerMenu from './BurgerMenu/BurgerMenu';
 const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
 

@@ -4,7 +4,7 @@ import { Link as LinkScroll } from 'react-scroll';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import Programmer from '../../assets/img/svg/Programmer.svg';
-import ButtonComponent from '../Button/LargePrimaryButtons/LargePrimaryButton';
+import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
 import SlideDown from './SlideDown/SlideDown';
 import { withTranslation } from '../../../i18n';
 

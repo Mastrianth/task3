@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 
-import ButtonComponent from '../src/components/Button/LargePrimaryButtons/LargePrimaryButton';
+import ButtonComponent from '../src/components/shared/Button/LargePrimaryButtons/LargePrimaryButton';
 import { withTranslation } from '../i18n';
 import Error404Image from '../src/assets/img/svg/404.svg';
 
@@ -12,7 +12,6 @@ import ContentWrapper from '../src/components/ContentWrapper';
 const Banner = ({ t }) => {
   const router = useRouter();
   return (
-    // eslint-disable-next-line react/jsx-filename-extension
     <ContentWrapper>
       <div className={styles.pawsContainer}>
         <div className="container w100">
