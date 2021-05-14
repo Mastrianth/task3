@@ -40,6 +40,8 @@ const Users = ({ t }) => {
     dispatch(fetchUsers(users.length));
   }, []);
 
+
+
   const headingClasses = classNames('h2', classes.heading);
   const subheadingClasses = classNames('h5', classes.subheading);
   const containerClasses = classNames(classes.container, { [classes.isLoading]: !isInitialLoadingComplete });
