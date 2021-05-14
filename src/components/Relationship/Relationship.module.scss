@@ -154,7 +154,7 @@
   }
 
   .HTMLImg {
-    max-width: 204px;
+    max-width: 146px;
     min-width: 88px;
     height: 161px;
     margin: 0px;
@@ -164,7 +164,7 @@
 
   .CSSImg {
     margin: 0px;
-    max-width: 204px;
+    max-width: 146px;
     min-width: 88px;
     height: 161px;
     top: 6px;
@@ -173,7 +173,7 @@
 
   .JSImg {
     margin: 0px;
-    max-width: 204px;
+    max-width: 146px;
     min-width: 90px;
     height: 161px;
     top: 6px;
@@ -388,7 +388,8 @@
   }
 
   .webdevLogoContainer {
-    max-width: 178px;
+    max-width: 146px;
+    padding-bottom: 10px;
   }
   .webdevText {
     max-width: 250px;
