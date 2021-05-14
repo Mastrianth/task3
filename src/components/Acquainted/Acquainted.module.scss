@@ -221,6 +221,39 @@
 
 
 }
+
+@media (min-width: 1350px) {
+
+
+  .aboutTitle {
+    text-align: left;
+
+    font-size: 60px;
+    line-height: 63px;
+  }
+
+  .aboutContentContainer {
+    padding-top: 190px;
+  }
+
+  .slideDownContainer {
+    display: none;
+  }
+
+  .aboutLeftColumn {
+    width: 58%;
+  }
+  .aboutSubtitle {
+    padding-top: 14px;
+    margin-bottom: 0;
+  }
+  .aboutText {
+    padding-top:20px;
+  }
+
+
+}
+
 @media (min-width: 2560px) {
   .aboutContentContainer {
     padding-top: 170px;

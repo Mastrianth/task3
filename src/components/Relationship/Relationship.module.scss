@@ -445,7 +445,19 @@
     bottom: 0;
   }
 }
-
+@media (min-width: 1350px) {
+  .Relationships {
+    padding: 135px 0px 70px;
+    background-color: #F8F8F8;
+  }
+  .webdevColumn {
+    width: 360px;
+    margin-top: 0px;
+  }
+  .webdevText {
+    max-width: 360px;
+  }
+}
 
 @media (min-width: 2560px) {
   .webdevColumn {

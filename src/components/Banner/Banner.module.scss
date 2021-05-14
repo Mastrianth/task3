@@ -183,6 +183,28 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
   }
 }
 
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 1500px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 1500px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 1500px),
+only screen and (        min-device-pixel-ratio: 2)      and (min-width: 1500px),
+only screen and (                min-resolution: 192dpi) and (min-width: 1500px),
+only screen and (                min-resolution: 2dppx)  and (min-width: 1500px) {
+
+  /* Large screen, retina, stuff to override above media query */
+  .Banner {
+    background-image: url('../../assets/img/banner/banner-background-1392-2x.jpg');
+    background-position: 100% 30%;
+    height: 520px;
+  }
+
+  :global(html.webp) .Banner {
+    background-image: url('../../assets/img/banner/banner-background-1392-2x.webp');
+    background-position: 100% 30%;
+    height: 520px;
+  }
+}
 .container {
   max-width: 600px;
 }
