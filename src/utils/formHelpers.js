@@ -81,3 +81,31 @@ export const removeUser = () => {
   return clearCurrentUser();
 };
 
+
+export const initialValues = {
+  name: '',
+  email: '',
+  phone: '',
+  position: '',
+  photo: '',
+};
+
+export const initialStatus = {
+  photoValid: false,
+  photoTouched: false,
+  photoErrorMessage: '',
+};
+
+export const requiredFields = {
+  name: true,
+  email: true,
+  phone: true,
+  position: true,
+  photo: true,
+};
+
+export const submittingStatus = {
+  photoValid: true,
+  photoTouched: true,
+  photoErrorMessage: '',
+};
