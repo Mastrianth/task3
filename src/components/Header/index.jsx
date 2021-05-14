@@ -20,7 +20,6 @@ function Header({
   const { isGoogleSpeedTest } = useContext(MyContext);
   // const isApiError = useSelector(selectApiError);
   const [isApiError, setIsApiError] = useState(false);
-  const [showCookiesPolicy, setShowCookiesPolicy] = useState(true);
   const closeBurgerMenu = () => setActive(false);
   const openBurgerMenu = () => setActive(true);
 
@@ -69,6 +68,11 @@ function Header({
 Header.propTypes = {
   t: PropTypes.func.isRequired,
   openModal: PropTypes.func,
+  userName: PropTypes.string.isRequired,
+  userEmail: PropTypes.string.isRequired,
+  userAvatar: PropTypes.string,
+  isUserLoaded: PropTypes.bool,
+  showButton: PropTypes.bool,
 };
 
 export default withTranslation('common')(Header);

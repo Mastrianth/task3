@@ -147,15 +147,17 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 961px) 
   }
 }
 
-@media only screen and (min-width: 1441px) {
+@media only screen and (min-width: 1392px) {
 
   /* Large screen, non-retina */
   .Banner {
     background-image: url('../../assets/img/banner/banner-background-1392.jpg');
+    height: 550px;
   }
 
   :global(html.webp) .Banner {
     background-image: url('../../assets/img/banner/banner-background-1392.webp');
+    height: 550px;
   }
 }
 
@@ -171,11 +173,13 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
   .Banner {
     background-image: url('../../assets/img/banner/banner-background-1392-2x.jpg');
     background-position: 100% 30%;
+    height: 520px;
   }
 
   :global(html.webp) .Banner {
     background-image: url('../../assets/img/banner/banner-background-1392-2x.webp');
     background-position: 100% 30%;
+    height: 520px;
   }
 }
 
@@ -184,7 +188,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
 }
 
 .h1.h1 {
-  margin: 0px 0px 24px -5px;
+  margin: 0px 0px 24px ;
   color: colors.$text;
   padding-top: 24px;
 }
@@ -194,7 +198,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
 }
 
 .text.desktop {
-  margin: 0px 0px 39px -2px;
+  margin: 0px 0px 39px ;
   max-width: 500px;
 }
 
@@ -268,7 +272,6 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1281px)
     margin: 0px 0px 33px 0px;
     letter-spacing: 0px;
     line-height: 25.6px;
-    padding-top: 5px;
   }
 
   .btn {
