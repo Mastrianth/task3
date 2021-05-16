@@ -321,7 +321,7 @@ a.menuUserExit:hover:after {
 }
 
 
-@media (min-width: $WIDTH-2K) {
+@media (min-width: 2450px) {
   .leftMenu {
     //width: 478px;
 
@@ -332,7 +332,10 @@ a.menuUserExit:hover:after {
   }
 
   .buttonContainer {
-    margin-left:60px;
+    margin-left:26px;
+  }
+  .menuWrapper {
+    padding: 0;
   }
 
 }

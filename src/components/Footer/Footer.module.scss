@@ -8,6 +8,7 @@
 
 .footerWrapper {
   height: 339px;
+  padding-top: 8px;
 }
 
 .footprints {
@@ -15,7 +16,7 @@
   z-index: -1;
   max-width: 575px;
   align-self: flex-end;
-
+  right: -50px;
 }
 
 .footprontContainer {
@@ -410,14 +411,15 @@
   }
 }
 
-@media  (min-width: 2560px)   {
+@media  (min-width: 2450px)   {
   .leftMenuFooter a {
     margin-left: 60px;
   }
 
-  //.footprints {
-  //  right: 356px;
-  //  width: 816px;
-  //}
+  .footerWrapper {
+    padding-left: 30px;
+    padding-right: 0px;
+    margin-right: -25px;
+  }
 
 }

@@ -17,17 +17,13 @@
   margin: 0 auto;
   padding-bottom: 20px;
   text-align: center;
-  letter-spacing: 0.2px;
   font-size: 28px;
   line-height: 39.2px;
   padding-top: 10px;
 }
 
 .container {
-  margin-top: -3px;
-  margin-right: -24px;
   margin-bottom: 54px;
-  left: -2px;
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -125,5 +121,17 @@
 @media screen and (min-width: 1350px) {
   .Users {
     padding: 50px 0px 10px;
+  }
+}
+@media (min-width: 2450px) {
+  .Users {
+    padding-bottom: 50px;
+  }
+  .heading {
+   padding-left: 60px;
+  }
+  .subheading {
+    padding-left: 60px;
+    padding-top: 0;
   }
 }

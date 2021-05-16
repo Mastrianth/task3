@@ -180,7 +180,7 @@
   .aboutLogoContainer {
     width: 100%;
     max-width: 387px;
-    margin:13px auto 0;
+    margin:0 auto;
   }
 
   .aboutText {
@@ -201,7 +201,7 @@
   }
 
   .aboutContentContainer {
-    padding-top: 148px;
+    padding-top: 170px;
   }
 
   .slideDownContainer {
@@ -254,11 +254,11 @@
 
 }
 
-@media (min-width: 2560px) {
+@media (min-width: 2450px) {
   .aboutContentContainer {
     padding-top: 170px;
     justify-content: space-between;
-
+   padding-left: 30px;
   }
 
   .aboutLeftColumn {
@@ -272,6 +272,7 @@
 
   .aboutLogoContainer {
     margin:10px auto 0;
+    padding-left: 25px;
   }
 
   .aboutLeftColumn {

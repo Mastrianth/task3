@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import { withTranslation } from '../../../i18n';
 import ContentWrapper from '../ContentWrapper';
 import { fetchUsers } from '../../../redux/actions';
@@ -40,11 +41,10 @@ const Users = ({ t }) => {
     dispatch(fetchUsers(users.length));
   }, []);
 
-
-
   const headingClasses = classNames('h2', classes.heading);
   const subheadingClasses = classNames('h5', classes.subheading);
   const containerClasses = classNames(classes.container, { [classes.isLoading]: !isInitialLoadingComplete });
+  const router = useRouter();
 
   const btnContent = isUserBtnSpinnerActive
     ? <Preloader />
@@ -85,13 +85,33 @@ const Users = ({ t }) => {
   return (
     <section className={classes.Users} id="users">
       <ContentWrapper>
-        <h2 className={headingClasses}>{t('users-text')}</h2>
-        <h3 className={subheadingClasses}>{t('best')}</h3>
+        {apiUsersLength === 0
+          ? (
+            <>
+              <h2 className={headingClasses}>{t('first-user')}</h2>
+              <div style={{paddingTop: '50px'}} className={classes.button}>
+                <ButtonComponent
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  onClick={() => router.push('/sign-up')}
+                  label={t('sign-up')}
+                />
+              </div>
+            </>
+          )
+          : (
+            <>
+              <h2 className={headingClasses}>{t('users-text')}</h2>
+              <h3 className={subheadingClasses}>{t('best')}</h3>
 
-        <div className={containerClasses} id="user">
-          {usersCard}
-        </div>
-        {button}
+              <div className={containerClasses} id="user">
+                {usersCard}
+              </div>
+              {button}
+            </>
+          )}
+
       </ContentWrapper>
     </section>
   );

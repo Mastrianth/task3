@@ -459,9 +459,16 @@
   }
 }
 
-@media (min-width: 2560px) {
+@media (min-width: 2450px) {
+  .Relationships {
+    padding: 160px 0px 70px;
+  }
+.heading {
+  padding: 10px 0 0 60px;
+}
+
   .webdevColumn {
-    width: 360px;
+    width: 365px;
     margin-top: 0px;
   }
 
@@ -481,15 +488,17 @@
 
   .first {
     right: 0;
+    left: 30px;
   }
 
   .second {
     right: 0;
+    left: 30px;
   }
 
   .third {
     right: 0;
-
+    left: 30px;
   }
 }
 

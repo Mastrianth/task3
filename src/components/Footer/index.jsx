@@ -196,6 +196,7 @@ function Footer({ t }) {
               <div className={styles.footerCopyrightAndLinksWrapper}>
                 <div className={styles.footerCopyright}>
                   © abz.agency
+                  {' '}
                   {t('copyright')}
                 </div>
                 <div className={styles.footerButton}>
