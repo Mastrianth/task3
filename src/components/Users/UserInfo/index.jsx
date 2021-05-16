@@ -47,7 +47,7 @@ const UserInfo = ({
   const dispatch = useDispatch();
   const userInfo = isLoaded ? (
     <>
-      <img ref={imgRef} src={userAvatar.small} alt={userName} itemProp="image" className={classes.avatar} />
+      <img ref={imgRef} src={userAvatar} alt={userName} itemProp="image" className={classes.avatar} />
       <div className={classes.container}>
         <p ref={nameRef} className={nameClasses}>{userName}</p>
         <p ref={emailRef} className={classes.email}>{userEmail}</p>
