@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import InputMask from 'react-input-mask';
 import TextField from '@material-ui/core/TextField';
@@ -14,31 +14,34 @@ function InputMasked({
   const optionalMessage = isOptionalShowing ? ' (optional)' : '';
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className={wrapperClassName}>
-        <InputMask
-          mask={mask}
-          maskPlaceholder={maskPlaceholder}
-          value={value}
-          onChange={onChange}
-          onBlur={onBlur}
-          disabled={isDisabled}
-        >
-          {() => (
-            <TextField
-              id={id}
-              name={name}
-              type={type}
-              label={`${label}${isRequired ? requiredMessage : optionalMessage}`}
-              helperText={helperText}
-              error={hasError}
-              variant={variant}
-              fullWidth
-            />
-          )}
-        </InputMask>
-      </div>
-    </ThemeProvider>
+    useMemo(() => (
+      <ThemeProvider theme={theme}>
+        <div className={wrapperClassName}>
+          <InputMask
+            mask={mask}
+            maskPlaceholder={maskPlaceholder}
+            value={value}
+            onChange={onChange}
+            onBlur={onBlur}
+            disabled={isDisabled}
+          >
+            {() => (
+              <TextField
+                id={id}
+                name={name}
+                type={type}
+                label={`${label}${isRequired ? requiredMessage : optionalMessage}`}
+                helperText={helperText}
+                error={hasError}
+                variant={variant}
+                fullWidth
+              />
+            )}
+          </InputMask>
+        </div>
+      </ThemeProvider>
+    ),
+    [value, hasError[name], onBlur[name]])
   );
 }
 

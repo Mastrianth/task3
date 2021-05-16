@@ -58,4 +58,4 @@ export const getScrollPosition = (state) => state.ui.scrollPosition;
 export const getIsUserBtnSpinnerActive = (state) => state.ui.isUserBtnSpinnerActive;
 export const getIsSuccessPopupActive = (state) => state.ui.isSuccessPopupActive;
 export const selectCookiesPolicy = (state) => state.ui.showCookiesPolicy;
-export const selectApiError = (state) => (state.ui.showApiError);
+export const selectApiError = (state) => state.ui.showApiError;

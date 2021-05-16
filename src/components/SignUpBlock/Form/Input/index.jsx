@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -16,52 +16,55 @@ function Input({
   const optionalMessage = isOptionalShowing ? ' (optional)' : '';
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className={wrapperClassName}>
-        <TextField
-          id={id}
-          name={name}
-          type={type}
-          label={`${label}${isRequired ? requiredMessage : optionalMessage}`}
-          value={value}
-          placeholder={placeholder}
-          onChange={(e) => {
-            changeCharactersCount(e);
-            onChange(e);
-          }}
-          onBlur={onBlur}
-          helperText={helperText}
-          disabled={isDisabled}
-          error={hasError}
-          variant={variant}
-          multiline={isMultiline}
-          fullWidth
-          style={{ position: 'relative' }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            paddingLeft: '330px',
-            marginTop: '12px',
-            zIndex: '1',
-            color: 'rgba(0, 0, 0, 0.87)',
-            fontFamily: "'Asap', sans-serif",
-            fontSize: '13px',
-            fontStyle: 'normal',
-            fontWeight: '400',
-            lineHeight: '16.8px',
-            letterSpacing: '0em',
-            textAlign: 'right',
-          }}
-        >
-          {inputsLength[name]}
-          {' '}
-          /
-          {' '}
-          {initialProps[name].maxLength}
+    useMemo(() => (
+      <ThemeProvider theme={theme}>
+        <div className={wrapperClassName}>
+          <TextField
+            id={id}
+            name={name}
+            type={type}
+            label={`${label}${isRequired ? requiredMessage : optionalMessage}`}
+            value={value}
+            placeholder={placeholder}
+            onChange={(e) => {
+              changeCharactersCount(e);
+              onChange(e);
+            }}
+            onBlur={onBlur}
+            helperText={helperText}
+            disabled={isDisabled}
+            error={hasError}
+            variant={variant}
+            multiline={isMultiline}
+            fullWidth
+            style={{ position: 'relative' }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              paddingLeft: '330px',
+              marginTop: '12px',
+              zIndex: '1',
+              color: 'rgba(0, 0, 0, 0.87)',
+              fontFamily: "'Asap', sans-serif",
+              fontSize: '13px',
+              fontStyle: 'normal',
+              fontWeight: '400',
+              lineHeight: '16.8px',
+              letterSpacing: '0em',
+              textAlign: 'right',
+            }}
+          >
+            {inputsLength[name]}
+            {' '}
+            /
+            {' '}
+            {initialProps[name].maxLength}
+          </div>
         </div>
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    ),
+    [value, hasError[name], onBlur[name], inputsLength[name]])
   );
 }
 

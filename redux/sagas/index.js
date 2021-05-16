@@ -38,7 +38,7 @@ import {
   getPositionsFail,
   hideCookiesPolicy,
   apiError,
-  showCookiesPolicy, setFormFilled, setFormUnFilled,
+  showCookiesPolicy, setFormFilled, setFormUnFilled, showApiError,
 } from '../actions';
 import {
   getScrollPosition, selectCookiesPolicy,
@@ -88,6 +88,7 @@ function* onFetchUsers({ payload: currentLength, imperativeCount }) {
     yield put(addUsers(data.users));
   } catch (error) {
     yield put(fetchUsersFail(error, numberToFetch));
+    yield put(showApiError());
   }
 }
 
@@ -124,12 +125,12 @@ function* onGetPositions() {
   } catch (error) {
     console.log(error);
     yield put(getPositionsFail());
-    yield put(apiError());
+    yield put(showApiError());
   }
 }
 
 function* onSignUpSuccess() {
-  //yield put(showSuccessPopup());
+  // yield put(showSuccessPopup());
   yield put(clearUsers());
 }
 
@@ -170,8 +171,4 @@ export default function* rootSaga() {
   yield takeEvery(HIDE_COOKIES_POLICY, onCookiesPolicy);
   yield takeLatest(SET_USERS_VALUES, onFetchCurrentUser);
   yield takeEvery(CLEAR_USERS, clearUserData);
-  yield takeLatest(SET_USERS_VALUES, setUserDataFromLocalStorage);
-  yield takeEvery(SET_FORM_FILLED, makeFormFilled);
-  yield takeEvery(SET_FORM_UNFILLED, makeFormUnFilled);
-
 }

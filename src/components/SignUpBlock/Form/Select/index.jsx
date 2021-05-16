@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import MuiSelect from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -49,31 +49,34 @@ function Select({
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className={wrapperClassName}>
-        <MuiSelect
-          displayEmpty
-          IconComponent={arrowDownIcon}
-          id={id}
-          name={name}
-          onChange={onChange}
-          renderValue={(val) => (val ? options.find(
-            (option) => option.value === val,
-          ).title : `${label}${isRequired ? requiredMessage : optionalMessage}`)}
-          value={value}
-          error={hasError}
-          onOpen={onSelectOpen}
-          variant={variant}
-          margin={margin}
-          disabled={isDisabled}
-          fullWidth
-          MenuProps={{ disableScrollLock: true }}
-        >
-          {menuItems}
-        </MuiSelect>
-        <FormHelperText error={hasError} variant={variant}>{helperText}</FormHelperText>
-      </div>
-    </ThemeProvider>
+    useMemo(() => (
+      <ThemeProvider theme={theme}>
+        <div className={wrapperClassName}>
+          <MuiSelect
+            displayEmpty
+            IconComponent={arrowDownIcon}
+            id={id}
+            name={name}
+            onChange={onChange}
+            renderValue={(val) => (val ? options.find(
+              (option) => option.value === val,
+            ).title : `${label}${isRequired ? requiredMessage : optionalMessage}`)}
+            value={value}
+            error={hasError}
+            onOpen={onSelectOpen}
+            variant={variant}
+            margin={margin}
+            disabled={isDisabled}
+            fullWidth
+            MenuProps={{ disableScrollLock: true }}
+          >
+            {menuItems}
+          </MuiSelect>
+          <FormHelperText error={hasError} variant={variant}>{helperText}</FormHelperText>
+        </div>
+      </ThemeProvider>
+    ),
+    [value[name]])
   );
 }
 

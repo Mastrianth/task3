@@ -35,9 +35,8 @@ import {
   SET_FORM_FILLED,
   SET_FORM_UNFILLED,
   SET_API_ERROR,
-  HIDE_API_ERROR, SHOW_API_ERROR
-} from "../constants/actionTypes";
-import { initialState } from '../reducers/auth';
+  HIDE_API_ERROR, SHOW_API_ERROR,
+} from '../constants/actionTypes';
 
 export const pageLoaded = () => ({ type: PAGE_LOADED });
 export const openSideDrawer = () => ({ type: OPEN_SIDEDRAWER });

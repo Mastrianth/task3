@@ -1,18 +1,12 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Formik, useFormikContext } from 'formik';
-import * as yup from 'yup';
 import PropTypes from 'prop-types';
-
 import { useDispatch, useSelector } from 'react-redux';
 import Input from './Input';
 import InputMasked from './InputMasked';
 import Select from './Select';
 import FileInput from './FileInput';
-import {
-  handleChangeMaskedFactory,
-  handleBlurTextFactory,
-  validatePhoto,
-} from '../../../utils/formHelpers';
+import { handleChangeMaskedFactory, handleBlurTextFactory, validatePhoto, getValidationSchema, initialValues, submittingStatus, regexList, requiredFields, initialStatus, } from '../../../utils/formHelpers';
 import { fetchCurrentUser, signUpFail, signUpSuccess } from '../../../../redux/actions';
 import { getPositions } from '../../../../redux/reducers/signUp';
 import classes from './Form.module.scss';
@@ -28,23 +22,8 @@ const photoValidations = {
 };
 
 export const NakedForm = ({
-                            t,
-                            regexes,
-                            requiredFields,
-                            positions,
-                            values,
-                            status,
-                            touched,
-                            errors,
-                            isSubmitting,
-                            handleChange,
-                            handleBlur,
-                            handleSubmit,
-                            setFieldValue,
-                            setStatus,
-                            isValid,
-                            dirty,
-                          }) => {
+  t, regexes, requiredFields, positions, values, status, touched, errors, handleChange, handleBlur, handleSubmit, setFieldValue, setStatus,
+}) => {
   const handleChangePhone = handleChangeMaskedFactory(setFieldValue, regexes.phoneMaskCharacters);
   const handleBlurReplaceSpaces = handleBlurTextFactory(handleBlur, setFieldValue, {
     onlySingleSpaces: true,
@@ -100,7 +79,6 @@ export const NakedForm = ({
     }
   };
 
-  const isSubmitDisabled = !(isValid && dirty && status.photoValid) || isSubmitting;
   const requiredFieldsValues = Object.values(requiredFields);
   const requiredFieldsLength = requiredFieldsValues.reduce((prev, curr) => (prev + (curr ? 1 : 0)), 0);
   const isOptionalShowing = requiredFieldsLength >= requiredFieldsValues.length / 2;
@@ -145,16 +123,16 @@ export const NakedForm = ({
   ];
 
   const inputsHTML = inputConfig.map(({
-                                        name,
-                                        type = 'text',
-                                        mask = null,
-                                        maskPlaceholder = null,
-                                        options = null,
-                                        onChange,
-                                        onBlur = null,
-                                        wrapperClassName = null,
-                                        hasPlaceholder = false,
-                                      }) => {
+    name,
+    type = 'text',
+    mask = null,
+    maskPlaceholder = null,
+    options = null,
+    onChange,
+    onBlur = null,
+    wrapperClassName = null,
+    hasPlaceholder = false,
+  }) => {
     if (type === 'file') {
       return (
         <FileInput
@@ -259,7 +237,7 @@ export const NakedForm = ({
               color="primary"
               size="large"
               className={classes.button}
-              disabled={(context.values.name.length == 0) || (!context.isValid)}
+              disabled={(context.values.name.length == 0) || !(context.isValid && status.photoValid)}
               label={t('sign-up')}
             />
           )}
@@ -308,73 +286,16 @@ NakedForm.propTypes = {
     phone: PropTypes.string,
     position: PropTypes.string,
   }).isRequired,
-  isSubmitting: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleBlur: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   setFieldValue: PropTypes.func.isRequired,
   setStatus: PropTypes.func.isRequired,
-  isValid: PropTypes.bool.isRequired,
-  dirty: PropTypes.bool.isRequired,
 };
-
-const initialValues = {
-  name: '',
-  email: '',
-  phone: '',
-  position: '',
-  photo: '',
-};
-
-const initialStatus = {
-  photoValid: false,
-  photoTouched: false,
-  photoErrorMessage: '',
-};
-
-const requiredFields = {
-  name: true,
-  email: true,
-  phone: true,
-  position: true,
-  photo: true,
-};
-
-const submittingStatus = {
-  photoValid: true,
-  photoTouched: true,
-  photoErrorMessage: '',
-};
-
-const regexList = {
-  name: /^[A-z][A-z\s]{1,59}$/,
-  // eslint-disable-next-line no-control-regex
-  email: /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/,
-  phone: /^380\d\d\d\d\d\d\d\d\d$/,
-  phoneMask: '+38 (099) 999 - 99 - 99',
-  phoneMaskCharacters: '\\-\\+\\(\\)\\s',
-  phoneWithoutMask: /^\+38 \(0\d\d\)\s\d\d\d\s-\s\d\d\s-\s\d\d$/,
-};
-
-const getValidationSchema = (t) => (
-  yup.object().shape({
-    name: yup.string().required(t('nameHelperText'))
-      .matches(regexList.name, { message: t('nameHelperText') }),
-    email: yup.string().required(t('emailHelperText'))
-      .min(2, t('emailHelperText'))
-      .max(100, t('emailHelperText'))
-      .matches(regexList.email,
-        { message: t('emailHelperText') }),
-    phone: yup.string().required(t('phoneHelperText'))
-      .matches(regexList.phone,
-        { message: t('phoneHelperText') }),
-    position: yup.string().required(t('positionHelperText')),
-  })
-);
 
 const FormikForm = (({
-                       t, setShowAfter,
-                     }) => {
+  t, setShowAfter,
+}) => {
   const dispatch = useDispatch();
   const positions = useSelector((state) => getPositions(state));
 
@@ -391,12 +312,9 @@ const FormikForm = (({
         formData.append('position_id', value);
         continue;
       }
-
       formData.append(key, value);
     }
-
     const successCallback = (id) => {
-      // dispatch(makeFormUnFilled());
       setSubmitting(false);
       resetForm(initialValues, initialValuesLength);
       setShowAfter(true);
@@ -446,7 +364,6 @@ const FormikForm = (({
             failCallback();
             return;
           }
-
           const formErrors = {};
           const formStatus = { ...submittingStatus };
 
@@ -455,16 +372,13 @@ const FormikForm = (({
               formErrors.position = fails[key].join(' ');
               continue;
             }
-
             if (key === 'photo') {
               formStatus.photoErrorMessage = fails[key].join(' ');
               formStatus.photoValid = false;
               continue;
             }
-
             formErrors[key] = fails[key].join(' ');
           }
-
           setErrors(formErrors);
           setStatus(formStatus);
           failCallback();

@@ -14,11 +14,15 @@ function Index() {
   return (
     <>
       <Banner />
+      <LazyLoad once>
       <AboutMe />
+    </LazyLoad>
       <LazyLoad once>
         <Relationships />
       </LazyLoad>
+      <LazyLoad once>
       <Users />
+      </LazyLoad>
     </>
   );
 }

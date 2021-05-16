@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
@@ -21,27 +21,30 @@ const FileInput = ({
   const helperTextClasses = cx('helperText', { error: hasError });
 
   return (
-    <div className={wrapperClasses}>
-      <input
-        type="file"
-        id={id}
-        name={name}
-        onChange={onChange}
-        className={inputClasses}
-      />
-      <div className={classes.labelWrapper}>
-        <label htmlFor={id} className={classes.browseFileLabel}>
-          <span className={classes.uploadText}>{label}</span>
-        </label>
-        <label
-          htmlFor={id}
-          className={mainFileLabelClasses}
-        >
-          {fileName || buttonLabel}
-        </label>
+    useMemo(() => (
+      <div className={wrapperClasses}>
+        <input
+          type="file"
+          id={id}
+          name={name}
+          onChange={onChange}
+          className={inputClasses}
+        />
+        <div className={classes.labelWrapper}>
+          <label htmlFor={id} className={classes.browseFileLabel}>
+            <span className={classes.uploadText}>{label}</span>
+          </label>
+          <label
+            htmlFor={id}
+            className={mainFileLabelClasses}
+          >
+            {fileName || buttonLabel}
+          </label>
+        </div>
+        {helperText ? <p className={helperTextClasses}>{helperText}</p> : null}
       </div>
-      {helperText ? <p className={helperTextClasses}>{helperText}</p> : null}
-    </div>
+    ),
+    [onChange[name], hasError[name]])
   );
 };
 

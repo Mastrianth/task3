@@ -20,7 +20,7 @@ if (isServer) {
 
 const makeConfiguredStore = (reducer) => createStore(
   reducer,
-  undefined,
+  {},
   composeEnhancers(applyMiddleware(sagaMiddleware)),
 );
 

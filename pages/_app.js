@@ -16,6 +16,7 @@ import CustomHead from '../src/components/Layout/CustomHead';
 import Layout from '../src/components/Layout';
 import MyContext from '../src/utils/context';
 import { getIsPageLoaded } from '../redux/reducers/ui';
+import { fetchCurrentUser } from '../redux/actions';
 
 function MyApp({ Component, pageProps, ua }) {
   const router = useRouter();
@@ -25,12 +26,18 @@ function MyApp({ Component, pageProps, ua }) {
     setGoogleSpeedTest(/Speed/.test(ua.source) || /Lighthouse/.test(ua.source));
   }, [ua]);
 
+  // useEffect(() => {
+  //   const currentUserId = localStorage.getItem('user');
+  //   if (currentUserId) {
+  //     dispatch(fetchCurrentUser(151));
+  //   }
+  // }, []);
+
   const route = routes.find((routeObj) => routeObj.route === router.pathname);
   const is404 = !route; // false if route found, true of not
   const title = is404 ? 'Page is not found' : route.title;
   const isPageLoaded = useSelector((state) => getIsPageLoaded(state));
   const currentUser = useSelector((state) => getCurrentUser(state));
-
 
   if (isGoogleSpeedTest) {
     return (
