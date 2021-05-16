@@ -10,6 +10,7 @@ import { withTranslation } from '../../../i18n';
 
 import styles from './Header.module.scss';
 import Cookies from './Cookies';
+import { selectApiError } from "../../../redux/reducers/ui";
 // import BurgerMenu from './BurgerMenu/BurgerMenu';
 const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
 
@@ -18,8 +19,8 @@ function Header({
 }) {
   const [burgerActive, setActive] = useState(false);
   const { isGoogleSpeedTest } = useContext(MyContext);
-  // const isApiError = useSelector(selectApiError);
-  const [isApiError, setIsApiError] = useState(false);
+  const isApiError = useSelector(selectApiError);
+  //const [isApiError, setIsApiError] = useState(false);
   const closeBurgerMenu = () => setActive(false);
   const openBurgerMenu = () => setActive(true);
 

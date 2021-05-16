@@ -28,23 +28,23 @@ const photoValidations = {
 };
 
 export const NakedForm = ({
-  t,
-  regexes,
-  requiredFields,
-  positions,
-  values,
-  status,
-  touched,
-  errors,
-  isSubmitting,
-  handleChange,
-  handleBlur,
-  handleSubmit,
-  setFieldValue,
-  setStatus,
-  isValid,
-  dirty,
-}) => {
+                            t,
+                            regexes,
+                            requiredFields,
+                            positions,
+                            values,
+                            status,
+                            touched,
+                            errors,
+                            isSubmitting,
+                            handleChange,
+                            handleBlur,
+                            handleSubmit,
+                            setFieldValue,
+                            setStatus,
+                            isValid,
+                            dirty,
+                          }) => {
   const handleChangePhone = handleChangeMaskedFactory(setFieldValue, regexes.phoneMaskCharacters);
   const handleBlurReplaceSpaces = handleBlurTextFactory(handleBlur, setFieldValue, {
     onlySingleSpaces: true,
@@ -145,16 +145,16 @@ export const NakedForm = ({
   ];
 
   const inputsHTML = inputConfig.map(({
-    name,
-    type = 'text',
-    mask = null,
-    maskPlaceholder = null,
-    options = null,
-    onChange,
-    onBlur = null,
-    wrapperClassName = null,
-    hasPlaceholder = false,
-  }) => {
+                                        name,
+                                        type = 'text',
+                                        mask = null,
+                                        maskPlaceholder = null,
+                                        options = null,
+                                        onChange,
+                                        onBlur = null,
+                                        wrapperClassName = null,
+                                        hasPlaceholder = false,
+                                      }) => {
     if (type === 'file') {
       return (
         <FileInput
@@ -373,8 +373,8 @@ const getValidationSchema = (t) => (
 );
 
 const FormikForm = (({
-  t, setShowAfter,
-}) => {
+                       t, setShowAfter,
+                     }) => {
   const dispatch = useDispatch();
   const positions = useSelector((state) => getPositions(state));
 
@@ -394,6 +394,7 @@ const FormikForm = (({
 
       formData.append(key, value);
     }
+
     const successCallback = (id) => {
       // dispatch(makeFormUnFilled());
       setSubmitting(false);
@@ -406,17 +407,17 @@ const FormikForm = (({
       setSubmitting(false);
     };
 
-    fetch('https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/token')
+    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
       .then((response) => response.json())
       .then((data) => {
-        const { token } = data.data;
-        const bearerId = `Bearer ${token}`;
-        return fetch('https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/users',
+        const { token } = data;
+
+        return fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users',
           {
             method: 'POST',
             body: formData,
             headers: {
-              Authorization: bearerId,
+              Token: token,
             },
           });
       })
@@ -426,8 +427,8 @@ const FormikForm = (({
         return response.json();
       })
       .then((data) => {
-        if (!data.status) throw new Error(data.message);
-        successCallback(data.data.user.id);
+        if (!data.success) throw new Error(data.message);
+        successCallback(data.user_id);
         dispatch(signUpSuccess());
         localStorage.removeItem('form');
       })
