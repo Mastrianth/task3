@@ -9,7 +9,7 @@
   "aboutText": "What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a vast understanding of User design thinking as they'll be building web interfaces with accessibility in mind. They should also be excited to learn, as the world of Front-End Development keeps evolving.",
   "bannerTitle": "Test assignment for front-end developers",
   "bannerText": "Front-end developers make sure the user sees and interacts with all the necessary elements to ensure conversion.",
-  "bannerTextForDesktop": "Front-end developers make sure the user sees and interacts with all the necessary elements to ensure conversion. Therefore, responsive design, programming languages and specific frameworks are the must-have skillsets to look for when assessing your front-end developers.",
+  "bannerTextForDesktop": "Therefore, responsive design, programming languages and specific frameworks are the must-have skillsets to look for when assessing your front-end developers.",
   "error-with-status": "A {{statusCode}} error occurred on server",
   "error-without-status": "An error occurred on the server",
   "about-me": "About me",
@@ -86,5 +86,6 @@
   "Cookies Policy": "Cookies Policy",
   "position-required": "Position is required",
   "Scroll down": "Scroll down",
-  "reg-text-tablet" : "A front-end developer doesn't just typeset layouts. He knows JavaScript well, understands frameworks and libraries (and actively uses some of them), understands what is \"under the hood\" on the server side. He is not afraid of preprocessors and collectors LESS, SASS, GRUNT, GULP."
+  "reg-text-tablet" : "A front-end developer doesn't just typeset layouts. He knows JavaScript well, understands frameworks and libraries (and actively uses some of them), understands what is \"under the hood\" on the server side. He is not afraid of preprocessors and collectors LESS, SASS, GRUNT, GULP.",
+  "first-user": "There are no users at the moment. Be the first"
 }
