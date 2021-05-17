@@ -41,11 +41,11 @@ function InputMasked({
         </div>
       </ThemeProvider>
     ),
-    [value, hasError[name], onBlur[name]])
+    [value, hasError])
   );
 }
 
-export default memo(InputMasked);
+export default InputMasked;
 
 InputMasked.defaultProps = {
   maskPlaceholder: null,

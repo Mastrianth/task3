@@ -64,11 +64,11 @@ function Input({
         </div>
       </ThemeProvider>
     ),
-    [value, hasError[name], onBlur[name], inputsLength[name]])
+    [value[name], hasError[name], inputsLength[name]])
   );
 }
 
-export default memo(Input);
+export default Input;
 
 Input.defaultProps = {
   type: 'text',
