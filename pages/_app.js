@@ -46,7 +46,6 @@ function MyApp({ Component, pageProps, ua }) {
         <LazyHydrate ssrOnly>
           <MyContext.Provider value={{ isGoogleSpeedTest }}>
             <Layout currentUser={currentUser} currentRoute={router.pathname}>
-              {/* eslint-disable-next-line react/jsx-props-no-spreading */}
               <Component {...pageProps} />
             </Layout>
           </MyContext.Provider>
