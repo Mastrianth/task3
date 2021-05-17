@@ -47,7 +47,7 @@ function Header({
       </div>
       <div className={isApiError ? classNames(styles.header, styles.error) : styles.header}>
         {isGoogleSpeedTest ? null
-          : <BurgerMenu openModal={openModal} burgerActive={burgerActive} closeBurgerMenu={closeBurgerMenu} />}
+          : <BurgerMenu userAvatar={userAvatar} openModal={openModal} burgerActive={burgerActive} closeBurgerMenu={closeBurgerMenu} />}
         <div className="container">
           <Menu
             openModal={openModal}

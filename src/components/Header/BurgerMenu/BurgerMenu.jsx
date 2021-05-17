@@ -23,7 +23,7 @@ import { useSelector } from "react-redux";
 import { getCurrentUser } from "../../../../redux/reducers/auth";
 
 const BurgerMenu = ({
-  burgerActive, closeBurgerMenu, t,
+  burgerActive, closeBurgerMenu, t, userAvatar
 }) => {
   useEffect(() => {
     if (burgerActive) {
@@ -83,7 +83,7 @@ const BurgerMenu = ({
         {
           authorizedUserData.name ? (
             <>
-              <img alt="user photo" className={styles.burgerUserLogo} src={authorizedUserData.photo} />
+              <img alt="user photo" className={styles.burgerUserLogo} src={userAvatar} />
               <UsersWithTooltip username={authorizedUserData.name} nameForClass={styles.burgerUserName} />
               <EmailWithTooltip email={authorizedUserData.email} nameForClass={styles.burgerUserEmail} noLink />
             </>

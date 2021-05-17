@@ -26,9 +26,9 @@ function Footer({ t }) {
   const authorizedUserData = useSelector(getCurrentUser);
   return (
     <>
-      <div style={{ backgroundColor: '#f8f8f8', textAlign: 'right' }}>
-        <img className={styles.footprints} src={FootPrints} alt="foot" />
-      </div>
+      {/*<div style={{ backgroundColor: '#f8f8f8', textAlign: 'right' }}>*/}
+      {/*  <img className={styles.footprints} src={FootPrints} alt="foot" />*/}
+      {/*</div>*/}
       <ContentWrapper>
         <div className="bg-white">
           <div className="container">

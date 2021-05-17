@@ -14,6 +14,8 @@ import UserCard from './UserCard';
 import Preloader from '../shared/Preloader/Preloader';
 import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
 import debounce from '../../utils/debounce';
+import styles from "../Footer/Footer.module.scss";
+import FootPrints from "../../assets/img/svg/do-not-inline/Footprints.svg";
 
 const Users = ({ t }) => {
   const dispatch = useDispatch();
@@ -89,7 +91,7 @@ const Users = ({ t }) => {
           ? (
             <>
               <h2 className={headingClasses}>{t('first-user')}</h2>
-              <div style={{paddingTop: '50px'}} className={classes.button}>
+              <div style={{ paddingTop: '50px' }} className={classes.button}>
                 <ButtonComponent
                   variant="contained"
                   color="primary"
@@ -111,7 +113,9 @@ const Users = ({ t }) => {
               {button}
             </>
           )}
-
+        <div style={{ backgroundColor: '#f8f8f8', textAlign: 'right' }}>
+          <img className={styles.footprints} src={FootPrints} alt="foot" />
+        </div>
       </ContentWrapper>
     </section>
   );

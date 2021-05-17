@@ -12,11 +12,12 @@
 }
 
 .footprints {
-  background-color: #F8F8F8;
-  z-index: -1;
-  max-width: 575px;
-  align-self: flex-end;
-  right: -50px;
+  position: absolute;
+  z-index: 1;
+  bottom: 345px;
+
+  right: -248px;
+  width: 575px;
 }
 
 .footprontContainer {
@@ -334,11 +335,13 @@
 
 
 @media (min-width: 576px) {
-  //.footprints {
-  //  top:-175px;
-  //  right: -351px;
-  //  width: 816px;
-  //}
+  .footprints {
+
+    bottom: 345px;
+    right: -351px;
+    width: 816px;
+  }
+
 
   .footerCol {
     margin-right:44px;
@@ -396,15 +399,20 @@
     height: 40px;
   }
 
-
+  .footprints {
+    bottom: 420px;
+    right: -351px;
+    width: 816px;
+  }
 
 }
 @media (min-width: 992px) {
-  //.footprints {
-  //  top:-175px;
-  //  right: -351px;
-  //  width: 816px;
-  //}
+  .footprints {
+    bottom: 420px;
+    right: -351px;
+    width: 816px;
+    z-index: 1;
+  }
 
   .footerCol {
     margin-right:61px;
@@ -420,6 +428,11 @@
     padding-left: 30px;
     padding-right: 0px;
     margin-right: -25px;
+  }
+
+  .footprints {
+    right: 356px;
+    width: 816px;
   }
 
 }
