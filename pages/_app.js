@@ -6,6 +6,7 @@ import { withUserAgent, useUserAgent } from 'next-useragent';
 import LazyHydrate from 'react-lazy-hydration';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
+import TagManager from 'react-gtm-module';
 import { appWithTranslation } from '../i18n';
 import wrapper from '../redux/store';
 import '../src/assets/scss/global.scss';
@@ -16,7 +17,6 @@ import CustomHead from '../src/components/Layout/CustomHead';
 import Layout from '../src/components/Layout';
 import MyContext from '../src/utils/context';
 import { getIsPageLoaded } from '../redux/reducers/ui';
-import { fetchCurrentUser } from '../redux/actions';
 
 function MyApp({ Component, pageProps, ua }) {
   const router = useRouter();
@@ -26,18 +26,38 @@ function MyApp({ Component, pageProps, ua }) {
     setGoogleSpeedTest(/Speed/.test(ua.source) || /Lighthouse/.test(ua.source));
   }, [ua]);
 
-  // useEffect(() => {
-  //   const currentUserId = localStorage.getItem('user');
-  //   if (currentUserId) {
-  //     dispatch(fetchCurrentUser(151));
-  //   }
-  // }, []);
-
   const route = routes.find((routeObj) => routeObj.route === router.pathname);
   const is404 = !route; // false if route found, true of not
   const title = is404 ? 'Page is not found' : route.title;
   const isPageLoaded = useSelector((state) => getIsPageLoaded(state));
   const currentUser = useSelector((state) => getCurrentUser(state));
+
+  useEffect(() => {
+    if (!isGoogleSpeedTest) {
+      TagManager.initialize({
+        gtmId: 'GTM-W98K3L2',
+      });
+    }
+  }, [isGoogleSpeedTest]);
+
+  useEffect(() => {
+    const GTMPageView = (url) => {
+      const pageEvent = {
+        event: 'pageview',
+        page: url,
+      };
+
+      window && window.dataLayer && window.dataLayer.push(pageEvent);
+      return pageEvent;
+    };
+
+    const handleRouteChange = (url) => GTMPageView(url);
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, []);
 
   if (isGoogleSpeedTest) {
     return (
