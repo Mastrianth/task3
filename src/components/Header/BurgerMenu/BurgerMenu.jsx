@@ -17,6 +17,10 @@ import SignIn from '../../../assets/img/svg/burger-menu-icons/sign-in.svg';
 import BookmarkSvg from '../../../assets/img/svg/burger-menu-icons/bookmark.svg';
 
 import styles from './BurgerMenu.module.scss';
+import UsersWithTooltip from "../../Users/UserCard/fk/UsersWithTooltip";
+import EmailWithTooltip from "../../Users/UserCard/fk/EmailWithTooltip";
+import { useSelector } from "react-redux";
+import { getCurrentUser } from "../../../../redux/reducers/auth";
 
 const BurgerMenu = ({
   burgerActive, closeBurgerMenu, t,
@@ -54,6 +58,7 @@ const BurgerMenu = ({
     }
     setSwipe(false);
   }
+  const authorizedUserData = useSelector(getCurrentUser);
 
   return (
     <>
@@ -75,7 +80,16 @@ const BurgerMenu = ({
         <a onClick={closeBurgerMenu} href="#" className={styles.headerLogo}>
           <Logo />
         </a>
-        <div style={{ marginTop: 7 }} />
+        {
+          authorizedUserData.name ? (
+            <>
+              <img alt="user photo" className={styles.burgerUserLogo} src={authorizedUserData.photo} />
+              <UsersWithTooltip username={authorizedUserData.name} nameForClass={styles.burgerUserName} />
+              <EmailWithTooltip email={authorizedUserData.email} nameForClass={styles.burgerUserEmail} noLink />
+            </>
+          )
+            : <div style={{ marginTop: 7 }} />
+        }
         <div>
           {router.pathname === '/'
             ? (

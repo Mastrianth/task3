@@ -21,7 +21,6 @@ const FileInput = ({
   const helperTextClasses = cx('helperText', { error: hasError });
 
   return (
-    useMemo(() => (
       <div className={wrapperClasses}>
         <input
           type="file"
@@ -43,8 +42,6 @@ const FileInput = ({
         </div>
         {helperText ? <p className={helperTextClasses}>{helperText}</p> : null}
       </div>
-    ),
-    [onChange[name], hasError[name]])
   );
 };
 
