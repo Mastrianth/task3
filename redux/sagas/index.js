@@ -38,8 +38,8 @@ import {
   getPositionsFail,
   hideCookiesPolicy,
   apiError,
-  showCookiesPolicy, setFormFilled, setFormUnFilled, showApiError,
-} from '../actions';
+  showCookiesPolicy, setFormFilled, setFormUnFilled, showApiError, showPositionsError
+} from "../actions";
 import {
   getScrollPosition, selectCookiesPolicy,
 } from '../reducers/ui';
@@ -78,6 +78,14 @@ function* onFetchUsers({ payload: currentLength, imperativeCount }) {
   try {
     const page = (currentLength / numberToFetch) + 1;
 
+    // const response = yield call(fetch, `https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/users?page=${Math.round(page)}&limit=${numberToFetch}`);
+    // //if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    // const data = yield response.json();
+    // //if (!data.success) throw new Error(data.message);
+    //
+    // yield put(fetchUsersSuccess(numberToFetch, data.total_models));
+    // yield put(addUsers(data.data.data));
+
     const response = yield call(fetch, `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${Math.round(page)}&count=${numberToFetch}`);
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
 
@@ -110,6 +118,16 @@ function* onGetPositions() {
   try {
     yield put(getPositionsStart());
 
+    // const response = yield call(fetch, 'https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/positions');
+    // if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    //
+    // const data = yield response.json();
+    // // if (!data.success) throw new Error(data.message);
+    // const positions = Object.values(data.data.data).map(({ id, name }) => ({
+    //   value: id,
+    //   title: name,
+    // }));
+
     const response = yield call(fetch, 'https://frontend-test-assignment-api.abz.agency/api/v1/positions');
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
 
@@ -126,6 +144,7 @@ function* onGetPositions() {
     console.log(error);
     yield put(getPositionsFail());
     yield put(showApiError());
+    yield put(showPositionsError());
   }
 }
 

@@ -6,7 +6,9 @@ import Input from './Input';
 import InputMasked from './InputMasked';
 import Select from './Select';
 import FileInput from './FileInput';
-import { handleChangeMaskedFactory, handleBlurTextFactory, validatePhoto, getValidationSchema, initialValues, submittingStatus, regexList, requiredFields, initialStatus, } from '../../../utils/formHelpers';
+import {
+  handleChangeMaskedFactory, handleBlurTextFactory, validatePhoto, getValidationSchema, initialValues, submittingStatus, regexList, requiredFields, initialStatus,
+} from '../../../utils/formHelpers';
 import { fetchCurrentUser, signUpFail, signUpSuccess } from '../../../../redux/actions';
 import { getPositions } from '../../../../redux/reducers/signUp';
 import classes from './Form.module.scss';
@@ -236,6 +238,7 @@ export const NakedForm = ({
               variant="contained"
               color="primary"
               size="large"
+              gtmclass="gtm-sendform"
               className={classes.button}
               disabled={(context.values.name.length == 0) || !(context.isValid && status.photoValid)}
               label={t('sign-up')}

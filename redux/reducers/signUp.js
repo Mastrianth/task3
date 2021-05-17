@@ -3,8 +3,8 @@ import {
   GET_POSITIONS_FAIL,
   SIGN_UP_SUCCESS,
   SIGN_UP_FAIL,
-  SIGN_UP_CLEAR, SET_FORM_FILLED, SET_FORM_UNFILLED, SET_API_ERROR,
-} from '../constants/actionTypes';
+  SIGN_UP_CLEAR, SET_FORM_FILLED, SET_FORM_UNFILLED, SET_API_ERROR, SHOW_POSITIONS_ERROR
+} from "../constants/actionTypes";
 
 export const initialState = {
   isSignedUp: false,
@@ -15,6 +15,7 @@ export const initialState = {
   isFormLoading: false,
   showApiError: false,
   isFormFilled: false,
+  showPositionsError: false,
 };
 
 export default function signUp(state = initialState, action) {
@@ -38,6 +39,8 @@ export default function signUp(state = initialState, action) {
       return { ...state, isFormFilled: false };
     case SET_API_ERROR:
       return { ...state, showApiError: true };
+    case SHOW_POSITIONS_ERROR:
+      return { ...state, showPositionsError: true };
     default:
       return state;
   }
@@ -50,3 +53,5 @@ export const getErrors = (state) => (state.signUp.errors);
 export const selectFormFilled = (state) => (state.signUp.isFormFilled);
 export const startFormLoading = (state) => (state.signUp.isFormLoading(true));
 export const selectApiError = (state) => state.signUp.showApiError;
+
+export const selectPositionsError = (state) => state.signUp.showPositionsError;

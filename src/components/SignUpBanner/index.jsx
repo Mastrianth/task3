@@ -24,7 +24,7 @@ const SignUpBanner = ({ t }) => {
         <div className={styles.container}>
           <div className={styles.bannerContentContainer}>
             <div className={styles.bannerContent}>
-              <h2 className={styles.bannerTitle}>{t('reg-title')}</h2>
+              <h1 className={styles.bannerTitle}>{t('reg-title')}</h1>
               <p className={styles.bannerTextForDesktop}>
                 {' '}
                 {t('reg-text-full')}

@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import classNames from 'classnames';
 import { i18n, withTranslation } from '../../../../i18n';
 
 import Logo from '../../../assets/img/svg/Logo.svg';
@@ -16,6 +17,7 @@ import styles from './Menu.module.scss';
 import ContentWrapper from '../../ContentWrapper';
 import UserInfo from '../../Users/UserInfo';
 import { setCurrentUser, showSuccessPopup } from '../../../../redux/actions';
+import { getCurrentUser } from '../../../../redux/reducers/auth';
 
 const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
 
@@ -59,12 +61,13 @@ const btnPrimarySmallStyles = {
 const useStylesPrimarySmall = makeStyles(() => ({ ...btnPrimarySmallStyles }));
 
 const Menu = ({
-  openBurgerMenu, t, openModal, userName, userEmail, userAvatar, isUserLoaded, showButton, logOut,
+  openBurgerMenu, t, userName, userEmail, userAvatar, isUserLoaded, showButton, logOut,
 }) => {
   const { i18n: { language } } = useContext(I18nContext);
   const router = useRouter();
   const dispatch = useDispatch();
   const classesPrimarySmall = useStylesPrimarySmall();
+  const authorizedUserData = useSelector(getCurrentUser);
 
   useEffect(() => {
     if (process.browser) {
@@ -186,7 +189,7 @@ const Menu = ({
                     : () => router.push('/sign-up').then(() => window.scrollTo(0, 0))
                 }
                     variant="contained"
-                    className={classesPrimarySmall.root}
+                    className={authorizedUserData.name ? classesPrimarySmall.root : classNames(classesPrimarySmall.root, 'gtm-signup')}
                   >
                     {t('sign-up')}
                   </Button>
@@ -209,6 +212,11 @@ Menu.propTypes = {
   t: PropTypes.func.isRequired,
   openModal: PropTypes.func,
   openBurgerMenu: PropTypes.func,
+  userName: PropTypes.string.isRequired,
+  userEmail: PropTypes.string.isRequired,
+  userAvatar: PropTypes.string,
+  isUserLoaded: PropTypes.bool,
+  showButton: PropTypes.bool,
 };
 
 export default React.memo(withTranslation('common')(Menu));

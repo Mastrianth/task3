@@ -27,7 +27,7 @@ const Banner = ({ t }) => {
               className={styles.bannerContentContainer}
             >
               <div className={styles.bannerContent}>
-                <h2 className={styles.bannerTitle}>{t('bannerTitle')}</h2>
+                <h1 className={styles.bannerTitle}>{t('bannerTitle')}</h1>
                 <p className={styles.bannerText}>
                   {t('bannerText')}
                   <span className={styles.bannerTextForDesktop}>
@@ -37,6 +37,7 @@ const Banner = ({ t }) => {
                 </p>
                 <p className={styles.buttonContainer}>
                   <ButtonComponent
+                    gtmclass={authorizedUserData.name ? null : 'gtm-signup'}
                     variant="contained"
                     color="primary"
                     size="large"

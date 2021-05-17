@@ -39,6 +39,7 @@ const About = ({ t }) => {
                 variant="contained"
                 color="secondary"
                 size="large"
+                gtmclass={authorizedUserData.name ? null : 'gtm-signup'}
                 onClick={authorizedUserData.name ? () => router.push('#users') : () => router.push('/sign-up').then(() => window.scrollTo(0, 0))}
                 disabled={false}
                 label={authorizedUserData.name ? t('users') : t('sign-up')}
