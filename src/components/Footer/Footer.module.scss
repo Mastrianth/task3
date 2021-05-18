@@ -271,7 +271,7 @@
   align-items: center;
   position: relative;
   bottom: 6px;
-
+  width: 270px;
   order:2;
 }
 
@@ -302,7 +302,6 @@
   position: absolute;
   width:48px;
   height: 48px;
-
 
 }
 
@@ -393,8 +392,6 @@ width: 235px;
   }
 
 
-
-
   .footerIcons a:after {
     width:40px;
     height: 40px;
@@ -405,7 +402,6 @@ width: 235px;
     right: -351px;
     width: 816px;
   }
-
 }
 @media (min-width: 992px) {
   .footprints {

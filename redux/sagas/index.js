@@ -38,8 +38,8 @@ import {
   getPositionsFail,
   hideCookiesPolicy,
   apiError,
-  showCookiesPolicy, setFormFilled, setFormUnFilled, showApiError, showPositionsError
-} from "../actions";
+  showCookiesPolicy, setFormFilled, setFormUnFilled, showApiError, showPositionsError,
+} from '../actions';
 import {
   getScrollPosition, selectCookiesPolicy,
 } from '../reducers/ui';
@@ -70,7 +70,8 @@ function* onFetchUsers({ payload: currentLength, imperativeCount }) {
   if (imperativeCount) {
     numberToFetch = imperativeCount;
   } else {
-    numberToFetch = window.matchMedia('(max-width: 599px)').matches ? 3 : 9;
+    numberToFetch = window.matchMedia('(max-width: 599px)').matches
+      ? 3 : window.matchMedia('(max-width: 900px)').matches ? 6 : 9;
   }
 
   yield put(fetchUsersStart(numberToFetch));
@@ -79,9 +80,9 @@ function* onFetchUsers({ payload: currentLength, imperativeCount }) {
     const page = (currentLength / numberToFetch) + 1;
 
     // const response = yield call(fetch, `https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/users?page=${Math.round(page)}&limit=${numberToFetch}`);
-    // //if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    // // if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
     // const data = yield response.json();
-    // //if (!data.success) throw new Error(data.message);
+    // // if (!data.success) throw new Error(data.message);
     //
     // yield put(fetchUsersSuccess(numberToFetch, data.total_models));
     // yield put(addUsers(data.data.data));

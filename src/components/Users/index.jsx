@@ -28,7 +28,12 @@ const Users = ({ t }) => {
   const fetchUsersIfGoingFromMobileToTablet = (usersLength) => () => {
     if (window.matchMedia('(min-width: 600px)').matches) {
       if (usersLength === 3) {
-        dispatch(fetchUsers(usersLength, 6));
+        dispatch(fetchUsers(usersLength, 3));
+      }
+    }
+    if (window.matchMedia('(min-width: 900px)').matches) {
+      if (usersLength === 6) {
+        dispatch(fetchUsers(usersLength, 3));
       }
     }
   };
@@ -87,6 +92,7 @@ const Users = ({ t }) => {
   return (
     <section className={classes.Users} id="users">
       <ContentWrapper>
+        <div className={classes.User2500}>
         {apiUsersLength === 0
           ? (
             <>
@@ -115,6 +121,7 @@ const Users = ({ t }) => {
           )}
         <div>
           <img className={styles.footprints} src={FootPrints} alt="foot" />
+        </div>
         </div>
       </ContentWrapper>
     </section>
