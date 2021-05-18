@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+import { useDispatch, useSelector } from 'react-redux';
 import { withTranslation } from '../../../../i18n';
 import { disableScroll, enableScroll } from '../../../utils/disableScroll';
 
@@ -13,17 +14,17 @@ import AboutSvg from '../../../assets/img/svg/burger-menu-icons/about.svg';
 import RelationshipSvg from '../../../assets/img/svg/burger-menu-icons/relationship.svg';
 import UsersSvg from '../../../assets/img/svg/burger-menu-icons/users.svg';
 import SignIn from '../../../assets/img/svg/burger-menu-icons/sign-in.svg';
-
+import QuitSvg from '../../../assets/img/svg/burger-menu-icons/quit.svg';
 import BookmarkSvg from '../../../assets/img/svg/burger-menu-icons/bookmark.svg';
 
 import styles from './BurgerMenu.module.scss';
-import UsersWithTooltip from "../../Users/UserCard/fk/UsersWithTooltip";
-import EmailWithTooltip from "../../Users/UserCard/fk/EmailWithTooltip";
-import { useSelector } from "react-redux";
-import { getCurrentUser } from "../../../../redux/reducers/auth";
+import UsersWithTooltip from '../../Users/UserCard/fk/UsersWithTooltip';
+import EmailWithTooltip from '../../Users/UserCard/fk/EmailWithTooltip';
+import { getCurrentUser } from '../../../../redux/reducers/auth';
+import { removeUser } from '../../../utils/formHelpers';
 
 const BurgerMenu = ({
-  burgerActive, closeBurgerMenu, t, userAvatar
+  burgerActive, closeBurgerMenu, t, userAvatar,
 }) => {
   useEffect(() => {
     if (burgerActive) {
@@ -59,6 +60,7 @@ const BurgerMenu = ({
     setSwipe(false);
   }
   const authorizedUserData = useSelector(getCurrentUser);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -193,17 +195,38 @@ const BurgerMenu = ({
                 </div>
               </>
             )}
-          <div className={styles.burgerLinkContainer}>
-            <Link href="/registration">
-              <a onClick={closeBurgerMenu} className={styles.burgerLink}>
+          {authorizedUserData.name ? (
+            <div className={styles.burgerLinkContainer}>
+              <a
+                onClick={
+                  (e) => {
+                    dispatch(removeUser());
+                    closeBurgerMenu();
+                    e.preventDefault();
+                  }
+                }
+                href="#"
+                className={styles.burgerLink}
+              >
                 <div className={styles.burgerLinkSvgContainer}>
-                  <SignIn />
+                  <QuitSvg />
                 </div>
-                <span className={styles.burgerLinkText}>{t('sign-up')}</span>
+                <span className={styles.burgerLinkText}>{t('Quit')}</span>
               </a>
-            </Link>
-          </div>
-          {/* // )} */}
+            </div>
+          )
+            : (
+              <div className={styles.burgerLinkContainer}>
+                <Link href="/sign-up">
+                  <a onClick={closeBurgerMenu} className={styles.burgerLink}>
+                    <div className={styles.burgerLinkSvgContainer}>
+                      <SignIn />
+                    </div>
+                    <span className={styles.burgerLinkText}>{t('sign-up')}</span>
+                  </a>
+                </Link>
+              </div>
+            )}
           <div className={styles.burgerMobileLinks}>
             <hr className={styles.hrFooterMobileMenu} />
             <div className={styles.burgerSubmenuTitle}>{t('information')}</div>
