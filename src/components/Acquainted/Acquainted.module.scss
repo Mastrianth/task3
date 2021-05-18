@@ -33,8 +33,7 @@
     line-height: 25px;
     letter-spacing: 0em;
     text-align: left;
-
-
+margin-bottom: 0;
   }
 
   &ButtonContainer {
@@ -68,7 +67,7 @@
   line-height: 25.6px;
   letter-spacing: 0em;
   text-align: left;
-
+  margin-top: 13px;
 }
 
 @media (min-width: 576px) {
@@ -169,7 +168,8 @@
     font-size: 28px;
     line-height: 39px;
 
-    margin-top: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     position: relative;
     //left: -1px;
     //letter-spacing: 0.3px;
@@ -186,7 +186,9 @@
   .aboutText {
     margin-top: 0px;
   }
-
+  .slideDownContainer {
+    margin-bottom: 0px;
+  }
 
 }
 
@@ -244,7 +246,7 @@
     width: 58%;
   }
   .aboutSubtitle {
-    padding-top: 14px;
+    padding-top: 0;
     margin-bottom: 0;
   }
   .aboutText {

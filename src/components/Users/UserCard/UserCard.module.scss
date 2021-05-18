@@ -620,6 +620,15 @@ margin: 8px;
 
 }
 
+@media (min-width: 1400px) {
+  .userCardBorder {
+    margin: 8px;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    height: 325px;
+  }
+}
+
 
 
 @media (min-width: 2560px) {
