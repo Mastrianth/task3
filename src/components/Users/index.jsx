@@ -93,8 +93,8 @@ const Users = ({ t }) => {
     <section className={classes.Users} id="users">
       <ContentWrapper>
         <div className={classes.User2500}>
-        {/*{apiUsersLength === 0*/}
-        {/*  ? (*/}
+        {apiUsersLength === 0
+          ? (
             <>
               <h2 className={classNames(headingClasses, classes.nonUser)}>{t('first-user')}</h2>
               <div style={{ paddingTop: '50px' }} className={classes.button}>
@@ -107,18 +107,18 @@ const Users = ({ t }) => {
                 />
               </div>
             </>
-          {/*)*/}
-          {/*: (*/}
-          {/*  <>*/}
-          {/*    <h2 className={headingClasses}>{t('users-text')}</h2>*/}
-          {/*    <h3 className={subheadingClasses}>{t('best')}</h3>*/}
+          )
+          : (
+            <>
+              <h2 className={headingClasses}>{t('users-text')}</h2>
+              <h3 className={subheadingClasses}>{t('best')}</h3>
 
-          {/*    <div className={containerClasses} id="user">*/}
-          {/*      {usersCard}*/}
-          {/*    </div>*/}
-          {/*    {button}*/}
-          {/*  </>*/}
-          {/*)}*/}
+              <div className={containerClasses} id="user">
+                {usersCard}
+              </div>
+              {button}
+            </>
+          )}
         <div>
           <img className={styles.footprints} src={FootPrints} alt="foot" />
         </div>
