@@ -5,14 +5,15 @@ import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { withTranslation } from '../../../i18n';
 import styles from './Banner.module.scss';
-import ContentWrapper from '../ContentWrapper';
 import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
 import canUseWebP from '../../utils/canUseWebP';
 import { getCurrentUser } from '../../../redux/reducers/auth';
+import { selectApiError } from '../../../redux/reducers/ui';
 
 const Banner = ({ t }) => {
   const router = useRouter();
   const authorizedUserData = useSelector(getCurrentUser);
+  const isApiError = useSelector(selectApiError);
   const [isWebp, setIsWebp] = useState(true);
   useEffect(() => {
     setIsWebp(canUseWebP());
@@ -24,7 +25,7 @@ const Banner = ({ t }) => {
         <section className={isWebp ? classNames(styles.banner, styles.webp) : styles.banner}>
           <div className={styles.container}>
             <div
-              className={styles.bannerContentContainer}
+              className={isApiError ? classNames(styles.bannerContentContainer, styles.error) : styles.bannerContentContainer}
             >
               <div className={styles.bannerContent}>
                 <h1 className={styles.bannerTitle}>{t('bannerTitle')}</h1>

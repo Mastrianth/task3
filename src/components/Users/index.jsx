@@ -113,7 +113,7 @@ const Users = ({ t }) => {
               {button}
             </>
           )}
-        <div style={{ backgroundColor: '#f8f8f8', textAlign: 'right' }}>
+        <div>
           <img className={styles.footprints} src={FootPrints} alt="foot" />
         </div>
       </ContentWrapper>

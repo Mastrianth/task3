@@ -393,9 +393,9 @@
     max-width: 146px;
     padding-bottom: 10px;
   }
-  .webdevText {
-    max-width: 250px;
-  }
+  //.webdevText {
+  //  max-width: 250px;
+  //}
   .webdevSubtitle {
     margin-top: 24px;
   }
@@ -428,8 +428,11 @@
   }
 
   .webdevSubtitle {
-    margin-top: 20px;
-    margin-bottom: 0;
+    margin-top: 22px;
+  }
+
+  .webdevText {
+    margin-right: 0;
   }
 
   .first {

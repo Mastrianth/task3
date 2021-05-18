@@ -2,7 +2,7 @@
 @use '../../assets/scss/mixins/media';
 
 .Users {
-  padding: 0px 0px 50px;
+  padding: 52px 0px 50px;
   background-color: #F8F8F8;
 }
 
@@ -41,7 +41,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-margin-bottom:125px;
+margin-bottom:132px;
 }
 
 @include media.for-desktop-up {
@@ -60,7 +60,7 @@ margin-bottom:125px;
     justify-content: flex-start;
   }
  .button {
-  margin-bottom: 200px;
+  margin-bottom: 125px;
  }
 }
 
@@ -87,7 +87,7 @@ margin-bottom:125px;
     margin-bottom: 58px;
   }
   .button{
-    margin-bottom: 165px;
+    margin-bottom: 118px;
   }
 }
 
@@ -101,7 +101,7 @@ margin-bottom:125px;
 @media screen and (max-width: 576px) {
 
   .button{
-    margin-bottom: 125px;
+    margin-bottom: 40px;
   }
 
 }
@@ -117,9 +117,10 @@ margin-bottom:125px;
   }
 
   .subheading {
-    padding-bottom: 36px;
+    padding-bottom: 31px;
     font-size: 18px;
     line-height: 25.2px;
+    padding-top: 5px;
   }
 
   .container {
@@ -137,13 +138,16 @@ margin-bottom:125px;
   .Users {
     padding: 50px 0px 10px;
   }
+  .heading {
+    padding: 0 80px;
+  }
 }
 @media (min-width: 2450px) {
   .Users {
     padding-bottom: 50px;
   }
   .heading {
-   padding-left: 60px;
+   padding-left: 120px;
   }
   .subheading {
     padding-left: 60px;

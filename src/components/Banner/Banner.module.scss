@@ -359,7 +359,7 @@ margin-bottom: 0;
 
   .bannerTitle {
     max-width: 480px;
-
+padding-top: 15px;
     margin-block-start: 0;
     text-align: left;
     font-family: $FONT-SECONDARY;
@@ -371,7 +371,7 @@ margin-bottom: 0;
   }
 
   .bannerText {
-    padding-top: 23px;
+    padding-top: 21px;
     max-width: 383px;
 
     font-family: $FONT-MAIN;
@@ -385,7 +385,7 @@ margin-bottom: 0;
   }
 
   .buttonContainer {
-    padding-top: 16px;
+    padding-top: 19px;
   }
 
   .bannerContentContainer.error {

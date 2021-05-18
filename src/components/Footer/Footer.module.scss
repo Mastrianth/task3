@@ -8,12 +8,12 @@
 
 .footerWrapper {
   height: 339px;
-  padding-top: 8px;
+
 }
 
 .footprints {
   position: absolute;
-  z-index: 1;
+
   bottom: 345px;
 
   right: -248px;
@@ -384,7 +384,8 @@
   .footerIcons {
     order:3;
     margin-top:0;
-    bottom: -2px;
+    bottom: -4px;
+    left:5px;
   }
 
   .footerIcons a {
