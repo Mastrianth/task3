@@ -192,7 +192,7 @@ const Menu = ({
                             height={38}
                             alt="user photo"
                             className={styles.userLogo}
-                            src={authorizedUserData.photo}
+                            src={userAvatar}
                           />
                         )}
                       <span className={styles.usersData}>
