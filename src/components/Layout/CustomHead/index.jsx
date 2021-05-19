@@ -26,6 +26,7 @@ const CustomHead = ({
     <Head>
       <title>{displayTitle}</title>
       <meta name="title" content={displayTitle} />
+      <meta name="description" content="Test task 3 description for crawlers and scrapers" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {!isGoogleSpeedTest
         ? <link rel="preconnect" href="https://fonts.googleapis.com" />

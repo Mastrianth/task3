@@ -116,6 +116,7 @@ const Menu = ({
                     spy
                     smooth
                     duration={500}
+                    href="/"
                   >
                     {t('about-me')}
                   </LinkScroll>
@@ -125,6 +126,7 @@ const Menu = ({
                     spy
                     smooth
                     duration={500}
+                    href="/"
                   >
                     {t('relationship')}
                   </LinkScroll>
@@ -134,6 +136,7 @@ const Menu = ({
                     spy
                     smooth
                     duration={500}
+                    href="/"
                   >
                     {t('users')}
                   </LinkScroll>
