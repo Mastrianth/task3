@@ -1,0 +1,47 @@
+#  Template NodeJS Web Application for Azure Web App service
+
+#  This template allows you to deploy your NodeJS web application to Azure Web App Service.
+#  The workflow allows running tests, code linting and security scans on feature branches (as well as master).
+#  The NodeJS application will be validated after the code is merged to master and deployment can be triggered manually.
+
+# Prerequisites: $$AZURE_APP_ID, $AZURE_PASSWORD, $AZURE_TENANT_ID, $AZURE_RESOURCE_GROUP, $AZURE_APP_NAME setup in the Deployment variables.
+# For advanced cases, please, follow examples from the pipe's README https://bitbucket.org/microsoft/azure-web-apps-deploy/src/1.0.3/README.md
+
+
+image: ubuntu:latest
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: Build And Upload
+          caches:
+            - node
+          script:
+            - apt-get update
+            - apt-get install -y curl
+            - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+            - apt-get install -y nodejs
+            - apt-get install -y build-essential
+            - apt-get update && DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt-get install -y tzdata
+            - apt-get update && apt-get install -y gconf-service libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxss1 libxtst6 libappindicator1 libnss3 libasound2 libatk1.0-0 libc6 ca-certificates fonts-liberation lsb-release xdg-utils wget
+            - apt-get install -y git
+            - apt-get install -y ssh
+            - apt-get install -y zip
+            - npm install
+            - rm -rf .next   #Remove built directories from previous builds (prevent EEXIST error)
+            - npm run build
+            - zip -r build.zip ./.next
+          artifacts:
+            - "*.zip"
+
+      - step:
+          name: Deploy artifacts using SCP to PROD
+          deployment: production
+          script:
+            - pipe: atlassian/scp-deploy:0.3.3
+              variables:
+                USER: 'root'
+                SERVER: '165.22.19.51'
+                REMOTE_PATH: '/var/www/test2021-frontend-nick-k-task3.abzdev2.com'
+                LOCAL_PATH: 'build.zip'
