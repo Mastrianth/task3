@@ -87,5 +87,8 @@
   "position-required": "Position is required",
   "Scroll down": "Scroll down",
   "reg-text-tablet" : "A front-end developer doesn't just typeset layouts. He knows JavaScript well, understands frameworks and libraries (and actively uses some of them), understands what is \"under the hood\" on the server side. He is not afraid of preprocessors and collectors LESS, SASS, GRUNT, GULP.",
-  "first-user": "There are no users at the moment. Be the first"
+  "first-user": "There are no users at the moment. Be the first",
+  "We kindly remind you that your test assignment": "We kindly remind you that your test assignment should be submitted as a link to github/bitbucket repository. Please be patient, we consider and respond to every application that meets minimum requirements. We look forward to your submission. Good luck!",
+  "Users want to find answers": "Users want to find answers to their questions quickly and data shows that people really care about how quickly their pages load. The Search team announced speed would be a ranking signal for desktop searches in 2010 and as of this month (July 2018), page speed will be a ranking factor for mobile searches too.",
+  "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring": "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring",
 }
