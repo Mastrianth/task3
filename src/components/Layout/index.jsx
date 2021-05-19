@@ -93,7 +93,7 @@ const Layout = ({
   return (
     // eslint-disable-next-line react/jsx-filename-extension
     <>
-      <div className={classes.siteWrapper}>
+      <div className={siteWrapperClasses}>
         <Header
           userName={name}
           userEmail={email}
