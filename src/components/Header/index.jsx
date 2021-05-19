@@ -10,7 +10,7 @@ import { withTranslation } from '../../../i18n';
 
 import styles from './Header.module.scss';
 import Cookies from './Cookies';
-import { selectApiError } from "../../../redux/reducers/ui";
+import { selectApiError } from '../../../redux/reducers/ui';
 // import BurgerMenu from './BurgerMenu/BurgerMenu';
 const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
 
@@ -20,31 +20,34 @@ function Header({
   const [burgerActive, setActive] = useState(false);
   const { isGoogleSpeedTest } = useContext(MyContext);
   const isApiError = useSelector(selectApiError);
-  //const [isApiError, setIsApiError] = useState(false);
+  // const [isApiError, setIsApiError] = useState(false);
   const closeBurgerMenu = () => setActive(false);
   const openBurgerMenu = () => setActive(true);
 
   return (
     <>
-      <div className={isApiError ? classNames(styles.connectionError, styles.active) : styles.connectionError}>
-        <div className={styles.errorContainer}>
-          <div className={styles.connectionErrorContainer}>
-            <div>
-              {t('apiError')}
-            </div>
-            <div className={styles.buttonContainer}>
-              <ButtonComponent
-                onClick={() => window.location.reload()}
-                variant="outlined"
-                color="secondary"
-                size="small"
-                disabled={false}
-                label={t('Try again')}
-              />
+      {isGoogleSpeedTest ? null
+        : (
+          <div className={isApiError ? classNames(styles.connectionError, styles.active) : styles.connectionError}>
+            <div className={styles.errorContainer}>
+              <div className={styles.connectionErrorContainer}>
+                <div>
+                  {t('apiError')}
+                </div>
+                <div className={styles.buttonContainer}>
+                  <ButtonComponent
+                    onClick={() => window.location.reload()}
+                    variant="outlined"
+                    color="secondary"
+                    size="small"
+                    disabled={false}
+                    label={t('Try again')}
+                  />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        )}
       <div className={isApiError ? classNames(styles.header, styles.error) : styles.header}>
         {isGoogleSpeedTest ? null
           : <BurgerMenu userAvatar={userAvatar} openModal={openModal} burgerActive={burgerActive} closeBurgerMenu={closeBurgerMenu} />}
@@ -60,8 +63,8 @@ function Header({
           />
         </div>
       </div>
-
-      <Cookies />
+      {isGoogleSpeedTest ? null
+        : <Cookies />}
     </>
   );
 }
