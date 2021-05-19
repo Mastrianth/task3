@@ -18,6 +18,10 @@ import ContentWrapper from '../../ContentWrapper';
 import UserInfo from '../../Users/UserInfo';
 import { setCurrentUser, showSuccessPopup } from '../../../../redux/actions';
 import { getCurrentUser } from '../../../../redux/reducers/auth';
+import UsersWithTooltip from '../../Users/UserCard/fk/UsersWithTooltip';
+import EmailWithTooltip from '../../Users/UserCard/fk/EmailWithTooltip';
+import { removeUser } from '../../../utils/formHelpers';
+import Exit from '../../../assets/img/svg/exit.svg';
 
 const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
 
@@ -167,18 +171,58 @@ const Menu = ({
                 De
               </button>
             </span>
-            <>
-              <span className={styles.authorizedMenu}>
-                <UserInfo
-                  userName={userName}
-                  userEmail={userEmail}
-                  userAvatar={userAvatar}
-                  logOut={logOut}
-                  isLoaded={isUserLoaded}
-                  showButton={showButton}
-                />
-              </span>
-            </>
+            {authorizedUserData.name
+              ? (
+                <>
+                  <span className={styles.authorizedMenu}>
+                    {/* <UserInfo */}
+                    {/*  userName={userName} */}
+                    {/*  userEmail={userEmail} */}
+                    {/*  userAvatar={userAvatar} */}
+                    {/*  logOut={logOut} */}
+                    {/*  isLoaded={isUserLoaded} */}
+                    {/*  showButton={showButton} */}
+                    {/* /> */}
+                    <span className={styles.userLogoMenu}>
+                      {!isUserLoaded
+                        ? <div className={styles.placeholderUserLogo} />
+                        : (
+                          <img
+                            width={38}
+                            height={38}
+                            alt="user photo"
+                            className={styles.userLogo}
+                            src={authorizedUserData.photo}
+                          />
+                        )}
+                      <span className={styles.usersData}>
+                        {!isUserLoaded ? <div className={styles.placeholderName} />
+                          : <UsersWithTooltip username={authorizedUserData.name} nameForClass={styles.menuUserName} />}
+                        {!isUserLoaded ? <div className={styles.placeholderEmail} />
+                          : (
+                            <EmailWithTooltip
+                              email={authorizedUserData.email}
+                              nameForClass={styles.menuUserEmail}
+                              noLink
+                            />
+                          )}
+                      </span>
+                    </span>
+                    <a
+                      onClick={
+                   (e) => {
+                     dispatch(removeUser());
+                     e.preventDefault();
+                   }
+                 }
+                      href="#"
+                      className={styles.menuUserExit}
+                    >
+                      <Exit />
+                    </a>
+                  </span>
+                </>
+              ) : null}
             {!isUserLoaded
               ? (
                 <span className={styles.buttonContainer}>

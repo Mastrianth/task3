@@ -14,8 +14,8 @@ import UserCard from './UserCard';
 import Preloader from '../shared/Preloader/Preloader';
 import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
 import debounce from '../../utils/debounce';
-import styles from "../Footer/Footer.module.scss";
-import FootPrints from "../../assets/img/svg/do-not-inline/Footprints.svg";
+import styles from '../Footer/Footer.module.scss';
+import FootPrints from '../../assets/img/svg/do-not-inline/Footprints.svg';
 
 const Users = ({ t }) => {
   const dispatch = useDispatch();
@@ -89,39 +89,37 @@ const Users = ({ t }) => {
     />
   ));
 
+  if (isInitialLoadingComplete && apiUsersLength === 0) {
+    return (
+      <>
+        <h2 className={classNames(headingClasses, classes.nonUser)}>{t('first-user')}</h2>
+        <div style={{ paddingTop: '50px' }} className={classes.button}>
+          <ButtonComponent
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={() => router.push('/sign-up')}
+            label={t('sign-up')}
+          />
+        </div>
+      </>
+    );
+  }
+
   return (
     <section className={classes.Users} id="users">
       <ContentWrapper>
         <div className={classes.User2500}>
-        {apiUsersLength === 0
-          ? (
-            <>
-              <h2 className={classNames(headingClasses, classes.nonUser)}>{t('first-user')}</h2>
-              <div style={{ paddingTop: '50px' }} className={classes.button}>
-                <ButtonComponent
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  onClick={() => router.push('/sign-up')}
-                  label={t('sign-up')}
-                />
-              </div>
-            </>
-          )
-          : (
-            <>
-              <h2 className={headingClasses}>{t('users-text')}</h2>
-              <h3 className={subheadingClasses}>{t('best')}</h3>
+          <h2 className={headingClasses}>{t('users-text')}</h2>
+          <h3 className={subheadingClasses}>{t('best')}</h3>
 
-              <div className={containerClasses} id="user">
-                {usersCard}
-              </div>
-              {button}
-            </>
-          )}
-        <div>
-          <img className={styles.footprints} src={FootPrints} alt="foot" />
-        </div>
+          <div className={containerClasses} id="user">
+            {usersCard}
+          </div>
+          {button}
+          <div>
+            <img className={styles.footprints} src={FootPrints} alt="foot" />
+          </div>
         </div>
       </ContentWrapper>
     </section>
