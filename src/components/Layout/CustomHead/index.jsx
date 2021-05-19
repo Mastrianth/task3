@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { withTranslation } from '../../../../i18n';
+import favIcon from '../../../../public/assets/favicon-32x32.png';
 
 const organization = {
   '@context': 'https://schema.org',
@@ -26,6 +27,7 @@ const CustomHead = ({
     <Head>
       <title>{displayTitle}</title>
       <meta name="title" content={displayTitle} />
+      <link rel="icon" type="image/png" href={favIcon} />
       <meta name="description" content="Test task 3 description for crawlers and scrapers" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {!isGoogleSpeedTest

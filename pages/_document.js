@@ -8,10 +8,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang={this.props.__NEXT_DATA__.props.initialLanguage}>
-        <Head>
-          <link rel="icon" type="image/svg+xml" href="../public/assets/favicon.svg" />
-          <link rel="icon" type="image/png" href="../public/assets/favicon.png" />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

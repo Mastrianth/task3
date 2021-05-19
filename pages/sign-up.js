@@ -23,7 +23,7 @@ function SignUp() {
   return (
     <>
       <Head>
-        <title>HomePage - Task 3.1 Frontend Trainee Program</title>
+        <title>Registration - Task 3.1 Frontend Trainee Program</title>
         <meta name="title" content="HomePage - Task 3.1 Frontend Trainee Program" />
         <meta name="description" content="Home page - Test task 3 description for crawlers and scrapers" />
         <meta property="og:type" content="website" />
