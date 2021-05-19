@@ -83,7 +83,7 @@ function MyApp({ Component, pageProps, ua }) {
   }
   return (
     <>
-      <CustomHead i18nTitleId={i18nTitleId} currentRoute={router.pathname} />
+      <CustomHead title={title} currentRoute={router.pathname} />
       <MyContext.Provider value={{ isGoogleSpeedTest }}>
         <Layout
           currentUser={currentUser}
