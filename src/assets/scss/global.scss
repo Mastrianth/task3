@@ -49,14 +49,14 @@ ul {
   max-width: 284px;
   padding: 6px 10px;
   border-radius: sizes.$border-radius;
-  box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.11);
-  background-color: colors.$tooltip-background;
+
+  background: rgba(0,0,0, 1) !important;
   box-sizing: border-box;
 
   color: colors.$tooltip-text;
-  font-family: 'Asap', sans-serif;
-  font-size: 14px;
-  line-height: 14px;
+  font-family: 'Asap', sans-serif !important;
+  font-size: 12px;
+  line-height: 16.8px;
   font-weight: normal;
   word-break: break-all;
 }

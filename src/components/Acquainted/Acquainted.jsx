@@ -20,7 +20,7 @@ const About = ({ t }) => {
       <ContentWrapper className="container">
         <LinkScroll
           className={styles.slideDownContainer}
-          to="about"
+          to="about-me"
           spy
           smooth
           duration={500}

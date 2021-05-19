@@ -32,21 +32,21 @@ const CustomHead = ({
   switch (currentRoute) {
     case INDEX:
       bannerBgPreload = <link rel="preload" href={mainBg768Webp} as="image" />;
-      ogDescription = t('We kindly remind you that your test assignment');
+      ogDescription = "Home page - Test task 3 description for crawlers and scrapers";
       ogImage = 'https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-1024-123c69e5c58fc83d5c404e10b9c3ea8f.webp';
       break;
     case SIGN_UP:
       bannerBgPreload = <link rel="preload" href={registerBg768Webp} as="image" />;
-      ogDescription = t('Users want to find answers');
+      ogDescription = "Registration - Test task 3 description for crawlers and scrapers";
       ogImage = 'https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-reg-360-78667276f4278d63ce9c000aa336e07a.webp';
       break;
     case TERMS:
-      ogDescription = t('A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring');
+      ogDescription = "Terms - Test task 3 description for crawlers and scrapers";
       ogImage = 'https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-1024-123c69e5c58fc83d5c404e10b9c3ea8f.webp';
       break;
     default:
       bannerBgPreload = null;
-      ogDescription = t('We kindly remind you that your test assignment');
+      ogDescription = "Home page - Test task 3 description for crawlers and scrapers";
       ogImage = 'https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-1024-123c69e5c58fc83d5c404e10b9c3ea8f.webp';
   }
 
@@ -77,8 +77,16 @@ const CustomHead = ({
       <meta property="og:title" content={displayTitle} />
       <meta property="og:description" content={ogDescription} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:type" content="website"/>
+      <meta property="og:image:width" content="1150"/>
+      <meta property="og:image:height" content="760"/>
       <meta property="og:url" content={`https://test2021-frontend-nick-k-task3.abzdev2.com${currentRoute}`} />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:card" content="summary_large_image"/>
+      <meta property="twitter:url" content="https://test2021-frontend-nick-k-task3.abzdev2.com"/>
+      <meta property="twitter:title" content="HomePage - Task 3.1 Frontend Trainee Program"/>
+      <meta property="twitter:description" content="Home page - Test task 3 description for crawlers and scrapers"/>
+      <meta property="twitter:image" content={"https://test2021-frontend-nick-k-task3.abzdev2.com"+mainBg768Webp}/>
       {!isGoogleSpeedTest ? (
         <script
           type="application/ld+json"
