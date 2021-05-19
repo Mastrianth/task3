@@ -67,6 +67,17 @@ function MyApp({ Component, pageProps, ua }) {
     };
   }, []);
 
+  const createGA = () => {
+    try {
+      if (window?.ga) {
+        window.ga('create', 'UA-197493593-1', 'auto'); // XX-XXXXXXXXX-X - GA public id
+        window.ga('send', 'pageview');
+      }
+    } catch (error) {
+      // do something with error
+    }
+  };
+
   if (isGoogleSpeedTest) {
     return (
       <>
