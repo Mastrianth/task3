@@ -32,6 +32,8 @@ module.exports = withPlugins([
         fs: 'empty',
         net: 'empty',
       };
+
+      require('./scripts/generate-sitemap');
       // config.optimization.splitChunks = {
       //   chunks: 'async',
       //   minSize: 20000,

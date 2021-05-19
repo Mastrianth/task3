@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps, ua }) {
 
   const route = routes.find((routeObj) => routeObj.route === router.pathname);
   const is404 = !route; // false if route found, true of not
-  const i18nTitleId = is404 ? 'Page is not found' : route.i18nTitleId;
+  const title = is404 ? 'Page is not found' : route.title;
   const isPageLoaded = useSelector((state) => getIsPageLoaded(state));
   const currentUser = useSelector((state) => getCurrentUser(state));
 
@@ -70,7 +70,7 @@ function MyApp({ Component, pageProps, ua }) {
   if (isGoogleSpeedTest) {
     return (
       <>
-        <CustomHead i18nTitleId={i18nTitleId} currentRoute={router.pathname} isGoogleSpeedTest={isGoogleSpeedTest} />
+        <CustomHead title={title} currentRoute={router.pathname} isGoogleSpeedTest={isGoogleSpeedTest} />
         <LazyHydrate ssrOnly>
           <MyContext.Provider value={{ isGoogleSpeedTest }}>
             <Layout currentUser={currentUser} currentRoute={router.pathname}>
