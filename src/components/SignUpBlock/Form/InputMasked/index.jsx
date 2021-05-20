@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import InputMask from 'react-input-mask';
 import TextField from '@material-ui/core/TextField';
@@ -14,7 +14,6 @@ function InputMasked({
   const optionalMessage = isOptionalShowing ? ' (optional)' : '';
 
   return (
-    useMemo(() => (
       <ThemeProvider theme={theme}>
         <div className={wrapperClassName}>
           <InputMask
@@ -40,12 +39,10 @@ function InputMasked({
           </InputMask>
         </div>
       </ThemeProvider>
-    ),
-    [value, hasError])
   );
 }
 
-export default InputMasked;
+export default memo(InputMasked);
 
 InputMasked.defaultProps = {
   maskPlaceholder: null,

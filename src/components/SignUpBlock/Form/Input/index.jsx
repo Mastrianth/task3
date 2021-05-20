@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -16,7 +16,6 @@ function Input({
   const optionalMessage = isOptionalShowing ? ' (optional)' : '';
 
   return (
-    useMemo(() => (
       <ThemeProvider theme={theme}>
         <div className={wrapperClassName}>
           <TextField
@@ -63,12 +62,10 @@ function Input({
           </div>
         </div>
       </ThemeProvider>
-    ),
-    [value[name], hasError[name], inputsLength[name]])
   );
 }
 
-export default Input;
+export default memo(Input);
 
 Input.defaultProps = {
   type: 'text',
