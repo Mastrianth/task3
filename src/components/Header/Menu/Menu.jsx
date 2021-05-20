@@ -85,7 +85,7 @@ const Menu = ({
     const user = localStorage.getItem('user');
     if (user) {
       const userJson = JSON.parse(user);
-      dispatch(setCurrentUser(userJson));
+      dispatch(setCurrentUser(userJson.user));
     }
   }, []);
 
@@ -208,7 +208,7 @@ const Menu = ({
                             height={38}
                             alt="user photo"
                             className={styles.userLogo}
-                            src={userAvatar.small}
+                            src={userAvatar}
                           />
                         )}
                       <span className={styles.usersData}>

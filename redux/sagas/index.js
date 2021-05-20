@@ -117,28 +117,28 @@ function* onFetchUsersFail({ error }) {
 
 function* onGetPositions() {
   try {
-    yield put(getPositionsStart());
-
-    const response = yield call(fetch, 'https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/positions');
-    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-
-    const data = yield response.json();
-    // if (!data.success) throw new Error(data.message);
-    const positions = Object.values(data.data.data).map(({ id, name }) => ({
-      value: id,
-      title: name,
-    }));
-
-    // const response = yield call(fetch, 'https://frontend-test-assignment-api.abz.agency/api/v1/positions');
+    // yield put(getPositionsStart());
+    //
+    // const response = yield call(fetch, 'https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/positions');
     // if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
     //
     // const data = yield response.json();
-    // if (!data.success) throw new Error(data.message);
-    //
-    // const positions = Object.values(data.positions).map(({ id, name }) => ({
+    // // if (!data.success) throw new Error(data.message);
+    // const positions = Object.values(data.data.data).map(({ id, name }) => ({
     //   value: id,
     //   title: name,
     // }));
+
+    const response = yield call(fetch, 'https://frontend-test-assignment-api.abz.agency/api/v1/positions');
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+
+    const data = yield response.json();
+    if (!data.success) throw new Error(data.message);
+
+    const positions = Object.values(data.positions).map(({ id, name }) => ({
+      value: id,
+      title: name,
+    }));
 
     yield put(getPositionsSuccess(positions));
   } catch (error) {

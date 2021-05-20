@@ -6,14 +6,23 @@ import {
 
 export function* onFetchCurrentUser({ payload }) {
   try {
-    const response = yield call(fetch, `https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/users/${payload}`);
-    // if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    const response = yield call(fetch, `https://frontend-test-assignment-api.abz.agency/api/v1/users/${payload}`);
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
 
     const data = yield response.json();
-    console.log(data.data);
-    // if (!data.status) throw new Error(data.message);
-    localStorage.setItem('user', JSON.stringify(data.data));
-    yield put(setCurrentUser(data.data));
+    if (!data.success) throw new Error(data.message);
+
+    yield put(setCurrentUser(data.user));
+    localStorage.setItem('user', JSON.stringify(data));
+
+    // const response = yield call(fetch, `https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/users/${payload}`);
+    // // if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    //
+    // const data = yield response.json();
+    // console.log(data.data);
+    // // if (!data.status) throw new Error(data.message);
+    // localStorage.setItem('user', JSON.stringify(data.data));
+    // yield put(setCurrentUser(data.data));
   } catch (error) {
     yield put(fetchCurrentUserFail(error));
   }
@@ -29,8 +38,10 @@ export function* clearUserData() {
 }
 
 export function* setUserDataFromLocalStorage(data) {
-  yield put(setUserValues(data.data));
-  localStorage.setItem('user', JSON.stringify(data.data));
+  yield put(setUserValues(data));
+  localStorage.setItem('user', JSON.stringify(data));
+  // yield put(setUserValues(data.data));
+  // localStorage.setItem('user', JSON.stringify(data.data));
 }
 
 // export function* fetchAndSetUserData(getUserInfo, userId) {
