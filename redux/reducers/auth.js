@@ -18,7 +18,11 @@ export default function auth(state = initialState, action) {
 
   switch (type) {
     case SET_CURRENT_USER: {
+      console.log(payload);
       const { name, email, photo: avatarSrc } = payload;
+      console.log(name);
+      console.log(email);
+      console.log(avatarSrc);
       return {
         ...state,
         currentUser: {

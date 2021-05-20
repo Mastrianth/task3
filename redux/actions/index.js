@@ -35,7 +35,7 @@ import {
   SET_FORM_FILLED,
   SET_FORM_UNFILLED,
   SET_API_ERROR,
-  HIDE_API_ERROR, SHOW_API_ERROR, SHOW_POSITIONS_ERROR
+  HIDE_API_ERROR, SHOW_API_ERROR, SHOW_POSITIONS_ERROR, CHECK_FORM_FILLED
 } from "../constants/actionTypes";
 
 export const pageLoaded = () => ({ type: PAGE_LOADED });
@@ -101,3 +101,5 @@ export const showApiError = () => ({ type: SHOW_API_ERROR });
 export const showSignUpPopUp = () => ({ type: SHOW_SUCCESS_POPUP });
 
 export const showPositionsError = () => ({ type: SHOW_POSITIONS_ERROR });
+
+export const checkFormFilled = () => ({ type: CHECK_FORM_FILLED });

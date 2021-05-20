@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import LazyLoad from 'react-lazyload';
@@ -37,7 +37,9 @@ function Index() {
       </Head>
       <div>
         <Banner />
-        <Acquainted />
+        <LazyLoad once>
+          <Acquainted />
+        </LazyLoad>
         <LazyLoad once>
           <Relationships />
         </LazyLoad>

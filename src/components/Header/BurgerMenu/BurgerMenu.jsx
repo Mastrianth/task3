@@ -85,7 +85,7 @@ const BurgerMenu = ({
         {
           authorizedUserData.name ? (
             <>
-              <img alt="user photo" className={styles.burgerUserLogo} src={userAvatar} />
+              <img alt="user photo" className={styles.burgerUserLogo} src={userAvatar.large} />
               <UsersWithTooltip username={authorizedUserData.name} nameForClass={styles.burgerUserName} />
               <EmailWithTooltip email={authorizedUserData.email} nameForClass={styles.burgerUserEmail} noLink />
             </>

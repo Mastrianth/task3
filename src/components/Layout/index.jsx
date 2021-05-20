@@ -12,8 +12,8 @@ import classes from './Layout.module.scss';
 import { withTranslation } from '../../../i18n';
 import MyContext from '../../utils/context';
 import {
-  fetchCurrentUser, openSideDrawer,
-} from '../../../redux/actions';
+  fetchCurrentUser, openSideDrawer, setFormUnFilled
+} from "../../../redux/actions";
 
 const Footer = dynamic(() => import('../Footer'),
   { ssr: false });
@@ -48,13 +48,14 @@ const Layout = ({
     }
   };
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = React.useState(true);
   const [urlToGo, setUrlToGo] = React.useState(null);
   const router = useRouter();
   function openModal(e) {
     setIsOpen(true);
+    console.log(setIsOpen)
     let linkTarget = e.nativeEvent.target;
-    if (e.target.tagName === 'IMG') {
+    if (e.target.tagName) {
       linkTarget = e.nativeEvent.target.parentNode;
     }
     setUrlToGo(linkTarget.href);
@@ -73,7 +74,7 @@ const Layout = ({
       router.push(urlToGo).then(() => window.scrollTo(0, 0));
     }
     setUrlToGo(null);
-    dispatch(makeFormUnFilled());
+    dispatch(setFormUnFilled());
     localStorage.removeItem('form');
   }
 

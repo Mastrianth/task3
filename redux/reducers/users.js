@@ -53,7 +53,7 @@ export default function users(state = initialState, action) {
           email,
           phone,
           position,
-          avatarSrc: photo,
+          avatarSrc: photo.large,
           isLoaded: true,
         }))],
       };

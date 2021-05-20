@@ -25,6 +25,7 @@ function SignUp() {
       <Head>
         <title>Registration - Task 3.1 Frontend Trainee Program</title>
         <meta name="title" content="HomePage - Task 3.1 Frontend Trainee Program" />
+        <link rel="preload" as="image" href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-360-2x-1cd3a846fcb64971da37100438adff5b.webp" />
         <meta name="description" content="Home page - Test task 3 description for crawlers and scrapers" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://test2021-frontend-nick-k-task3.abzdev2.com/sign-up" />

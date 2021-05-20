@@ -5,8 +5,8 @@ export default createMuiTheme({
     MuiInputBase: {
       root: {
         height: '54px',
-        minWidth: '380px',
         maxWidth: '380px',
+        minWidth: '380px',
       },
       '&$focused $notchedOutline': {
         borderColor: '#00BDD3',
@@ -20,6 +20,7 @@ export default createMuiTheme({
     MuiFormLabel: {
       root: {
         fontFamily: 'Asap, sans-serif',
+        color: 'rgba(0, 0, 0, 0.87)',
         '&$focused': {
           color: '#00BDD3',
         },
@@ -67,6 +68,7 @@ export default createMuiTheme({
         //   background:'orange'
         // },
         fontFamily: 'Asap, sans-serif',
+
       },
     },
     MuiMenuItem: {
@@ -122,7 +124,7 @@ export default createMuiTheme({
           content: '""',
           display: 'block',
 
-          backgroundImage: 'url("/assets/select.svg")',
+          backgroundImage: 'url("../../assets/img/svg/select.svg")',
           backgroundSize: '10px 10px',
           height: 10,
           width: 10,
@@ -137,8 +139,9 @@ export default createMuiTheme({
       },
       iconOutlined: {
         '&&': {
-          top: 'calc(50% - 4px)',
+          top: 'calc(50%)',
           right: '13px',
+          color: 'rgba(126, 126, 126, 1)',
         },
       },
     },

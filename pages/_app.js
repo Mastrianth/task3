@@ -7,6 +7,7 @@ import LazyHydrate from 'react-lazy-hydration';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import TagManager from 'react-gtm-module';
+import ReactGA from 'react-ga';
 import { appWithTranslation } from '../i18n';
 import wrapper from '../redux/store';
 import '../src/assets/scss/global.scss';
@@ -17,6 +18,7 @@ import CustomHead from '../src/components/Layout/CustomHead';
 import Layout from '../src/components/Layout';
 import MyContext from '../src/utils/context';
 import { getIsPageLoaded } from '../redux/reducers/ui';
+import { checkFormFilled } from '../redux/actions';
 
 function MyApp({ Component, pageProps, ua }) {
   const router = useRouter();
@@ -37,6 +39,7 @@ function MyApp({ Component, pageProps, ua }) {
       TagManager.initialize({
         gtmId: 'GTM-W98K3L2',
       });
+      ReactGA.initialize('UA-197493593-1');
     }
   }, [isGoogleSpeedTest]);
 
@@ -45,6 +48,13 @@ function MyApp({ Component, pageProps, ua }) {
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+
+  useEffect(() => {
+    const LSFormFilledCheck = localStorage.getItem('form');
+    if (LSFormFilledCheck) {
+      dispatch(checkFormFilled());
     }
   }, []);
 
@@ -66,17 +76,6 @@ function MyApp({ Component, pageProps, ua }) {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, []);
-
-  const createGA = () => {
-    try {
-      if (window?.ga) {
-        window.ga('create', 'UA-197493593-1', 'auto'); // XX-XXXXXXXXX-X - GA public id
-        window.ga('send', 'pageview');
-      }
-    } catch (error) {
-      // do something with error
-    }
-  };
 
   if (isGoogleSpeedTest) {
     return (

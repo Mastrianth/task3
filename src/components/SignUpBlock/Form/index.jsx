@@ -328,28 +328,27 @@ const FormikForm = (({
       setSubmitting(false);
     };
 
-    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
+    fetch('https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/token')
       .then((response) => response.json())
       .then((data) => {
-        const { token } = data;
-
-        return fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users',
+        const { token } = data.data;
+        const bearerId = `Bearer ${token}`;
+        return fetch('https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/users',
           {
             method: 'POST',
             body: formData,
             headers: {
-              Token: token,
+              Authorization: bearerId,
             },
           });
       })
       .then((response) => {
         if (!response.ok) throw response;
-
         return response.json();
       })
       .then((data) => {
-        if (!data.success) throw new Error(data.message);
-        successCallback(data.user_id);
+        if (!data.status) throw new Error(data.message);
+        successCallback(data.data.user.id);
         dispatch(signUpSuccess());
         localStorage.removeItem('form');
       })

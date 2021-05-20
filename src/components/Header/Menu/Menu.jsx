@@ -10,6 +10,7 @@ import dynamic from 'next/dynamic';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
+import * as ReactGA from 'react-ga';
 import { i18n, withTranslation } from '../../../../i18n';
 
 import Logo from '../../../assets/img/svg/Logo.svg';
@@ -22,6 +23,7 @@ import UsersWithTooltip from '../../Users/UserCard/fk/UsersWithTooltip';
 import EmailWithTooltip from '../../Users/UserCard/fk/EmailWithTooltip';
 import { removeUser } from '../../../utils/formHelpers';
 import Exit from '../../../assets/img/svg/exit.svg';
+import { setIsFormFilled } from '../../../../redux/reducers/signUp';
 
 const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
 
@@ -65,13 +67,14 @@ const btnPrimarySmallStyles = {
 const useStylesPrimarySmall = makeStyles(() => ({ ...btnPrimarySmallStyles }));
 
 const Menu = ({
-  openBurgerMenu, t, userName, userEmail, userAvatar, isUserLoaded, showButton, logOut,
+  openBurgerMenu, t, userName, userEmail, userAvatar, isUserLoaded, showButton, logOut, openModal,
 }) => {
   const { i18n: { language } } = useContext(I18nContext);
   const router = useRouter();
   const dispatch = useDispatch();
   const classesPrimarySmall = useStylesPrimarySmall();
   const authorizedUserData = useSelector(getCurrentUser);
+  const isFilled = useSelector(setIsFormFilled);
 
   useEffect(() => {
     if (process.browser) {
@@ -82,14 +85,14 @@ const Menu = ({
     const user = localStorage.getItem('user');
     if (user) {
       const userJson = JSON.parse(user);
-      dispatch(setCurrentUser(userJson.user));
+      dispatch(setCurrentUser(userJson));
     }
   }, []);
 
-  const checkIfFilled = () => {
-    const checkForm = localStorage.getItem('form');
-    if (checkForm) {
-      dispatch(showSuccessPopup());
+  const checkIfFilled = (e) => {
+    console.log(isFilled);
+    if (isFilled) {
+      openModal(e);
     }
   };
 
@@ -160,6 +163,11 @@ const Menu = ({
                 className={language !== 'de' ? styles.selected : null}
                 onClick={(e) => {
                   i18n.changeLanguage('en');
+                  ReactGA.event({
+                    category: 'Change language',
+                    action: 'de-en',
+                    label: 'button',
+                  });
                 }}
               >
                 En
@@ -169,6 +177,11 @@ const Menu = ({
                 className={language === 'de' ? styles.selected : null}
                 onClick={(e) => {
                   i18n.changeLanguage('de');
+                  ReactGA.event({
+                    category: 'Change language',
+                    action: 'en-de',
+                    label: 'button',
+                  });
                 }}
               >
                 De
@@ -195,7 +208,7 @@ const Menu = ({
                             height={38}
                             alt="user photo"
                             className={styles.userLogo}
-                            src={userAvatar}
+                            src={userAvatar.small}
                           />
                         )}
                       <span className={styles.usersData}>
