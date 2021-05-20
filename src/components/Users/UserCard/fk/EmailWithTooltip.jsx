@@ -1,9 +1,19 @@
 import Tooltip from '@material-ui/core/Tooltip';
 import React, { useRef, useEffect, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles({
+  tooltip: {
+    background: '#000',
+    fontSize: '12px',
+    lineHeight: '16.8px',
+    fontFamily: "'Asap', sans-serif"
+  },
+});
 function EmailWithTooltip({ email, nameForClass, noLink }) {
   const nodeEmail = useRef();
   const [hoverStatus, setHover] = useState(false);
+  const classes = useStyles();
 
   useEffect(() => {
     compareSize();
@@ -22,15 +32,16 @@ function EmailWithTooltip({ email, nameForClass, noLink }) {
         disableTouchListener={!hoverStatus}
         disableFocusListener={!hoverStatus}
         placement="bottom-end"
+        classes={classes}
       >
-        <span itemProp="email" ref={nodeEmail} className={nameForClass} style={{ cursor: 'auto' }}>{email}</span>
+        <span itemProp="email" ref={nodeEmail} className={nameForClass} style={{ cursor: 'auto', backgroundColor: '#000' }}>{email}</span>
       </Tooltip>
     );
   }
 
   return (
     <Tooltip
-
+      classes={classes}
       title={email}
       disableHoverListener={!hoverStatus}
       disableTouchListener={!hoverStatus}

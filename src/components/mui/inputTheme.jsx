@@ -1,4 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import selectImg from '../../assets/img/svg/select.svg';
 
 export default createMuiTheme({
   overrides: {
@@ -124,7 +125,8 @@ export default createMuiTheme({
           content: '""',
           display: 'block',
 
-          backgroundImage: 'url("../../assets/img/svg/select.svg")',
+          backgroundImage: `url(${selectImg})`,
+          backgroundColor: '#000000',
           backgroundSize: '10px 10px',
           height: 10,
           width: 10,
