@@ -22,6 +22,7 @@ function Index() {
         <title>HomePage - Task 3.1 Frontend Trainee Program</title>
         <meta name="title" content="HomePage - Task 3.1 Frontend Trainee Program" />
         <meta name="description" content="Home page - Test task 3 description for crawlers and scrapers" />
+        <link rel="preload" as="image" href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-360-2x-1cd3a846fcb64971da37100438adff5b.webp" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://test2021-frontend-nick-k-task3.abzdev2.com/" />
         <meta property="og:title" content="HomePage - Task 3.1 Frontend Trainee Program" />
@@ -30,7 +31,6 @@ function Index() {
         <meta property="og:image:width" content="1150" />
         <meta property="og:image:height" content="760" />
         <meta property="twitter:card" content="summary_large_image" />
-        <link rel="preload" as="image" href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-360-2x-1cd3a846fcb64971da37100438adff5b.webp" />
         <meta property="twitter:url" content="https://test2021-frontend-nick-k-task3.abzdev2.com/" />
         <meta property="twitter:title" content="HomePage - Task 3.1 Frontend Trainee Program" />
         <meta property="twitter:description" content="Home page - Test task 3 description for crawlers and scrapers" />

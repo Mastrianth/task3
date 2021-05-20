@@ -7,7 +7,7 @@ import { ServerStyleSheets } from '@material-ui/core/styles';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang={this.props.__NEXT_DATA__.props.initialLanguage}>
+      <Html lang="en">
         <Head />
         <body>
           <Main />

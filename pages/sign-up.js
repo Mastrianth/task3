@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
+import LazyLoad from 'react-lazyload';
 import SignUpBanner from '../src/components/SignUpBanner';
 import socialImg from '../src/assets/img/banner-reg/banner-reg-360.webp';
 
@@ -42,7 +43,9 @@ function SignUp() {
       </Head>
       <div>
         <SignUpBanner />
-        <SignUpBlock />
+        <LazyLoad once>
+          <SignUpBlock />
+        </LazyLoad>
       </div>
     </>
   );

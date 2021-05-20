@@ -202,9 +202,9 @@ const useButtonStyles = makeStyles({
       // backgroundColor: "rgba(244, 224, 65, 0.3);",
 
     },
-    '@media (hover:hover)': {
-      backgroundColor: 'none !important',
-    },
+    // '@media (hover:hover)': {
+    //   backgroundColor: 'none !important',
+    // },
 
     '&:focus': {
       // color: 'rgba(0, 0, 0, 0.87)',
