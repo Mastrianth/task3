@@ -6,8 +6,8 @@ export default createMuiTheme({
     MuiInputBase: {
       root: {
         height: '54px',
-        maxWidth: '380px',
-        minWidth: '380px',
+        maxWidth: '328px',
+        minWidth: '328px',
       },
       '&$focused $notchedOutline': {
         borderColor: '#00BDD3',
@@ -125,8 +125,8 @@ export default createMuiTheme({
           content: '""',
           display: 'block',
 
-          backgroundImage: `url(${selectImg})`,
-          backgroundColor: '#000000',
+          background: 'url(\'/assets/select.svg\')',
+          // backgroundColor: '#000000',
           backgroundSize: '10px 10px',
           height: 10,
           width: 10,
@@ -144,6 +144,7 @@ export default createMuiTheme({
           top: 'calc(50%)',
           right: '13px',
           color: 'rgba(126, 126, 126, 1)',
+          opacity: '50%',
         },
       },
     },

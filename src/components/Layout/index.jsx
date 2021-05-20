@@ -89,6 +89,7 @@ const Layout = ({
     name, email, avatarSrc, isLoaded: isUserLoaded, showButton,
   } = currentUser;
 
+
   const siteWrapperClasses = classNames('main-content', classes.siteWrapper);
 
   return (

@@ -17,13 +17,14 @@ import Logo from '../../../assets/img/svg/Logo.svg';
 import styles from './Menu.module.scss';
 import ContentWrapper from '../../ContentWrapper';
 import UserInfo from '../../Users/UserInfo';
-import { setCurrentUser, showSuccessPopup } from '../../../../redux/actions';
+import { hideUserPlaceholder, setCurrentUser, showSuccessPopup } from '../../../../redux/actions';
 import { getCurrentUser } from '../../../../redux/reducers/auth';
 import UsersWithTooltip from '../../Users/UserCard/fk/UsersWithTooltip';
 import EmailWithTooltip from '../../Users/UserCard/fk/EmailWithTooltip';
 import { removeUser } from '../../../utils/formHelpers';
 import Exit from '../../../assets/img/svg/exit.svg';
 import { setIsFormFilled } from '../../../../redux/reducers/signUp';
+import { selectUserPlaceholder } from '../../../../redux/reducers/ui';
 
 const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
 
@@ -75,6 +76,7 @@ const Menu = ({
   const classesPrimarySmall = useStylesPrimarySmall();
   const authorizedUserData = useSelector(getCurrentUser);
   const isFilled = useSelector(setIsFormFilled);
+  const showUserPlaceholder = useSelector(selectUserPlaceholder);
 
   useEffect(() => {
     if (process.browser) {
@@ -95,6 +97,10 @@ const Menu = ({
       openModal(e);
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => dispatch(hideUserPlaceholder()), 100);
+  }, [authorizedUserData.name]);
 
   return (
     <ContentWrapper>
@@ -200,7 +206,7 @@ const Menu = ({
                     {/*  showButton={showButton} */}
                     {/* /> */}
                     <span className={styles.userLogoMenu}>
-                      {!isUserLoaded
+                      {showUserPlaceholder
                         ? <div className={styles.placeholderUserLogo} />
                         : (
                           <img
@@ -212,9 +218,9 @@ const Menu = ({
                           />
                         )}
                       <span className={styles.usersData}>
-                        {!isUserLoaded ? <div className={styles.placeholderName} />
+                        {showUserPlaceholder ? <div className={styles.placeholderName} />
                           : <UsersWithTooltip username={authorizedUserData.name} nameForClass={styles.menuUserName} />}
-                        {!isUserLoaded ? <div className={styles.placeholderEmail} />
+                        {showUserPlaceholder ? <div className={styles.placeholderEmail} />
                           : (
                             <EmailWithTooltip
                               email={authorizedUserData.email}

@@ -1,9 +1,9 @@
-import React, { useRef, useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import classes from './UserCard.module.scss';
 import userPlaceholderImg from '../../../assets/img/svg/do-not-inline/ImagePlaceHolder.svg';
-import { addDefaultSrc, isEllipsisActive } from '../../../utils/fixUserCard';
+import { addDefaultSrc } from '../../../utils/fixUserCard';
 import EmailWithTooltip from './fk/EmailWithTooltip';
 import UsersWithTooltip from './fk/UsersWithTooltip';
 

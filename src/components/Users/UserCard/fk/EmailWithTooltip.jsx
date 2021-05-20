@@ -34,7 +34,7 @@ function EmailWithTooltip({ email, nameForClass, noLink }) {
         placement="bottom-end"
         classes={classes}
       >
-        <span itemProp="email" ref={nodeEmail} className={nameForClass} style={{ cursor: 'auto', backgroundColor: '#000' }}>{email}</span>
+        <span itemProp="email" ref={nodeEmail} className={nameForClass} style={{ cursor: 'auto'}}>{email}</span>
       </Tooltip>
     );
   }

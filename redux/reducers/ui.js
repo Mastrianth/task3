@@ -6,8 +6,8 @@ import {
   SHOW_USER_BTN_SPINNER,
   HIDE_USER_BTN_SPINNER,
   SHOW_SUCCESS_POPUP,
-  HIDE_SUCCESS_POPUP, SHOW_COOKIES_POLICY, HIDE_COOKIES_POLICY, SHOW_API_ERROR, HIDE_API_ERROR,
-} from '../constants/actionTypes';
+  HIDE_SUCCESS_POPUP, SHOW_COOKIES_POLICY, HIDE_COOKIES_POLICY, SHOW_API_ERROR, HIDE_API_ERROR, HIDE_USER_PLACEHOLDER
+} from "../constants/actionTypes";
 
 export const initialState = {
   isPageLoaded: false,
@@ -17,6 +17,7 @@ export const initialState = {
   isSuccessPopupActive: false,
   showCookiesPolicy: false,
   showApiError: false,
+  showUserPlaceholder: true,
 };
 
 export default function ui(state = initialState, action) {
@@ -47,6 +48,8 @@ export default function ui(state = initialState, action) {
       return { ...state, showApiError: true };
     case HIDE_API_ERROR:
       return { ...state, showApiError: false };
+    case HIDE_USER_PLACEHOLDER:
+      return {...state, showUserPlaceholder: false}
     default:
       return state;
   }
@@ -59,3 +62,4 @@ export const getIsUserBtnSpinnerActive = (state) => state.ui.isUserBtnSpinnerAct
 export const getIsSuccessPopupActive = (state) => state.ui.isSuccessPopupActive;
 export const selectCookiesPolicy = (state) => state.ui.showCookiesPolicy;
 export const selectApiError = (state) => state.ui.showApiError;
+export const selectUserPlaceholder = (state) => state.ui.showUserPlaceholder;

@@ -41,7 +41,7 @@ function Input({
           <div
             style={{
               position: 'absolute',
-              paddingLeft: '330px',
+              paddingLeft: '285px',
               marginTop: '12px',
               zIndex: '1',
               color: 'rgba(0, 0, 0, 0.87)',
