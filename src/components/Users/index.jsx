@@ -116,7 +116,8 @@ const Users = ({ t }) => {
           <div className={containerClasses} id="user">
             {usersCard}
           </div>
-          {button}
+          { isUserBtnSpinnerActive
+            ? <Preloader /> : button}
           <div>
             <img className={styles.footprints} src={FootPrints} alt="foot" />
           </div>
