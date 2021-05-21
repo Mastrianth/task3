@@ -5,9 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { withTranslation } from '../../../i18n';
 import ContentWrapper from '../ContentWrapper';
-import { fetchUsers } from '../../../redux/actions';
+import { fetchUsers, hideUsersPlaceholder } from '../../../redux/actions';
 import { getIsUserBtnSpinnerActive } from '../../../redux/reducers/ui';
-import { getApiUsersLength, getIsInitialLoadingComplete, getUsers } from '../../../redux/reducers/users';
+import {
+  getApiUsersLength,
+  getIsInitialLoadingComplete,
+  getUsers,
+  selectUsersPlaceholder,
+} from '../../../redux/reducers/users';
 
 import classes from './Users.module.scss';
 import UserCard from './UserCard';
@@ -24,6 +29,7 @@ const Users = ({ t }) => {
   const users = useSelector((state) => getUsers(state));
   const apiUsersLength = useSelector((state) => getApiUsersLength(state));
   const isInitialLoadingComplete = useSelector((state) => getIsInitialLoadingComplete(state));
+
 
   const fetchUsersIfGoingFromMobileToTablet = (usersLength) => () => {
     if (window.matchMedia('(min-width: 600px)').matches) {
@@ -47,6 +53,8 @@ const Users = ({ t }) => {
   useEffect(() => {
     dispatch(fetchUsers(users.length));
   }, []);
+
+
 
   const headingClasses = classNames('h2', classes.heading);
   const subheadingClasses = classNames('h5', classes.subheading);
@@ -116,7 +124,7 @@ const Users = ({ t }) => {
           <div className={containerClasses} id="user">
             {usersCard}
           </div>
-          { isUserBtnSpinnerActive
+          {!isInitialLoadingComplete ? <div className={styles.buttonPlaceholder} /> : isUserBtnSpinnerActive
             ? <Preloader /> : button}
           <div>
             <img className={styles.footprints} src={FootPrints} alt="foot" />

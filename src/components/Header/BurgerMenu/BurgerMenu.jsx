@@ -90,7 +90,7 @@ const BurgerMenu = ({
               <EmailWithTooltip email={authorizedUserData.email} nameForClass={styles.burgerUserEmail} noLink />
             </>
           )
-            : <div style={{ marginTop: 7 }} />
+            : <div style={{ marginTop: '10px' }} />
         }
         <div>
           {router.pathname === '/'

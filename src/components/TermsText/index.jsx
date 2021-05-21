@@ -23,7 +23,7 @@ const TOS = ({ t }) => (
                 <a href="#" className={styles.link}>{t('tos4')}</a>
                 {t('tos5')}
               </p>
-              <ul>
+              <ul className={styles.ululul}>
                 <li>
                   <a href="#" className={styles.link}>{t('tos6')}</a>
                   {t('tos7')}

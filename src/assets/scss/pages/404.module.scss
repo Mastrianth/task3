@@ -8,6 +8,9 @@
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding-left: 105px;
+  padding-top: 55px;
 }
 
 .footprints {
@@ -26,7 +29,7 @@
 
   &Title {
 
-    margin-top: 93px;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     margin-bottom: 0;
@@ -124,14 +127,14 @@
 
   .error404Subtitle {
     font-family: $FONT-SECONDARY;
-    margin-top: 8px;
+    margin-top: 14px;
     font-size: 28px;
     font-style: normal;
     font-weight: 400;
     line-height: 39px;
     letter-spacing: 0em;
     justify-content: flex-start;
-
+margin-bottom: 0;
   }
 
   .error404ContentContainer {
@@ -141,7 +144,7 @@
   }
 
   .error404LeftColumn {
-    width: 45%;
+    width: 40%;
   }
 
   .pawsContainer {
@@ -195,12 +198,14 @@
   }
 
   .pawsContainer {
-    padding-bottom: 123px;
+    padding-bottom: 105px;
   }
   .error404LogoContainer {
     height: auto;
     width: 600px;
-    margin: 0 auto;
+    margin: 0;
+    padding-right: 60px;
+    padding-bottom: 20px;
   }
 }
 

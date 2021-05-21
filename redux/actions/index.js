@@ -35,7 +35,13 @@ import {
   SET_FORM_FILLED,
   SET_FORM_UNFILLED,
   SET_API_ERROR,
-  HIDE_API_ERROR, SHOW_API_ERROR, SHOW_POSITIONS_ERROR, CHECK_FORM_FILLED, HIDE_USER_PLACEHOLDER
+  HIDE_API_ERROR,
+  SHOW_API_ERROR,
+  SHOW_POSITIONS_ERROR,
+  CHECK_FORM_FILLED,
+  HIDE_USER_PLACEHOLDER,
+  SHOW_USERS_PLACEHOLDER,
+  HIDE_USERS_PLACEHOLDER
 } from "../constants/actionTypes";
 
 export const pageLoaded = () => ({ type: PAGE_LOADED });
@@ -105,3 +111,5 @@ export const showPositionsError = () => ({ type: SHOW_POSITIONS_ERROR });
 export const checkFormFilled = () => ({ type: CHECK_FORM_FILLED });
 
 export const hideUserPlaceholder = () => ({ type: HIDE_USER_PLACEHOLDER });
+
+export const hideUsersPlaceholder = () => ({ type: HIDE_USERS_PLACEHOLDER });

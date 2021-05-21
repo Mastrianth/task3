@@ -275,6 +275,14 @@
   order:2;
 }
 
+.buttonPlaceholder {
+  margin: 20px auto 0;
+  height: 50px;
+  width: 148px;
+  border-radius: 80px;
+  background: #D0CFCF;
+}
+
 .footerIcons a {
   -webkit-tap-highlight-color: transparent;
 
@@ -335,9 +343,8 @@
 
 @media (min-width: 576px) {
   .footprints {
-
     bottom: 345px;
-    right: -351px;
+    right: -551px;
     width: 816px;
   }
 

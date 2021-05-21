@@ -1,16 +1,27 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { useDispatch, useSelector } from 'react-redux';
 import classes from './UserCard.module.scss';
 import userPlaceholderImg from '../../../assets/img/svg/do-not-inline/ImagePlaceHolder.svg';
 import { addDefaultSrc } from '../../../utils/fixUserCard';
 import EmailWithTooltip from './fk/EmailWithTooltip';
 import UsersWithTooltip from './fk/UsersWithTooltip';
+import { hideUsersPlaceholder } from '../../../../redux/actions';
+import { getIsInitialLoadingComplete, selectUsersPlaceholder } from '../../../../redux/reducers/users';
 
 const UserCard = ({
   avatarSrc, name, position, email, phone, isLoaded, id,
 }) => {
   const addDefaultSrcBound = addDefaultSrc(userPlaceholderImg);
+  const showUsersPlaceholders = useSelector((state) => selectUsersPlaceholder(state));
+  const isInitialLoadingComplete = useSelector((state) => getIsInitialLoadingComplete(state));
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (isInitialLoadingComplete) {
+      dispatch(hideUsersPlaceholder());
+    }
+  }, []);
 
   if (isLoaded) {
     const formattedNumber = `${phone.slice(0, 3)} (${phone.slice(3, 6)}) ${phone.slice(6, 9)} ${
@@ -37,35 +48,21 @@ const UserCard = ({
       </div>
     ), [id])
     );
-
-    // (
-    //   <article>
-    //     <img
-    //       src={avatarSrc}
-    //       onError={addDefaultSrcBound}
-    //       className={classes.avatar}
-    //       alt="User"
-    //     />
-    //     <div className={classes.textWrapper}>
-    //       <h4 className={nameClasses}>{name}</h4>
-    //       <p className={positionClasses}>{position}</p>
-    //       <p className={emailClasses}>{email}</p>
-    //       <p className={phoneClasses}>{phone}</p>
-    //     </div>
-    //   </article>
-    // );
   }
-  return (
-    <div className={classNames(classes.usersCard, classes.placeholderCard)} key={id}>
-      <div className={classes.imageContainer}>
-        <div className={classes.imagePlaceholder} />
+  if (showUsersPlaceholders) {
+    return (
+      <div className={classNames(classes.usersCard, classes.placeholderCard)} key={id}>
+        <div className={classes.imageContainer}>
+          <div className={classes.imagePlaceholder} />
+        </div>
+        <h3 className={classes.namePlaceholder} />
+        <p className={classes.positionPlaceholder} />
+        <p className={classes.emailPlaceholder} />
+        <p className={classes.phonePlaceholder} />
       </div>
-      <h3 className={classes.namePlaceholder} />
-      <p className={classes.positionPlaceholder} />
-      <p className={classes.emailPlaceholder} />
-      <p className={classes.phonePlaceholder} />
-    </div>
-  );
+    );
+  }
+  return null
 };
 
 UserCard.defaultsProps = {

@@ -3,10 +3,12 @@ import {
   CLEAR_USERS,
   FETCH_USERS_START,
   FETCH_USERS_SUCCESS,
-  FETCH_USERS_FAIL,
-} from '../constants/actionTypes';
+  FETCH_USERS_FAIL, SHOW_USERS_PLACEHOLDER, HIDE_USERS_PLACEHOLDER
+} from "../constants/actionTypes";
 
-export const initialState = { usersArr: [], apiUsersLength: 0, isInitialLoadingComplete: false };
+export const initialState = {
+  usersArr: [], apiUsersLength: 0, isInitialLoadingComplete: false, showUsersPlaceholder: true,
+};
 
 export default function users(state = initialState, action) {
   const { usersArr } = state;
@@ -63,6 +65,11 @@ export default function users(state = initialState, action) {
         ...initialState,
       };
     }
+    case HIDE_USERS_PLACEHOLDER: {
+      return {
+        ...state, showUsersPlaceholder: false,
+      };
+    }
     default:
       return state;
   }
@@ -71,3 +78,5 @@ export default function users(state = initialState, action) {
 export const getUsers = (state) => ([...state.users.usersArr]);
 export const getApiUsersLength = (state) => (state.users.apiUsersLength);
 export const getIsInitialLoadingComplete = (state) => (state.users.isInitialLoadingComplete);
+
+export const selectUsersPlaceholder = (state) => state.users.showUsersPlaceholder;
