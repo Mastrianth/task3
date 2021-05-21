@@ -21,7 +21,7 @@ export default createMuiTheme({
     MuiFormLabel: {
       root: {
         fontFamily: 'Asap, sans-serif',
-        color: 'rgba(0, 0, 0, 0.87)',
+        color: '#7E7E7E',
         '&$focused': {
           color: '#00BDD3',
         },
