@@ -48,7 +48,7 @@ const Layout = ({
     }
   };
 
-  const [modalIsOpen, setIsOpen] = React.useState(true);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
   const [urlToGo, setUrlToGo] = React.useState(null);
   const router = useRouter();
   function openModal(e) {
