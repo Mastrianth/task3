@@ -3,15 +3,15 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import LazyLoad from 'react-lazyload';
 import Banner from '../src/components/Banner';
-//import Relationships from '../src/components/Relationship';
-// import Acquainted from '../src/components/Acquainted/Acquainted';
+import Relationships from '../src/components/Relationship';
+import Acquainted from '../src/components/Acquainted/Acquainted';
 import Users from '../src/components/Users';
 import socialImg from '../src/assets/img/banner/banner-background-360.webp';
 
-const Acquainted = dynamic(() => import('../src/components/Acquainted/Acquainted'),
-  { ssr: false });
-const Relationships = dynamic(() => import('../src/components/Relationship'),
-  { ssr: false });
+// const Acquainted = dynamic(() => import('../src/components/Acquainted/Acquainted'),
+//   { ssr: false });
+// const Relationships = dynamic(() => import('../src/components/Relationship'),
+//   { ssr: false });
 // const Users = dynamic(() => import('../src/components/Users'),
 //   { ssr: false });
 
