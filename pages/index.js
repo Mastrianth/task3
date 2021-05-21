@@ -38,8 +38,12 @@ function Index() {
       </Head>
       <div>
         <Banner />
-        <Acquainted />
-        <Relationships />
+        <LazyLoad once>
+          <Acquainted />
+        </LazyLoad>
+        <LazyLoad once>
+          <Relationships />
+        </LazyLoad>
         <LazyLoad once>
           <Users />
         </LazyLoad>
