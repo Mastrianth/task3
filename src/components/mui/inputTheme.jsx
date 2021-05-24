@@ -19,7 +19,7 @@ export default createMuiTheme({
         height: '54px',
         maxWidth: '328px',
         minWidth: '328px',
-        [breakpoints.up('xs')]: {
+        [breakpoints.up('sm')]: {
           maxWidth: '380px',
           minWidth: '380px',
         },
