@@ -1,13 +1,28 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import createBreakpoints from '@material-ui/core/styles/createBreakpoints'
 import selectImg from '../../assets/img/svg/select.svg';
 
+const breakpoints = createBreakpoints({})
+
 export default createMuiTheme({
+  breakpoints: {
+    values: {
+      mobile: 576,
+      tablet: 992,
+      laptop: 1024,
+      desktop: 1280,
+    },
+  },
   overrides: {
     MuiInputBase: {
       root: {
         height: '54px',
         maxWidth: '328px',
         minWidth: '328px',
+        [breakpoints.up('xs')]: {
+          maxWidth: '380px',
+          minWidth: '380px',
+        },
       },
       '&$focused $notchedOutline': {
         borderColor: '#00BDD3',
@@ -156,4 +171,5 @@ export default createMuiTheme({
       },
     },
   },
+
 });

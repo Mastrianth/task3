@@ -4,9 +4,10 @@ import dynamic from 'next/dynamic';
 import LazyLoad from 'react-lazyload';
 import SignUpBanner from '../src/components/SignUpBanner';
 import socialImg from '../src/assets/img/banner-reg/banner-reg-360.webp';
+import SignUpBlock from '../src/components/SignUpBlock';
 
-const SignUpBlock = dynamic(() => import('../src/components/SignUpBlock'),
-  { ssr: false });
+// const SignUpBlock = dynamic(() => import('../src/components/SignUpBlock'),
+//   { ssr: false });
 
 function SignUp() {
   useEffect(() => {

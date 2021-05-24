@@ -9,7 +9,6 @@ import { i18n, withTranslation } from '../../../i18n';
 import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
 
 import Logo from '../../assets/img/svg/do-not-inline/Logo.svg';
-import FootPrints from '../../assets/img/svg/do-not-inline/Footprints.svg';
 import Facebook from '../../assets/img/svg/social-icons/facebook.svg';
 import Twitter from '../../assets/img/svg/social-icons/twitter.svg';
 import Instagram from '../../assets/img/svg/social-icons/instagram.svg';
@@ -19,16 +18,21 @@ import LinkedIn from '../../assets/img/svg/social-icons/linkedin.svg';
 import styles from './Footer.module.scss';
 import ContentWrapper from '../ContentWrapper';
 import { getCurrentUser } from '../../../redux/reducers/auth';
+import { setIsFormFilled } from '../../../redux/reducers/signUp';
 
-function Footer({ t }) {
+function Footer({ t, openModal }) {
   const router = useRouter();
   const { i18n: { language } } = useContext(I18nContext);
   const authorizedUserData = useSelector(getCurrentUser);
+  const isFilled = useSelector(setIsFormFilled);
+  const checkIfFilled = (e) => {
+    if (isFilled) {
+      e.preventDefault();
+      openModal(e);
+    }
+  };
   return (
     <>
-      {/*<div style={{ backgroundColor: '#f8f8f8', textAlign: 'right' }}>*/}
-      {/*  <img className={styles.footprints} src={FootPrints} alt="foot" />*/}
-      {/*</div>*/}
       <ContentWrapper>
         <div className="bg-white">
           <div className="container">
@@ -75,13 +79,10 @@ function Footer({ t }) {
                       )
                       : (
                         <>
-                          <Link scroll={false} href="/#about-me"><a>{t('about-me')}</a></Link>
-                          <Link scroll={false} href="/#relationships">
-                            <a>
-                              {t('relationship')}
-                            </a>
-                          </Link>
-                          <Link scroll={false} href="/#users"><a>{t('users')}</a></Link>
+                          <Link scroll={false} href="/#about-me"><a onClick={(e) => checkIfFilled(e)}>{t('about-me')}</a></Link>
+                          <Link scroll={false} href="/#relationships"><a onClick={(e) => checkIfFilled(e)}>{t('relationship')}</a></Link>
+                          <Link scroll={false} href="/#users"><a onClick={(e) => checkIfFilled(e)}>{t('users')}</a></Link>
+
                         </>
                       )}
                     {authorizedUserData.name ? null : <Link href="/sign-up"><a>{t('sign-up')}</a></Link>}
@@ -167,18 +168,16 @@ function Footer({ t }) {
                     </div>
                     <div>
                       <Link
-                    // scroll={false}
                         href="/terms"
                       >
-                        <a>{t('Terms')}</a>
+                        <a onClick={(e) => checkIfFilled(e)}>{t('Terms')}</a>
                       </Link>
                     </div>
                     <div>
                       <Link
-                    // scroll={false}
                         href="/terms"
                       >
-                        <a>{t('Conditions')}</a>
+                        <a onClick={(e) => checkIfFilled(e)}>{t('Conditions')}</a>
                       </Link>
                     </div>
                     <div>

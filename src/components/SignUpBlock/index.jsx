@@ -1,34 +1,36 @@
 import React, {
   useContext, useEffect, useRef, useState, memo,
 } from 'react';
-import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInViewport } from 'react-in-viewport';
 import { Link as LinkScroll } from 'react-scroll';
-import AriaModal from 'react-aria-modal';
+import dynamic from 'next/dynamic';
 import { withTranslation } from '../../../i18n';
 import ContentWrapper from '../ContentWrapper';
 import MyContext from '../../utils/context';
 import styles from './SignUpBlock.module.scss';
-import Form from './Form';
-import { getPositions, hideSuccessPopup, showSuccessPopup } from '../../../redux/actions';
-import { getIsPageLoaded, getIsSuccessPopupActive } from '../../../redux/reducers/ui';
-import { getIsSignUpActive, selectPositionsError } from "../../../redux/reducers/signUp";
+// import Form from './Form';
+import { getPositions } from '../../../redux/actions';
+import { getIsPageLoaded } from '../../../redux/reducers/ui';
+import { selectPositionsError } from '../../../redux/reducers/signUp';
 import SlideDown from '../Acquainted/SlideDown/SlideDown';
 import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryButton';
 import styles2 from './Form/Modal.module.scss';
 import Success from '../../assets/img/svg/Success.svg';
-import ModalContent from './ModalContent';
+import FootPrints from '../../assets/img/svg/do-not-inline/Footprints.svg';
+import styles3 from '../Footer/Footer.module.scss';
+
+const Form = dynamic(() => import('./Form/index'),
+  { ssr: false });
 
 const SignUpBlock = ({ t }) => {
   const [isPositionFetched, setIsPositionsFetched] = useState(false);
   const signUpBlockRef = useRef();
   const dispatch = useDispatch();
   const isPageLoaded = useSelector((state) => getIsPageLoaded(state));
-  const isSignUpActive = useSelector((state) => getIsSignUpActive(state));
-  const isSuccessPopupActive = useSelector((state) => getIsSuccessPopupActive(state));
+
   const inViewport = useInViewport(signUpBlockRef, {}, {}, {});
   const titleClasses = classNames('h2', styles.title);
   const subtitleClasses = classNames('h5', styles.subtitle);
@@ -47,22 +49,6 @@ const SignUpBlock = ({ t }) => {
       setIsPositionsFetched(true);
     }
   }, [isPageLoaded, inViewport]);
-
-  const closeSuccessPopup = () => dispatch(hideSuccessPopup());
-  const successPopup = isSuccessPopupActive ? (
-    <AriaModal
-      titleText={t('Congratulations')}
-      onExit={closeSuccessPopup}
-      applicationNode={document.getElementById('__next')}
-      underlayColor="rgba(22, 12, 13, 0.3)"
-    >
-      <ModalContent
-        closeModal={closeSuccessPopup}
-        title={t('Congratulations')}
-        text={t('You have successfully passed the registration')}
-      />
-    </AriaModal>
-  ) : null;
 
   return (
     <section ref={signUpBlockRef} className={styles.SignUpBlock} id="sign-up">
@@ -124,8 +110,10 @@ const SignUpBlock = ({ t }) => {
               <Form router={router} setShowAfter={setShowAfter} t={t} />
             </div>
           ))}
+        <div>
+          <img className={styles3.footprints} src={FootPrints} alt="foot" />
+        </div>
       </ContentWrapper>
-      {successPopup}
     </section>
   );
 };

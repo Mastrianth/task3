@@ -9,8 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 105px;
-  padding-top: 55px;
+
 }
 
 .footprints {
@@ -57,7 +56,7 @@
     letter-spacing: 0em;
     text-align: left;
 
-    margin-top: 18px;
+    margin-top: 8px;
 
     color: rgba(0, 0, 0, 0.87);
   }
@@ -75,7 +74,7 @@
 
 .error404LogoContainer {
   max-width: 328px;
-  margin: 29px auto 0;
+  margin: 10px auto 0;
 }
 
 .slideDownContainer {
@@ -134,7 +133,7 @@
     line-height: 39px;
     letter-spacing: 0em;
     justify-content: flex-start;
-margin-bottom: 0;
+    margin-bottom: 0;
   }
 
   .error404ContentContainer {
@@ -144,11 +143,12 @@ margin-bottom: 0;
   }
 
   .error404LeftColumn {
-    width: 40%;
+    width: 60%;
   }
 
   .pawsContainer {
-    padding-bottom: 120px;
+    padding-bottom: 105px;
+    padding-top: 50px;
   }
   .error404RightColumn {
     width: 500px;
@@ -171,8 +171,7 @@ margin-bottom: 0;
     width: 106%;
     max-width: 405px;
     margin: 152px auto 0;
-
-
+    padding-bottom: 20px;
   }
 
   .slideDownContainer {
@@ -199,12 +198,14 @@ margin-bottom: 0;
 
   .pawsContainer {
     padding-bottom: 105px;
+    padding-left: 105px;
+    padding-top: 55px;
   }
   .error404LogoContainer {
     height: auto;
     width: 600px;
     margin: 0;
-    padding-right: 60px;
+    padding-right: 80px;
     padding-bottom: 20px;
   }
 }

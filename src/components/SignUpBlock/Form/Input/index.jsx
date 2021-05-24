@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { ThemeProvider } from '@material-ui/core/styles';
+import styles from './InputForm.module.scss';
 
 import theme from '../../../mui/inputTheme';
 import { initialProps } from '../../../../utils/formHelpers';
@@ -39,20 +40,7 @@ function Input({
             style={{ position: 'relative' }}
           />
           <div
-            style={{
-              position: 'absolute',
-              paddingLeft: '285px',
-              marginTop: '12px',
-              zIndex: '1',
-              color: 'rgba(0, 0, 0, 0.87)',
-              fontFamily: "'Asap', sans-serif",
-              fontSize: '13px',
-              fontStyle: 'normal',
-              fontWeight: '400',
-              lineHeight: '16.8px',
-              letterSpacing: '0em',
-              textAlign: 'right',
-            }}
+            className={styles.counter}
           >
             {inputsLength[name]}
             {' '}

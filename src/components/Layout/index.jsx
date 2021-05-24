@@ -12,8 +12,8 @@ import classes from './Layout.module.scss';
 import { withTranslation } from '../../../i18n';
 import MyContext from '../../utils/context';
 import {
-  fetchCurrentUser, openSideDrawer, setFormUnFilled
-} from "../../../redux/actions";
+  fetchCurrentUser, openSideDrawer, setFormUnFilled,
+} from '../../../redux/actions';
 
 const Footer = dynamic(() => import('../Footer'),
   { ssr: false });
@@ -25,7 +25,7 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    // transform: 'translate(-50%, -50%)',
   },
 };
 
@@ -53,9 +53,8 @@ const Layout = ({
   const router = useRouter();
   function openModal(e) {
     setIsOpen(true);
-    console.log(setIsOpen)
     let linkTarget = e.nativeEvent.target;
-    if (e.target.tagName) {
+    if (e.target.tagName === "IMG") {
       linkTarget = e.nativeEvent.target.parentNode;
     }
     setUrlToGo(linkTarget.href);
@@ -80,15 +79,9 @@ const Layout = ({
 
   Modal.setAppElement('#__next');
 
-  // useEffect(() => {
-  //   dispatch(fetchCurrentUser(1));
-  //   setUserFetched(true);
-  // }, []);
-
   const {
     name, email, avatarSrc, isLoaded: isUserLoaded, showButton,
   } = currentUser;
-
 
   const siteWrapperClasses = classNames('main-content', classes.siteWrapper);
 
@@ -96,6 +89,20 @@ const Layout = ({
     // eslint-disable-next-line react/jsx-filename-extension
     <>
       <div className={siteWrapperClasses}>
+        <Modal
+          overlayClassName={classes.modalOverlay}
+          className={classes.modalWindow}
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+        >
+          <div className={classes.modalTitle}>{t('modal-title')}</div>
+          <div className={classes.modalSubtitle}>{t('modal-subtitle')}</div>
+          <div className={classes.modalLinksContainer}>
+            <button className={classes.modalLink} onClick={closeModal}>{t('Stay on page')}</button>
+            <button className={classes.modalLink} onClick={closeModalAndGotoUrl}>{t('Leave page')}</button>
+          </div>
+        </Modal>
         <Header
           userName={name}
           userEmail={email}
@@ -118,20 +125,6 @@ const Layout = ({
         />
         {children}
         {isGoogleSpeedTest ? null : <Footer openModal={openModal} />}
-        <Modal
-          overlayClassName="modalOverlay"
-          className="modalWindow"
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-        >
-          <div className="modalTitle">{t('modal-title')}</div>
-          <div className="modalSubtitle">{t('modal-subtitle')}</div>
-          <div className="modalLinksContainer">
-            <button className="modalLink" onClick={closeModal}>{t('Stay on page')}</button>
-            <button className="modalLink" onClick={closeModalAndGotoUrl}>{t('Leave page')}</button>
-          </div>
-        </Modal>
       </div>
     </>
   );

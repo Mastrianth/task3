@@ -22,9 +22,10 @@ import UsersWithTooltip from '../../Users/UserCard/fk/UsersWithTooltip';
 import EmailWithTooltip from '../../Users/UserCard/fk/EmailWithTooltip';
 import { getCurrentUser } from '../../../../redux/reducers/auth';
 import { removeUser } from '../../../utils/formHelpers';
+import { setIsFormFilled } from '../../../../redux/reducers/signUp';
 
 const BurgerMenu = ({
-  burgerActive, closeBurgerMenu, t, userAvatar,
+  burgerActive, closeBurgerMenu, t, userAvatar, openModal,
 }) => {
   useEffect(() => {
     if (burgerActive) {
@@ -38,6 +39,14 @@ const BurgerMenu = ({
   const [touchStart, setTouchStart] = React.useState(0);
   const [touchEnd, setTouchEnd] = React.useState(0);
   const router = useRouter();
+  const isFilled = useSelector(setIsFormFilled);
+
+  const checkIfFilled = (e) => {
+    if (isFilled) {
+      e.preventDefault();
+      openModal(e);
+    }
+  };
 
   function handleTouchStart(e) {
     setTouchStart(e.targetTouches[0].clientX);
@@ -160,6 +169,7 @@ const BurgerMenu = ({
                 <div className={styles.burgerLinkContainer}>
                   <Link scroll={false} href="/#about-me">
                     <a
+                      onClick={(e) => checkIfFilled(e)}
                       className={styles.burgerLink}
                     >
                       <div className={styles.burgerLinkSvgContainer}>
@@ -172,6 +182,7 @@ const BurgerMenu = ({
                 <div className={styles.burgerLinkContainer}>
                   <Link scroll={false} href="/#relationships">
                     <a
+                      onClick={(e) => checkIfFilled(e)}
                       className={styles.burgerLink}
                     >
                       <div className={styles.burgerLinkSvgContainer}>
@@ -185,6 +196,7 @@ const BurgerMenu = ({
                   <Link scroll={false} href="/#users">
                     <a
                       className={styles.burgerLink}
+                      onClick={(e) => checkIfFilled(e)}
                     >
                       <div>
                         <UsersSvg />

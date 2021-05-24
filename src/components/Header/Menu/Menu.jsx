@@ -92,8 +92,8 @@ const Menu = ({
   }, []);
 
   const checkIfFilled = (e) => {
-    console.log(isFilled);
     if (isFilled) {
+      e.preventDefault();
       openModal(e);
     }
   };
@@ -153,9 +153,9 @@ const Menu = ({
               )
               : (
                 <>
-                  <Link scroll={false} href="/#about-me" onClick={(e) => checkIfFilled(e)}>{t('about-me')}</Link>
-                  <Link scroll={false} href="/#relationships" onClick={(e) => checkIfFilled(e)}>{t('relationship')}</Link>
-                  <Link scroll={false} href="/#users" onClick={(e) => checkIfFilled(e)}>{t('users')}</Link>
+                  <Link scroll={false} href="/#about-me"><a onClick={(e) => checkIfFilled(e)}>{t('about-me')}</a></Link>
+                  <Link scroll={false} href="/#relationships"><a onClick={(e) => checkIfFilled(e)}>{t('relationship')}</a></Link>
+                  <Link scroll={false} href="/#users"><a onClick={(e) => checkIfFilled(e)}>{t('users')}</a></Link>
                 </>
               )}
 

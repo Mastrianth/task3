@@ -120,18 +120,22 @@ export const regexList = {
   phoneWithoutMask: /^\+38 \(0\d\d\)\s\d\d\d\s-\s\d\d\s-\s\d\d$/,
 };
 
-export const getValidationSchema = (t) => (
+export const getValidationSchema = (
   yup.object().shape({
-    name: yup.string().required(t('nameHelperText'))
-      .matches(regexList.name, { message: t('nameHelperText') }),
-    email: yup.string().required(t('emailHelperText'))
-      .min(2, t('emailHelperText'))
-      .max(100, t('emailHelperText'))
+    name: yup.string().required('nameHelperText')
+      .required('name-min')
+      .min(2, 'name-min')
+      .max(60, 'name-max')
+      .matches(regexList.name, { message: 'nameHelperText' }),
+    email: yup.string().required('emailHelperText')
+      .required('email-valid')
+      .min(6, 'email-valid')
+      .max(128, 'email-valid')
       .matches(regexList.email,
-        { message: t('emailHelperText') }),
-    phone: yup.string().required(t('phoneHelperText'))
+        { message: 'emailHelperText' }),
+    phone: yup.string().required('phoneHelperText')
       .matches(regexList.phone,
-        { message: t('phoneHelperText') }),
-    position: yup.string().required(t('positionHelperText')),
+        { message: 'phoneHelperText' }),
+    position: yup.string().required('positionHelperText'),
   })
 );

@@ -1,0 +1,20 @@
+.counter {
+  position: absolute;
+  padding-left: 285px;
+  margin-top: 12px;
+  z-index: 1;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Asap', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16.8px;
+  letter-spacing: 0em;
+  text-align: right;
+}
+
+@media (min-width: 576px) {
+  .counter {
+    padding-left: 325px;
+  }
+}

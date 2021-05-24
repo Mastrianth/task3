@@ -229,7 +229,7 @@ export const NakedForm = ({
       <div className={classes.inputsContainer}>
         {inputsHTML}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '70px' }}>
+      <div className={classes.buttonContainerForm}>
         {isLoadingForm
           ? <Preloader />
           : (
@@ -380,6 +380,23 @@ const FormikForm = (({
               formStatus.photoValid = false;
               continue;
             }
+
+            if (key === 'email') {
+              if (formErrors.email[0] === 'User with the same email already exists' || formErrors.email[0] === 'Benutzer mit derselben E-Mail-Adresse ist bereits vorhanden') {
+                setErrors('email', 'email-in-use');
+                setSubmitting(false);
+                return false;
+              }
+            }
+
+            if (key === 'phone') {
+              if (formErrors.email[0] === 'User with the same phone already exists' || formErrors.email[0] === 'Benutzer mit derselben Telefon ist bereits vorhanden') {
+                setErrors('phone', 'phone-in-use');
+                setSubmitting(false);
+                return false;
+              }
+            }
+
             formErrors[key] = fails[key].join(' ');
           }
           setErrors(formErrors);
@@ -393,7 +410,7 @@ const FormikForm = (({
       initialValues={initialValues}
       initialStatus={initialStatus}
       onSubmit={onSubmit}
-      validationSchema={getValidationSchema(t)}
+      validationSchema={getValidationSchema}
     >
       {(formikProps, formik) => (
         <NakedForm
