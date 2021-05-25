@@ -1,10 +1,10 @@
 import React, {
-  memo, useContext, useState, useEffect,
+  memo, useContext, useState
 } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import classNames from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import Modal from 'react-modal';
 import Header from '../Header';

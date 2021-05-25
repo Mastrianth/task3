@@ -82,10 +82,10 @@ function MyApp({ Component, pageProps, ua }) {
   if (isGoogleSpeedTest) {
     return (
       <>
-        <CustomHead title={title} isGoogleSpeedTest={isGoogleSpeedTest} />
+        <CustomHead title={title} currentRoute={router.pathname} isGoogleSpeedTest={isGoogleSpeedTest} />
         <LazyHydrate ssrOnly>
           <MyContext.Provider value={{ isGoogleSpeedTest }}>
-            <Layout>
+            <Layout currentUser={currentUser} currentRoute={router.pathname}>
               <Component {...pageProps} />
             </Layout>
           </MyContext.Provider>
