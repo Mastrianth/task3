@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, memo } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -16,8 +16,7 @@ import { i18n, withTranslation } from '../../../../i18n';
 import Logo from '../../../assets/img/svg/Logo.svg';
 import styles from './Menu.module.scss';
 import ContentWrapper from '../../ContentWrapper';
-import UserInfo from '../../Users/UserInfo';
-import { hideUserPlaceholder, setCurrentUser, showSuccessPopup } from '../../../../redux/actions';
+import { hideUserPlaceholder, setCurrentUser } from '../../../../redux/actions';
 import { getCurrentUser } from '../../../../redux/reducers/auth';
 import UsersWithTooltip from '../../Users/UserCard/fk/UsersWithTooltip';
 import EmailWithTooltip from '../../Users/UserCard/fk/EmailWithTooltip';
@@ -68,7 +67,7 @@ const btnPrimarySmallStyles = {
 const useStylesPrimarySmall = makeStyles(() => ({ ...btnPrimarySmallStyles }));
 
 const Menu = ({
-  openBurgerMenu, t, userName, userEmail, userAvatar, isUserLoaded, showButton, logOut, openModal,
+  openBurgerMenu, t, userAvatar, isUserLoaded, openModal,
 }) => {
   const { i18n: { language } } = useContext(I18nContext);
   const router = useRouter();
@@ -197,14 +196,6 @@ const Menu = ({
               ? (
                 <>
                   <span className={styles.authorizedMenu}>
-                    {/* <UserInfo */}
-                    {/*  userName={userName} */}
-                    {/*  userEmail={userEmail} */}
-                    {/*  userAvatar={userAvatar} */}
-                    {/*  logOut={logOut} */}
-                    {/*  isLoaded={isUserLoaded} */}
-                    {/*  showButton={showButton} */}
-                    {/* /> */}
                     <span className={styles.userLogoMenu}>
                       {showUserPlaceholder
                         ? <div className={styles.placeholderUserLogo} />

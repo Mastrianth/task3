@@ -1,0 +1,6 @@
+@use '../../../assets/scss/vars/colors';
+
+.placeholder {
+  width: 100%;
+  background-color: colors.$loader;
+}

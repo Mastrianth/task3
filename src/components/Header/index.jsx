@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
 import MyContext from '../../utils/context';
 import Menu from './Menu/Menu';
@@ -11,9 +11,7 @@ import { withTranslation } from '../../../i18n';
 import styles from './Header.module.scss';
 import Cookies from './Cookies';
 import { selectApiError } from '../../../redux/reducers/ui';
-import { checkFormFilled } from '../../../redux/actions';
 
-// import BurgerMenu from './BurgerMenu/BurgerMenu';
 const BurgerMenu = dynamic(() => import('./BurgerMenu/BurgerMenu'));
 
 function Header({
@@ -22,11 +20,8 @@ function Header({
   const [burgerActive, setActive] = useState(false);
   const { isGoogleSpeedTest } = useContext(MyContext);
   const isApiError = useSelector(selectApiError);
-  // const [isApiError, setIsApiError] = useState(false);
   const closeBurgerMenu = () => setActive(false);
   const openBurgerMenu = () => setActive(true);
-  const dispatch = useDispatch();
-
 
   return (
     <>
