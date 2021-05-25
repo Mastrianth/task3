@@ -5,7 +5,7 @@ import { withTranslation } from '../../../i18n';
 import styles from './TermsText.module.scss';
 import ContentWrapper from '../ContentWrapper';
 import FootPrints from '../../assets/img/svg/do-not-inline/Footprints.svg';
-import styles2 from '../Footer/Footer.module.scss';
+
 
 const TOS = ({ t }) => (
   <div style={{ flex: 1 }} className={styles.bannerColor}>
@@ -102,8 +102,8 @@ const TOS = ({ t }) => (
                 <li>{t('tos5-5')}</li>
               </ul>
             </div>
-            <div>
-              <img className={styles2.footprints} src={FootPrints} alt="foot" />
+            <div >
+              <img className={styles.footprints} src={FootPrints} alt="foot" />
             </div>
           </div>
         </div>

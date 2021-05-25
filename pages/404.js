@@ -8,6 +8,8 @@ import Error404Image from '../src/assets/img/svg/404.svg';
 
 import styles from '../src/assets/scss/pages/404.module.scss';
 import ContentWrapper from '../src/components/ContentWrapper';
+import styles3 from '../src/components/Footer/Footer.module.scss';
+import FootPrints from '../src/assets/img/svg/do-not-inline/Footprints.svg';
 
 const Banner = ({ t }) => {
   const router = useRouter();
@@ -42,6 +44,9 @@ const Banner = ({ t }) => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <img className={styles3.footprints} src={FootPrints} alt="foot" />
       </div>
     </ContentWrapper>
   );

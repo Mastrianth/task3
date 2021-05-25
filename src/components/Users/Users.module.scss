@@ -44,6 +44,10 @@
 margin-bottom:132px;
 }
 
+.preloader {
+  margin-bottom:134px;
+}
+
 @include media.for-desktop-up {
   .Users {
     padding: 131px 0px 140px;
@@ -62,6 +66,9 @@ margin-bottom:132px;
  .button {
   margin-bottom: 125px;
  }
+  .preloader {
+    margin-bottom:125px;
+  }
 }
 
 @media screen and (max-width: 990px) {
@@ -89,6 +96,9 @@ margin-bottom:132px;
   .button{
     margin-bottom: 118px;
   }
+  .preloader {
+    margin-bottom:118px;
+  }
 }
 
 @media screen and (max-width: 766px) {
@@ -103,7 +113,9 @@ margin-bottom:132px;
   .button{
     margin-bottom: 40px;
   }
-
+  .preloader {
+    margin-bottom:40px;
+  }
 }
 @include media.for-phone-only {
   .Users {
@@ -134,6 +146,9 @@ margin-bottom:132px;
   .button{
     margin-bottom: 48px;
   }
+  .preloader {
+    margin-bottom:48px;
+  }
 }
 
 
@@ -161,6 +176,9 @@ margin-bottom:132px;
   .button{
     margin-bottom: 135px;
     margin-left:28px;
+  }
+  .preloader {
+    margin-bottom:135px;
   }
 }
 @media (min-width: 2450px) {

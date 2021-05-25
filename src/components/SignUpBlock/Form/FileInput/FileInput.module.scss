@@ -20,7 +20,7 @@
 }
 
 .mainFileLabel {
-  width: 100%;
+  width: 295px;
   height: 56px;
   padding-left: 16px;
   padding-right: 16px;
@@ -103,3 +103,9 @@
   color: colors.$error;
 }
 
+
+@media (max-width:599px) {
+  .mainFileLabel {
+    width: 245px;
+  }
+}

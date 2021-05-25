@@ -95,6 +95,8 @@ export default createMuiTheme({
         fontWeight: 400,
         margin: '0 4px',
         paddingLeft: 26,
+        paddingTop: '2px',
+        paddingBottom: '2px',
         backgroundColor: 'rgba(236, 237, 237, 1)',
       },
     },
@@ -135,7 +137,7 @@ export default createMuiTheme({
         },
         '&$selected:before': {
           position: 'absolute',
-          top: 13,
+          top: 9,
           left: 8,
           content: '""',
           display: 'block',

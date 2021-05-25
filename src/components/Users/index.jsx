@@ -30,7 +30,6 @@ const Users = ({ t }) => {
   const apiUsersLength = useSelector((state) => getApiUsersLength(state));
   const isInitialLoadingComplete = useSelector((state) => getIsInitialLoadingComplete(state));
 
-
   const fetchUsersIfGoingFromMobileToTablet = (usersLength) => () => {
     if (window.matchMedia('(min-width: 600px)').matches) {
       if (usersLength === 3) {
@@ -53,8 +52,6 @@ const Users = ({ t }) => {
   useEffect(() => {
     dispatch(fetchUsers(users.length));
   }, []);
-
-
 
   const headingClasses = classNames('h2', classes.heading);
   const subheadingClasses = classNames('h5', classes.subheading);
@@ -125,7 +122,7 @@ const Users = ({ t }) => {
             {usersCard}
           </div>
           {!isInitialLoadingComplete ? <div className={styles.buttonPlaceholder} /> : isUserBtnSpinnerActive
-            ? <Preloader /> : button}
+            ? <div className={classes.preloader}><Preloader /></div> : button}
           <div>
             <img className={styles.footprints} src={FootPrints} alt="foot" />
           </div>

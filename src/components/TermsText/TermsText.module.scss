@@ -40,6 +40,15 @@
 
 }
 
+.footprints {
+  position: absolute;
+
+  bottom: 345px;
+
+  right: -248px;
+  width: 575px;
+}
+
 
 .title {
   font-size: 28px;
@@ -113,7 +122,14 @@
     line-height: 40px;
   }
 
-  .text {
+    .footprints {
+      bottom: 345px;
+      right: -551px;
+      width: 816px;
+    }
+
+
+    .text {
     font-size: 18px;
     line-height: 25px;
   }
@@ -157,15 +173,26 @@
   }
 }
 
+@media (min-width: 768px) {
+  .footprints {
+    bottom: 420px;
+    right: -520px;
+    width: 816px;
+    z-index: 0;
+  }
+}
 @media (min-width: 992px) {
 
-
-
-
+  .footprints {
+    bottom: 410px;
+    right: -351px;
+    width: 816px;
+    z-index: 1;
+  }
   .title {
     font-size: 60px;
     line-height: 63px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .text {
@@ -175,9 +202,10 @@
 
   .contentContainer {
     margin-top: 80px;
-    margin-bottom: 145px;
+    margin-bottom: 80px;
     font-size: 18px;
     line-height: 25px;
+    padding-bottom: 65px;
 
     p {
       margin: 20px 0 25px 0;
@@ -195,18 +223,25 @@
 
   .subtitle {
     font-family: Nunito, sans-serif;
-    margin-top: 16px;
+    margin-top: 14px;
     margin-bottom: 30px;
     line-height: 39px;
     font-size: 28px;
+
   }
 
   .subtitleInText {
-    margin-top: 66px;
+    margin-top: 65px;
     font-family: Nunito, sans-serif;
     font-size: 28px;
     line-height: 39px;
   }
 }
 
+@media  (min-width: 2450px) {
+  .footprints {
+    right: 356px;
+    width: 816px;
+  }
 
+}
