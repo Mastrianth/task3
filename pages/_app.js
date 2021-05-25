@@ -52,9 +52,11 @@ function MyApp({ Component, pageProps, ua }) {
   }, []);
 
   useEffect(() => {
-    const LSFormFilledCheck = localStorage.getItem('form');
-    if (LSFormFilledCheck) {
-      dispatch(checkFormFilled());
+    if (!isGoogleSpeedTest) {
+      const LSFormFilledCheck = localStorage.getItem('form');
+      if (LSFormFilledCheck) {
+        dispatch(checkFormFilled());
+      }
     }
   }, []);
 
@@ -80,10 +82,10 @@ function MyApp({ Component, pageProps, ua }) {
   if (isGoogleSpeedTest) {
     return (
       <>
-        <CustomHead title={title} currentRoute={router.pathname} isGoogleSpeedTest={isGoogleSpeedTest} />
+        <CustomHead title={title} isGoogleSpeedTest={isGoogleSpeedTest} />
         <LazyHydrate ssrOnly>
           <MyContext.Provider value={{ isGoogleSpeedTest }}>
-            <Layout currentUser={currentUser} currentRoute={router.pathname}>
+            <Layout>
               <Component {...pageProps} />
             </Layout>
           </MyContext.Provider>

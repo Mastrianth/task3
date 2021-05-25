@@ -54,7 +54,7 @@ const Layout = ({
   function openModal(e) {
     setIsOpen(true);
     let linkTarget = e.nativeEvent.target;
-    if (e.target.tagName === "IMG") {
+    if (e.target.tagName === 'IMG') {
       linkTarget = e.nativeEvent.target.parentNode;
     }
     setUrlToGo(linkTarget.href);
@@ -89,20 +89,23 @@ const Layout = ({
     // eslint-disable-next-line react/jsx-filename-extension
     <>
       <div className={siteWrapperClasses}>
-        <Modal
-          overlayClassName={classes.modalOverlay}
-          className={classes.modalWindow}
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-        >
-          <div className={classes.modalTitle}>{t('modal-title')}</div>
-          <div className={classes.modalSubtitle}>{t('modal-subtitle')}</div>
-          <div className={classes.modalLinksContainer}>
-            <button className={classes.modalLink} onClick={closeModal}>{t('Stay on page')}</button>
-            <button className={classes.modalLink} onClick={closeModalAndGotoUrl}>{t('Leave page')}</button>
-          </div>
-        </Modal>
+        {isGoogleSpeedTest ? null
+          : (
+            <Modal
+              overlayClassName={classes.modalOverlay}
+              className={classes.modalWindow}
+              isOpen={modalIsOpen}
+              onRequestClose={closeModal}
+              style={customStyles}
+            >
+              <div className={classes.modalTitle}>{t('modal-title')}</div>
+              <div className={classes.modalSubtitle}>{t('modal-subtitle')}</div>
+              <div className={classes.modalLinksContainer}>
+                <button className={classes.modalLink} onClick={closeModal}>{t('Stay on page')}</button>
+                <button className={classes.modalLink} onClick={closeModalAndGotoUrl}>{t('Leave page')}</button>
+              </div>
+            </Modal>
+          )}
         <Header
           userName={name}
           userEmail={email}
