@@ -1,7 +1,7 @@
 .counter {
   position: absolute;
-  padding-left: 285px;
-  margin-top: 12px;
+  padding-left: 276px;
+  margin-top: 5px;
   z-index: 1;
   color: rgba(0, 0, 0, 0.87);
   font-family: 'Asap', sans-serif;
@@ -15,6 +15,6 @@
 
 @media (min-width: 576px) {
   .counter {
-    padding-left: 325px;
+    padding-left: 328px;
   }
 }

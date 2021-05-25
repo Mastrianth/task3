@@ -1,4 +1,6 @@
-import React, { useEffect, useMemo } from 'react';
+import React, {
+  useEffect, useMemo, useRef, useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +11,7 @@ import EmailWithTooltip from './fk/EmailWithTooltip';
 import UsersWithTooltip from './fk/UsersWithTooltip';
 import { hideUsersPlaceholder } from '../../../../redux/actions';
 import { getIsInitialLoadingComplete, selectUsersPlaceholder } from '../../../../redux/reducers/users';
+import { preloadImgAndReplaceSrc } from '../../../utils/imgManipulation';
 
 const UserCard = ({
   avatarSrc, name, position, email, phone, isLoaded, id,
@@ -16,23 +19,34 @@ const UserCard = ({
   const addDefaultSrcBound = addDefaultSrc(userPlaceholderImg);
   const showUsersPlaceholders = useSelector((state) => selectUsersPlaceholder(state));
   const isInitialLoadingComplete = useSelector((state) => getIsInitialLoadingComplete(state));
+  const [isImgReplaced, setIsImgReplaced] = useState(false);
   const dispatch = useDispatch();
+  const imgRef = useRef(null);
+
   useEffect(() => {
     if (isInitialLoadingComplete) {
       dispatch(hideUsersPlaceholder());
     }
   }, []);
 
+  useEffect(() => {
+    if (isLoaded && !isImgReplaced) {
+      preloadImgAndReplaceSrc(avatarSrc, imgRef.current);
+      setIsImgReplaced(true);
+    }
+  }, [isLoaded, isImgReplaced, imgRef]);
+
   if (isLoaded) {
     const formattedNumber = `${phone.slice(0, 3)} (${phone.slice(3, 6)}) ${phone.slice(6, 9)} ${
       phone.slice(9, 11)} ${phone.slice(11)}`;
-    return (useMemo(() => (
+    return (
       <div className={classes.usersCard} key={id} itemScope itemType="https://schema.org/Person">
         <div className={classes.userCardBorder}>
           <div className={classes.imageContainer}>
             <img
+              ref={imgRef}
+              src={userPlaceholderImg}
               onError={addDefaultSrcBound}
-              src={avatarSrc}
               className={classes.image}
               alt="user photo"
               loading="lazy"
@@ -46,7 +60,6 @@ const UserCard = ({
           <a href={`tel:${phone}`} className={classes.phone} itemProp="phone">{formattedNumber}</a>
         </div>
       </div>
-    ), [id])
     );
   }
   if (showUsersPlaceholders) {
@@ -62,7 +75,7 @@ const UserCard = ({
       </div>
     );
   }
-  return null
+  return null;
 };
 
 UserCard.defaultsProps = {
