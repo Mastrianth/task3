@@ -14,31 +14,31 @@ function InputMasked({
   const optionalMessage = isOptionalShowing ? ' (optional)' : '';
 
   return (
-      <ThemeProvider theme={theme}>
-        <div className={wrapperClassName}>
-          <InputMask
-            mask={mask}
-            maskPlaceholder={maskPlaceholder}
-            value={value}
-            onChange={onChange}
-            onBlur={onBlur}
-            disabled={isDisabled}
-          >
-            {() => (
-              <TextField
-                id={id}
-                name={name}
-                type={type}
-                label={`${label}${isRequired ? requiredMessage : optionalMessage}`}
-                helperText={helperText}
-                error={hasError}
-                variant={variant}
-                fullWidth
-              />
-            )}
-          </InputMask>
-        </div>
-      </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <div className={wrapperClassName}>
+        <InputMask
+          mask={mask}
+          maskPlaceholder={maskPlaceholder}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
+          disabled={isDisabled}
+        >
+          {() => (
+            <TextField
+              id={id}
+              name={name}
+              type={type}
+              label={`${label}${isRequired ? requiredMessage : optionalMessage}`}
+              helperText={helperText}
+              error={hasError}
+              variant={variant}
+              fullWidth
+            />
+          )}
+        </InputMask>
+      </div>
+    </ThemeProvider>
   );
 }
 

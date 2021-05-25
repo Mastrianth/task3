@@ -24,7 +24,7 @@ const photoValidations = {
 };
 
 export const NakedForm = ({
-  t, regexes, requiredFields, positions, values, status, touched, errors, handleChange, handleBlur, handleSubmit, setFieldValue, setStatus,
+  t, regexes, requiredFields, positions, values, status, touched, errors, handleChange, handleBlur, handleSubmit, setFieldValue, setStatus, isLoadingForm
 }) => {
   const handleChangePhone = handleChangeMaskedFactory(setFieldValue, regexes.phoneMaskCharacters);
   const handleBlurReplaceSpaces = handleBlurTextFactory(handleBlur, setFieldValue, {
@@ -67,7 +67,7 @@ export const NakedForm = ({
     }
   }, []);
 
-  const [isLoadingForm, setIsLoadingForm] = useState(false);
+
   const handleChangePhoto = (event) => {
     const file = event.target.files[0];
     const {
@@ -301,11 +301,12 @@ const FormikForm = (({
 }) => {
   const dispatch = useDispatch();
   const positions = useSelector((state) => getPositions(state));
-
+  const [isLoadingForm, setIsLoadingForm] = useState(false);
   const onSubmit = (values, {
     setSubmitting, resetForm, setErrors, setStatus,
   }) => {
     const formData = new FormData();
+    setIsLoadingForm(true);
     for (const [key, value] of Object.entries(values)) {
       if (key === 'phone') {
         formData.append(key, `+${value}`);
@@ -320,6 +321,7 @@ const FormikForm = (({
     const successCallback = (id) => {
       setSubmitting(false);
       resetForm(initialValues, initialValuesLength);
+      setIsLoadingForm(false)
       setShowAfter(true);
       dispatch(fetchCurrentUser(id));
     };
@@ -420,6 +422,7 @@ const FormikForm = (({
           requiredFields={requiredFields}
           regexes={regexList}
           positions={positions}
+          isLoadingForm={isLoadingForm}
         />
       )}
     </Formik>

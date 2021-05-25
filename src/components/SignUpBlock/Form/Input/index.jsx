@@ -17,39 +17,39 @@ function Input({
   const optionalMessage = isOptionalShowing ? ' (optional)' : '';
 
   return (
-      <ThemeProvider theme={theme}>
-        <div className={wrapperClassName}>
-          <TextField
-            id={id}
-            name={name}
-            type={type}
-            label={`${label}${isRequired ? requiredMessage : optionalMessage}`}
-            value={value}
-            placeholder={placeholder}
-            onChange={(e) => {
-              changeCharactersCount(e);
-              onChange(e);
-            }}
-            onBlur={onBlur}
-            helperText={helperText}
-            disabled={isDisabled}
-            error={hasError}
-            variant={variant}
-            multiline={isMultiline}
-            fullWidth
-            style={{ position: 'relative' }}
-          />
-          <div
-            className={styles.counter}
-          >
-            {inputsLength[name]}
-            {' '}
-            /
-            {' '}
-            {initialProps[name].maxLength}
-          </div>
+    <ThemeProvider theme={theme}>
+      <div className={wrapperClassName}>
+        <TextField
+          id={id}
+          name={name}
+          type={type}
+          label={`${label}${isRequired ? requiredMessage : optionalMessage}`}
+          value={value}
+          placeholder={placeholder}
+          onChange={(e) => {
+            changeCharactersCount(e);
+            onChange(e);
+          }}
+          onBlur={onBlur}
+          helperText={helperText}
+          disabled={isDisabled}
+          error={hasError}
+          variant={variant}
+          multiline={isMultiline}
+          fullWidth
+          style={{ position: 'relative' }}
+        />
+        <div
+          className={styles.counter}
+        >
+          {inputsLength[name]}
+          {' '}
+          /
+          {' '}
+          {initialProps[name].maxLength}
         </div>
-      </ThemeProvider>
+      </div>
+    </ThemeProvider>
   );
 }
 

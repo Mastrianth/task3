@@ -312,6 +312,27 @@ margin-bottom: 0;
   }
 }
 
+@media (min-width: 1023px) {
+  .banner {
+    background-image: url("../../assets/img/banner-reg/banner-reg-1424.jpg");
+    max-width: 1424px;
+    margin: 0 auto;
+    background-position-x: -200px;
+  }
+
+  .banner.webp {
+    background-image: url("../../assets/img/banner-reg/banner-reg-1424.webp");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (min-width: 1025px) {
+  .banner {
+    background-image: url("../../assets/img/banner-reg/banner-reg-1424-2x.jpg");
+  }
+
+  .banner.webp {
+    background-image: url("../../assets/img/banner-reg/banner-reg-1424-2x.webp");
+  }
+}
 
 
 
