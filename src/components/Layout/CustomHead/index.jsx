@@ -41,6 +41,8 @@ const CustomHead = ({
           />
         )
         : null }
+      <link rel="preload" as="image" href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-360-2x-1cd3a846fcb64971da37100438adff5b.webp" />
+      <link rel="preload" as="image" href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-reg-360-2x-90bd8205bb3a9c371801d65b4a9e9985.webp" />
       <meta name="robots" content="noindex, nofollow" />
       {!isGoogleSpeedTest ? (
         <script
