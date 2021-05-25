@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps, ua }) {
       });
       ReactGA.initialize('UA-197493593-1');
     }
-  }, [isGoogleSpeedTest]);
+  }, []);
 
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps, ua }) {
         dispatch(checkFormFilled());
       }
     }
-  }, [isGoogleSpeedTest]);
+  }, []);
 
   useEffect(() => {
     const GTMPageView = (url) => {

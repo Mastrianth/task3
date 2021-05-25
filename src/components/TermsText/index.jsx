@@ -9,7 +9,8 @@ import FootPrints from '../../assets/img/svg/do-not-inline/Footprints.svg';
 
 const TOS = ({ t }) => (
   <div style={{ flex: 1 }} className={styles.bannerColor}>
-    <section>
+    <section style={{ backgroundColor: '#f8f8f8'}}>
+      <div className={styles.bg}>
       <ContentWrapper>
         <div className="container">
           <div className={styles.contentContainer}>
@@ -108,6 +109,7 @@ const TOS = ({ t }) => (
           </div>
         </div>
       </ContentWrapper>
+      </div>
     </section>
   </div>
 );

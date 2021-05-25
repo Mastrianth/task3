@@ -14,6 +14,7 @@ import FootPrints from '../src/assets/img/svg/do-not-inline/Footprints.svg';
 const Banner = ({ t }) => {
   const router = useRouter();
   return (
+    <div className={styles.bg}>
     <ContentWrapper>
       <div className={styles.pawsContainer}>
         <div className="container w100">
@@ -49,6 +50,7 @@ const Banner = ({ t }) => {
         <img className={styles3.footprints} src={FootPrints} alt="foot" />
       </div>
     </ContentWrapper>
+    </div>
   );
 };
 
