@@ -1,19 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
 import LazyLoad from 'react-lazyload';
 import Banner from '../src/components/Banner';
-// import Relationships from '../src/components/Relationship';
-// import Acquainted from '../src/components/Acquainted/Acquainted';
+import Relationships from '../src/components/Relationship';
+import Acquainted from '../src/components/Acquainted/Acquainted';
 import Users from '../src/components/Users';
 import socialImg from '../src/assets/img/banner/banner-background-360.webp';
-
-const Acquainted = dynamic(() => import('../src/components/Acquainted/Acquainted'),
-  { ssr: false });
-const Relationships = dynamic(() => import('../src/components/Relationship'),
-  { ssr: false });
-// const Users = dynamic(() => import('../src/components/Users'),
-//   { ssr: false });
 
 function Index() {
   return (
@@ -22,7 +14,7 @@ function Index() {
         <title>HomePage - Task 3.1 Frontend Trainee Program</title>
         <meta name="title" content="HomePage - Task 3.1 Frontend Trainee Program" />
         <meta name="description" content="Home page - Test task 3 description for crawlers and scrapers" />
-        <link rel="preload" as="image" href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-360-8f654c8bf4081215ee400ec035d6238a.webp" />
+        <link rel="preload" as="image" href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-360-2x-1cd3a846fcb64971da37100438adff5b.webp" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://test2021-frontend-nick-k-task3.abzdev2.com/" />
         <meta property="og:title" content="HomePage - Task 3.1 Frontend Trainee Program" />

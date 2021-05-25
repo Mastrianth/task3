@@ -24,6 +24,7 @@ import { removeUser } from '../../../utils/formHelpers';
 import Exit from '../../../assets/img/svg/exit.svg';
 import { setIsFormFilled } from '../../../../redux/reducers/signUp';
 import { selectUserPlaceholder } from '../../../../redux/reducers/ui';
+import MyContext from "../../../utils/context";
 
 const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
 
@@ -76,6 +77,7 @@ const Menu = ({
   const authorizedUserData = useSelector(getCurrentUser);
   const isFilled = useSelector(setIsFormFilled);
   const showUserPlaceholder = useSelector(selectUserPlaceholder);
+  const { isGoogleSpeedTest } = useContext(MyContext);
 
   useEffect(() => {
     if (process.browser) {
@@ -83,10 +85,15 @@ const Menu = ({
         history.replaceState(null, null, ' ');
       }
     }
-    const user = localStorage.getItem('user');
-    if (user) {
-      const userJson = JSON.parse(user);
-      dispatch(setCurrentUser(userJson.user));
+  }, []);
+
+  useEffect(() => {
+    if (!isGoogleSpeedTest) {
+      const user = localStorage.getItem('user');
+      if (user) {
+        const userJson = JSON.parse(user);
+        dispatch(setCurrentUser(userJson.user));
+      }
     }
   }, []);
 

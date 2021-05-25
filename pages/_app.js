@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps, ua }) {
         dispatch(checkFormFilled());
       }
     }
-  }, []);
+  }, [isGoogleSpeedTest]);
 
   useEffect(() => {
     const GTMPageView = (url) => {
