@@ -118,7 +118,7 @@ const BurgerMenu = ({
                     smooth
                     duration={500}
                   >
-                    <div className={styles.burgerLinkSvgContainer}>
+                    <div className={styles.burgerLinkSvgContainerTop}>
                       <AboutSvg />
                     </div>
                     <span className={styles.burgerLinkText}>{t('about-me')}</span>
@@ -137,7 +137,7 @@ const BurgerMenu = ({
                     smooth
                     duration={500}
                   >
-                    <div className={styles.burgerLinkSvgContainer}>
+                    <div className={styles.burgerLinkSvgContainerTop}>
                       <RelationshipSvg />
                     </div>
                     <span className={styles.burgerLinkText}>{t('relationship')}</span>
@@ -167,12 +167,12 @@ const BurgerMenu = ({
             : (
               <>
                 <div className={styles.burgerLinkContainer}>
-                  <Link scroll={false} href="/#about-me">
+                  <Link scroll={false} href="/">
                     <a
                       onClick={(e) => checkIfFilled(e)}
                       className={styles.burgerLink}
                     >
-                      <div className={styles.burgerLinkSvgContainer}>
+                      <div className={styles.burgerLinkSvgContainerTop}>
                         <AboutSvg />
                       </div>
                       <span className={styles.burgerLinkText}>{t('about-me')}</span>
@@ -180,12 +180,12 @@ const BurgerMenu = ({
                   </Link>
                 </div>
                 <div className={styles.burgerLinkContainer}>
-                  <Link scroll={false} href="/#relationships">
+                  <Link scroll={false} href="/">
                     <a
                       onClick={(e) => checkIfFilled(e)}
                       className={styles.burgerLink}
                     >
-                      <div className={styles.burgerLinkSvgContainer}>
+                      <div className={styles.burgerLinkSvgContainerTop}>
                         <RelationshipSvg />
                       </div>
                       <span className={styles.burgerLinkText}>{t('relationship')}</span>
@@ -193,12 +193,12 @@ const BurgerMenu = ({
                   </Link>
                 </div>
                 <div className={styles.burgerLinkContainer}>
-                  <Link scroll={false} href="/#users">
+                  <Link scroll={false} href="/">
                     <a
                       className={styles.burgerLink}
                       onClick={(e) => checkIfFilled(e)}
                     >
-                      <div>
+                      <div className={styles.burgerLinkSvgContainerTop}>
                         <UsersSvg />
                       </div>
                       <span className={styles.burgerLinkText}>{t('users')}</span>
@@ -220,7 +220,7 @@ const BurgerMenu = ({
                 href="#"
                 className={styles.burgerLink}
               >
-                <div className={styles.burgerLinkSvgContainer}>
+                <div className={styles.burgerLinkSvgContainerTop}>
                   <QuitSvg />
                 </div>
                 <span className={styles.burgerLinkText}>{t('Quit')}</span>
@@ -231,7 +231,7 @@ const BurgerMenu = ({
               <div className={styles.burgerLinkContainer}>
                 <Link href="/sign-up">
                   <a onClick={closeBurgerMenu} className={styles.burgerLink}>
-                    <div className={styles.burgerLinkSvgContainer}>
+                    <div className={styles.burgerLinkSvgContainerTop}>
                       <SignIn />
                     </div>
                     <span className={styles.burgerLinkText}>{t('sign-up')}</span>
@@ -355,7 +355,7 @@ const BurgerMenu = ({
             <div className={styles.burgerLinkContainer}>
               <Link scroll={false} href="/terms">
                 <a
-                  className={styles.burgerLink}
+                  className={ router.pathname === '/terms' ? classNames(styles.burgerLink, styles.selected) : styles.burgerLink}
                 >
                   <div className={styles.burgerLinkSvgContainer}>
                     <BookmarkSvg />

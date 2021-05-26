@@ -124,7 +124,7 @@ const Users = ({ t }) => {
           {!isInitialLoadingComplete ? <div className={styles.buttonPlaceholder} /> : isUserBtnSpinnerActive
             ? <div className={classes.preloader}><Preloader /></div> : button}
           <div>
-            <img className={styles.footprints} src={FootPrints} alt="foot" />
+            <img className={classes.footprints} src={FootPrints} alt="foot" />
           </div>
         </div>
       </ContentWrapper>

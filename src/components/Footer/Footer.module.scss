@@ -305,25 +305,6 @@
 }
 
 
-.footerIcons a:after {
-  content:"";
-  position: absolute;
-  width:48px;
-  height: 48px;
-
-}
-
-.footerIcons a:hover {
-  border: 1px solid #EA5924;
-}
-
-.footerIcons a:hover path {
-  fill: #EA5924;
-}
-.footerIcons a:hover svg {
-  fill: #EA5924;
-}
-
 .linksWrapper {
   display: none;
 }
@@ -353,6 +334,27 @@
   .footerCol {
     margin-right:44px;
   }
+
+
+  .footerIcons a:after {
+    content:"";
+    position: absolute;
+    width:48px;
+    height: 48px;
+
+  }
+
+  .footerIcons a:hover {
+    border: 1px solid #EA5924;
+  }
+
+  .footerIcons a:hover path {
+    fill: #EA5924;
+  }
+  .footerIcons a:hover svg {
+    fill: #EA5924;
+  }
+
 }
 
 @media (min-width: 768px) {

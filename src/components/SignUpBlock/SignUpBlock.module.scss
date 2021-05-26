@@ -24,6 +24,15 @@
   text-align: center;
 }
 
+.footprints {
+  position: absolute;
+
+  bottom: 340px;
+  height: 100px;
+  right: -248px;
+  width: 575px;
+}
+
 @media (min-width: 360px) {
   .title {
     font-size: 28px;
@@ -44,10 +53,24 @@
     padding: 0 100px ;
     padding-bottom: 16px;
   }
+  .footprints {
+    bottom: 345px;
+    right: -551px;
+    width: 816px;
+  }
+
 
 }
 
 
+@media (min-width: 768px) {
+  .footprints {
+    bottom: 420px;
+    right: -520px;
+    width: 816px;
+    z-index: 0;
+  }
+}
 
 @media (max-width: 992px) {
   .SignUpBlock {
@@ -67,5 +90,18 @@
     padding: 0 80px ;
     padding-bottom: 12px;
   }
+  .footprints {
+    bottom: 410px;
+    right: -351px;
+    width: 816px;
+    z-index: 1;
+  }
 }
 
+@media  (min-width: 2450px) {
+  .footprints {
+    right: 356px;
+    width: 816px;
+  }
+
+}

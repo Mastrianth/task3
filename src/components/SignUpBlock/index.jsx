@@ -20,7 +20,6 @@ import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryBu
 import styles2 from './Form/Modal.module.scss';
 import Success from '../../assets/img/svg/Success.svg';
 import FootPrints from '../../assets/img/svg/do-not-inline/Footprints.svg';
-import styles3 from '../Footer/Footer.module.scss';
 
 const Form = dynamic(() => import('./Form/index'),
   { ssr: false });
@@ -111,7 +110,7 @@ const SignUpBlock = ({ t }) => {
             </div>
           ))}
         <div>
-          <img className={styles3.footprints} src={FootPrints} alt="foot" />
+          <img className={styles.footprints} src={FootPrints} alt="foot" />
         </div>
       </ContentWrapper>
     </section>

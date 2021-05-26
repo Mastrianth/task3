@@ -198,15 +198,20 @@ function Footer({ t, openModal }) {
                   {' '}
                   {t('copyright')}
                 </div>
-                <div className={styles.footerButton}>
-                  <ButtonComponent
-                    variant="outlined"
-                    color="primary"
-                    size="large"
-                    disabled={false}
-                    label={t('sign-up')}
-                  />
-                </div>
+                {authorizedUserData.name ? null
+                  : (
+                    <div className={styles.footerButton}>
+                      <ButtonComponent
+                        gtmclass={authorizedUserData.name ? null : 'gtm-signup'}
+                        onClick={() => router.push('/sign-up').then(() => window.scrollTo(0, 0))}
+                        variant="outlined"
+                        color="primary"
+                        size="large"
+                        disabled={false}
+                        label={t('sign-up')}
+                      />
+                    </div>
+                  )}
                 <div className={styles.footerIcons}>
                   <a href="https://www.facebook.com/"><Facebook /></a>
                   <a href="https://twitter.com/"><Twitter /></a>

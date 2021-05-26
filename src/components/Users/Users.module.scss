@@ -26,7 +26,7 @@
   margin-bottom: 54px;
   position: relative;
   display: flex;
-  justify-content: space-around;
+  //justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
 }
@@ -46,6 +46,13 @@ margin-bottom:132px;
 
 .preloader {
   margin-bottom:134px;
+}
+.footprints {
+  position: absolute;
+  bottom: 410px;
+  right: -351px;
+  width: 816px;
+  z-index: 1;
 }
 
 @include media.for-desktop-up {
@@ -99,13 +106,23 @@ margin-bottom:132px;
   .preloader {
     margin-bottom:118px;
   }
+  .footprints {
+    bottom: 420px;
+    right: -520px;
+    width: 816px;
+    z-index: 0;
+  }
 }
 
 @media screen and (max-width: 766px) {
   .container {
     justify-content: center;
   }
-
+  .footprints {
+    bottom: 345px;
+    right: -551px;
+    width: 816px;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -115,6 +132,14 @@ margin-bottom:132px;
   }
   .preloader {
     margin-bottom:40px;
+  }
+  .footprints {
+    position: absolute;
+
+    bottom: 340px;
+height: 100px;
+    right: -248px;
+    width: 575px;
   }
 }
 @include media.for-phone-only {
@@ -149,6 +174,7 @@ margin-bottom:132px;
   .preloader {
     margin-bottom:48px;
   }
+
 }
 
 
@@ -192,4 +218,9 @@ margin-bottom:132px;
     padding-left: 60px;
     padding-top: 0;
   }
+  .footprints {
+    right: 356px;
+    width: 816px;
+  }
+
 }
