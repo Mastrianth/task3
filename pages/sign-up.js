@@ -3,9 +3,9 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import LazyLoad from 'react-lazyload';
 import SignUpBanner from '../src/components/SignUpBanner';
-import socialImg from '../src/assets/img/banner-reg/banner-reg-360.webp';
-import SignUpBlock from '../src/components/SignUpBlock';
 
+import SignUpBlock from '../src/components/SignUpBlock';
+import regBg360Webp from '../src/assets/img/banner-reg/banner-reg-768.webp';
 // const SignUpBlock = dynamic(() => import('../src/components/SignUpBlock'),
 //   { ssr: false });
 
@@ -27,20 +27,20 @@ function SignUp() {
       <Head>
         <title>Registration - Task 3.1 Frontend Trainee Program</title>
         <meta name="title" content="Registration - Task 3.1 Frontend Trainee Program" />
-        <link rel="preload" as="image" href="https://test2021-frontend-nick-k-task3-static.abzdev2.com/_next/static/images/banner-background-360-2x-1cd3a846fcb64971da37100438adff5b.webp" />
+        <link rel="preload" as="image" href={regBg360Webp} />
         <meta name="description" content="Registration - Test task 3 description for crawlers and scrapers" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://test2021-frontend-nick-k-task3.abzdev2.com/sign-up" />
         <meta property="og:title" content="Registration - Task 3.1 Frontend Trainee Program" />
         <meta property="og:description" content="Registration - Test task 3 description for crawlers and scrapers" />
-        <meta property="og:image" content={`https://test2021-frontend-nick-k-task3-static.abzdev2.com/${socialImg}`} />
+        <meta property="og:image" content="https://test2021-frontend-nick-k-task3.abzdev2.com/banner-reg-768.jpg" />
         <meta property="og:image:width" content="1150" />
         <meta property="og:image:height" content="760" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://test2021-frontend-nick-k-task3.abzdev2.com/sign-up" />
         <meta property="twitter:title" content="Registration - Task 3.1 Frontend Trainee Program" />
         <meta property="twitter:description" content="Registration - Test task 3 description for crawlers and scrapers" />
-        <meta property="twitter:image" content={`https://test2021-frontend-nick-k-task3-static.abzdev2.com/${socialImg}`} />
+        <meta property="twitter:image" content="https://test2021-frontend-nick-k-task3.abzdev2.com/banner-reg-768.jpg" />
       </Head>
       <div>
         <SignUpBanner />

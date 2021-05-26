@@ -26,7 +26,7 @@ function Index() {
         <meta property="twitter:url" content="https://test2021-frontend-nick-k-task3.abzdev2.com/" />
         <meta property="twitter:title" content="HomePage - Task 3.1 Frontend Trainee Program" />
         <meta property="twitter:description" content="Home page - Test task 3 description for crawlers and scrapers" />
-        <meta property="twitter:image" content="https://test2021-frontend-nick-k-task3.abzdev2.com/banner-reg-768.jpg" />
+        <meta property="twitter:image" content="https://test2021-frontend-nick-k-task3.abzdev2.com/banner-background-768.jpg" />
       </Head>
       <div>
         <Banner />
