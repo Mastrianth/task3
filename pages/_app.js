@@ -52,11 +52,9 @@ function MyApp({ Component, pageProps, ua }) {
   }, []);
 
   useEffect(() => {
-    if (!isGoogleSpeedTest) {
-      const LSFormFilledCheck = localStorage.getItem('form');
-      if (LSFormFilledCheck) {
-        dispatch(checkFormFilled());
-      }
+    const LSFormFilledCheck = localStorage.getItem('form');
+    if (LSFormFilledCheck) {
+      dispatch(checkFormFilled());
     }
   }, []);
 
