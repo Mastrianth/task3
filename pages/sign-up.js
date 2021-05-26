@@ -5,7 +5,7 @@ import LazyLoad from 'react-lazyload';
 import SignUpBanner from '../src/components/SignUpBanner';
 
 import SignUpBlock from '../src/components/SignUpBlock';
-import regBg360Webp from '../src/assets/img/banner-reg/banner-reg-768.webp';
+import regBg360Webp from '../src/assets/img/banner-reg/banner-reg-360-2x.webp';
 // const SignUpBlock = dynamic(() => import('../src/components/SignUpBlock'),
 //   { ssr: false });
 
