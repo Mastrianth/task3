@@ -2,7 +2,7 @@
 @use '../../assets/scss/mixins/media';
 
 .SignUpBlock {
-  padding: 180px 0px 180px;
+  padding: 174px 0px 180px;
   background-color: #f8f8f8;
 }
 
@@ -55,8 +55,9 @@
   }
   .footprints {
     bottom: 345px;
-    right: -551px;
+    right: -401px;
     width: 816px;
+    height: 140px;
   }
 
 
@@ -65,10 +66,11 @@
 
 @media (min-width: 768px) {
   .footprints {
-    bottom: 420px;
-    right: -520px;
+    bottom: 410px;
+    right: -300px;
     width: 816px;
     z-index: 0;
+    height: 150px;
   }
 }
 

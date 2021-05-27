@@ -7,7 +7,16 @@ import InputMasked from './InputMasked';
 import Select from './Select';
 import FileInput from './FileInput';
 import {
-  handleChangeMaskedFactory, handleBlurTextFactory, validatePhoto, getValidationSchema, initialValues, submittingStatus, regexList, requiredFields, initialStatus,
+  handleChangeMaskedFactory,
+  handleBlurTextFactory,
+  validatePhoto,
+  getValidationSchema,
+  initialValues,
+  submittingStatus,
+  regexList,
+  requiredFields,
+  initialStatus,
+  removeCounterLS,
 } from '../../../utils/formHelpers';
 import { fetchCurrentUser, signUpFail, signUpSuccess } from '../../../../redux/actions';
 import { getPositions } from '../../../../redux/reducers/signUp';
@@ -24,7 +33,7 @@ const photoValidations = {
 };
 
 export const NakedForm = ({
-  t, regexes, requiredFields, positions, values, status, touched, errors, handleChange, handleBlur, handleSubmit, setFieldValue, setStatus, isLoadingForm
+  t, regexes, requiredFields, positions, values, status, touched, errors, handleChange, handleBlur, handleSubmit, setFieldValue, setStatus, isLoadingForm,
 }) => {
   const handleChangePhone = handleChangeMaskedFactory(setFieldValue, regexes.phoneMaskCharacters);
   const handleBlurReplaceSpaces = handleBlurTextFactory(handleBlur, setFieldValue, {
@@ -66,7 +75,6 @@ export const NakedForm = ({
       context.values.position = formJson.position;
     }
   }, []);
-
 
   const handleChangePhoto = (event) => {
     const file = event.target.files[0];
@@ -321,13 +329,26 @@ const FormikForm = (({
     const successCallback = (id) => {
       setSubmitting(false);
       resetForm(initialValues, initialValuesLength);
-      setIsLoadingForm(false)
+      setIsLoadingForm(false);
       setShowAfter(true);
       dispatch(fetchCurrentUser(id));
+      removeCounterLS();
     };
 
-    const failCallback = () => {
+    const failCallback = (message, formErrors) => {
+      if (message === 'User with the same email already exists' || message === 'Benutzer mit derselben E-Mail-Adresse ist bereits vorhanden') {
+        formErrors.email = message;
+      }
+      if (message === 'User with the same phone already exists' || message === 'Benutzer mit derselben Telefon ist bereits vorhanden') {
+        formErrors.phone = message;
+      }
+      if (message === 'User with this phone or email already exist') {
+        formErrors.email = message;
+        formErrors.phone = message;
+      }
+      setErrors(formErrors);
       setSubmitting(false);
+      setIsLoadingForm(false);
     };
 
     fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
@@ -365,12 +386,13 @@ const FormikForm = (({
           const { status } = error;
           const { message, fails } = errorData;
 
-          if (status === 409) {
-            failCallback();
-            return;
-          }
           const formErrors = {};
           const formStatus = { ...submittingStatus };
+
+          if (status === 409) {
+            failCallback(message, formErrors);
+            return;
+          }
 
           for (const key of Object.keys(fails)) {
             if (key === 'position_id') {
@@ -384,7 +406,7 @@ const FormikForm = (({
             }
 
             if (key === 'email') {
-              if (formErrors.email[0] === 'User with the same email already exists' || formErrors.email[0] === 'Benutzer mit derselben E-Mail-Adresse ist bereits vorhanden') {
+              if (message === 'User with the same email already exists' || message === 'Benutzer mit derselben E-Mail-Adresse ist bereits vorhanden') {
                 setErrors('email', 'email-in-use');
                 setSubmitting(false);
                 return false;
@@ -392,7 +414,7 @@ const FormikForm = (({
             }
 
             if (key === 'phone') {
-              if (formErrors.email[0] === 'User with the same phone already exists' || formErrors.email[0] === 'Benutzer mit derselben Telefon ist bereits vorhanden') {
+              if (message === 'User with the same phone already exists' || message === 'Benutzer mit derselben Telefon ist bereits vorhanden') {
                 setErrors('phone', 'phone-in-use');
                 setSubmitting(false);
                 return false;

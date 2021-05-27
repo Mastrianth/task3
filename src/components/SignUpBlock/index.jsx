@@ -6,12 +6,11 @@ import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInViewport } from 'react-in-viewport';
 import { Link as LinkScroll } from 'react-scroll';
-import dynamic from 'next/dynamic';
 import { withTranslation } from '../../../i18n';
 import ContentWrapper from '../ContentWrapper';
 import MyContext from '../../utils/context';
 import styles from './SignUpBlock.module.scss';
-// import Form from './Form';
+import Form from './Form';
 import { getPositions } from '../../../redux/actions';
 import { getIsPageLoaded } from '../../../redux/reducers/ui';
 import { selectPositionsError } from '../../../redux/reducers/signUp';
@@ -20,9 +19,6 @@ import ButtonComponent from '../shared/Button/LargePrimaryButtons/LargePrimaryBu
 import styles2 from './Form/Modal.module.scss';
 import Success from '../../assets/img/svg/Success.svg';
 import FootPrints from '../../assets/img/svg/do-not-inline/Footprints.svg';
-
-const Form = dynamic(() => import('./Form/index'),
-  { ssr: false });
 
 const SignUpBlock = ({ t }) => {
   const [isPositionFetched, setIsPositionsFetched] = useState(false);
@@ -35,7 +31,6 @@ const SignUpBlock = ({ t }) => {
   const subtitleClasses = classNames('h5', styles.subtitle);
   const { isGoogleSpeedTest } = useContext(MyContext);
   const [showAfter, setShowAfter] = useState(false);
-  // const [positionsError, setPositionsError] = useState(false);
   const positionsError = useSelector((state) => selectPositionsError(state));
   const router = useRouter();
   useEffect(() => {

@@ -438,7 +438,7 @@
 .overlay {
   position: absolute;
   z-index: 2;
-  top: -10px;
+  top: 30px;
   left: 0;
   right: 0;
   bottom: -10px;
@@ -509,6 +509,7 @@
 
   .buttonContainer {
     margin-top: 57px;
+    padding-bottom: 55px;
   }
 
   .buttonContainerError {
@@ -520,7 +521,7 @@
   }
 
   .successContainer {
-    margin: 50px auto 0;
+    margin: 40px auto 0;
     max-width: 521px;
   }
 
@@ -543,7 +544,7 @@
     align-items: center;
 
 
-    top: -30px;
+    top: 30px;
     bottom: -30px;
   }
 }
@@ -563,7 +564,7 @@
     justify-content: center;
     align-items: center;
 
-    top: -30px;
+    top: 30px;
     bottom: -30px;
 
   }
@@ -576,13 +577,16 @@
   }
 
   .successContainer {
-
-    margin: 49px auto 0;
+    max-width: 480px;
+    margin: 0 auto ;
+    padding-top: 40px;
   }
 
   .successText {
     max-width: 340px;
-    margin: 27px auto 0;
+    margin: 0 auto;
+    padding-top: 48px;
+    padding-right: 3px;
   }
 
   .pawsContainer {
@@ -640,7 +644,8 @@
   }
 
   .buttonContainer {
-    margin-top: 56px;
+    margin-top: 52px;
+    padding-bottom: 0;
   }
 
 

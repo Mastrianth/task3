@@ -4,6 +4,8 @@ import MuiSelect from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { ThemeProvider } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
 import arrowDownIcon from '../../../../assets/img/svg/arrow.svg';
 import theme from '../../../mui/inputTheme';
 
@@ -51,27 +53,30 @@ function Select({
   return (
     <ThemeProvider theme={theme}>
       <div className={wrapperClassName}>
-        <MuiSelect
-          displayEmpty
-          IconComponent={arrowDownIcon}
-          id={id}
-          name={name}
-          onChange={onChange}
-          renderValue={(val) => (val ? options.find(
-            (option) => option.value === val,
-          ).title : `${label}${isRequired ? requiredMessage : optionalMessage}`)}
-          value={value}
-          error={hasError}
-          onOpen={onSelectOpen}
-          variant={variant}
-          margin={margin}
-          disabled={isDisabled}
-          fullWidth
-          MenuProps={{ disableScrollLock: true }}
-        >
-          {menuItems}
-        </MuiSelect>
-        <FormHelperText error={hasError} variant={variant}>{helperText}</FormHelperText>
+        <FormControl variant="outlined">
+          <InputLabel>{label}</InputLabel>
+          <MuiSelect
+            IconComponent={arrowDownIcon}
+            id={id}
+            name={name}
+            onChange={onChange}
+            renderValue={(val) => (val ? options.find(
+              (option) => option.value === val,
+            ).title : `${label}${isRequired ? requiredMessage : optionalMessage}`)}
+            value={value}
+            error={hasError}
+            onOpen={onSelectOpen}
+            variant={variant}
+            margin={margin}
+            disabled={isDisabled}
+            fullWidth
+            label={label}
+            MenuProps={{ disableScrollLock: true }}
+          >
+            {menuItems}
+          </MuiSelect>
+          <FormHelperText error={hasError} variant={variant}>{helperText}</FormHelperText>
+        </FormControl>
       </div>
     </ThemeProvider>
   );

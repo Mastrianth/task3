@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { removeAdditionalSpaces, removeAllSpaces, stripCharacters } from './filterString';
 import { clearCurrentUser } from '../../redux/actions';
@@ -81,6 +80,8 @@ export const removeUser = () => {
   localStorage.removeItem('user');
   return clearCurrentUser();
 };
+
+export const removeCounterLS = () => localStorage.removeItem('counter');
 
 export const initialValues = {
   name: '',

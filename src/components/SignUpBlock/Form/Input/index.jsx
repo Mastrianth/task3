@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -16,6 +16,17 @@ function Input({
   const requiredMessage = isOptionalShowing ? '' : '*';
   const optionalMessage = isOptionalShowing ? ' (optional)' : '';
 
+  const LSCounter = () => localStorage.setItem('counter', JSON.stringify(inputsLength));
+
+  useEffect(() => {
+    const countValuesLS = localStorage.getItem('counter');
+    if (countValuesLS) {
+      const countJson = JSON.parse(countValuesLS);
+      inputsLength.name = countJson.name;
+      inputsLength.email = countJson.email;
+    }
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <div className={wrapperClassName}>
@@ -29,6 +40,7 @@ function Input({
           onChange={(e) => {
             changeCharactersCount(e);
             onChange(e);
+            LSCounter();
           }}
           onBlur={onBlur}
           helperText={helperText}

@@ -152,7 +152,7 @@ export default createMuiTheme({
     },
     MuiSelect: {
       root: {
-        color: '#7e7e7e',
+        color: 'rgba(0,0,0,0.87)',
         '&&:focus': {
           backgroundColor: 'transparent',
         },

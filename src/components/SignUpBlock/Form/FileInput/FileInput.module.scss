@@ -20,7 +20,7 @@
 }
 
 .mainFileLabel {
-  width: 295px;
+  width: 270px;
   height: 56px;
   padding-left: 16px;
   padding-right: 16px;
@@ -50,6 +50,7 @@
   height: 56px;
   padding-left: 14px;
   padding-right: 14px;
+  width: 110px;
   padding-top: 13px;
   border: 2px solid colors.$text;
   border-radius:  sizes.$border-radius 0px 0px sizes.$border-radius;
@@ -60,7 +61,7 @@
   box-sizing: border-box;
   background-color: colors.$background;
   cursor: pointer;
-
+text-align: center;
   font-family: 'Asap', sans-serif;
   color: colors.$text;
   font-size: 16px;
@@ -106,6 +107,6 @@
 
 @media (max-width:599px) {
   .mainFileLabel {
-    width: 245px;
+    width: 220px;
   }
 }
