@@ -92,7 +92,7 @@ const Menu = ({
       const user = localStorage.getItem('user');
       if (user) {
         const userJson = JSON.parse(user);
-        dispatch(setCurrentUser(userJson.user));
+        dispatch(setCurrentUser(userJson));
       }
     }
   }, []);
@@ -212,7 +212,7 @@ const Menu = ({
                             height={38}
                             alt="user photo"
                             className={styles.userLogo}
-                            src={userAvatar}
+                            src={userAvatar.small}
                           />
                         )}
                       <span className={styles.usersData}>
@@ -233,6 +233,7 @@ const Menu = ({
                    (e) => {
                      dispatch(removeUser());
                      e.preventDefault();
+                     router.pathname === '/sign-up' ? window.location.reload() : null;
                    }
                  }
                       href="#"

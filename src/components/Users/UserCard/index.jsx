@@ -31,7 +31,7 @@ const UserCard = ({
 
   useEffect(() => {
     if (isLoaded && !isImgReplaced) {
-      preloadImgAndReplaceSrc(avatarSrc, imgRef.current);
+      preloadImgAndReplaceSrc(avatarSrc.small, imgRef.current);
       setIsImgReplaced(true);
     }
   }, [isLoaded, isImgReplaced, imgRef]);

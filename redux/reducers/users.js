@@ -3,8 +3,8 @@ import {
   CLEAR_USERS,
   FETCH_USERS_START,
   FETCH_USERS_SUCCESS,
-  FETCH_USERS_FAIL, SHOW_USERS_PLACEHOLDER, HIDE_USERS_PLACEHOLDER
-} from "../constants/actionTypes";
+  FETCH_USERS_FAIL, SHOW_USERS_PLACEHOLDER, HIDE_USERS_PLACEHOLDER,
+} from '../constants/actionTypes';
 
 export const initialState = {
   usersArr: [], apiUsersLength: 0, isInitialLoadingComplete: false, showUsersPlaceholder: true,

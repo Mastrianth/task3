@@ -20,6 +20,8 @@ const useButtonStyles = makeStyles({
     borderRadius: '80px',
     backgroundColor: '#f4e041',
     color: 'rgba(0, 0, 0, 0.87)',
+    justifyContent: 'center',
+    letterSpacing: '0px',
 
     '&.Mui-disabled': {
       color: 'rgba(255, 255, 255, 1)',

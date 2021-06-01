@@ -335,38 +335,40 @@ const FormikForm = (({
       removeCounterLS();
     };
 
-    const failCallback = (message, formErrors) => {
-      if (message === 'User with this phone or email already exist') {
-        formErrors.email = message;
-        formErrors.phone = ' ';
+    const failCallback = (message, formErrors, errors) => {
+      console.log(errors);
+      if (errors.email[0] === 'The email has already been taken.') {
+        formErrors.email = errors.email[0];
+      }
+      if (errors.phone[0] === 'The phone has already been taken.') {
+        formErrors.phone = errors.phone[0];
       }
       setErrors(formErrors);
       setSubmitting(false);
       setIsLoadingForm(false);
     };
 
-    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
+    fetch('https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/token')
       .then((response) => response.json())
       .then((data) => {
-        const { token } = data;
-
-        return fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users',
+        const { token } = data.data;
+        const bearerId = `Bearer ${token}`;
+        return fetch('https://test2021backend-yaroslav-task5.abztrainee.com/api/v1/users',
           {
             method: 'POST',
             body: formData,
             headers: {
-              Token: token,
+              Authorization: bearerId,
             },
           });
       })
       .then((response) => {
         if (!response.ok) throw response;
-
         return response.json();
       })
       .then((data) => {
-        if (!data.success) throw new Error(data.message);
-        successCallback(data.user_id);
+        if (!data.status) throw new Error(data.data.message);
+        successCallback(data.data.user.id);
         dispatch(signUpSuccess());
         localStorage.removeItem('form');
       })
@@ -378,7 +380,7 @@ const FormikForm = (({
 
         error.json().then((errorData) => {
           const { status } = error;
-          const { message, fails } = errorData;
+          const { message, errors } = errorData;
 
           const formErrors = {};
           const formStatus = { ...submittingStatus };
@@ -388,19 +390,24 @@ const FormikForm = (({
             return;
           }
 
-          for (const key of Object.keys(fails)) {
+          if (status === 422) {
+            failCallback(message, formErrors, errors);
+            return;
+          }
+
+          for (const key of Object.keys(errors)) {
             if (key === 'position_id') {
-              formErrors.position = fails[key].join(' ');
+              formErrors.position = errors[key].join(' ');
               continue;
             }
             if (key === 'photo') {
-              formStatus.photoErrorMessage = fails[key].join(' ');
+              formStatus.photoErrorMessage = errors[key].join(' ');
               formStatus.photoValid = false;
               continue;
             }
 
             if (key === 'email') {
-              if (message === 'User with the same email already exists' || message === 'Benutzer mit derselben E-Mail-Adresse ist bereits vorhanden') {
+              if (message === 'The email has already been taken.' || message === 'Benutzer mit derselben E-Mail-Adresse ist bereits vorhanden') {
                 setErrors('email', 'email-in-use');
                 setSubmitting(false);
                 return false;
@@ -408,14 +415,14 @@ const FormikForm = (({
             }
 
             if (key === 'phone') {
-              if (message === 'User with the same phone already exists' || message === 'Benutzer mit derselben Telefon ist bereits vorhanden') {
+              if (message === 'The phone has already been taken.' || message === 'Benutzer mit derselben Telefon ist bereits vorhanden') {
                 setErrors('phone', 'phone-in-use');
                 setSubmitting(false);
                 return false;
               }
             }
 
-            formErrors[key] = fails[key].join(' ');
+            formErrors[key] = errors[key].join(' ');
           }
           setErrors(formErrors);
           setStatus(formStatus);
