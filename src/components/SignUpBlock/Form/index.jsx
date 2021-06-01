@@ -336,15 +336,9 @@ const FormikForm = (({
     };
 
     const failCallback = (message, formErrors) => {
-      if (message === 'User with the same email already exists' || message === 'Benutzer mit derselben E-Mail-Adresse ist bereits vorhanden') {
-        formErrors.email = message;
-      }
-      if (message === 'User with the same phone already exists' || message === 'Benutzer mit derselben Telefon ist bereits vorhanden') {
-        formErrors.phone = message;
-      }
       if (message === 'User with this phone or email already exist') {
         formErrors.email = message;
-        formErrors.phone = message;
+        formErrors.phone = ' ';
       }
       setErrors(formErrors);
       setSubmitting(false);

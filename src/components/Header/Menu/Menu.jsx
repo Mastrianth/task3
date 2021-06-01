@@ -24,7 +24,7 @@ import { removeUser } from '../../../utils/formHelpers';
 import Exit from '../../../assets/img/svg/exit.svg';
 import { setIsFormFilled } from '../../../../redux/reducers/signUp';
 import { selectUserPlaceholder } from '../../../../redux/reducers/ui';
-import MyContext from "../../../utils/context";
+import MyContext from '../../../utils/context';
 
 const MobileHeader = dynamic(() => import('../MobileMenu/MobileHeader'));
 
@@ -116,7 +116,7 @@ const Menu = ({
           : (
             <Link href="/" passHref>
               <a className={styles.logoLink}>
-                <Logo />
+                <img width={100} height={26} onClick={(e) => checkIfFilled(e)} alt="Logo" src="/assets/Logo.svg" />
               </a>
             </Link>
           )}
