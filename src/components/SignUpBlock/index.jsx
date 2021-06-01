@@ -101,7 +101,9 @@ const SignUpBlock = ({ t }) => {
                   </div>
                 </div>
               ) : ''}
-              <Form router={router} setShowAfter={setShowAfter} t={t} />
+              {isGoogleSpeedTest
+                ? null
+                : <Form router={router} setShowAfter={setShowAfter} t={t} />}
             </div>
           ))}
         <div>

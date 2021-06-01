@@ -21,7 +21,7 @@ function SignUp() {
         + window.location.search);
     }
   }, []);
-  if (isGoogleSpeedTest) {
+  if (!isGoogleSpeedTest) {
     return (
       <>
         <Head>
@@ -43,12 +43,8 @@ function SignUp() {
           <meta property="twitter:image" content="https://test2021-frontend-nick-k-task3.abzdev2.com/banner-reg-768.jpg" />
         </Head>
         <div>
-          <LazyHydrate ssrOnly>
-            <SignUpBanner />
-            <LazyLoad once>
-              <SignUpBlock />
-            </LazyLoad>
-          </LazyHydrate>
+          <SignUpBanner />
+          <SignUpBlock />
         </div>
       </>
     );
@@ -74,8 +70,10 @@ function SignUp() {
         <meta property="twitter:image" content="https://test2021-frontend-nick-k-task3.abzdev2.com/banner-reg-768.jpg" />
       </Head>
       <div>
-        <SignUpBanner />
-        <SignUpBlock />
+        <LazyHydrate ssrOnly>
+          <SignUpBanner />
+          <SignUpBlock />
+        </LazyHydrate>
       </div>
     </>
   );
