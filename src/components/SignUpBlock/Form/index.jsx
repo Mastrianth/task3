@@ -337,12 +337,18 @@ const FormikForm = (({
 
     const failCallback = (message, formErrors, errors) => {
       console.log(errors);
-      if (errors.email[0] === 'The email has already been taken.') {
-        formErrors.email = errors.email[0];
+      if (errors.email) {
+        if (errors.email[0] === 'The email has already been taken.') {
+          formErrors.email = errors.email[0];
+        }
       }
-      if (errors.phone[0] === 'The phone has already been taken.') {
-        formErrors.phone = errors.phone[0];
+
+      if (errors.phone) {
+        if (errors.phone[0] === 'The phone has already been taken.') {
+          formErrors.phone = errors.phone[0];
+        }
       }
+
       setErrors(formErrors);
       setSubmitting(false);
       setIsLoadingForm(false);
