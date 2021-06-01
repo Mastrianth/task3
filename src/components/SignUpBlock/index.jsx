@@ -106,9 +106,13 @@ const SignUpBlock = ({ t }) => {
                 : <Form router={router} setShowAfter={setShowAfter} t={t} />}
             </div>
           ))}
-        <div>
-          <img className={styles.footprints} src={FootPrints} alt="foot" />
-        </div>
+        {isGoogleSpeedTest
+          ? null
+          : (
+            <div>
+              <img className={styles.footprints} src={FootPrints} alt="foot" />
+            </div>
+          )}
       </ContentWrapper>
     </section>
   );
