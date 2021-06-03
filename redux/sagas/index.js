@@ -141,7 +141,6 @@ function* onGetPositions() {
     }));
 
     yield put(getPositionsSuccess(positions));
-    yield put(showPositionsError());
   } catch (error) {
     console.log(error);
     yield put(getPositionsFail());
