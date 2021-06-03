@@ -1,5 +1,5 @@
 import React, {
-  memo, useContext, useState
+  memo, useContext, useState,
 } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
@@ -25,7 +25,7 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    // transform: 'translate(-50%, -50%)',
+    transform: 'translate(-50%, -50%)',
   },
 };
 
@@ -75,6 +75,7 @@ const Layout = ({
     setUrlToGo(null);
     dispatch(setFormUnFilled());
     localStorage.removeItem('form');
+    localStorage.removeItem('counter');
   }
 
   Modal.setAppElement('#__next');

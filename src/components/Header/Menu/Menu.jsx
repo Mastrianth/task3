@@ -233,7 +233,7 @@ const Menu = ({
                    (e) => {
                      dispatch(removeUser());
                      e.preventDefault();
-                     router.pathname === '/sign-up' ? window.location.reload() : null;
+                     router.pathname !== '/' ? router.push('/') : null;
                    }
                  }
                       href="#"

@@ -13,6 +13,7 @@
 }
 .bg {
   background-color: #f8f8f8;
+  height: 100%;
 }
 
 .footprints {
@@ -31,7 +32,7 @@
 
   &Title {
 
-    margin-top: 105px;
+    margin-top: 95px;
     display: flex;
     justify-content: center;
     margin-bottom: 0;
@@ -59,7 +60,8 @@
     letter-spacing: 0em;
     text-align: left;
 
-    margin-top: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
 
     color: rgba(0, 0, 0, 0.87);
   }
@@ -103,6 +105,10 @@
 
 }
 
+.error404RightColumn {
+  padding-bottom: 5px;
+}
+
 
 
 @media (min-width: 768px) {
@@ -120,6 +126,7 @@
 
   .error404Title {
     justify-content: flex-start;
+    margin-top: 105px;
   }
 
   .error404ButtonContainer {
@@ -129,7 +136,7 @@
 
   .error404Subtitle {
     font-family: $FONT-SECONDARY;
-    margin-top: 5px;
+    margin-top: 6px;
     font-size: 28px;
     font-style: normal;
     font-weight: 400;
@@ -156,6 +163,7 @@
   .error404RightColumn {
     width: 500px;
     align-self: flex-end;
+    padding-bottom: 0px;
   }
 
   .error404Text {
@@ -193,6 +201,10 @@
     padding-left: 0;
   }
 
+  .error404Title {
+    margin-top: 105px;
+  }
+
   .error404VerticalContainer {
     max-width: 904px;
     margin: 0 auto;
@@ -200,7 +212,7 @@
   }
 
   .pawsContainer {
-    padding-bottom: 105px;
+    padding-bottom: 110px;
     padding-left: 105px;
     padding-top: 55px;
   }

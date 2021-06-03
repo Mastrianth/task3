@@ -438,9 +438,9 @@
 .overlay {
   position: absolute;
   z-index: 2;
-  top: 30px;
-  left: 0;
-  right: 0;
+  top: 45px;
+  left: -5px;
+  right: -5px;
   bottom: -10px;
 
   background: rgba(255, 255, 255, 0.85);
@@ -463,17 +463,17 @@
 }
 
 .innerOverlayContainer {
-  margin-top: 50px;
+  margin-top: 55px;
 }
 
 @media (min-width: 576px) {
   .innerOverlayContainer {
-    margin-top: -10px;
+    margin-top: -90px;
   }
 
   .slideDownContainer {
-    padding-top: 34px;
-    margin-bottom: 24px;
+    padding-top: 36px;
+    margin-bottom: 26px;
   }
 
   .formTitle {
@@ -508,8 +508,8 @@
   }
 
   .buttonContainer {
-    margin-top: 57px;
-    padding-bottom: 55px;
+    margin-top: 50px;
+    padding-bottom: 62px;
   }
 
   .buttonContainerError {
@@ -527,7 +527,7 @@
 
   .successText {
     max-width: 340px;
-    margin: 47px auto 0;
+    margin: 48px auto 0;
   }
 
   .overlaySubtitle {

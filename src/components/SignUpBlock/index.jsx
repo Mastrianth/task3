@@ -60,7 +60,7 @@ const SignUpBlock = ({ t }) => {
         <h3 className={subtitleClasses}>
           {showAfter ? t('Registration completed successfully') : t('reg-form-subtitle')}
         </h3>
-        {isGoogleSpeedTest ? null : (showAfter
+        {showAfter
           ? (
             <>
               <div className={styles2.successContainer}>
@@ -101,18 +101,12 @@ const SignUpBlock = ({ t }) => {
                   </div>
                 </div>
               ) : ''}
-              {isGoogleSpeedTest
-                ? null
-                : <Form router={router} setShowAfter={setShowAfter} t={t} />}
+              <Form router={router} setShowAfter={setShowAfter} t={t} />
             </div>
-          ))}
-        {isGoogleSpeedTest
-          ? null
-          : (
-            <div>
-              <img className={styles.footprints} src={FootPrints} alt="foot" />
-            </div>
-          )}
+          ) }
+        <div>
+          <img className={styles.footprints} src={FootPrints} alt="foot" />
+        </div>
       </ContentWrapper>
     </section>
   );

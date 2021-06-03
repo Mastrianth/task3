@@ -14,7 +14,7 @@
 .footprints {
   position: absolute;
 
-  bottom: 345px;
+  bottom: 340px;
 
   right: -248px;
   width: 575px;
@@ -325,7 +325,7 @@
 
 @media (min-width: 576px) {
   .footprints {
-    bottom: 345px;
+    bottom: 340px;
     right: -551px;
     width: 816px;
   }
@@ -408,15 +408,15 @@ width: 235px;
   }
 
   .footprints {
-    bottom: 420px;
-    right: -520px;
+    bottom: 410px;
+    right: -350px;
     width: 816px;
     z-index: 0;
   }
 }
 @media (min-width: 992px) {
   .footprints {
-    bottom: 420px;
+    bottom: 410px;
     right: -351px;
     width: 816px;
     z-index: 1;
