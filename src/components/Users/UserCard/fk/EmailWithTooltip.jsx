@@ -7,7 +7,7 @@ const useStyles = makeStyles({
     background: '#000',
     fontSize: '12px',
     lineHeight: '16.8px',
-    fontFamily: "'Asap', sans-serif"
+    fontFamily: "'Asap', sans-serif",
   },
 });
 function EmailWithTooltip({ email, nameForClass, noLink }) {
@@ -34,7 +34,7 @@ function EmailWithTooltip({ email, nameForClass, noLink }) {
         placement="bottom-end"
         classes={classes}
       >
-        <span itemProp="email" ref={nodeEmail} className={nameForClass} style={{ cursor: 'auto'}}>{email}</span>
+        <span itemProp="email" ref={nodeEmail} className={nameForClass} style={{ cursor: 'auto' }}>{email}</span>
       </Tooltip>
     );
   }

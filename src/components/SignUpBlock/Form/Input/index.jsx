@@ -6,6 +6,7 @@ import styles from './InputForm.module.scss';
 
 import theme from '../../../mui/inputTheme';
 import { initialProps } from '../../../../utils/formHelpers';
+import { selectFormFilled } from '../../../../../redux/reducers/signUp';
 
 function Input({
   id, name, type, label, value, placeholder, onChange, onBlur,
@@ -26,6 +27,13 @@ function Input({
       inputsLength.email = countJson.email;
     }
   }, []);
+
+  useEffect(() => {
+    if (!selectFormFilled) {
+      inputsLength.name = 0;
+      inputsLength.email = 0;
+    }
+  }, [selectFormFilled]);
 
   return (
     <ThemeProvider theme={theme}>

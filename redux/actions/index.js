@@ -41,8 +41,8 @@ import {
   CHECK_FORM_FILLED,
   HIDE_USER_PLACEHOLDER,
   SHOW_USERS_PLACEHOLDER,
-  HIDE_USERS_PLACEHOLDER
-} from "../constants/actionTypes";
+  HIDE_USERS_PLACEHOLDER,
+} from '../constants/actionTypes';
 
 export const pageLoaded = () => ({ type: PAGE_LOADED });
 export const openSideDrawer = () => ({ type: OPEN_SIDEDRAWER });

@@ -8,7 +8,7 @@ import classes from './UserInfo.module.scss';
 import { clearCurrentUser } from '../../../../redux/actions';
 import styles from '../../Header/Menu/Menu.module.scss';
 import Exit from '../../../assets/img/svg/exit.svg';
-import { removeUser, useRemoveUser } from "../../../utils/formHelpers";
+import { removeUser, useRemoveUser } from '../../../utils/formHelpers';
 
 const UserInfo = ({
   userName, userEmail, userAvatar, logOut, isLoaded, isOnSideBar, showButton,

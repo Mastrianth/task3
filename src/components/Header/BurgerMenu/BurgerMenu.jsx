@@ -355,7 +355,7 @@ const BurgerMenu = ({
             <div className={styles.burgerLinkContainer}>
               <Link scroll={false} href="/terms">
                 <a
-                  className={ router.pathname === '/terms' ? classNames(styles.burgerLink, styles.selected) : styles.burgerLink}
+                  className={router.pathname === '/terms' ? classNames(styles.burgerLink, styles.selected) : styles.burgerLink}
                 >
                   <div className={styles.burgerLinkSvgContainer}>
                     <BookmarkSvg />

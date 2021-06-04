@@ -1,8 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import createBreakpoints from '@material-ui/core/styles/createBreakpoints'
-import selectImg from '../../assets/img/svg/select.svg';
+import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
 
-const breakpoints = createBreakpoints({})
+const breakpoints = createBreakpoints({});
 
 export default createMuiTheme({
   breakpoints: {

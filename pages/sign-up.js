@@ -72,7 +72,9 @@ function SignUp() {
       <div>
         <LazyHydrate ssrOnly>
           <SignUpBanner />
-          <SignUpBlock />
+          <LazyLoad once>
+            <SignUpBlock />
+          </LazyLoad>
         </LazyHydrate>
       </div>
     </>

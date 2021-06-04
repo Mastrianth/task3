@@ -264,10 +264,6 @@
   border-right: 2px solid #CB3D40;
 }
 
-//.form__labelUpload:focus-within {
-//  border: 2px solid #00BDD3;
-//}
-
 
 .form__labelUpload:hover:after {
   border: 1px solid rgba(0, 0, 0, 0.87);
@@ -649,10 +645,7 @@
     padding-right: 5px;
   }
 
-
-
 }
-
 
 @media (min-width: 2560px) {
   .formTitle {

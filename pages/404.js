@@ -15,41 +15,41 @@ const Banner = ({ t }) => {
   const router = useRouter();
   return (
     <div className={styles.bg}>
-    <ContentWrapper>
-      <div className={styles.pawsContainer}>
-        <div className="container w100">
-          <div className={styles.error404VerticalContainer}>
-            <div className={styles.error404ContentContainer}>
-              <div className={styles.error404LeftColumn}>
-                <h1 className={styles.error404Title}>404</h1>
-                <h2 className={styles.error404Subtitle}>{t('missing')}</h2>
-                <p className={styles.error404Text}>
-                  {t('404-text')}
-                </p>
-                <p className={styles.error404ButtonContainer}>
-                  <ButtonComponent
-                    onClick={() => router.push('/').then(() => window.scrollTo(0, 0))}
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    disabled={false}
-                    label={t('Go to home')}
-                  />
-                </p>
-              </div>
-              <div className={styles.error404RightColumn}>
-                <div className={styles.error404LogoContainer}>
-                  <Error404Image />
+      <ContentWrapper>
+        <div className={styles.pawsContainer}>
+          <div className="container w100">
+            <div className={styles.error404VerticalContainer}>
+              <div className={styles.error404ContentContainer}>
+                <div className={styles.error404LeftColumn}>
+                  <h1 className={styles.error404Title}>404</h1>
+                  <h2 className={styles.error404Subtitle}>{t('missing')}</h2>
+                  <p className={styles.error404Text}>
+                    {t('404-text')}
+                  </p>
+                  <p className={styles.error404ButtonContainer}>
+                    <ButtonComponent
+                      onClick={() => router.push('/').then(() => window.scrollTo(0, 0))}
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                      disabled={false}
+                      label={t('Go to home')}
+                    />
+                  </p>
+                </div>
+                <div className={styles.error404RightColumn}>
+                  <div className={styles.error404LogoContainer}>
+                    <Error404Image />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        <img className={styles3.footprints} src={FootPrints} alt="foot" />
-      </div>
-    </ContentWrapper>
+        <div>
+          <img className={styles3.footprints} src={FootPrints} alt="foot" />
+        </div>
+      </ContentWrapper>
     </div>
   );
 };

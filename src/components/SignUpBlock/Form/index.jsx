@@ -18,8 +18,10 @@ import {
   initialStatus,
   removeCounterLS,
 } from '../../../utils/formHelpers';
-import { fetchCurrentUser, signUpFail, signUpSuccess } from '../../../../redux/actions';
-import { getPositions } from '../../../../redux/reducers/signUp';
+import {
+  fetchCurrentUser, setFormFilled, signUpFail, signUpSuccess,
+} from '../../../../redux/actions';
+import { getPositions, selectFormFilled } from '../../../../redux/reducers/signUp';
 import classes from './Form.module.scss';
 import ButtonComponent from '../../shared/Button/LargePrimaryButtons/LargePrimaryButton';
 import useInputsLength, { initialValuesLength } from '../../../utils/useInputLength';
@@ -45,6 +47,7 @@ export const NakedForm = ({
   });
   const { inputsLength, changeCharactersCount, setInputsLength } = useInputsLength();
   const context = useFormikContext();
+  const dispatch = useDispatch();
   const photoValidationSuccess = (file) => {
     setFieldValue('photo', file);
     setStatus({
@@ -63,6 +66,7 @@ export const NakedForm = ({
   };
   const setLocalStorage = (values) => {
     localStorage.setItem('form', JSON.stringify(values));
+    dispatch(setFormFilled());
   };
 
   useEffect(() => {
@@ -75,6 +79,16 @@ export const NakedForm = ({
       context.values.position = formJson.position;
     }
   }, []);
+
+  useEffect(() => {
+    if (!selectFormFilled) {
+      context.values.name = initialValues.name;
+      context.values.email = initialValues.email;
+      context.values.phone = initialValues.phone;
+      context.values.position = initialValues.position;
+      context.values.photo = initialValues.photo;
+    }
+  }, [selectFormFilled]);
 
   const handleChangePhoto = (event) => {
     const file = event.target.files[0];
