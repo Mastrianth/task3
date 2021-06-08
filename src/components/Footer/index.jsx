@@ -85,7 +85,18 @@ function Footer({ t, openModal }) {
 
                         </>
                       )}
-                    {authorizedUserData.name ? null : <Link href="/sign-up"><a>{t('sign-up')}</a></Link>}
+                    {authorizedUserData.name ? null : (router.pathname === '/sign-up'
+                      ? (
+                        <LinkScroll
+                          to="sign-up"
+                          spy
+                          smooth
+                          duration={500}
+                        >
+                          {t('sign-up')}
+                        </LinkScroll>
+                      )
+                      : <Link href="/sign-up"><a>{t('sign-up')}</a></Link>)}
                   </span>
                   <span className={styles.rightMenuFooter}>
                     <span className={styles.langMenu}>
@@ -117,46 +128,46 @@ function Footer({ t, openModal }) {
                   <div className={styles.footerCol}>
                     <div className={styles.columnTitle}>{t('information')}</div>
                     <div>
-                      <a href="#">{t('News')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('News')}</a>
                     </div>
                     <div>
-                      <a href="#">{t('Blog')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Blog')}</a>
                     </div>
                     <div>
-                      <a href="#">{t('Partners')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Partners')}</a>
                     </div>
                     <div>
-                      <a href="#">{t('Shop')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Shop')}</a>
                     </div>
                   </div>
                   <div className={styles.footerCol}>
                     <div className={styles.columnTitle}>{t('About')}</div>
                     <div>
-                      <a href="#">{t('Overview')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Overview')}</a>
                     </div>
                     <div>
-                      <a href="#">{t('Design')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Design')}</a>
                     </div>
                     <div>
-                      <a href="#">{t('Code')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Code')}</a>
                     </div>
                     <div>
-                      <a href="#">{t('Collaborate')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Collaborate')}</a>
                     </div>
                   </div>
                   <div className={styles.footerCol}>
                     <div className={styles.columnTitle}>{t('Tools')}</div>
                     <div>
-                      <a href="#">{t('Tutorials')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Tutorials')}</a>
                     </div>
                     <div>
-                      <a href="#">{t('Resources')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Resources')}</a>
                     </div>
                     <div>
-                      <a href="#">{t('Guides')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Guides')}</a>
                     </div>
                     <div>
-                      <a href="#">{t('Examples')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Examples')}</a>
                     </div>
                   </div>
                   <div className={styles.footerCol}>
@@ -164,7 +175,7 @@ function Footer({ t, openModal }) {
                       {t('Support')}
                     </div>
                     <div>
-                      <a href="#">{t('FAQ')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('FAQ')}</a>
                     </div>
                     <div>
                       <Link
@@ -181,15 +192,15 @@ function Footer({ t, openModal }) {
                       </Link>
                     </div>
                     <div>
-                      <a href="#">{t('Help')}</a>
+                      <a onClick={(e) => checkIfFilled(e)} href="#">{t('Help')}</a>
                     </div>
                   </div>
                 </div>
                 <div className={styles.footerSitemapColumn2}>
                   <div className={styles.columnTitle}>{t('Contacts')}</div>
-                  <div><a href="mailto:work.of.future@gmail.com">work.of.future@gmail.com</a></div>
-                  <div><a href="tel:+380507892498">+38 (050) 789 24 98</a></div>
-                  <div><a href="tel:+380507896534">+38 (050) 789 65 34</a></div>
+                  <div><a onClick={(e) => checkIfFilled(e)} href="mailto:work.of.future@gmail.com">work.of.future@gmail.com</a></div>
+                  <div><a onClick={(e) => checkIfFilled(e)} href="tel:+380507892498">+38 (050) 789 24 98</a></div>
+                  <div><a onClick={(e) => checkIfFilled(e)} href="tel:+380507896534">+38 (050) 789 65 34</a></div>
                 </div>
               </div>
               <div className={styles.footerCopyrightAndLinksWrapper}>
@@ -213,11 +224,11 @@ function Footer({ t, openModal }) {
                     </div>
                   )}
                 <div className={styles.footerIcons}>
-                  <a href="https://www.facebook.com/"><Facebook /></a>
-                  <a href="https://twitter.com/"><Twitter /></a>
-                  <a href="https://www.instagram.com/"><Instagram /></a>
-                  <a href="https://www.linkedin.com/"><LinkedIn /></a>
-                  <a href="https://www.pinterest.com/"><Pinterest /></a>
+                  <a onClick={(e) => checkIfFilled(e)} href="https://www.facebook.com/"><Facebook /></a>
+                  <a onClick={(e) => checkIfFilled(e)} href="https://twitter.com/"><Twitter /></a>
+                  <a onClick={(e) => checkIfFilled(e)} href="https://www.instagram.com/"><Instagram /></a>
+                  <a onClick={(e) => checkIfFilled(e)} href="https://www.linkedin.com/"><LinkedIn /></a>
+                  <a onClick={(e) => checkIfFilled(e)} href="https://www.pinterest.com/"><Pinterest /></a>
                 </div>
               </div>
             </div>
