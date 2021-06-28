@@ -2,6 +2,7 @@ import React, { memo, useEffect, useState } from 'react';
 import { Formik, useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import Input from './Input';
 import InputMasked from './InputMasked';
 import Select from './Select';
@@ -322,6 +323,7 @@ const FormikForm = (({
   t, setShowAfter,
 }) => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const positions = useSelector((state) => getPositions(state));
   const [isLoadingForm, setIsLoadingForm] = useState(false);
   const onSubmit = (values, {
@@ -347,6 +349,7 @@ const FormikForm = (({
       setShowAfter(true);
       dispatch(fetchCurrentUser(id));
       removeCounterLS();
+      setTimeout(() => router.push('/').then(() => window.scrollTo(0, 0)), 3000);
     };
 
     const failCallback = (message, formErrors, errors) => {
