@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { withTranslation } from '../../../../i18n';
-import favIcon from '../../../../public/assets/favicon-32x32.png';
+import favIcon from '../../../../public/assets/favicon-32-32.png';
 
 const organization = {
   '@context': 'https://schema.org',
